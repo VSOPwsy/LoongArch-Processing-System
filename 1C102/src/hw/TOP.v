@@ -12,11 +12,24 @@ module TOP (
     wire locked;
     wire clk_8M;
 
-    Gowin_PLL PLL (
+    /*
+     * For GW5A
+     */
+//    Gowin_PLL PLL (
+//        .lock(locked), //output lock
+//        .clkout0(clk_8M), //output clkout0
+//        .clkin(clk_osc), //input clkin
+//        .reset(~sys_resetn) //input reset
+//    );
+
+    /*
+     * For GW2A
+     */
+    Gowin_rPLL PLL (
+        .clkout(clk_8M), //output clkout
         .lock(locked), //output lock
-        .clkout0(clk_8M), //output clkout0
-        .clkin(clk_osc), //input clkin
-        .reset(~sys_resetn) //input reset
+        .reset(~sys_resetn), //input reset
+        .clkin(clk_osc) //input clkin
     );
 
 
@@ -127,8 +140,8 @@ module TOP (
 		.boot_pc          (32'h1c000000        ),
 		.clk              (clk_8M         	   ),
 		.clk_count        (clk_8M          	   ),
-		.hard_resetn      (sys_resetn          ),
-		.soft_resetn      (sys_resetn          ),
+		.hard_resetn      (locked&sys_resetn   ),
+		.soft_resetn      (locked&sys_resetn   ),
 
 		.sleeping         (sleeping_o          ),
         .can_high_freq    (can_high_freq       ),
@@ -245,7 +258,7 @@ module TOP (
     
 	axi_slave_mux_cpu AXI_Interconnect (
 		.axi_s_aclk       (clk_8M              ),
-		.axi_s_aresetn    (sys_resetn          ),
+		.axi_s_aresetn    (locked&sys_resetn   ),
 		.axi_s_awid       (cpu_awid            ),
 		.axi_s_awaddr     (cpu_awaddr          ),
 		.axi_s_awlen      (cpu_awlen           ),
@@ -365,8 +378,8 @@ module TOP (
         .AXI_ID_WIDTH     (`s1_axil_LID        ),
         .AXIL_DATA_WIDTH  (`s1_axil_Ldata      )
     ) s1_axi_axil (
-        .clk              (clk_osc             ),
-        .rst              (~sys_resetn         ),
+        .clk              (clk_8M              ),
+        .rst              (~(locked&sys_resetn)),
 
         .s_axi_awid       (s1_awid             ),
         .s_axi_awaddr     (s1_awaddr           ),
@@ -431,7 +444,7 @@ module TOP (
         .C_S00_AXI_ADDR_WIDTH   (`s1_axil_Laddr)
     ) LED_driver_inst (
         .s00_axi_aclk     (clk_8M              ),
-        .s00_axi_aresetn  (sys_resetn          ),
+        .s00_axi_aresetn  (locked&sys_resetn   ),
 
         .led              (led                 ),
 
