@@ -19,8 +19,8 @@
 //AXI0   this address is the remaining address on other ways
 
 //AXI1
-`define AXI_SLV1_ADDR_BASE   32'hffffffff     //AXI1 base address   
-`define AXI_SLV1_ADDR_LEN    32'h00000000     //AXI1 length
+`define AXI_SLV1_ADDR_BASE   32'h80001000     //AXI1 base address   
+`define AXI_SLV1_ADDR_LEN    32'h00000fff     //AXI1 length
 
 //AXI2
 `define AXI_SLV2_ADDR_BASE   32'hffffffff     //AXI2 base address   

@@ -398,7 +398,7 @@
 	end    
 
 	// Add user logic here
-    assign led = {slv_reg3, slv_reg2, slv_reg1, slv_reg0};
+    assign led = slv_reg0[3:0];
 	// User logic ends
 
 	endmodule
