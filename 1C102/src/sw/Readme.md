@@ -1,0 +1,4 @@
+.MI file title:
+#File_format=Hex
+#Address_depth=32768
+#Data_width=32

@@ -78,6 +78,18 @@ module TOP (
 	wire                      cpu_rready;
 
 
+	wire                      inst_sram_en;
+	wire [ 3:0]               inst_sram_strb;
+	wire [31:0]               inst_sram_wdata;
+	wire [31:0]               inst_sram_rdata;
+	wire                      inst_sram_wr;
+	wire                      inst_sram_fetch;
+	wire [31:0]               inst_sram_addr;
+	wire                      inst_sram_rrdy = 1'b1;
+	wire                      inst_sram_ack  = 1'b1;
+	wire                      inst_sram_resp = 1'b0;
+
+
 	wire [`LID         -1 :0] s1_awid;
 	wire [`Lawaddr     -1 :0] s1_awaddr;
 	wire [`Lawlen      -1 :0] s1_awlen;
@@ -254,6 +266,17 @@ module TOP (
 
 		.test_mode        (1'b0                )
 	);
+
+    Gowin_SP_Instr IRAM(
+        .dout             (inst_sram_rdata     ), //output [31:0] dout
+        .clk              (clk_8M              ), //input clk
+        .oce              (inst_sram_en        ), //input oce
+        .ce               (inst_sram_en        ), //input ce
+        .reset            (~(locked&sys_resetn)), //input reset
+        .wre              (inst_sram_wr        ), //input wre
+        .ad               (inst_sram_addr[11:0]), //input [11:0] ad
+        .din              (inst_sram_wdata     ) //input [31:0] din
+    );
 
     
 	axi_slave_mux_cpu AXI_Interconnect (
