@@ -484,24 +484,25 @@ int main(void)
     EnableInt();				//开总中断
 
 	volatile int *p = (volatile int *)0x80001000;
-	
-	*p |= (0x01<<1);
+	*p = 0x01;
+	// *p |= (0x01<<1);
 
-	my_delay_ms(1000);
+	// // my_delay_ms(1000);
 
-	*p &= ~(0x01<<1);
+	// *p &= ~(0x01<<1);
 
     while(1){
-		// WDG_DogFeed();
-		// printf("test....\n");
+	// 	// WDG_DogFeed();
+	// 	// printf("test....\n");
 
-		*p |= (0x01<<1);
+	// 	*p |= (0x01<<1);
 		
-		my_delay_ms(1000);
+	// 	// my_delay_ms(1000);
 		
-		*p &= ~(0x01<<1);
+		*p = 0x01;
+		*p = 0x02;
 
-		my_delay_ms(1000);
+	// 	// my_delay_ms(1000);
     }
 
     return 0;

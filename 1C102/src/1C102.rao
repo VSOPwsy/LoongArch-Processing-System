@@ -1,0 +1,447 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+        <SignalList>
+            <Bus name="inst_sram_rdata[31:0]">
+                <Signal>inst_sram_rdata[31]</Signal>
+                <Signal>inst_sram_rdata[30]</Signal>
+                <Signal>inst_sram_rdata[29]</Signal>
+                <Signal>inst_sram_rdata[28]</Signal>
+                <Signal>inst_sram_rdata[27]</Signal>
+                <Signal>inst_sram_rdata[26]</Signal>
+                <Signal>inst_sram_rdata[25]</Signal>
+                <Signal>inst_sram_rdata[24]</Signal>
+                <Signal>inst_sram_rdata[23]</Signal>
+                <Signal>inst_sram_rdata[22]</Signal>
+                <Signal>inst_sram_rdata[21]</Signal>
+                <Signal>inst_sram_rdata[20]</Signal>
+                <Signal>inst_sram_rdata[19]</Signal>
+                <Signal>inst_sram_rdata[18]</Signal>
+                <Signal>inst_sram_rdata[17]</Signal>
+                <Signal>inst_sram_rdata[16]</Signal>
+                <Signal>inst_sram_rdata[15]</Signal>
+                <Signal>inst_sram_rdata[14]</Signal>
+                <Signal>inst_sram_rdata[13]</Signal>
+                <Signal>inst_sram_rdata[12]</Signal>
+                <Signal>inst_sram_rdata[11]</Signal>
+                <Signal>inst_sram_rdata[10]</Signal>
+                <Signal>inst_sram_rdata[9]</Signal>
+                <Signal>inst_sram_rdata[8]</Signal>
+                <Signal>inst_sram_rdata[7]</Signal>
+                <Signal>inst_sram_rdata[6]</Signal>
+                <Signal>inst_sram_rdata[5]</Signal>
+                <Signal>inst_sram_rdata[4]</Signal>
+                <Signal>inst_sram_rdata[3]</Signal>
+                <Signal>inst_sram_rdata[2]</Signal>
+                <Signal>inst_sram_rdata[1]</Signal>
+                <Signal>inst_sram_rdata[0]</Signal>
+            </Bus>
+            <Bus name="inst_sram_addr[31:0]">
+                <Signal>inst_sram_addr[31]</Signal>
+                <Signal>inst_sram_addr[30]</Signal>
+                <Signal>inst_sram_addr[29]</Signal>
+                <Signal>inst_sram_addr[28]</Signal>
+                <Signal>inst_sram_addr[27]</Signal>
+                <Signal>inst_sram_addr[26]</Signal>
+                <Signal>inst_sram_addr[25]</Signal>
+                <Signal>inst_sram_addr[24]</Signal>
+                <Signal>inst_sram_addr[23]</Signal>
+                <Signal>inst_sram_addr[22]</Signal>
+                <Signal>inst_sram_addr[21]</Signal>
+                <Signal>inst_sram_addr[20]</Signal>
+                <Signal>inst_sram_addr[19]</Signal>
+                <Signal>inst_sram_addr[18]</Signal>
+                <Signal>inst_sram_addr[17]</Signal>
+                <Signal>inst_sram_addr[16]</Signal>
+                <Signal>inst_sram_addr[15]</Signal>
+                <Signal>inst_sram_addr[14]</Signal>
+                <Signal>inst_sram_addr[13]</Signal>
+                <Signal>inst_sram_addr[12]</Signal>
+                <Signal>inst_sram_addr[11]</Signal>
+                <Signal>inst_sram_addr[10]</Signal>
+                <Signal>inst_sram_addr[9]</Signal>
+                <Signal>inst_sram_addr[8]</Signal>
+                <Signal>inst_sram_addr[7]</Signal>
+                <Signal>inst_sram_addr[6]</Signal>
+                <Signal>inst_sram_addr[5]</Signal>
+                <Signal>inst_sram_addr[4]</Signal>
+                <Signal>inst_sram_addr[3]</Signal>
+                <Signal>inst_sram_addr[2]</Signal>
+                <Signal>inst_sram_addr[1]</Signal>
+                <Signal>inst_sram_addr[0]</Signal>
+            </Bus>
+            <Signal>inst_sram_en</Signal>
+            <Signal>inst_sram_fetch</Signal>
+            <Signal>locked</Signal>
+            <Signal>sys_resetn</Signal>
+            <Bus name="cpu_awid[3:0]">
+                <Signal>cpu_awid[3]</Signal>
+                <Signal>cpu_awid[2]</Signal>
+                <Signal>cpu_awid[1]</Signal>
+                <Signal>cpu_awid[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awaddr[31:0]">
+                <Signal>cpu_awaddr[31]</Signal>
+                <Signal>cpu_awaddr[30]</Signal>
+                <Signal>cpu_awaddr[29]</Signal>
+                <Signal>cpu_awaddr[28]</Signal>
+                <Signal>cpu_awaddr[27]</Signal>
+                <Signal>cpu_awaddr[26]</Signal>
+                <Signal>cpu_awaddr[25]</Signal>
+                <Signal>cpu_awaddr[24]</Signal>
+                <Signal>cpu_awaddr[23]</Signal>
+                <Signal>cpu_awaddr[22]</Signal>
+                <Signal>cpu_awaddr[21]</Signal>
+                <Signal>cpu_awaddr[20]</Signal>
+                <Signal>cpu_awaddr[19]</Signal>
+                <Signal>cpu_awaddr[18]</Signal>
+                <Signal>cpu_awaddr[17]</Signal>
+                <Signal>cpu_awaddr[16]</Signal>
+                <Signal>cpu_awaddr[15]</Signal>
+                <Signal>cpu_awaddr[14]</Signal>
+                <Signal>cpu_awaddr[13]</Signal>
+                <Signal>cpu_awaddr[12]</Signal>
+                <Signal>cpu_awaddr[11]</Signal>
+                <Signal>cpu_awaddr[10]</Signal>
+                <Signal>cpu_awaddr[9]</Signal>
+                <Signal>cpu_awaddr[8]</Signal>
+                <Signal>cpu_awaddr[7]</Signal>
+                <Signal>cpu_awaddr[6]</Signal>
+                <Signal>cpu_awaddr[5]</Signal>
+                <Signal>cpu_awaddr[4]</Signal>
+                <Signal>cpu_awaddr[3]</Signal>
+                <Signal>cpu_awaddr[2]</Signal>
+                <Signal>cpu_awaddr[1]</Signal>
+                <Signal>cpu_awaddr[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awlen[3:0]">
+                <Signal>cpu_awlen[3]</Signal>
+                <Signal>cpu_awlen[2]</Signal>
+                <Signal>cpu_awlen[1]</Signal>
+                <Signal>cpu_awlen[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awsize[2:0]">
+                <Signal>cpu_awsize[2]</Signal>
+                <Signal>cpu_awsize[1]</Signal>
+                <Signal>cpu_awsize[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awburst[1:0]">
+                <Signal>cpu_awburst[1]</Signal>
+                <Signal>cpu_awburst[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awlock[1:0]">
+                <Signal>cpu_awlock[1]</Signal>
+                <Signal>cpu_awlock[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awcache[3:0]">
+                <Signal>cpu_awcache[3]</Signal>
+                <Signal>cpu_awcache[2]</Signal>
+                <Signal>cpu_awcache[1]</Signal>
+                <Signal>cpu_awcache[0]</Signal>
+            </Bus>
+            <Bus name="cpu_awprot[2:0]">
+                <Signal>cpu_awprot[2]</Signal>
+                <Signal>cpu_awprot[1]</Signal>
+                <Signal>cpu_awprot[0]</Signal>
+            </Bus>
+            <Bus name="cpu_wid[3:0]">
+                <Signal>cpu_wid[3]</Signal>
+                <Signal>cpu_wid[2]</Signal>
+                <Signal>cpu_wid[1]</Signal>
+                <Signal>cpu_wid[0]</Signal>
+            </Bus>
+            <Bus name="cpu_wdata[31:0]">
+                <Signal>cpu_wdata[31]</Signal>
+                <Signal>cpu_wdata[30]</Signal>
+                <Signal>cpu_wdata[29]</Signal>
+                <Signal>cpu_wdata[28]</Signal>
+                <Signal>cpu_wdata[27]</Signal>
+                <Signal>cpu_wdata[26]</Signal>
+                <Signal>cpu_wdata[25]</Signal>
+                <Signal>cpu_wdata[24]</Signal>
+                <Signal>cpu_wdata[23]</Signal>
+                <Signal>cpu_wdata[22]</Signal>
+                <Signal>cpu_wdata[21]</Signal>
+                <Signal>cpu_wdata[20]</Signal>
+                <Signal>cpu_wdata[19]</Signal>
+                <Signal>cpu_wdata[18]</Signal>
+                <Signal>cpu_wdata[17]</Signal>
+                <Signal>cpu_wdata[16]</Signal>
+                <Signal>cpu_wdata[15]</Signal>
+                <Signal>cpu_wdata[14]</Signal>
+                <Signal>cpu_wdata[13]</Signal>
+                <Signal>cpu_wdata[12]</Signal>
+                <Signal>cpu_wdata[11]</Signal>
+                <Signal>cpu_wdata[10]</Signal>
+                <Signal>cpu_wdata[9]</Signal>
+                <Signal>cpu_wdata[8]</Signal>
+                <Signal>cpu_wdata[7]</Signal>
+                <Signal>cpu_wdata[6]</Signal>
+                <Signal>cpu_wdata[5]</Signal>
+                <Signal>cpu_wdata[4]</Signal>
+                <Signal>cpu_wdata[3]</Signal>
+                <Signal>cpu_wdata[2]</Signal>
+                <Signal>cpu_wdata[1]</Signal>
+                <Signal>cpu_wdata[0]</Signal>
+            </Bus>
+            <Bus name="cpu_wstrb[3:0]">
+                <Signal>cpu_wstrb[3]</Signal>
+                <Signal>cpu_wstrb[2]</Signal>
+                <Signal>cpu_wstrb[1]</Signal>
+                <Signal>cpu_wstrb[0]</Signal>
+            </Bus>
+            <Bus name="cpu_bid[3:0]">
+                <Signal>cpu_bid[3]</Signal>
+                <Signal>cpu_bid[2]</Signal>
+                <Signal>cpu_bid[1]</Signal>
+                <Signal>cpu_bid[0]</Signal>
+            </Bus>
+            <Bus name="cpu_bresp[1:0]">
+                <Signal>cpu_bresp[1]</Signal>
+                <Signal>cpu_bresp[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arid[3:0]">
+                <Signal>cpu_arid[3]</Signal>
+                <Signal>cpu_arid[2]</Signal>
+                <Signal>cpu_arid[1]</Signal>
+                <Signal>cpu_arid[0]</Signal>
+            </Bus>
+            <Bus name="cpu_araddr[31:0]">
+                <Signal>cpu_araddr[31]</Signal>
+                <Signal>cpu_araddr[30]</Signal>
+                <Signal>cpu_araddr[29]</Signal>
+                <Signal>cpu_araddr[28]</Signal>
+                <Signal>cpu_araddr[27]</Signal>
+                <Signal>cpu_araddr[26]</Signal>
+                <Signal>cpu_araddr[25]</Signal>
+                <Signal>cpu_araddr[24]</Signal>
+                <Signal>cpu_araddr[23]</Signal>
+                <Signal>cpu_araddr[22]</Signal>
+                <Signal>cpu_araddr[21]</Signal>
+                <Signal>cpu_araddr[20]</Signal>
+                <Signal>cpu_araddr[19]</Signal>
+                <Signal>cpu_araddr[18]</Signal>
+                <Signal>cpu_araddr[17]</Signal>
+                <Signal>cpu_araddr[16]</Signal>
+                <Signal>cpu_araddr[15]</Signal>
+                <Signal>cpu_araddr[14]</Signal>
+                <Signal>cpu_araddr[13]</Signal>
+                <Signal>cpu_araddr[12]</Signal>
+                <Signal>cpu_araddr[11]</Signal>
+                <Signal>cpu_araddr[10]</Signal>
+                <Signal>cpu_araddr[9]</Signal>
+                <Signal>cpu_araddr[8]</Signal>
+                <Signal>cpu_araddr[7]</Signal>
+                <Signal>cpu_araddr[6]</Signal>
+                <Signal>cpu_araddr[5]</Signal>
+                <Signal>cpu_araddr[4]</Signal>
+                <Signal>cpu_araddr[3]</Signal>
+                <Signal>cpu_araddr[2]</Signal>
+                <Signal>cpu_araddr[1]</Signal>
+                <Signal>cpu_araddr[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arlen[3:0]">
+                <Signal>cpu_arlen[3]</Signal>
+                <Signal>cpu_arlen[2]</Signal>
+                <Signal>cpu_arlen[1]</Signal>
+                <Signal>cpu_arlen[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arsize[2:0]">
+                <Signal>cpu_arsize[2]</Signal>
+                <Signal>cpu_arsize[1]</Signal>
+                <Signal>cpu_arsize[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arburst[1:0]">
+                <Signal>cpu_arburst[1]</Signal>
+                <Signal>cpu_arburst[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arlock[1:0]">
+                <Signal>cpu_arlock[1]</Signal>
+                <Signal>cpu_arlock[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arcache[3:0]">
+                <Signal>cpu_arcache[3]</Signal>
+                <Signal>cpu_arcache[2]</Signal>
+                <Signal>cpu_arcache[1]</Signal>
+                <Signal>cpu_arcache[0]</Signal>
+            </Bus>
+            <Bus name="cpu_arprot[2:0]">
+                <Signal>cpu_arprot[2]</Signal>
+                <Signal>cpu_arprot[1]</Signal>
+                <Signal>cpu_arprot[0]</Signal>
+            </Bus>
+            <Bus name="cpu_rid[3:0]">
+                <Signal>cpu_rid[3]</Signal>
+                <Signal>cpu_rid[2]</Signal>
+                <Signal>cpu_rid[1]</Signal>
+                <Signal>cpu_rid[0]</Signal>
+            </Bus>
+            <Bus name="cpu_rdata[31:0]">
+                <Signal>cpu_rdata[31]</Signal>
+                <Signal>cpu_rdata[30]</Signal>
+                <Signal>cpu_rdata[29]</Signal>
+                <Signal>cpu_rdata[28]</Signal>
+                <Signal>cpu_rdata[27]</Signal>
+                <Signal>cpu_rdata[26]</Signal>
+                <Signal>cpu_rdata[25]</Signal>
+                <Signal>cpu_rdata[24]</Signal>
+                <Signal>cpu_rdata[23]</Signal>
+                <Signal>cpu_rdata[22]</Signal>
+                <Signal>cpu_rdata[21]</Signal>
+                <Signal>cpu_rdata[20]</Signal>
+                <Signal>cpu_rdata[19]</Signal>
+                <Signal>cpu_rdata[18]</Signal>
+                <Signal>cpu_rdata[17]</Signal>
+                <Signal>cpu_rdata[16]</Signal>
+                <Signal>cpu_rdata[15]</Signal>
+                <Signal>cpu_rdata[14]</Signal>
+                <Signal>cpu_rdata[13]</Signal>
+                <Signal>cpu_rdata[12]</Signal>
+                <Signal>cpu_rdata[11]</Signal>
+                <Signal>cpu_rdata[10]</Signal>
+                <Signal>cpu_rdata[9]</Signal>
+                <Signal>cpu_rdata[8]</Signal>
+                <Signal>cpu_rdata[7]</Signal>
+                <Signal>cpu_rdata[6]</Signal>
+                <Signal>cpu_rdata[5]</Signal>
+                <Signal>cpu_rdata[4]</Signal>
+                <Signal>cpu_rdata[3]</Signal>
+                <Signal>cpu_rdata[2]</Signal>
+                <Signal>cpu_rdata[1]</Signal>
+                <Signal>cpu_rdata[0]</Signal>
+            </Bus>
+            <Bus name="cpu_rresp[1:0]">
+                <Signal>cpu_rresp[1]</Signal>
+                <Signal>cpu_rresp[0]</Signal>
+            </Bus>
+            <Signal>cpu_awvalid</Signal>
+            <Signal>cpu_awready</Signal>
+            <Signal>cpu_wlast</Signal>
+            <Signal>cpu_wvalid</Signal>
+            <Signal>cpu_wready</Signal>
+            <Signal>cpu_bvalid</Signal>
+            <Signal>cpu_bready</Signal>
+            <Signal>cpu_arvalid</Signal>
+            <Signal>cpu_arready</Signal>
+            <Signal>cpu_rlast</Signal>
+            <Signal>cpu_rvalid</Signal>
+            <Signal>cpu_rready</Signal>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Bus restorename="fetch_pc[31:0]">
+                        <Signal>fetch_pc[31]</Signal>
+                        <Signal>fetch_pc[30]</Signal>
+                        <Signal>fetch_pc[29]</Signal>
+                        <Signal>fetch_pc[28]</Signal>
+                        <Signal>fetch_pc[27]</Signal>
+                        <Signal>fetch_pc[26]</Signal>
+                        <Signal>fetch_pc[25]</Signal>
+                        <Signal>fetch_pc[24]</Signal>
+                        <Signal>fetch_pc[23]</Signal>
+                        <Signal>fetch_pc[22]</Signal>
+                        <Signal>fetch_pc[21]</Signal>
+                        <Signal>fetch_pc[20]</Signal>
+                        <Signal>fetch_pc[19]</Signal>
+                        <Signal>fetch_pc[18]</Signal>
+                        <Signal>fetch_pc[17]</Signal>
+                        <Signal>fetch_pc[16]</Signal>
+                        <Signal>fetch_pc[15]</Signal>
+                        <Signal>fetch_pc[14]</Signal>
+                        <Signal>fetch_pc[13]</Signal>
+                        <Signal>fetch_pc[12]</Signal>
+                        <Signal>fetch_pc[11]</Signal>
+                        <Signal>fetch_pc[10]</Signal>
+                        <Signal>fetch_pc[9]</Signal>
+                        <Signal>fetch_pc[8]</Signal>
+                        <Signal>fetch_pc[7]</Signal>
+                        <Signal>fetch_pc[6]</Signal>
+                        <Signal>fetch_pc[5]</Signal>
+                        <Signal>fetch_pc[4]</Signal>
+                        <Signal>fetch_pc[3]</Signal>
+                        <Signal>fetch_pc[2]</Signal>
+                        <Signal>fetch_pc[1]</Signal>
+                        <Signal>fetch_pc[0]</Signal>
+                    </Bus>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1">
+                <SignalList>
+                    <Bus restorename="inst_sram_addr[31:0]">
+                        <Signal>inst_sram_addr[31]</Signal>
+                        <Signal>inst_sram_addr[30]</Signal>
+                        <Signal>inst_sram_addr[29]</Signal>
+                        <Signal>inst_sram_addr[28]</Signal>
+                        <Signal>inst_sram_addr[27]</Signal>
+                        <Signal>inst_sram_addr[26]</Signal>
+                        <Signal>inst_sram_addr[25]</Signal>
+                        <Signal>inst_sram_addr[24]</Signal>
+                        <Signal>inst_sram_addr[23]</Signal>
+                        <Signal>inst_sram_addr[22]</Signal>
+                        <Signal>inst_sram_addr[21]</Signal>
+                        <Signal>inst_sram_addr[20]</Signal>
+                        <Signal>inst_sram_addr[19]</Signal>
+                        <Signal>inst_sram_addr[18]</Signal>
+                        <Signal>inst_sram_addr[17]</Signal>
+                        <Signal>inst_sram_addr[16]</Signal>
+                        <Signal>inst_sram_addr[15]</Signal>
+                        <Signal>inst_sram_addr[14]</Signal>
+                        <Signal>inst_sram_addr[13]</Signal>
+                        <Signal>inst_sram_addr[12]</Signal>
+                        <Signal>inst_sram_addr[11]</Signal>
+                        <Signal>inst_sram_addr[10]</Signal>
+                        <Signal>inst_sram_addr[9]</Signal>
+                        <Signal>inst_sram_addr[8]</Signal>
+                        <Signal>inst_sram_addr[7]</Signal>
+                        <Signal>inst_sram_addr[6]</Signal>
+                        <Signal>inst_sram_addr[5]</Signal>
+                        <Signal>inst_sram_addr[4]</Signal>
+                        <Signal>inst_sram_addr[3]</Signal>
+                        <Signal>inst_sram_addr[2]</Signal>
+                        <Signal>inst_sram_addr[1]</Signal>
+                        <Signal>inst_sram_addr[0]</Signal>
+                    </Bus>
+                </SignalList>
+            </Trigger>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="3" counter="2" countinuous="0" func="0" value0="00000000000000000000000000000001" value1="00000000000000000000000000000000" trigger="0"/>
+            <MatchUnit index="1" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00011100000000000000000000000100" value1="00000000000000000000000000000000" trigger="1"/>
+            <MatchUnit index="2" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00011100000000000000000000000100" value1="00000000000000000000000000000000" trigger="1"/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0|M1|M2</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>0100011100111001</GAO_ID>
+</GAO_CONFIG>

@@ -148,6 +148,20 @@ module TOP (
     wire                      m1_axil_rvalid;
     wire                      m1_axil_rready;
 
+
+//    reg [31:0] pc_reg;
+//    always @(posedge clk_8M) pc_reg <= fetch_pc;
+//    assign led = fetch_pc != pc_reg;
+
+//    reg instr_reg = 0;
+//    reg led_reg = 0;
+//    always @(posedge clk_8M) begin
+//        led_reg <= cpu_wvalid ? 1'b1 : led_reg;
+//        instr_reg <= inst_sram_rdata == 32'h50002000 ? 1'b1 : instr_reg;
+//    end
+//    assign led = |inst_sram_rdata;
+//    assign led = led_reg;
+
     la132_top CPU (
 		.boot_pc          (32'h1c000000        ),
 		.clk              (clk_8M         	   ),
@@ -274,7 +288,7 @@ module TOP (
         .ce               (inst_sram_en        ), //input ce
         .reset            (~(locked&sys_resetn)), //input reset
         .wre              (inst_sram_wr        ), //input wre
-        .ad               (inst_sram_addr[11:0]), //input [11:0] ad
+        .ad               (inst_sram_addr[13:2]), //input [11:0] ad
         .din              (inst_sram_wdata     ) //input [31:0] din
     );
 
