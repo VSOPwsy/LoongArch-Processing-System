@@ -5,12 +5,12 @@
 //Part Number: GW2A-LV18PG256C8/I7
 //Device: GW2A-18
 //Device Version: C
-//Created Time: Sun Mar 03 15:37:52 2024
+//Created Time: Sun Mar 03 15:19:56 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
 
-    Gowin_SP_Instr your_instance_name(
+    Gowin_SP_Data your_instance_name(
         .dout(dout_o), //output [31:0] dout
         .clk(clk_i), //input clk
         .oce(oce_i), //input oce

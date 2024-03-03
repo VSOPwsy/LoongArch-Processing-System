@@ -9,7 +9,7 @@ PHONY += help
 PHONY += flash
 PHONY += clean
 
-LAIDE_PATH = D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE
+LAIDE_PATH = $(ROOT_DIR)/LAIDE
 
 CROSS_COMPILE =  $(LAIDE_PATH)/buildtool/la32-tool/bin/loongarch32-newlib-elf-
 EXE = .exe

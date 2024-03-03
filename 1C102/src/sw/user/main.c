@@ -481,15 +481,13 @@ int main(void)
     // /*Uart Init*/
     // Uart0_init_buad(g_f*1000);	//串口配置
 
-    EnableInt();				//开总中断
+    // EnableInt();				//开总中断
 
-	volatile int *p = (volatile int *)0x80001000;
+	volatile int *p = (volatile int *)0xbfee0000;
 	*p = 0x01;
 	// *p |= (0x01<<1);
 
 	// // my_delay_ms(1000);
-
-	// *p &= ~(0x01<<1);
 
     while(1){
 	// 	// WDG_DogFeed();
@@ -497,12 +495,12 @@ int main(void)
 
 	// 	*p |= (0x01<<1);
 		
-	// 	// my_delay_ms(1000);
-		
 		*p = 0x01;
+		my_delay_ms(1000);
+		
 		*p = 0x02;
 
-	// 	// my_delay_ms(1000);
+		my_delay_ms(1000);
     }
 
     return 0;

@@ -77,7 +77,6 @@ module TOP (
 	wire                      cpu_rvalid;
 	wire                      cpu_rready;
 
-
 	wire                      inst_sram_en;
 	wire [ 3:0]               inst_sram_strb;
 	wire [31:0]               inst_sram_wdata;
@@ -88,6 +87,17 @@ module TOP (
 	wire                      inst_sram_rrdy = 1'b1;
 	wire                      inst_sram_ack  = 1'b1;
 	wire                      inst_sram_resp = 1'b0;
+
+	wire                      data_sram_en;
+	wire [ 3:0]               data_sram_strb;
+	wire [31:0]               data_sram_wdata;
+	wire [31:0]               data_sram_rdata;
+	wire                      data_sram_wr;
+	wire                      data_sram_fetch;
+	wire [31:0]               data_sram_addr;
+	wire                      data_sram_rrdy = 1'b1;
+	wire                      data_sram_ack  = 1'b1;
+	wire                      data_sram_resp = 1'b0;
 
 
 	wire [`LID         -1 :0] s1_awid;
@@ -149,18 +159,6 @@ module TOP (
     wire                      m1_axil_rready;
 
 
-//    reg [31:0] pc_reg;
-//    always @(posedge clk_8M) pc_reg <= fetch_pc;
-//    assign led = fetch_pc != pc_reg;
-
-//    reg instr_reg = 0;
-//    reg led_reg = 0;
-//    always @(posedge clk_8M) begin
-//        led_reg <= cpu_wvalid ? 1'b1 : led_reg;
-//        instr_reg <= inst_sram_rdata == 32'h50002000 ? 1'b1 : instr_reg;
-//    end
-//    assign led = |inst_sram_rdata;
-//    assign led = led_reg;
 
     la132_top CPU (
 		.boot_pc          (32'h1c000000        ),
@@ -288,10 +286,21 @@ module TOP (
         .ce               (inst_sram_en        ), //input ce
         .reset            (~(locked&sys_resetn)), //input reset
         .wre              (inst_sram_wr        ), //input wre
-        .ad               (inst_sram_addr[13:2]), //input [11:0] ad
+        .ad               (inst_sram_addr[31:2]), //input [11:0] ad
         .din              (inst_sram_wdata     ) //input [31:0] din
     );
 
+
+    Gowin_SP_Data DRAM(
+        .dout             (data_sram_rdata     ), //output [31:0] dout
+        .clk              (clk_8M              ), //input clk
+        .oce              (data_sram_en        ), //input oce
+        .ce               (data_sram_en        ), //input ce
+        .reset            (~(locked&sys_resetn)), //input reset
+        .wre              (data_sram_wr        ), //input wre
+        .ad               (data_sram_addr[31:2]), //input [11:0] ad
+        .din              (data_sram_wdata     ) //input [31:0] din
+    );
     
 	axi_slave_mux_cpu AXI_Interconnect (
 		.axi_s_aclk       (clk_8M              ),
