@@ -1,0 +1,49 @@
+{
+ "Device" : "GW2A-18C",
+ "Files" : [
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/asyn_rst_syn.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/dvi_encoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/dvi_transmitter_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/gowin_clkdiv/clk_div5.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/gowin_rpll/rpll_pixel_clk_5x.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/hdmi_colorbar.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/serializer_10_to_1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/video_display.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/src/video_driver.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/hdmi_standard/impl/temp/rtl_parser.result",
+ "Top" : "hdmi_colorbar",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW2A-18C" package="PBGA256" speed="8" partNumber="GW2A-LV18PG256C8/I7"/>
+    <FileList>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\asyn_rst_syn.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\dvi_encoder.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\dvi_transmitter_top.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\gowin_clkdiv\clk_div5.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\gowin_rpll\rpll_pixel_clk_5x.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\hdmi_colorbar.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\serializer_10_to_1.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\video_display.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\src\video_driver.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="100.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard\impl\gwsynthesis\hdmi_standard.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="hdmi_colorbar"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>
