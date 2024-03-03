@@ -1,0 +1,53 @@
+{
+ "Device" : "GW2A-18C",
+ "Files" : [
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/asyn_rst_syn.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/dvi_encoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/dvi_transmitter_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/gowin_clkdiv/clk_div5.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/gowin_rpll/rpll_pixel_clk_5x.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/hdmi_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/myip_v1_0_S00_AXIS.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/serializer_10_to_1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/video_display.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_code/hdmi_standard_readfromfifo/src/video_driver.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/Gowin_code/hdmi_standard_readfromfifo/impl/temp/rtl_parser.result",
+ "Top" : "hdmi_colorbar",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

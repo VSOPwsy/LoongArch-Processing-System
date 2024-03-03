@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="hdmi_top" Lut="2" T_Register="83(0)" T_Alu="32(0)" T_Lut="170(2)" T_Bsram="1(0)">
+    <SubModule name="rpll_pixel_clk_5x"/>
+    <SubModule name="u_video_driver" Register="23" Lut="60" T_Register="23(23)" T_Lut="60(60)"/>
+    <SubModule name="u_rgb2dvi_0" T_Register="33(0)" T_Alu="21(0)" T_Lut="49(0)">
+        <SubModule name="reset_syn" Register="2" T_Register="2(2)"/>
+        <SubModule name="encoder_b" Register="17" Alu="7" Lut="20" T_Register="17(17)" T_Alu="7(7)" T_Lut="20(20)"/>
+        <SubModule name="encoder_g" Register="7" Alu="7" Lut="14" T_Register="7(7)" T_Alu="7(7)" T_Lut="14(14)"/>
+        <SubModule name="encoder_r" Register="7" Alu="7" Lut="15" T_Register="7(7)" T_Alu="7(7)" T_Lut="15(15)"/>
+        <SubModule name="serializer_b"/>
+        <SubModule name="serializer_g"/>
+        <SubModule name="serializer_r"/>
+        <SubModule name="serializer_clk"/>
+    </SubModule>
+    <SubModule name="UUT" Register="27" Alu="11" Lut="59" Bsram="1" T_Register="27(27)" T_Alu="11(11)" T_Lut="59(59)" T_Bsram="1(1)"/>
+</Module>
