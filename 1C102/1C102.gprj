@@ -11,10 +11,34 @@
         <File path="src/hw/amba/apb_mux9.v" type="file.verilog" enable="1"/>
         <File path="src/hw/amba/axi2apb.v" type="file.verilog" enable="1"/>
         <File path="src/hw/amba/axi_axil_adapter.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/async_bidir_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/async_bidir_ramif_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/async_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/fifomem.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/fifomem_dp.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/rptr_empty.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/sync_ptr.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/sync_r2w.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/sync_w2r.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/async_fifo/wptr_full.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_checker.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_crossbar_lite_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_crossbar_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_mst_if.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_mst_switch.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_pipeline.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_round_robin.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_round_robin_core.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_scfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_scfifo_ram.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_slv_if.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_slv_switch.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/amba/axi_crossbar/axicb_switch_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/amba/axi_mux.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="0"/>
         <File path="src/hw/ip_repo/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/gowin_rpll_100M/gowin_rpll_100M.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>

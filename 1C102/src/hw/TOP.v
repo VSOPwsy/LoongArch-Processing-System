@@ -9,8 +9,10 @@ module TOP (
     output [3:0] led
 );
 
+    wire locked1, locked2;
     wire locked;
-    wire clk_8M;
+    wire clk_8M, clk_100M;
+    assign locked = locked1 & locked2;
 
     /*
      * For GW5A
@@ -27,10 +29,19 @@ module TOP (
      */
     Gowin_rPLL PLL (
         .clkout(clk_8M), //output clkout
-        .lock(locked), //output lock
+        .lock(locked1), //output lock
         .reset(~sys_resetn), //input reset
         .clkin(clk_osc) //input clkin
     );
+
+    
+    Gowin_rPLL_100M PLL_100M(
+        .clkout(clk_100M), //output clkout
+        .lock(locked2), //output lock
+        .reset(~sys_resetn), //input reset
+        .clkin(clk_osc) //input clkin
+    );
+
 
 
 
@@ -302,120 +313,118 @@ module TOP (
         .din              (data_sram_wdata     ) //input [31:0] din
     );
     
-	axi_slave_mux_cpu AXI_Interconnect (
-		.axi_s_aclk       (clk_8M              ),
-		.axi_s_aresetn    (locked&sys_resetn   ),
-		.axi_s_awid       (cpu_awid            ),
-		.axi_s_awaddr     (cpu_awaddr          ),
-		.axi_s_awlen      (cpu_awlen           ),
-		.axi_s_awsize     (cpu_awsize          ),
-		.axi_s_awburst    (cpu_awburst         ),
-		.axi_s_awlock     (cpu_awlock          ),
-		.axi_s_awcache    (cpu_awcache         ),
-		.axi_s_awprot     (cpu_awprot          ),
-		.axi_s_awvalid    (cpu_awvalid         ),
-		.axi_s_awready    (cpu_awready         ),
-		.axi_s_wready     (cpu_wready          ),
-		.axi_s_wid        (cpu_wid             ),
-		.axi_s_wdata      (cpu_wdata           ),
-		.axi_s_wstrb      (cpu_wstrb           ),
-		.axi_s_wlast      (cpu_wlast           ),
-		.axi_s_wvalid     (cpu_wvalid          ),
-		.axi_s_bid        (cpu_bid             ),
-		.axi_s_bresp      (cpu_bresp           ),
-		.axi_s_bvalid     (cpu_bvalid          ),
-		.axi_s_bready     (cpu_bready          ),
-		.axi_s_arid       (cpu_arid            ),
-		.axi_s_araddr     (cpu_araddr          ),
-		.axi_s_arlen      (cpu_arlen           ),
-		.axi_s_arsize     (cpu_arsize          ),
-		.axi_s_arburst    (cpu_arburst         ),
-		.axi_s_arlock     (cpu_arlock          ),
-		.axi_s_arcache    (cpu_arcache         ),
-		.axi_s_arprot     (cpu_arprot          ),
-		.axi_s_arvalid    (cpu_arvalid         ),
-		.axi_s_arready    (cpu_arready         ),
-		.axi_s_rready     (cpu_rready          ),
-		.axi_s_rid        (cpu_rid             ),
-		.axi_s_rdata      (cpu_rdata           ),
-		.axi_s_rresp      (cpu_rresp           ),
-		.axi_s_rlast      (cpu_rlast           ),
-		.axi_s_rvalid     (cpu_rvalid          ),
 
-		// .s0_awid          (apb_awid            ),
-		// .s0_awaddr        (apb_awaddr          ),
-		// .s0_awlen         (apb_awlen           ),
-		// .s0_awsize        (apb_awsize          ),
-		// .s0_awburst       (apb_awburst         ),
-		// .s0_awlock        (apb_awlock          ),
-		// .s0_awcache       (apb_awcache         ),
-		// .s0_awprot        (apb_awprot          ),
-		// .s0_awvalid       (apb_awvalid         ),
-		// .s0_awready       (apb_awready         ),
-		// .s0_wid           (apb_wid             ),
-		// .s0_wdata         (apb_wdata           ),
-		// .s0_wstrb         (apb_wstrb           ),
-		// .s0_wlast         (apb_wlast           ),
-		// .s0_wvalid        (apb_wvalid          ),
-		// .s0_wready        (apb_wready          ),
-		// .s0_bid           (apb_bid             ),
-		// .s0_bresp         (apb_bresp           ),
-		// .s0_bvalid        (apb_bvalid          ),
-		// .s0_bready        (apb_bready          ),
-		// .s0_arid          (apb_arid            ),
-		// .s0_araddr        (apb_araddr          ),
-		// .s0_arlen         (apb_arlen           ),
-		// .s0_arsize        (apb_arsize          ),
-		// .s0_arburst       (apb_arburst         ),
-		// .s0_arlock        (apb_arlock          ),
-		// .s0_arcache       (apb_arcache         ),
-		// .s0_arprot        (apb_arprot          ),
-		// .s0_arvalid       (apb_arvalid         ),
-		// .s0_arready       (apb_arready         ),
-		// .s0_rid           (apb_rid             ),
-		// .s0_rdata         (apb_rdata           ),
-		// .s0_rresp         (apb_rresp           ),
-		// .s0_rlast         (apb_rlast           ),
-		// .s0_rvalid        (apb_rvalid          ),
-		// .s0_rready        (apb_rready          ),
+	axicb_crossbar_top axi_crossbar (
+		.aclk(clk_100M),
+		.aresetn(locked&sys_resetn),
+		.srst(~(locked&sys_resetn)),
+		.slv0_aclk(clk_8M),
+		.slv0_aresetn(locked&sys_resetn),
+		.slv0_srst(~(locked&sys_resetn)),
+		.slv0_awvalid(cpu_awvalid),
+		.slv0_awready(cpu_awready),
+		.slv0_awaddr(cpu_awaddr),
+		.slv0_awlen(cpu_awlen),
+		.slv0_awsize(cpu_awsize),
+		.slv0_awburst(cpu_awburst),
+		.slv0_awlock(cpu_awlock),
+		.slv0_awcache(cpu_awcache),
+		.slv0_awprot(cpu_awprot),
+		// .slv0_awqos(cpu_awqos),
+		// .slv0_awregion(cpu_awregion),
+		.slv0_awid(cpu_awid),
+		// .slv0_awuser(cpu_awuser),
+		.slv0_wvalid(cpu_wvalid),
+		.slv0_wready(cpu_wready),
+		.slv0_wlast(cpu_wlast),
+		.slv0_wdata(cpu_wdata),
+		.slv0_wstrb(cpu_wstrb),
+		// .slv0_wuser(cpu_wuser),
+		.slv0_bvalid(cpu_bvalid),
+		.slv0_bready(cpu_bready),
+		.slv0_bid(cpu_bid),
+		.slv0_bresp(cpu_bresp),
+		// .slv0_buser(cpu_buser),
+		.slv0_arvalid(cpu_arvalid),
+		.slv0_arready(cpu_arready),
+		.slv0_araddr(cpu_araddr),
+		.slv0_arlen(cpu_arlen),
+		.slv0_arsize(cpu_arsize),
+		.slv0_arburst(cpu_arburst),
+		.slv0_arlock(cpu_arlock),
+		.slv0_arcache(cpu_arcache),
+		.slv0_arprot(cpu_arprot),
+		// .slv0_arqos(cpu_arqos),
+		// .slv0_arregion(cpu_arregion),
+		.slv0_arid(cpu_arid),
+		// .slv0_aruser(cpu_aruser),
+		.slv0_rvalid(cpu_rvalid),
+		.slv0_rready(cpu_rready),
+		.slv0_rid(cpu_rid),
+		.slv0_rresp(cpu_rresp),
+		.slv0_rdata(cpu_rdata),
+		.slv0_rlast(cpu_rlast),
+		// .slv0_ruser(cpu_ruser)
+
 		
-		.s1_awid          (s1_awid             ),
-		.s1_awaddr        (s1_awaddr           ),
-		.s1_awlen         (s1_awlen            ),
-		.s1_awsize        (s1_awsize           ),
-		.s1_awburst       (s1_awburst          ),
-		.s1_awlock        (s1_awlock           ),
-		.s1_awcache       (s1_awcache          ),
-		.s1_awprot        (s1_awprot           ),
-		.s1_awvalid       (s1_awvalid          ),
-		.s1_awready       (s1_awready          ),
-		// .s1_wid           (s1_wid              ),   ////
-		.s1_wdata         (s1_wdata            ),
-		.s1_wstrb         (s1_wstrb            ),
-		.s1_wlast         (s1_wlast            ),
-		.s1_wvalid        (s1_wvalid           ),
-		.s1_wready        (s1_wready           ),
-		.s1_bid           (s1_bid              ),
-		.s1_bresp         (s1_bresp            ),
-		.s1_bvalid        (s1_bvalid           ),
-		.s1_bready        (s1_bready           ),
-		.s1_arid          (s1_arid             ),
-		.s1_araddr        (s1_araddr           ),
-		.s1_arlen         (s1_arlen            ),
-		.s1_arsize        (s1_arsize           ),
-		.s1_arburst       (s1_arburst          ),
-		.s1_arlock        (s1_arlock           ),
-		.s1_arcache       (s1_arcache          ),
-		.s1_arprot        (s1_arprot           ),
-		.s1_arvalid       (s1_arvalid          ),
-		.s1_arready       (s1_arready          ),
-		.s1_rid           (s1_rid              ),
-		.s1_rdata         (s1_rdata            ),
-		.s1_rresp         (s1_rresp            ),
-		.s1_rlast         (s1_rlast            ),
-		.s1_rvalid        (s1_rvalid           ),
-		.s1_rready        (s1_rready           )
-    );
+		.mst0_aclk(clk_100M),
+		.mst0_aresetn(locked&sys_resetn),
+		.mst0_srst(~(locked&sys_resetn)),
+		.mst0_awvalid(s1_awvalid),
+		.mst0_awready(s1_awready),
+		.mst0_awaddr(s1_awaddr),
+		.mst0_awlen(s1_awlen),
+		.mst0_awsize(s1_awsize),
+		.mst0_awburst(s1_awburst),
+		.mst0_awlock(s1_awlock),
+		.mst0_awcache(s1_awcache),
+		.mst0_awprot(s1_awprot),
+		// .mst0_awqos(s1_awqos),
+		// .mst0_awregion(s1_awregion),
+		.mst0_awid(s1_awid),
+		// .mst0_awuser(s1_awuser),
+		.mst0_wvalid(s1_wvalid),
+		.mst0_wready(s1_wready),
+		.mst0_wlast(s1_wlast),
+		.mst0_wdata(s1_wdata),
+		.mst0_wstrb(s1_wstrb),
+		// .mst0_wuser(s1_wuser),
+		.mst0_bvalid(s1_bvalid),
+		.mst0_bready(s1_bready),
+		.mst0_bid(s1_bid),
+		.mst0_bresp(s1_bresp),
+		// .mst0_buser(s1_buser),
+		.mst0_arvalid(s1_arvalid),
+		.mst0_arready(s1_arready),
+		.mst0_araddr(s1_araddr),
+		.mst0_arlen(s1_arlen),
+		.mst0_arsize(s1_arsize),
+		.mst0_arburst(s1_arburst),
+		.mst0_arlock(s1_arlock),
+		.mst0_arcache(s1_arcache),
+		.mst0_arprot(s1_arprot),
+		// .mst0_arqos(s1_arqos),
+		// .mst0_arregion(s1_arregion),
+		.mst0_arid(s1_arid),
+		// .mst0_aruser(s1_aruser),
+		.mst0_rvalid(s1_rvalid),
+		.mst0_rready(s1_rready),
+		.mst0_rid(s1_rid),
+		.mst0_rresp(s1_rresp),
+		.mst0_rdata(s1_rdata),
+		.mst0_rlast(s1_rlast)
+		// .mst0_ruser(s1_ruser)
+	);
+
+
+
+
+
+
+
+
+
+
 
 
     axi_axil_adapter # (
@@ -424,7 +433,7 @@ module TOP (
         .AXI_ID_WIDTH     (`s1_axil_LID        ),
         .AXIL_DATA_WIDTH  (`s1_axil_Ldata      )
     ) s1_axi_axil (
-        .clk              (clk_8M              ),
+        .clk              (clk_100M              ),
         .rst              (~(locked&sys_resetn)),
 
         .s_axi_awid       (s1_awid             ),
@@ -489,7 +498,7 @@ module TOP (
         .C_S00_AXI_DATA_WIDTH   (`s1_axil_Ldata),
         .C_S00_AXI_ADDR_WIDTH   (`s1_axil_Laddr)
     ) LED_driver_inst (
-        .s00_axi_aclk     (clk_8M              ),
+        .s00_axi_aclk     (clk_100M              ),
         .s00_axi_aresetn  (locked&sys_resetn   ),
 
         .led              (led                 ),
