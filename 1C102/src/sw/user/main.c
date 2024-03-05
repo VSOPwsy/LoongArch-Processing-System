@@ -496,11 +496,11 @@ int main(void)
 	// 	*p |= (0x01<<1);
 		
 		*p = 0x01;
-		my_delay_ms(1000);
+		// my_delay_ms(1000);
 		
 		*p = 0x02;
 
-		my_delay_ms(1000);
+		// my_delay_ms(1000);
     }
 
     return 0;
