@@ -426,8 +426,8 @@ module axicb_crossbar_top (
 	parameter [AXI_ID_W - 1:0] MST3_ID_MASK = 'h4;
 	parameter MST3_RW = 0;
 	parameter SLV0_CDC = 0;
-	parameter SLV0_START_ADDR = `AXI_SLV1_ADDR_BASE;
-	parameter SLV0_END_ADDR = `AXI_SLV1_ADDR_BASE + `AXI_SLV1_ADDR_LEN;
+	parameter SLV0_START_ADDR = `DDR_ADDR_BASE;
+	parameter SLV0_END_ADDR = `DDR_ADDR_BASE + `DDR_ADDR_LEN;
 	parameter SLV0_OSTDREQ_NUM = 0;
 	parameter SLV0_OSTDREQ_SIZE = 1;
 	parameter SLV0_KEEP_BASE_ADDR = 0;

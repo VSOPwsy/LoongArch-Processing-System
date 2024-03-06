@@ -18,9 +18,12 @@
 //AXI0   connect APBbrige 
 //AXI0   this address is the remaining address on other ways
 
-//AXI1
-`define AXI_SLV1_ADDR_BASE   32'hbfee0000     //AXI1 base address   
-`define AXI_SLV1_ADDR_LEN    32'h00000fff     //AXI1 length
+`define DDR_ADDR_BASE       32'h00000000
+`define DDR_ADDR_LEN        32'h0fffffff
+
+// //AXI1
+`define AXI_SLV1_ADDR_BASE   (`DDR_ADDR_BASE)     //AXI1 base address   
+`define AXI_SLV1_ADDR_LEN    (`DDR_ADDR_LEN )     //AXI1 length
 
 //AXI2
 `define AXI_SLV2_ADDR_BASE   32'hffffffff     //AXI2 base address   
@@ -35,43 +38,30 @@
 `define AXI_SLV5_ADDR_BASE   32'hffffffff     //AXI5 base address   
 `define AXI_SLV5_ADDR_LEN    32'h00000000     //AXI5 length
 
-`define Lawaddr 32 
-`define Lawlen 4
-`define Lawsize 3
-`define Lawburst 2
-`define Lawlock 2
-`define Lawcache 4
-`define Lawprot 3
-`define Lwdata 32
-`define Lwstrb 4
-`define Lwlast 1
-`define Lbresp 2
-`define Laraddr 32
-`define Larlen 4
-`define Larsize 3
-`define Larburst 2
-`define Larlock 2
-`define Larcache 4
-`define Larprot 3
-`define Lrdata 32
-`define Lrresp 2
-`define Lrlast 1
-`define LID 4
 
-`define s1_axi_Ldata 32
-`define s1_axil_Laddr 32
-`define s1_axil_Ldata 32
-`define s1_axil_Lstrb (`s1_axil_Ldata/8)
-`define s1_axil_LID 4
+`define ID_WIDTH 4
+`define ADDR_WIDTH 32
+`define LEN_WIDTH 4
+`define SIZE_WIDTH 3
+`define BURST_WIDTH 2
+`define LOCK_WIDTH 2
+`define CACHE_WIDTH 4
+`define PROT_WIDTH 3
+`define RESP_WIDTH 2
+
+`define CPU_DATA_WIDTH 32
+`define CPU_STRB_WIDTH (`CPU_DATA_WIDTH/8)
+
+`define APB_DATA_WIDTH (`CPU_DATA_WIDTH)
+
+`define DDR_DATA_WIDTH 128
+`define DDR_STRB_WIDTH (`DDR_DATA_WIDTH/8)
+
 
 
 /*****************
 *   APB interface      9-way APB
 ******************/
-
-`define ADDR_APB 32
-`define DATA_APB 32
-
 //APB0
 `define APB_SLV0_ADDR_BASE   32'hbfeb0000     //APB0 base address    
 `define APB_SLV0_ADDR_LEN    32'h0000ffff     //APB0 length

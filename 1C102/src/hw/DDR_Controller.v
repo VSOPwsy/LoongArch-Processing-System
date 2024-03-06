@@ -1,13 +1,15 @@
+`include "config.v"
+
 module DDR_Controller #
 (
     // Width of data bus in bits
-    parameter DATA_WIDTH = 128,
+    parameter DATA_WIDTH = `DDR_DATA_WIDTH,
     // Width of address bus in bits
-    parameter ADDR_WIDTH = 32,
+    parameter ADDR_WIDTH = `ADDR_WIDTH,
     // Width of wstrb (width of data bus in words)
     parameter STRB_WIDTH = (DATA_WIDTH/8),
     // Width of ID signal
-    parameter ID_WIDTH = 4,
+    parameter ID_WIDTH = `ID_WIDTH,
     // Propagate awuser signal
     parameter AWUSER_ENABLE = 0,
     // Width of awuser signal
@@ -85,7 +87,24 @@ module DDR_Controller #
     output wire                     s_axi_rlast,
     output wire [RUSER_WIDTH-1:0]   s_axi_ruser,
     output wire                     s_axi_rvalid,
-    input  wire                     s_axi_rready
+    input  wire                     s_axi_rready,
+
+    
+    inout  [15:0]   ddr_dq,
+    inout  [1:0]    ddr_dqs,
+    inout  [1:0]    ddr_dqs_n,
+    output [13:0]   ddr_addr,
+    output [2:0]    ddr_bank,
+    output          ddr_cs,
+    output          ddr_ras,
+    output          ddr_cas,
+    output          ddr_we,
+    output          ddr_ck,
+    output          ddr_ck_n,
+    output          ddr_cke,
+    output          ddr_odt,
+    output          ddr_reset_n,
+    output [1:0]    ddr_dm
 );
 
 
@@ -97,11 +116,11 @@ module DDR_Controller #
     wire                     ram_cmd_wr_en;
     wire                     ram_cmd_rd_en;
     wire                     ram_cmd_last;
-    wire                     ram_cmd_ready;
-    wire [ID_WIDTH-1:0]      ram_rd_resp_id;
-    wire [DATA_WIDTH-1:0]    ram_rd_resp_data;
-    wire                     ram_rd_resp_last;
-    wire                     ram_rd_resp_valid;
+    reg                      ram_cmd_ready;
+    reg  [ID_WIDTH-1:0]      ram_rd_resp_id;
+    reg  [DATA_WIDTH-1:0]    ram_rd_resp_data;
+    reg                      ram_rd_resp_last;
+    reg                      ram_rd_resp_valid;
     wire                     ram_rd_resp_ready;
 
     axi_ram_wr_rd_if #(
@@ -190,7 +209,10 @@ module DDR_Controller #
     );
 
     
-
+    wire app_cmd_ready;
+    reg [2:0] app_cmd = 0;
+    reg app_cmd_en = 0;
+    reg [28:0] app_addr = 0; 
 
     ddr3_memory_interface u_ddr3 (
         .clk             (clk),
@@ -238,10 +260,10 @@ module DDR_Controller #
     );
 
     
-    wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2] pipe_in;
-    wire pipe_wren = 0;
-    wire pipe_rden = 0;
-    wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2] pipe_out;
+    reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
+    reg pipe_wren = 0;
+    reg pipe_rden = 0;
+    wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;
     wire pipe_empty;
 
 	pipe pipe(
@@ -273,6 +295,23 @@ module DDR_Controller #
 		.Full() //output Full
 	);
 
+    wire [127:0] wfifo_wrdata;
+    reg wfifo_wren = 0;
+    reg wfifo_rden = 0;
+    wire [127:0] wfifo_rddata;
+    wire wfifo_empty;
+
+
+	FIFO_wr wfifo(
+		.Data(wfifo_wrdata), //input [127:0] Data
+		.WrClk(clk_if), //input WrClk
+		.RdClk(ui_clk), //input RdClk
+		.WrEn(wfifo_wren), //input WrEn
+		.RdEn(wfifo_rden), //input RdEn
+		.Q(wfifo_rddata), //output [127:0] Q
+		.Empty(wfifo_empty), //output Empty
+		.Full() //output Full
+	);
 
 
 
@@ -281,6 +320,7 @@ module DDR_Controller #
     localparam WRITE = 2'b10;
 
     reg [1:0] state_current, state_next;
+    reg ddr_rd_done_flag = 0;
 
     always @(*) begin
         if (~resetn) begin
@@ -289,7 +329,7 @@ module DDR_Controller #
         else begin
             if ((ram_cmd_wr_en | ram_cmd_rd_en) & pipe_empty & ram_cmd_ready) begin
                 pipe_wren = 1'b1;
-                pipe_in = {ram_cmd_rd_en, ram_cmd_last, ram_cmd_id, ram_cmd_addr, ram_cmd_wr_en ? ram_cmd_wr_data, ram_cmd_wr_en ? ram_cmd_wr_strb}; // 1 for rd, 0 for wr
+                pipe_in = {ram_cmd_rd_en, ram_cmd_last, ram_cmd_id, ram_cmd_addr, ram_cmd_wr_en ? ram_cmd_wr_data : 0, ram_cmd_wr_en ? ram_cmd_wr_strb : 0}; // 1 for rd, 0 for wr
             end 
         end
     end
@@ -346,6 +386,9 @@ module DDR_Controller #
     end
 
 
+    reg [`ID_WIDTH-1:0] id;
+    reg last;
+
     always @(posedge ui_clk) begin
         if (~resetn) begin
             state_current <= IDLE;
@@ -365,8 +408,8 @@ module DDR_Controller #
                             pipe_rden <= 1'b1;
                         end
                         else begin
-                            cmd <= 3'b000;
-                            cmd_en <= 1'b1;
+                            app_cmd <= 3'b000;
+                            app_cmd_en <= 1'b1;
                             app_addr <= pipe_out[STRB_WIDTH + DATA_WIDTH +: ADDR_WIDTH];
                             id <= pipe_out[STRB_WIDTH + DATA_WIDTH + ADDR_WIDTH +: ID_WIDTH];
                             last <= pipe_out[STRB_WIDTH + DATA_WIDTH + ADDR_WIDTH + ID_WIDTH +: 1];
