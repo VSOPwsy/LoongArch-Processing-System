@@ -1,4 +1,3 @@
-`default_nettype none
 module axicb_slv_if (
 	i_aclk,
 	i_aresetn,

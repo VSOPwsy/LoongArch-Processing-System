@@ -1,4 +1,3 @@
-`default_nettype none
 module axicb_crossbar_lite_top (
 	aclk,
 	aresetn,

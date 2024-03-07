@@ -1,4 +1,3 @@
-`default_nettype none
 module axicb_scfifo_ram (
 	aclk,
 	wr_en,

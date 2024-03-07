@@ -934,7 +934,7 @@ module TOP (
 
 	DDR_Controller ddr_ctr (
 		.clk				(clk_100M				),
-		.rst				(~(locked&sys_resetn)	),
+		.resetn				(locked&sys_resetn		),
 		.s_axi_awid			(arb_ctr_awid			),
 		.s_axi_awaddr		(arb_ctr_awaddr			),
 		.s_axi_awlen		(arb_ctr_awlen			),

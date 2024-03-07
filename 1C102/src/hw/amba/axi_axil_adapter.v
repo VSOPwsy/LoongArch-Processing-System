@@ -26,7 +26,6 @@ THE SOFTWARE.
 
 `resetall
 `timescale 1ns / 1ps
-`default_nettype none
 
 /*
  * AXI4 to AXI4-Lite adapter

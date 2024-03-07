@@ -1,4 +1,3 @@
-`default_nettype none
 `include "../../../config.v"
 module axicb_crossbar_top (
 	aclk,

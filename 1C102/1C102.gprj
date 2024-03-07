@@ -46,6 +46,10 @@
         <File path="src/hw/amba/axi_ram_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/apb_register_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_fifo_rd/ddr_fifo_rd.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_fifo_wr/ddr_fifo_wr.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_pipe/ddr_pipe.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="0"/>
         <File path="src/hw/ip_repo/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_rpll_100M/gowin_rpll_100M.v" type="file.verilog" enable="1"/>

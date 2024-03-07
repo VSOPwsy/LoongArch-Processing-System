@@ -1,4 +1,3 @@
-`default_nettype none
 module axicb_switch_top (
 	aclk,
 	aresetn,

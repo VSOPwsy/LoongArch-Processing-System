@@ -1,4 +1,3 @@
-`default_nettype none
 module axicb_round_robin_core (
 	aclk,
 	aresetn,

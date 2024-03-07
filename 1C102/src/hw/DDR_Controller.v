@@ -39,7 +39,7 @@ module DDR_Controller #
 )
 (
     input  wire                     clk,
-    input  wire                     rst,
+    input  wire                     resetn,
 
     /*
      * AXI slave interface
@@ -214,7 +214,7 @@ module DDR_Controller #
     reg app_cmd_en = 0;
     reg [28:0] app_addr = 0; 
 
-    ddr3_memory_interface u_ddr3 (
+    DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),
@@ -263,16 +263,17 @@ module DDR_Controller #
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;
     reg pipe_rden = 0;
-    wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;
+    wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;    // width = 182
     wire pipe_empty;
 
-	pipe pipe(
-		.Data(pipe_in), //input [:0] Data
+	ddr_pipe pipe(
+		.Data(pipe_in), //input [182-1:0] Data
+		.Reset(~resetn), //input Reset
 		.WrClk(clk_if), //input WrClk
 		.RdClk(ui_clk), //input RdClk
 		.WrEn(pipe_wren), //input WrEn
 		.RdEn(pipe_rden), //input RdEn
-		.Q(pipe_out), //output [:0] Q
+		.Q(pipe_out), //output [182-1:0] Q
 		.Empty(pipe_empty), //output Empty
 		.Full() //output Full
 	);
@@ -284,8 +285,9 @@ module DDR_Controller #
     wire [127:0] rfifo_rddata;
     wire rfifo_empty;
 
-	FIFO_rd rfifo(
+	ddr_fifo_rd rfifo(
 		.Data(rfifo_wrdata), //input [127:0] Data
+		.Reset(~resetn), //input Reset
 		.WrClk(ui_clk), //input WrClk
 		.RdClk(clk_if), //input RdClk
 		.WrEn(rfifo_wren), //input WrEn
@@ -302,8 +304,9 @@ module DDR_Controller #
     wire wfifo_empty;
 
 
-	FIFO_wr wfifo(
+	ddr_fifo_wr wfifo(
 		.Data(wfifo_wrdata), //input [127:0] Data
+		.Reset(~resetn), //input Reset
 		.WrClk(clk_if), //input WrClk
 		.RdClk(ui_clk), //input RdClk
 		.WrEn(wfifo_wren), //input WrEn
@@ -459,7 +462,7 @@ module DDR_Controller #
     end
     always @(posedge clk_if) begin
         if (~resetn) begin
-            rfifo_rden <= 0;
+            ram_rd_resp_valid <= 1'b1;
         end
         else begin
             if (~rfifo_empty & ~ram_rd_resp_valid) begin

@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 
 /*
  * AXI4 RAM read/write interface
