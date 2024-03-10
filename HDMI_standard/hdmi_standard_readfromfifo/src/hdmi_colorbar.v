@@ -54,7 +54,7 @@ stream_generator_origin #(
 //例化AXI 接收模块
 myip_v2_0_S00_AXIS #(
     .C_S_AXIS_TDATA_WIDTH(8),//FIFO 宽度
-    .DATA_DEPTH(96*3) //FIFO 深度
+    .DATA_DEPTH(960) //FIFO 深度
 ) myip_v2_0_S00_AXIS_uut (
     .S_AXIS_ACLK(sys_clk), 
     .S_AXIS_ARESETN(rst_n), 
@@ -97,7 +97,7 @@ defparam u_clkdiv.GSREN="false";
 video_driver  u_video_driver(
     .pixel_clk      (pixel_clk   ),
     .sys_rst_n      (rst_n       ),
-    .pixel_data     (24'hffffff), //[23:0] 24'ffffff
+    .pixel_data     (R_AXIS_Out), //[23:0] 24'ffffff
 
     .video_hs       (video_hs    ),
     .video_vs       (video_vs    ),

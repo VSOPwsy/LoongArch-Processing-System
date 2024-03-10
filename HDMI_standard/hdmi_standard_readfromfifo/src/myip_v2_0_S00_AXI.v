@@ -2,15 +2,14 @@
 
 module myip_v2_0_S00_AXIS #
 (
-    parameter integer C_S_AXIS_TDATA_WIDTH    = 24, // RGB888
-    parameter integer DATA_DEPTH = 1280, // FIFO深度，一行1280个像素
-    parameter integer WRITE_CLK_DOMAIN = 0, // 0 for S_AXIS_ACLK, 1 for another clock domain if needed
-    parameter integer READ_CLK_DOMAIN = 0 // 0 for S_AXIS_ACLK, use different domain if needed
+    parameter integer C_S_AXIS_TDATA_WIDTH  = 8, // RGB888 FIFO的位宽8，写FIFO位宽32，读FIFO位宽24
+    parameter integer DATA_DEPTH = 960 // FIFO 深度
+    //FIFO深度计算：一行1280个像素，每个像素3*8位，FIFO位宽8，需要FIFO深度：1280*3*8/8/4 = 960 
 )
 (
     input wire  S_AXIS_ACLK, // Write Clock
     input wire  S_AXIS_ARESETN, // Reset, active low
-    input wire [C_S_AXIS_TDATA_WIDTH-1 : 0] S_AXIS_TDATA, // Data in
+    input wire [C_S_AXIS_TDATA_WIDTH*4-1 : 0] S_AXIS_TDATA, // Data in
     input wire  S_AXIS_TVALID, // Data valid signal
     input wire  S_AXIS_TLAST, // End of frame signal
 
@@ -18,7 +17,7 @@ module myip_v2_0_S00_AXIS #
     input wire  R_AXIS_ARESETN, // Reset for read clock domain
 
     output wire  S_AXIS_TREADY, // Ready to accept data signal
-    output reg [C_S_AXIS_TDATA_WIDTH-1:0] R_AXIS_Out // Data out
+    output reg [C_S_AXIS_TDATA_WIDTH*3-1:0] R_AXIS_Out // Data out
 );
 
 // function called clogb2 that returns an integer which has the value of the ceiling of the log base 2.
@@ -30,10 +29,16 @@ end
 endfunction
 
 localparam bit_num  = clogb2(DATA_DEPTH-1);
-reg [C_S_AXIS_TDATA_WIDTH-1:0] fifo[DATA_DEPTH-1:0]; // FIFO storage
-reg [bit_num-1:0] write_pointer = 0, read_pointer = 0;
-reg [bit_num:0] fifo_count = 0; // Extended size for overflow detection
+reg [C_S_AXIS_TDATA_WIDTH-1:0] fifo_1[DATA_DEPTH-1:0]; // FIFO storage_1
+reg [C_S_AXIS_TDATA_WIDTH-1:0] fifo_2[DATA_DEPTH-1:0]; // FIFO storage_2
+reg [C_S_AXIS_TDATA_WIDTH-1:0] fifo_3[DATA_DEPTH-1:0]; // FIFO storage_3
+reg [C_S_AXIS_TDATA_WIDTH-1:0] fifo_4[DATA_DEPTH-1:0]; // FIFO storage_4
+reg [bit_num-1:0] write_pointer = 0, read_pointer = 0, read_last_pointer = 0;
 
+reg [1:0] read_state,read_nextstate;
+parameter READ_123 = 2'b00, READ_412 = 2'b01, READ_341 = 2'b10, READ_234 = 2'b11;
+
+reg S_AXIS_TLAST_d;
 // Convert pointers to Gray code to ensure synchronization across clock domains
 function [bit_num-1:0] binary_to_gray(input [bit_num-1:0] binary);
     begin
@@ -86,26 +91,91 @@ always @(posedge S_AXIS_ACLK) begin
     end
 end
 
-// Implement FIFO write logic
-always @(posedge S_AXIS_ACLK) begin
+always @(posedge S_AXIS_ACLK ) begin
     if (!S_AXIS_ARESETN) begin
-        write_pointer <= 0;
-    end else if (S_AXIS_TVALID && S_AXIS_TREADY) begin
-        fifo[write_pointer] <= S_AXIS_TDATA;
-        write_pointer <= (write_pointer + 1) % DATA_DEPTH;
+        S_AXIS_TLAST_d <= 0;
+    end else begin
+        S_AXIS_TLAST_d <= S_AXIS_TLAST;
     end
 end
 
-assign S_AXIS_TREADY = (~S_AXIS_TLAST) && ((write_pointer == 0)&&(read_pointer == 0)||((gray_to_binary(synced_gray_read_pointer) != (write_pointer + 1)) && (gray_to_binary(synced_gray_read_pointer) != write_pointer)));
+
+// Implement FIFO write logic
+always @(posedge S_AXIS_ACLK) begin:Write_logic
+    if (!S_AXIS_ARESETN) begin
+        write_pointer <= 0;
+    end else if (S_AXIS_TVALID) begin
+        fifo_1[write_pointer] <= S_AXIS_TDATA[7:0];
+        fifo_2[write_pointer] <= S_AXIS_TDATA[15:8];
+        fifo_3[write_pointer] <= S_AXIS_TDATA[23:16];
+        fifo_4[write_pointer] <= S_AXIS_TDATA[31:24];
+        if (write_pointer == DATA_DEPTH - 1) begin
+            write_pointer <= 0;
+        end
+        else begin
+            write_pointer <= write_pointer + 1;
+        end
+    end
+end
+
+//ready：read/write pointer均为0  或  read在write之后  并且 S_AXIS_TLAST_d 未拉高
+assign S_AXIS_TREADY = (~S_AXIS_TLAST_d) && (((write_pointer == 0)&&(read_pointer == 0))||((gray_to_binary(synced_gray_read_pointer) != (write_pointer + 1)) && (gray_to_binary(synced_gray_read_pointer) != write_pointer)));
 
 // Implement FIFO read logic
-always @(posedge R_AXIS_ACLK) begin
+always @(posedge R_AXIS_ACLK) begin:Read_logic
     if (!R_AXIS_ARESETN) begin
+        read_last_pointer <= 0;
         read_pointer <= 0;
+        read_state   <= 0;
+        read_nextstate <= 0;
     end 
     else if (gray_to_binary(synced_gray_write_pointer) != read_pointer) begin // Read when FIFO is not empty
-        R_AXIS_Out <= fifo[read_pointer];
-        read_pointer <= (read_pointer + 1) % DATA_DEPTH;
+        case (read_state)
+            READ_123: begin
+                R_AXIS_Out <= {fifo_1[read_pointer], fifo_2[read_pointer], fifo_3[read_pointer]};
+                read_nextstate <= READ_412;
+                if (read_pointer == DATA_DEPTH - 1) begin
+                    read_pointer <= 0;
+                end
+                else begin
+                    read_pointer <= read_pointer + 1;
+                end
+            end
+
+            READ_412:begin
+                R_AXIS_Out <= {fifo_4[read_last_pointer], fifo_1[read_pointer], fifo_2[read_pointer]};
+                read_nextstate <= READ_341;
+                if (read_pointer == DATA_DEPTH - 1) begin
+                    read_pointer <= 0;
+                end
+                else begin
+                    read_pointer <= read_pointer + 1;
+                end
+            end
+
+            READ_341:begin
+                R_AXIS_Out <= {fifo_3[read_last_pointer], fifo_4[read_last_pointer], fifo_1[read_pointer]};
+                read_nextstate <= READ_234;
+                if (read_pointer == DATA_DEPTH - 1) begin
+                    read_pointer <= 0;
+                end
+                else begin
+                    read_pointer <= read_pointer + 1;
+                end
+            end
+
+            READ_234:begin
+                R_AXIS_Out <= {fifo_2[read_last_pointer], fifo_3[read_last_pointer], fifo_4[read_last_pointer]};
+                read_nextstate <= READ_123;
+                read_pointer <= read_pointer;
+            end
+            default:begin
+                R_AXIS_Out <= 0;
+                read_nextstate <= read_nextstate;
+            end 
+        endcase
+        read_state <= read_nextstate;
+        read_last_pointer <= read_pointer;
     end
 end
 

@@ -1,34 +1,75 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\asyn_rst_syn.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\dvi_encoder.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\dvi_transmitter_top.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\gowin_clkdiv\clk_div5.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\gowin_rpll\rpll_pixel_clk_5x.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v'
-Undeclared symbol 'rst_n', assumed default net type 'wire'("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":35)
-Undeclared symbol 'S_AXIS_ARESETN', assumed default net type 'wire'("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":103)
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v1_0_S00_AXIS.v'
-WARN  (EX3801) : Parameter 'IDLE' becomes localparam in 'myip_v1_0_S00_AXIS' with formal parameter declaration list("D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v1_0_S00_AXIS.v":34)
-WARN  (EX3801) : Parameter 'WRITE_FIFO' becomes localparam in 'myip_v1_0_S00_AXIS' with formal parameter declaration list("D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v1_0_S00_AXIS.v":35)
-WARN  (EX3801) : Parameter 'READ_FIFO' becomes localparam in 'myip_v1_0_S00_AXIS' with formal parameter declaration list("D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v1_0_S00_AXIS.v":36)
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v2_0_S00_AXI.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\serializer_10_to_1.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\video_display.v'
-Analyzing Verilog file 'D:\Gowin_code\hdmi_standard_readfromfifo\src\video_driver.v'
-Compiling module 'hdmi_top'("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":1)
-Compiling module 'rpll_pixel_clk_5x'("D:\Gowin_code\hdmi_standard_readfromfifo\src\gowin_rpll\rpll_pixel_clk_5x.v":10)
-Compiling module 'video_driver'("D:\Gowin_code\hdmi_standard_readfromfifo\src\video_driver.v":1)
-WARN  (EX3670) : Actual bit length 1 differs from formal bit length 24 for port 'pixel_data'("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":74)
-Compiling module 'dvi_transmitter_top'("D:\Gowin_code\hdmi_standard_readfromfifo\src\dvi_transmitter_top.v":1)
-Compiling module 'asyn_rst_syn'("D:\Gowin_code\hdmi_standard_readfromfifo\src\asyn_rst_syn.v":2)
-Compiling module 'dvi_encoder'("D:\Gowin_code\hdmi_standard_readfromfifo\src\dvi_encoder.v":21)
-Compiling module 'serializer_10_to_1'("D:\Gowin_code\hdmi_standard_readfromfifo\src\serializer_10_to_1.v":25)
-Compiling module 'myip_v2_0_S00_AXIS'("D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v2_0_S00_AXI.v":3)
-Extracting RAM for identifier 'fifo'("D:\Gowin_code\hdmi_standard_readfromfifo\src\myip_v2_0_S00_AXI.v":33)
-WARN  (EX3670) : Actual bit length 1 differs from formal bit length 24 for port 'R_AXIS_Out'("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":112)
-WARN  (EX1998) : Net 'S_AXIS_ARESETN' does not have a driver("D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_top.v":103)
-NOTE  (EX0101) : Current top module is "hdmi_top"
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\asyn_rst_syn.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\dvi_encoder.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\dvi_transmitter_top.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\gowin_clkdiv\clk_div5.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\gowin_rpll\rpll_pixel_clk_5x.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\hdmi_colorbar.v'
+Undeclared symbol 'rst_n', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\hdmi_colorbar.v":31)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v'
+WARN  (EX3801) : Parameter 'READ_123' becomes localparam in 'myip_v2_0_S00_AXIS' with formal parameter declaration list("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":39)
+WARN  (EX3801) : Parameter 'READ_412' becomes localparam in 'myip_v2_0_S00_AXIS' with formal parameter declaration list("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":39)
+WARN  (EX3801) : Parameter 'READ_341' becomes localparam in 'myip_v2_0_S00_AXIS' with formal parameter declaration list("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":39)
+WARN  (EX3801) : Parameter 'READ_234' becomes localparam in 'myip_v2_0_S00_AXIS' with formal parameter declaration list("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":39)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\serializer_10_to_1.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v'
+WARN  (EX3801) : Parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'stream_generator_origin' with formal parameter declaration list("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":30)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\video_display.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\video_driver.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_crc32.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
+WARN  (SYS-1203) : Column %u exceeds maximum value %u("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":279)
+Compiling module 'hdmi_colorbar'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\hdmi_colorbar.v":1)
+Compiling module 'stream_generator_origin(AXIS_KEEP_WIDTH=4)'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":4)
+Extracting RAM for identifier 'out_fifo_tdata'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":49)
+Extracting RAM for identifier 'out_fifo_tkeep'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":51)
+Extracting RAM for identifier 'out_fifo_tlast'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":53)
+Extracting RAM for identifier 'out_fifo_tid'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":55)
+Extracting RAM for identifier 'out_fifo_tdest'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":57)
+Extracting RAM for identifier 'out_fifo_tuser'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":59)
+WARN  (EX3791) : Expression size 7 truncated to fit in target size 6("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":81)
+WARN  (EX3791) : Expression size 7 truncated to fit in target size 6("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\stream_generator_origin.v":93)
+Compiling module 'myip_v2_0_S00_AXIS'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":3)
+Extracting RAM for identifier 'fifo_1'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":32)
+Extracting RAM for identifier 'fifo_2'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":33)
+Extracting RAM for identifier 'fifo_3'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":34)
+Extracting RAM for identifier 'fifo_4'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":35)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":116)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":141)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":152)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\myip_v2_0_S00_AXI.v":163)
+Compiling module 'rpll_pixel_clk_5x'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\gowin_rpll\rpll_pixel_clk_5x.v":10)
+Compiling module 'video_driver'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\video_driver.v":1)
+WARN  (EX3791) : Expression size 12 truncated to fit in target size 11("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\video_driver.v":67)
+WARN  (EX3791) : Expression size 12 truncated to fit in target size 11("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\video_driver.v":77)
+Compiling module 'dvi_transmitter_top'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\dvi_transmitter_top.v":1)
+Compiling module 'asyn_rst_syn'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\asyn_rst_syn.v":2)
+Compiling module 'dvi_encoder'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\dvi_encoder.v":21)
+Compiling module 'serializer_10_to_1'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\serializer_10_to_1.v":25)
+Compiling module 'gw_gao'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
+Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_crc32.v":74)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Trying to combine GAO to RTL design
+NOTE  (EX0101) : Current top module is "hdmi_colorbar"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
@@ -45,6 +86,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "D:\Gowin_code\hdmi_standard_readfromfifo\impl\gwsynthesis\hdmi_standard.vg" completed
-[100%] Generate report file "D:\Gowin_code\hdmi_standard_readfromfifo\impl\gwsynthesis\hdmi_standard_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\hdmi_standard.vg" completed
+[100%] Generate report file "C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\hdmi_standard_syn.rpt.html" completed
 GowinSynthesis finish

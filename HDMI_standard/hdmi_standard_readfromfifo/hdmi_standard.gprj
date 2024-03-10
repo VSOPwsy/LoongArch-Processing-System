@@ -10,13 +10,14 @@
         <File path="src/dvi_transmitter_top.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_clkdiv/clk_div5.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/rpll_pixel_clk_5x.v" type="file.verilog" enable="1"/>
-        <File path="src/hdmi_top.v" type="file.verilog" enable="1"/>
-        <File path="src/myip_v1_0_S00_AXIS.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi_colorbar.v" type="file.verilog" enable="1"/>
         <File path="src/myip_v2_0_S00_AXI.v" type="file.verilog" enable="1"/>
         <File path="src/serializer_10_to_1.v" type="file.verilog" enable="1"/>
+        <File path="src/stream_generator_origin.v" type="file.verilog" enable="1"/>
         <File path="src/video_display.v" type="file.verilog" enable="1"/>
         <File path="src/video_driver.v" type="file.verilog" enable="1"/>
         <File path="src/hdmi_standard.cst" type="file.cst" enable="1"/>
         <File path="src/hdmi_standard.sdc" type="file.sdc" enable="1"/>
+        <File path="src/hdmi_standard.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>

@@ -59,15 +59,15 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Design File</td>
-<td>D:\Gowin_code\hdmi_standard_readfromfifo\impl\gwsynthesis\hdmi_standard.vg</td>
+<td>C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\impl\gwsynthesis\hdmi_standard.vg</td>
 </tr>
 <tr>
 <td class="label">Physical Constraints File</td>
-<td>D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_standard.cst</td>
+<td>C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\hdmi_standard.cst</td>
 </tr>
 <tr>
 <td class="label">Timing Constraints File</td>
-<td>D:\Gowin_code\hdmi_standard_readfromfifo\src\hdmi_standard.sdc</td>
+<td>C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\hdmi_standard_Axi\src\hdmi_standard.sdc</td>
 </tr>
 <tr>
 <td class="label">Tool Version</td>
@@ -87,7 +87,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Mar  3 18:59:35 2024
+<td>Sun Mar 10 12:41:49 2024
 </td>
 </tr>
 <tr>
@@ -100,22 +100,22 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Total Power (mW)</td>
-<td>157.229</td>
+<td>217.324</td>
 </tr>
 <tr>
 <td class="label">Quiescent Power (mW)</td>
-<td>92.603</td>
+<td>92.557</td>
 </tr>
 <tr>
 <td class="label">Dynamic Power (mW)</td>
-<td>64.626</td>
+<td>124.767</td>
 </tr>
 </table>
 <h2><a name="Thermal_Info">Thermal Information:</a></h2>
 <table class="summary_table">
 <tr>
 <td class="label">Junction Temperature</td>
-<td>30.034</td>
+<td>31.959</td>
 </tr>
 <tr>
 <td class="label">Theta JA</td>
@@ -123,7 +123,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Max Allowed Ambient Temperature</td>
-<td>79.966</td>
+<td>78.041</td>
 </tr>
 </table>
 <h2><a name="Configure_Info">Configure Information:</a></h2>
@@ -192,37 +192,30 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>VCC</td>
 <td>1.000</td>
-<td>40.972</td>
+<td>100.757</td>
 <td>61.516</td>
-<td>102.488</td>
+<td>162.273</td>
 </tr>
 <tr>
 <td>VCCX</td>
 <td>2.500</td>
-<td>1.294</td>
+<td>1.367</td>
 <td>11.364</td>
-<td>31.643</td>
-</tr>
-<tr>
-<td>VCCIO18</td>
-<td>1.800</td>
-<td>0.029</td>
-<td>0.119</td>
-<td>0.267</td>
+<td>31.827</td>
 </tr>
 <tr>
 <td>VCCIO25</td>
 <td>2.500</td>
-<td>7.848</td>
-<td>0.490</td>
-<td>20.845</td>
+<td>7.990</td>
+<td>0.789</td>
+<td>21.946</td>
 </tr>
 <tr>
 <td>VCCIO33</td>
 <td>3.300</td>
-<td>0.227</td>
-<td>0.375</td>
-<td>1.986</td>
+<td>0.187</td>
+<td>0.200</td>
+<td>1.278</td>
 </tr>
 </table>
 <h1><a name="Detail">Power Details</a></h1>
@@ -236,15 +229,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>Logic</td>
-<td>0.223</td>
+<td>1.455</td>
 <td>NA</td>
-<td>8.833</td>
+<td>5.819</td>
 </tr>
 <tr>
 <td>IO</td>
-<td>28.751
-<td>3.613
-<td>33.203
+<td>29.219
+<td>3.651
+<td>29.188
+</tr>
+<tr>
+<td>BSRAM</td>
+<td>58.464
+<td>NA</td>
+<td>NA</td>
 </tr>
 <tr>
 <td>PLL</td>
@@ -261,41 +260,69 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Block Dynamic Power(mW)</th>
 </tr>
 <tr>
-<td>hdmi_top</td>
-<td>39.448</td>
-<td>39.448(39.448)</td>
+<td>hdmi_colorbar</td>
+<td>99.145</td>
+<td>99.145(99.145)</td>
 <tr>
-<td>hdmi_top/rpll_pixel_clk_5x/</td>
+<td>hdmi_colorbar/gw_gao_inst_0/</td>
+<td>21.545</td>
+<td>21.545(21.545)</td>
+<tr>
+<td>hdmi_colorbar/gw_gao_inst_0/u_icon_top/</td>
+<td>0.005</td>
+<td>0.005(0.000)</td>
+<tr>
+<td>hdmi_colorbar/gw_gao_inst_0/u_la0_top/</td>
+<td>21.540</td>
+<td>21.540(21.413)</td>
+<tr>
+<td>hdmi_colorbar/gw_gao_inst_0/u_la0_top/u_ao_crc32/</td>
+<td>0.010</td>
+<td>0.010(0.000)</td>
+<tr>
+<td>hdmi_colorbar/gw_gao_inst_0/u_la0_top/u_ao_match_0/</td>
+<td>0.032</td>
+<td>0.032(0.000)</td>
+<tr>
+<td>hdmi_colorbar/gw_gao_inst_0/u_la0_top/u_ao_mem_ctrl/</td>
+<td>21.371</td>
+<td>21.371(0.000)</td>
+<tr>
+<td>hdmi_colorbar/myip_v2_0_S00_AXIS_uut/</td>
+<td>29.356</td>
+<td>29.356(0.000)</td>
+<tr>
+<td>hdmi_colorbar/rpll_pixel_clk_5x/</td>
 <td>39.226</td>
 <td>39.226(0.000)</td>
 <tr>
-<td>hdmi_top/u_rgb2dvi_0/</td>
-<td>0.159</td>
-<td>0.159(0.159)</td>
+<td>hdmi_colorbar/stream_generator_origin_uut/</td>
+<td>7.997</td>
+<td>7.997(0.000)</td>
 <tr>
-<td>hdmi_top/u_rgb2dvi_0/encoder_b/</td>
-<td>0.056</td>
-<td>0.056(0.000)</td>
+<td>hdmi_colorbar/u_rgb2dvi_0/</td>
+<td>0.971</td>
+<td>0.971(0.971)</td>
 <tr>
-<td>hdmi_top/u_rgb2dvi_0/encoder_g/</td>
-<td>0.053</td>
-<td>0.053(0.000)</td>
+<td>hdmi_colorbar/u_rgb2dvi_0/encoder_b/</td>
+<td>0.324</td>
+<td>0.324(0.000)</td>
 <tr>
-<td>hdmi_top/u_rgb2dvi_0/encoder_r/</td>
-<td>0.049</td>
-<td>0.049(0.000)</td>
+<td>hdmi_colorbar/u_rgb2dvi_0/encoder_g/</td>
+<td>0.322</td>
+<td>0.322(0.000)</td>
 <tr>
-<td>hdmi_top/u_rgb2dvi_0/reset_syn/</td>
+<td>hdmi_colorbar/u_rgb2dvi_0/encoder_r/</td>
+<td>0.325</td>
+<td>0.325(0.000)</td>
+<tr>
+<td>hdmi_colorbar/u_rgb2dvi_0/reset_syn/</td>
 <td>0.001</td>
 <td>0.001(0.000)</td>
 <tr>
-<td>hdmi_top/u_video_driver/</td>
-<td>0.051</td>
-<td>0.051(0.000)</td>
-<tr>
-<td>hdmi_top/uut/</td>
-<td>0.012</td>
-<td>0.012(0.000)</td>
+<td>hdmi_colorbar/u_video_driver/</td>
+<td>0.050</td>
+<td>0.050(0.000)</td>
 </table>
 <h2><a name="By_Clock_Domain">Power By Clock Domain:</a></h2>
 <table class="detail_table">
@@ -305,14 +332,19 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Total Dynamic Power(mW)</th>
 </tr>
 <tr>
-<td>u_clkdiv/CLKOUT.default_gen_clk</td>
-<td>75.000</td>
-<td>0.220</td>
+<td>tck_pad_i</td>
+<td>20.000</td>
+<td>6.218</td>
 </tr>
 <tr>
 <td>sys_clk</td>
 <td>50.000</td>
-<td>39.242</td>
+<td>91.939</td>
+</tr>
+<tr>
+<td>u_clkdiv/CLKOUT.default_gen_clk</td>
+<td>75.000</td>
+<td>1.016</td>
 </tr>
 <tr>
 <td>NO CLOCK DOMAIN</td>
