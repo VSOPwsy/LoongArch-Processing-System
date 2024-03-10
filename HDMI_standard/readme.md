@@ -34,4 +34,4 @@ video_display: 根据当前显示的坐标位置判断颜色（本例程显示�
 
 # 3 整体HDMI显示
 
-代码在hdmi_standard_readfromfifo中，把线接好，但是没有试验过（（感觉tb没法看对错、、也没有数据上板、、
+代码在hdmi_standard_readfromfifo中，把线接好，连接AXI——generator可以上板
