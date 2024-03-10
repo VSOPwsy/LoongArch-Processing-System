@@ -20,18 +20,13 @@ video_display: 根据当前显示的坐标位置判断颜色（本例程显示�
 ![Untitled (2)](https://github.com/VSOPwsy/LoongArch-Processing-System/assets/138192626/4b35f387-f41b-433f-9757-3df2ede56cc2)
 （具体引脚找对应的板子，TDMS写正方向信号应该会自动补全差分输出的另一个）
 
-# 2 AXI_Stream/AXI_lite 接收图像数据
+# 2 AXI_Stream接收图像数据并完整显示
 
-代码在AXI_FIFO中，自己写了tb试了一下，逻辑就是从FIFO读数据
-
-读出的时钟周期一定小于写入的
-
+全部代码在hdmi_standard_readfromfifo中
 ## 2.1 vivado 生成AXI代码 & 补充FIFO
 
-根据Xilinx ip核，生成AXI_Stream 代码，FIFO位宽24，深度1280
+根据Xilinx ip核，生成AXI_Stream 代码。接收位宽32，读出位宽24。
 
-从异步FIFO中读数据，格雷码避免CDC
+从异步FIFO中读数据，格雷码避免CDC。
 
-# 3 整体HDMI显示
-
-代码在hdmi_standard_readfromfifo中，把线接好，连接AXI——generator可以上板
+用AXI_generator可以上板显示全白色。未防止综合出DFF，修改成4个FIFO，每个FIFO位宽8，深度960，读出逻辑也做了对应修改。
