@@ -1,0 +1,69 @@
+{
+ "Device" : "GW2A-18C",
+ "Files" : [
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr3_rw.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr3_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_ctrl_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_init.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_model.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_write.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

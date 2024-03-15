@@ -1,0 +1,26 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2A-18C" pn="GW2A-LV18PG256C8/I7">gw2a18c-011</Device>
+    <FileList>
+        <File path="src/ddr3_fifo_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_rw.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_top.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr_rpll/ddr_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/rd_fifo/rd_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_ctrl_top.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_init.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_read.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_read_model.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_read_para_top.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_rpll/sd_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_write.v" type="file.verilog" enable="1"/>
+        <File path="src/wr_fifo/wr_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_read_model_para_new.cst" type="file.cst" enable="1"/>
+        <File path="src/sd_read_model_para_new.sdc" type="file.sdc" enable="1"/>
+        <File path="src/sd_read_modelpara_new.rao" type="file.gao" enable="1"/>
+    </FileList>
+</Project>
