@@ -26,10 +26,10 @@ module TOP (
     output [1:0]    ddr_dm
 );
 
-    wire locked1, locked2;
+    wire locked0, locked1, locked2;
     wire locked;
     wire clk_8M, clk_50M, clk_100M;
-    assign locked = locked1 & locked2;
+    assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
     /*
@@ -47,7 +47,7 @@ module TOP (
      */
     Gowin_rPLL PLL (
         .clkout	(clk_8M), //output clkout
-        .lock	(locked1), //output lock
+        .lock	(locked0), //output lock
         .reset	(~sys_resetn), //input reset
         .clkin	(clk_osc) //input clkin
     );
@@ -55,12 +55,18 @@ module TOP (
     
     Gowin_rPLL_100M PLL_100M(
         .clkout	(clk_100M), //output clkout
-        .lock	(locked2), //output lock
+        .lock	(locked1), //output lock
         .reset	(~sys_resetn), //input reset
         .clkin	(clk_osc) //input clkin
     );
 
 
+    Gowin_rPLL_400M PLL_400M(
+        .clkout	(clk_400M), //output clkout
+        .lock	(locked2), //output lock
+        .reset	(~sys_resetn), //input reset
+        .clkin	(clk_osc) //input clkin
+    );
 
 
     wire [31:0]               	fetch_pc;
@@ -934,6 +940,8 @@ module TOP (
 
 	DDR_Controller ddr_ctr (
 		.clk				(clk_100M				),
+		.memory_clk			(clk_400M				),
+		.pll_lock			(locked2				),
 		.resetn				(locked&sys_resetn		),
 		.s_axi_awid			(arb_ctr_awid			),
 		.s_axi_awaddr		(arb_ctr_awaddr			),

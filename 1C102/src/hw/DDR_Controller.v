@@ -39,6 +39,8 @@ module DDR_Controller #
 )
 (
     input  wire                     clk,
+    input  wire                     memory_clk,
+    input  wire                     pll_lock,
     input  wire                     resetn,
 
     /*
