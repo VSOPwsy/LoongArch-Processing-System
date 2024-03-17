@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="sd_read_para_top" Lut="1" T_Register="4480(0)" T_Alu="245(0)" T_Lut="3365(1)" T_Bsram="14(0)" T_Ssram="143(0)">
+<Module name="sd_read_para_top" T_Register="4483(0)" T_Alu="245(0)" T_Lut="3351(0)" T_Bsram="14(0)" T_Ssram="143(0)">
     <SubModule name="u_sd_ctrl_top" Lut="4" T_Register="217(0)" T_Lut="238(4)">
         <SubModule name="u_sd_init" Register="111" Lut="136" T_Register="111(111)" T_Lut="136(136)"/>
         <SubModule name="u_sd_read" Register="106" Lut="98" T_Register="106(106)" T_Lut="98(98)"/>
     </SubModule>
     <SubModule name="u_sd_rpll"/>
     <SubModule name="u_ddr_rpll"/>
-    <SubModule name="gw_gao_inst_0" Register="327" Alu="13" Lut="419" Bsram="2" T_Register="327(327)" T_Alu="13(13)" T_Lut="419(419)" T_Bsram="2(2)"/>
-    <SubModule name="u_sd_read_model" Register="102" Alu="23" Lut="118" T_Register="102(102)" T_Alu="23(23)" T_Lut="118(118)"/>
-    <SubModule name="u_ddr3_top" Lut="1" T_Register="3834(0)" T_Alu="209(0)" T_Lut="2589(1)" T_Bsram="12(0)" T_Ssram="143(0)">
-        <SubModule name="u_ddr3_rw" Register="107" Lut="285" T_Register="107(107)" T_Lut="285(285)"/>
+    <SubModule name="gw_gao_inst_0" Register="330" Alu="13" Lut="410" Bsram="2" T_Register="330(330)" T_Alu="13(13)" T_Lut="410(410)" T_Bsram="2(2)"/>
+    <SubModule name="u_sd_read_model" Register="102" Alu="23" Lut="116" T_Register="102(102)" T_Alu="23(23)" T_Lut="116(116)"/>
+    <SubModule name="u_ddr3_top" Lut="1" T_Register="3834(0)" T_Alu="209(0)" T_Lut="2587(1)" T_Bsram="12(0)" T_Ssram="143(0)">
+        <SubModule name="u_ddr3_rw" Register="107" Lut="283" T_Register="107(107)" T_Lut="283(283)"/>
         <SubModule name="u_ddr3" Register="3434" Alu="167" Lut="2086" Bsram="4" Ssram="137" T_Register="3434(3434)" T_Alu="167(167)" T_Lut="2086(2086)" T_Bsram="4(4)" T_Ssram="137(137)"/>
         <SubModule name="u_ddr3_fifo_ctrl" Register="133" Lut="6" T_Register="293(133)" T_Alu="42(0)" T_Lut="217(6)" T_Bsram="8(0)" T_Ssram="6(0)">
             <SubModule name="u_rd_fifo" Register="77" Alu="21" Lut="100" Ssram="3" T_Register="77(77)" T_Alu="21(21)" T_Lut="100(100)" T_Ssram="3(3)"/>

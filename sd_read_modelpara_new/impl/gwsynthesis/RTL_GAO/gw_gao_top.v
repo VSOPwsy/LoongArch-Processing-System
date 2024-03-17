@@ -1,5 +1,6 @@
 module gw_gao(
     sys_clk,
+    memory_clk,
     \ddr_wr_data[15] ,
     \ddr_wr_data[14] ,
     \ddr_wr_data[13] ,
@@ -22,7 +23,7 @@ module gw_gao(
     sd_miso,
     sd_cs,
     sd_mosi,
-    memory_clk,
+    led,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
@@ -30,6 +31,7 @@ module gw_gao(
 );
 
 input sys_clk;
+input memory_clk;
 input \ddr_wr_data[15] ;
 input \ddr_wr_data[14] ;
 input \ddr_wr_data[13] ;
@@ -52,13 +54,14 @@ input sd_init_done;
 input sd_miso;
 input sd_cs;
 input sd_mosi;
-input memory_clk;
+input led;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
 wire sys_clk;
+wire memory_clk;
 wire \ddr_wr_data[15] ;
 wire \ddr_wr_data[14] ;
 wire \ddr_wr_data[13] ;
@@ -81,7 +84,7 @@ wire sd_init_done;
 wire sd_miso;
 wire sd_cs;
 wire sd_mosi;
-wire memory_clk;
+wire led;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -155,8 +158,10 @@ gw_con_top  u_icon_top(
 
 ao_top_0  u_la0_top(
     .control(control0[9:0]),
-    .trig0_i(sys_init_done),
-    .data_i({sys_clk,\ddr_wr_data[15] ,\ddr_wr_data[14] ,\ddr_wr_data[13] ,\ddr_wr_data[12] ,\ddr_wr_data[11] ,\ddr_wr_data[10] ,\ddr_wr_data[9] ,\ddr_wr_data[8] ,\ddr_wr_data[7] ,\ddr_wr_data[6] ,\ddr_wr_data[5] ,\ddr_wr_data[4] ,\ddr_wr_data[3] ,\ddr_wr_data[2] ,\ddr_wr_data[1] ,\ddr_wr_data[0] ,init_calib_complete,sys_init_done,sd_init_done,sd_miso,sd_cs,sd_mosi}),
+    .trig0_i(led),
+    .trig1_i(sys_clk),
+    .trig2_i(led),
+    .data_i({sys_clk,memory_clk,\ddr_wr_data[15] ,\ddr_wr_data[14] ,\ddr_wr_data[13] ,\ddr_wr_data[12] ,\ddr_wr_data[11] ,\ddr_wr_data[10] ,\ddr_wr_data[9] ,\ddr_wr_data[8] ,\ddr_wr_data[7] ,\ddr_wr_data[6] ,\ddr_wr_data[5] ,\ddr_wr_data[4] ,\ddr_wr_data[3] ,\ddr_wr_data[2] ,\ddr_wr_data[1] ,\ddr_wr_data[0] ,init_calib_complete,sys_init_done,sd_init_done,sd_miso,sd_cs,sd_mosi}),
     .clk_i(memory_clk)
 );
 

@@ -4,7 +4,7 @@
 -cst C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model_para_new.cst
 -cfg C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\pnr\device.cfg
 -sdc C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model_para_new.sdc
--gao_crc 0101001010110110
+-gao_crc 1100110101110110
 -bit
 -tr
 -ph

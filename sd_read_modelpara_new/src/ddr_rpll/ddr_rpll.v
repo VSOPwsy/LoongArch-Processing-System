@@ -5,7 +5,7 @@
 //Part Number: GW2A-LV18PG256C8/I7
 //Device: GW2A-18
 //Device Version: C
-//Created Time: Thu Mar 14 22:26:58 2024
+//Created Time: Sat Mar 16 16:00:21 2024
 
 module ddr_rpll (clkout, lock, reset, clkin);
 

@@ -70,7 +70,7 @@
  "Promote_Physical_Constraint_Warning_to_Error" : true,
  "Push_Tristates" : true,
  "READY" : true,
- "RECONFIG_N" : false,
+ "RECONFIG_N" : true,
  "Ram_RW_Check" : false,
  "Replicate_Resources" : false,
  "Report_Auto-Placed_Io_Information" : false,

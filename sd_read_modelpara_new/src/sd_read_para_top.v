@@ -21,9 +21,11 @@ module sd_read_para_top(
     output [1:0]          ddr_dm        ,
     inout  [1:0]          ddr_dqs_n     ,    
     inout  [15:0]         ddr_dq        ,  //ddr3 数据
-    inout  [1:0]          ddr_dqs       
+    inout  [1:0]          ddr_dqs       ,
+    output led
     );     
 
+assign led = 1'b0;
  
 wire         clk_50m_180deg;
 wire         clk_50m;

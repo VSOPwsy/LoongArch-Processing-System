@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
-    "InstLine" : 51,
+    "InstLine" : 53,
     "InstName" : "u_sd_ctrl_top",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_ctrl_top.v",
     "ModuleLine" : 1,
@@ -43,7 +43,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
-    "InstLine" : 77,
+    "InstLine" : 79,
     "InstName" : "u_sd_rpll",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
     "ModuleLine" : 10,
@@ -51,7 +51,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
-    "InstLine" : 85,
+    "InstLine" : 87,
     "InstName" : "u_ddr_rpll",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
     "ModuleLine" : 10,
@@ -59,7 +59,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
-    "InstLine" : 93,
+    "InstLine" : 95,
     "InstName" : "u_sd_read_model",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_model.v",
     "ModuleLine" : 1,
@@ -67,7 +67,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/sd_read_para_top.v",
-    "InstLine" : 109,
+    "InstLine" : 111,
     "InstName" : "u_ddr3_top",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.9.01_x64/IDE/bin/Documents/sd_read_modelpara_new/src/ddr3_top.v",
     "ModuleLine" : 1,
