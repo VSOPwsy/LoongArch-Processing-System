@@ -1,143 +1,143 @@
 [
  {
-  "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+  "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+  "InstLine" : 915,
+  "InstName" : "rd_fifo",
+  "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+  "ModuleLine" : 915,
+  "ModuleName" : "rd_fifo",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+    "InstLine" : 942,
+    "InstName" : "fifo_inst",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+    "ModuleLine" : 13,
+    "ModuleName" : "~fifo.rd_fifo"
+   }
+  ]
+ },
+ {
+  "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
   "InstLine" : 1,
   "InstName" : "sd_read_para_top",
-  "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+  "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
   "ModuleLine" : 1,
   "ModuleName" : "sd_read_para_top",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
     "InstLine" : 51,
     "InstName" : "u_sd_ctrl_top",
-    "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_ctrl_top.v",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_ctrl_top.v",
     "ModuleLine" : 1,
     "ModuleName" : "sd_ctrl_top",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_ctrl_top.v",
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_ctrl_top.v",
       "InstLine" : 64,
       "InstName" : "u_sd_init",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_init.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_init.v",
       "ModuleLine" : 1,
       "ModuleName" : "sd_init"
      },
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_ctrl_top.v",
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_ctrl_top.v",
       "InstLine" : 77,
       "InstName" : "u_sd_write",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_write.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_write.v",
       "ModuleLine" : 1,
       "ModuleName" : "sd_write"
      },
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_ctrl_top.v",
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_ctrl_top.v",
       "InstLine" : 94,
       "InstName" : "u_sd_read",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read.v",
       "ModuleLine" : 1,
       "ModuleName" : "sd_read"
      }
     ]
    },
    {
-    "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
     "InstLine" : 77,
     "InstName" : "u_sd_rpll",
-    "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
     "ModuleLine" : 10,
     "ModuleName" : "sd_rpll"
    },
    {
-    "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
     "InstLine" : 85,
     "InstName" : "u_ddr_rpll",
-    "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
     "ModuleLine" : 10,
     "ModuleName" : "ddr_rpll"
    },
    {
-    "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
     "InstLine" : 93,
     "InstName" : "u_sd_read_model",
-    "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_model.v",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_model.v",
     "ModuleLine" : 1,
     "ModuleName" : "sd_read_model"
    },
    {
-    "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+    "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
     "InstLine" : 109,
     "InstName" : "u_ddr3_top",
-    "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_top.v",
+    "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_top.v",
     "ModuleLine" : 1,
     "ModuleName" : "ddr3_top",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_top.v",
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_top.v",
       "InstLine" : 61,
       "InstName" : "u_ddr3_rw",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_rw.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_rw.v",
       "ModuleLine" : 1,
       "ModuleName" : "ddr3_rw"
      },
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_top.v",
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_top.v",
       "InstLine" : 91,
       "InstName" : "u_ddr3",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
       "ModuleLine" : 20430,
       "ModuleName" : "ddr3_memory_interface",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
+        "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
         "InstLine" : 20513,
         "InstName" : "gw3_top",
-        "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
+        "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
         "ModuleLine" : 10,
         "ModuleName" : "~GW_DDR3_PHY_MC.ddr3_memory_interface"
        }
       ]
      },
      {
-      "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_top.v",
-      "InstLine" : 136,
+      "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_top.v",
+      "InstLine" : 137,
       "InstName" : "u_ddr3_fifo_ctrl",
-      "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
+      "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
       "ModuleLine" : 2,
       "ModuleName" : "ddr3_fifo_ctrl",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
-        "InstLine" : 163,
-        "InstName" : "u_rd_fifo",
-        "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
-        "ModuleLine" : 915,
-        "ModuleName" : "rd_fifo",
-        "SubInsts" : [
-         {
-          "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
-          "InstLine" : 942,
-          "InstName" : "fifo_inst",
-          "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
-          "ModuleLine" : 13,
-          "ModuleName" : "~fifo.rd_fifo"
-         }
-        ]
-       },
-       {
-        "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
-        "InstLine" : 176,
+        "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
+        "InstLine" : 177,
         "InstName" : "u_wr_fifo",
-        "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
+        "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
         "ModuleLine" : 915,
         "ModuleName" : "wr_fifo",
         "SubInsts" : [
          {
-          "InstFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
+          "InstFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
           "InstLine" : 942,
           "InstName" : "fifo_inst",
-          "ModuleFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
+          "ModuleFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
           "ModuleLine" : 13,
           "ModuleName" : "~fifo.wr_fifo"
          }

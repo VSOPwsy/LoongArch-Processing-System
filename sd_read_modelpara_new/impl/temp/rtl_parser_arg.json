@@ -2,59 +2,59 @@
  "Device" : "GW2A-18C",
  "Files" : [
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_fifo_ctrl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_memory_interface/ddr3_memory_interface.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_rw.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_rw.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr3_top.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr3_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/ddr_rpll/ddr_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/rd_fifo/rd_fifo.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_ctrl_top.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_ctrl_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_init.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_init.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_model.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_model.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_read_para_top.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_read_para_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_rpll/sd_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/sd_write.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/sd_write.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
+   "Path" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/src/wr_fifo/wr_fifo.v",
    "Type" : "verilog"
   }
  ],
@@ -62,8 +62,8 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Users/YJQ/Desktop/sd_read_modelpara_new/impl/temp/rtl_parser.result",
- "Top" : "",
+ "ResultFile" : "D:/E/STUDY/competition/LoongArch-Processing-System/sd_read_modelpara_new/impl/temp/rtl_parser.result",
+ "Top" : "sd_read_para_top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

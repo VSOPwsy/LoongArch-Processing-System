@@ -1,9 +1,9 @@
--d C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg
+-d D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg
 -p GW2A-18C-PBGA256-8
 -pn GW2A-LV18PG256C8/I7
--cst C:\Users\YJQ\Desktop\sd_read_modelpara_new\src\sd_read_model_para_new.cst
--cfg C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\device.cfg
--sdc C:\Users\YJQ\Desktop\sd_read_modelpara_new\src\sd_read_model_para_new.sdc
+-cst D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\src\sd_read_model_para_new.cst
+-cfg D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\device.cfg
+-sdc D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\src\sd_read_model_para_new.sdc
 -gao_crc 0010100011010000
 -bit
 -tr

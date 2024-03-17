@@ -2,47 +2,48 @@
 module ddr3_fifo_ctrl(
     input                rst_n            ,  //复位信号
     input                wr_clk           ,  //wfifo时钟
-    input                rd_clk           ,  //rfifo时钟
+    //input                rd_clk           ,  //rfifo时钟
     input                ui_clk           ,  //用户时钟
     input                wr_en            ,  //数据有效使能信号
     input  [15:0]        wrdata           ,  //有效数据
     input  [127:0]       rfifo_din        ,  //用户读数据
-    input                rdata_req        ,  //请求像素点颜色数据输入 
-    input                rfifo_wren       ,  //从ddr3读出数据的有效使能
+    input                rdata_req        ,  //请求数据输入 
+    //input                rfifo_wren       ,  //从ddr3读出数据的有效使能
     input                wfifo_rden       ,  //wfifo读使能
     input                rd_load          ,  //输出源场信号
     input                wr_load          ,  //输入源场信号          
 
     output [127:0]       wfifo_dout       ,  //用户写数据
-    output [9:0]         rfifo_wcount     ,  //rfifo剩余数据计数
-    output [9:0]         wfifo_rcount     ,  //wfifo写进数据计数
-    output reg [15:0]    rddata              //读有效数据     	
+    //output [9:0]         rfifo_wcount     ,  //rfifo剩余数据计数
+    output [9:0]         wfifo_rcount       //wfifo写进数据计数
+    //output reg [15:0]    rddata              //读有效数据     	
     );
            
 //reg define
+
 reg  [127:0] wrdata_t          ;  //由16bit输入源数据移位拼接得到
 reg  [15:0]  rd_load_d         ;  //由输出源场信号移位拼接得到           
 reg  [3:0]   byte_cnt          ;  //写数据移位计数器
-reg  [127:0] data              ;  //rfifo输出数据打拍得到
+//reg  [127:0] data              ;  //rfifo输出数据打拍得到
 reg  [3:0]   i                 ;  //读数据移位计数器
 reg  [15:0]  wr_load_d         ;  //由输入源场信号移位拼接得到 
 reg          wr_load_d0        ;
 reg          rd_load_d0        ;
-reg          rdfifo_rst_h      ;  //rfifo复位信号，高有效
+//reg          rdfifo_rst_h      ;  //rfifo复位信号，高有效
 reg          wfifo_rst_h       ;  //wfifo复位信号，高有效
 reg          wfifo_wren        ;  //wfifo写使能信号
 
 //wire define 
-wire [127:0] rfifo_dout        ;  //rfifo输出数据    
+//wire [127:0] rfifo_dout        ;  //rfifo输出数据    
 wire [127:0] wfifo_din         ;  //wfifo写数据
-wire [15:0]  dataout[0:15]     ;  //定义输出数据的二维数组
-wire         rfifo_rden        ;  //rfifo的读使能
+//wire [15:0]  dataout[0:15]     ;  //定义输出数据的二维数组
+//wire         rfifo_rden        ;  //rfifo的读使能
 
 //*****************************************************
 //**                    main code
 //*****************************************************  
 
-//rfifo输出的数据存到二维数组
+/*rfifo输出的数据存到二维数组
 assign dataout[0] = rfifo_dout[127:112];
 assign dataout[1] = rfifo_dout[111:96];
 assign dataout[2] = rfifo_dout[95:80];
@@ -50,14 +51,14 @@ assign dataout[3] = rfifo_dout[79:64];
 assign dataout[4] = rfifo_dout[63:48];
 assign dataout[5] = rfifo_dout[47:32];
 assign dataout[6] = rfifo_dout[31:16];
-assign dataout[7] = rfifo_dout[15:0];
+assign dataout[7] = rfifo_dout[15:0];*/
 
 assign wfifo_din = wrdata_t ;
 
 //移位寄存器计满时，从rfifo读出一个数据
-assign rfifo_rden = (rdata_req && (i==7)) ? 1'b1  :  1'b0; 
+//assign rfifo_rden = (rdata_req && (i==7)) ? 1'b1  :  1'b0; 
 
-//16位数据转128位RGB565数据        
+//16位数据转128位数据        
 always @(posedge wr_clk or negedge rst_n) begin
     if(!rst_n) begin
         wrdata_t <= 0;
@@ -91,7 +92,7 @@ always @(posedge wr_clk or negedge rst_n) begin
         wfifo_wren <= 0;
  end   
 
-//对rfifo出来的128bit数据拆解成16个16bit数据
+/*对rfifo出来的128bit数据拆解成16个16bit数据
 always @(posedge rd_clk or negedge rst_n) begin
     if(!rst_n) begin
         rddata <= 16'b0;
@@ -111,7 +112,7 @@ always @(posedge rd_clk or negedge rst_n) begin
         rddata <= rddata;
         i <=0;
     end
-end  
+end */ 
 
 always @(posedge ui_clk or negedge rst_n) begin
     if(!rst_n)
@@ -128,7 +129,7 @@ always @(posedge ui_clk or negedge rst_n) begin
         rd_load_d <= {rd_load_d[14:0],rd_load_d0};       
 end 
 
-//产生一段复位电平，满足fifo复位时序  
+/*产生一段复位电平，满足fifo复位时序  
 always @(posedge ui_clk or negedge rst_n) begin
     if(!rst_n)
         rdfifo_rst_h <= 1'b0;
@@ -136,7 +137,7 @@ always @(posedge ui_clk or negedge rst_n) begin
         rdfifo_rst_h <= 1'b1;   
     else
         rdfifo_rst_h <= 1'b0;              
-end  
+end*/  
 
 //对输入源场信号进行移位寄存
  always @(posedge wr_clk or negedge rst_n) begin
@@ -160,7 +161,7 @@ end
       wfifo_rst_h <= 1'b0;                      
 end   
 
-rd_fifo u_rd_fifo(
+/*rd_fifo u_rd_fifo(
 		.Data(rfifo_din), //input [127:0] Data
 		.Reset(~rst_n|rdfifo_rst_h), //input Reset
 		.WrClk(ui_clk), //input WrClk
@@ -172,7 +173,7 @@ rd_fifo u_rd_fifo(
 		.Q(rfifo_dout), //output [127:0] Q
 		.Empty(), //output Empty
 		.Full() //output Full
-	);
+	);*/
 wr_fifo u_wr_fifo(
 		.Data(wfifo_din), //input [127:0] Data
 		.Reset(~rst_n|wfifo_rst_h), //input Reset

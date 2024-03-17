@@ -1,7 +1,7 @@
-Reading netlist file: "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg"
-Parsing netlist file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg" completed
+Reading netlist file: "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg"
+Parsing netlist file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\YJQ\Desktop\sd_read_modelpara_new\src\sd_read_model_para_new.cst"
+Reading constraint file: "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\src\sd_read_model_para_new.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,10 +20,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.power.html" completed
-Generate file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.pin.html" completed
-Generate file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.rpt.html" completed
-Generate file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.rpt.txt" completed
-Generate file "C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.tr.html" completed
-Sat Mar 16 22:32:05 2024
+Generate file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.power.html" completed
+Generate file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.pin.html" completed
+Generate file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.rpt.html" completed
+Generate file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.rpt.txt" completed
+Generate file "D:\E\STUDY\competition\LoongArch-Processing-System\sd_read_modelpara_new\impl\pnr\sd_read_modelpara_new.tr.html" completed
+Sun Mar 17 21:40:52 2024
 

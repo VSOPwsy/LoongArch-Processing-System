@@ -130,21 +130,21 @@ ddr3_top u_ddr3_top(
 
 
     .wr_clk              (sys_clk)              ,
-    .rd_clk              (sys_clk)              ,
+    //.rd_clk              (sys_clk)              ,
     .wr_en               (ddr_wr_en)            ,
     .wrdata              (ddr_wr_data)              ,
     .rd_req              (1'b0)            ,  //读fifo读使能
-    .app_addr_rd_min     (28'd0)                ,  //读ddr3的起始地址 
-    .app_addr_rd_max     (ddr_max_addr)  ,  //读ddr3的结束地址 
-    .rd_bust_len         (wr_bust_len)         ,  //从ddr3中读数据时的突发长度  
+    //.app_addr_rd_min     (28'd0)                ,  //读ddr3的起始地址 
+    //.app_addr_rd_max     (ddr_max_addr)  ,  //读ddr3的结束地址 
+   // .rd_bust_len         (wr_bust_len)         ,  //从ddr3中读数据时的突发长度  
     .app_addr_wr_min     (28'd0)                ,  //写ddr3的起始地址 
     .app_addr_wr_max     (ddr_max_addr)  ,  //写ddr3的结束地址
     .wr_bust_len         (wr_bust_len)         ,  //从ddr3中写数据时的突发长度  
-    .ddr3_read_valid     (1'b1)                 ,
+    //s.ddr3_read_valid     (1'b1)                 ,
     .rd_load             (1'b1)             ,
     .wr_load             (1'b1)     ,
-    .ddr3_pingpang_en    (1'b1)                 ,
-    .rddata              ( )  
+    .ddr3_pingpang_en    (1'b1)                
+    //.rddata              ( )  
     );      
 
 endmodule
