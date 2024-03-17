@@ -139,7 +139,7 @@ module axi2apb_bridge (
 
 	reg [2:0] state;
 	reg [31:0] rdata;
-	reg vaID_WIDTH;
+	reg valid;
 
 	always@(posedge clk or negedge rst_n)
 		if(~rst_n)
@@ -147,15 +147,15 @@ module axi2apb_bridge (
 			reg_psel <= 1'b0;
 			reg_enable <= 1'b0;
 			state <= 3'h0;
-			vaID_WIDTH <= 1'b0;
+			valid <= 1'b0;
 		end
 		else 
 		begin
 			case (state)
 				3'h0:    if(w_enter|ar_enter) begin reg_psel <= 1'b1; state <= 3'h1; end
 				3'h1:    begin reg_enable <= 1'b1; state <= 3'h2; end
-				3'h2:    if(reg_ready_1) begin reg_psel <= 1'b0; reg_enable <= 1'b0; state <= 3'h3; rdata <= reg_datao; vaID_WIDTH <= 1'b1; end
-				3'h3:    if(b_retire|r_retire) begin state <= 3'h0; vaID_WIDTH <= 1'b0; end
+				3'h2:    if(reg_ready_1) begin reg_psel <= 1'b0; reg_enable <= 1'b0; state <= 3'h3; rdata <= reg_datao; valid <= 1'b1; end
+				3'h3:    if(b_retire|r_retire) begin state <= 3'h0; valid <= 1'b0; end
 				default: begin reg_psel <= 1'b0; reg_enable <= 1'b0; state <= 3'h0; end
 			endcase
 		end // else(~rst_n)
@@ -163,11 +163,11 @@ module axi2apb_bridge (
 
 
 	assign axi_s_rlast = 1'b1;
-	assign axi_s_rvalid = ~reg_rw & vaID_WIDTH;
+	assign axi_s_rvalid = ~reg_rw & valid;
 	assign axi_s_rid   = id;
 	assign axi_s_rresp = 2'h0;
 	assign axi_s_bresp = 2'h0;
-	assign axi_s_bvalid = reg_rw & vaID_WIDTH;
+	assign axi_s_bvalid = reg_rw & valid;
 	assign axi_s_bid   = id;
 
 	assign axi_s_rdata = ( addr[1:0] == 2'h0) ? {rdata            } :

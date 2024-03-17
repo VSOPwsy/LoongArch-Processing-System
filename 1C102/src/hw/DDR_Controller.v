@@ -210,11 +210,19 @@ module DDR_Controller #
         .ram_rd_resp_ready(ram_rd_resp_ready)
     );
 
+
     
     wire app_cmd_ready;
     reg [2:0] app_cmd = 0;
     reg app_cmd_en = 0;
     reg [28:0] app_addr = 0; 
+
+    wire ui_clk;
+
+    wire [127:0] app_rd_data;
+    wire app_rd_data_valid;
+    wire app_rd_data_end;
+
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk),
@@ -357,7 +365,7 @@ module DDR_Controller #
             state_next = IDLE;
         end
         else begin
-            case (state_next)
+            case (state_current)
                 IDLE: begin
                     if (~pipe_empty) begin
                         state_next = pipe_out[STRB_WIDTH + DATA_WIDTH + ADDR_WIDTH + ID_WIDTH + 1 +: 1] ? READ : WRITE;

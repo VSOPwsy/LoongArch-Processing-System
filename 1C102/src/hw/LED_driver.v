@@ -1,11 +1,7 @@
 `timescale 1 ns / 1 ps
 `include "config.v"
 
-module LED_driver #
-(
-	parameter REG_NUM = 4
-)
-(
+module LED_driver (
 	input wire                      	clk,
 	input wire                      	resetn,
 
@@ -16,11 +12,15 @@ module LED_driver #
 	input wire                      	apb_enab,
 	input wire  [`APB_DATA_WIDTH -1 :0] apb_datai,
 	output wire [`APB_DATA_WIDTH -1 :0] apb_datao,
-	output wire                      	apb_ack
+	output wire                      	apb_ack,
+	output wire [`APB_DATA_WIDTH -1 :0] led
 );
 
+    wire [`APB_DATA_WIDTH-1:0] R0;
+
 	apb_register_if # (
-		.REG_NUM(REG_NUM)
+		.REG_NUM(2),
+		.LOG2_REG_NUM(1)
 	) apb_if (
 		.clk(clk),
 		.resetn(resetn),
@@ -34,10 +34,8 @@ module LED_driver #
 		.apb_datao(apb_datao),
 		.apb_ack(apb_ack),
 
-		.R0(R0),
-		.R1(R1),
-		.R2(R2),
-		.R3(R3)
+		.R0(R0)
 	);
 
+	assign led = R0[3:0];
 endmodule

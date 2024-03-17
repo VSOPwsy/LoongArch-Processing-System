@@ -18,25 +18,28 @@
 //AXI0   connect APBbrige 
 //AXI0   this address is the remaining address on other ways
 
+`define APB_ADDR_BASE       32'hbfee0000
+`define APB_ADDR_LEN        32'h00000fff
+
 `define DDR_ADDR_BASE       32'h00000000
-`define DDR_ADDR_LEN        32'h0fffffff
+`define DDR_ADDR_LEN        32'h00000fff
 
-// //AXI1
-`define AXI_SLV1_ADDR_BASE   (`DDR_ADDR_BASE)     //AXI1 base address   
-`define AXI_SLV1_ADDR_LEN    (`DDR_ADDR_LEN )     //AXI1 length
+// //AXI0
+`define AXI_SLV0_ADDR_BASE   (`APB_ADDR_BASE)
+`define AXI_SLV0_ADDR_LEN    (`APB_ADDR_LEN )
 
+//AXI1
+`define AXI_SLV1_ADDR_BASE   32'hffffffff
+`define AXI_SLV1_ADDR_LEN    32'h00000000
 //AXI2
-`define AXI_SLV2_ADDR_BASE   32'hffffffff     //AXI2 base address   
-`define AXI_SLV2_ADDR_LEN    32'h00000000     //AXI2 length
+`define AXI_SLV2_ADDR_BASE   32'hffffffff
+`define AXI_SLV2_ADDR_LEN    32'h00000000
 //AXI3
-`define AXI_SLV3_ADDR_BASE   32'hffffffff     //AXI3 base address   
-`define AXI_SLV3_ADDR_LEN    32'h00000000     //AXI3 length
+`define AXI_SLV3_ADDR_BASE   32'hffffffff
+`define AXI_SLV3_ADDR_LEN    32'h00000000
 //AXI4
-`define AXI_SLV4_ADDR_BASE   32'hffffffff     //AXI4 base address   
-`define AXI_SLV4_ADDR_LEN    32'h00000000     //AXI4 length
-//AXI5
-`define AXI_SLV5_ADDR_BASE   32'hffffffff     //AXI5 base address   
-`define AXI_SLV5_ADDR_LEN    32'h00000000     //AXI5 length
+`define AXI_SLV4_ADDR_BASE   32'hffffffff
+`define AXI_SLV4_ADDR_LEN    32'h00000000
 
 
 `define ID_WIDTH 4
@@ -63,8 +66,8 @@
 *   APB interface      9-way APB
 ******************/
 //APB0
-`define APB_SLV0_ADDR_BASE   32'hbfeb0000     //APB0 base address    
-`define APB_SLV0_ADDR_LEN    32'h0000ffff     //APB0 length
+`define APB_SLV0_ADDR_BASE   32'hbfee0000     //APB0 base address    
+`define APB_SLV0_ADDR_LEN    32'h00000fff     //APB0 length
 
 //APB1
 `define APB_SLV1_ADDR_BASE   32'hffffffff     //APB1 base address    

@@ -2,220 +2,17 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="clk_400M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
             <Signal>clk_8M</Signal>
             <Signal>locked</Signal>
             <Signal>sys_resetn</Signal>
-            <Bus name="inst_sram_rdata[31:0]">
-                <Signal>inst_sram_rdata[31]</Signal>
-                <Signal>inst_sram_rdata[30]</Signal>
-                <Signal>inst_sram_rdata[29]</Signal>
-                <Signal>inst_sram_rdata[28]</Signal>
-                <Signal>inst_sram_rdata[27]</Signal>
-                <Signal>inst_sram_rdata[26]</Signal>
-                <Signal>inst_sram_rdata[25]</Signal>
-                <Signal>inst_sram_rdata[24]</Signal>
-                <Signal>inst_sram_rdata[23]</Signal>
-                <Signal>inst_sram_rdata[22]</Signal>
-                <Signal>inst_sram_rdata[21]</Signal>
-                <Signal>inst_sram_rdata[20]</Signal>
-                <Signal>inst_sram_rdata[19]</Signal>
-                <Signal>inst_sram_rdata[18]</Signal>
-                <Signal>inst_sram_rdata[17]</Signal>
-                <Signal>inst_sram_rdata[16]</Signal>
-                <Signal>inst_sram_rdata[15]</Signal>
-                <Signal>inst_sram_rdata[14]</Signal>
-                <Signal>inst_sram_rdata[13]</Signal>
-                <Signal>inst_sram_rdata[12]</Signal>
-                <Signal>inst_sram_rdata[11]</Signal>
-                <Signal>inst_sram_rdata[10]</Signal>
-                <Signal>inst_sram_rdata[9]</Signal>
-                <Signal>inst_sram_rdata[8]</Signal>
-                <Signal>inst_sram_rdata[7]</Signal>
-                <Signal>inst_sram_rdata[6]</Signal>
-                <Signal>inst_sram_rdata[5]</Signal>
-                <Signal>inst_sram_rdata[4]</Signal>
-                <Signal>inst_sram_rdata[3]</Signal>
-                <Signal>inst_sram_rdata[2]</Signal>
-                <Signal>inst_sram_rdata[1]</Signal>
-                <Signal>inst_sram_rdata[0]</Signal>
-            </Bus>
-            <Bus name="inst_sram_addr[31:0]">
-                <Signal>inst_sram_addr[31]</Signal>
-                <Signal>inst_sram_addr[30]</Signal>
-                <Signal>inst_sram_addr[29]</Signal>
-                <Signal>inst_sram_addr[28]</Signal>
-                <Signal>inst_sram_addr[27]</Signal>
-                <Signal>inst_sram_addr[26]</Signal>
-                <Signal>inst_sram_addr[25]</Signal>
-                <Signal>inst_sram_addr[24]</Signal>
-                <Signal>inst_sram_addr[23]</Signal>
-                <Signal>inst_sram_addr[22]</Signal>
-                <Signal>inst_sram_addr[21]</Signal>
-                <Signal>inst_sram_addr[20]</Signal>
-                <Signal>inst_sram_addr[19]</Signal>
-                <Signal>inst_sram_addr[18]</Signal>
-                <Signal>inst_sram_addr[17]</Signal>
-                <Signal>inst_sram_addr[16]</Signal>
-                <Signal>inst_sram_addr[15]</Signal>
-                <Signal>inst_sram_addr[14]</Signal>
-                <Signal>inst_sram_addr[13]</Signal>
-                <Signal>inst_sram_addr[12]</Signal>
-                <Signal>inst_sram_addr[11]</Signal>
-                <Signal>inst_sram_addr[10]</Signal>
-                <Signal>inst_sram_addr[9]</Signal>
-                <Signal>inst_sram_addr[8]</Signal>
-                <Signal>inst_sram_addr[7]</Signal>
-                <Signal>inst_sram_addr[6]</Signal>
-                <Signal>inst_sram_addr[5]</Signal>
-                <Signal>inst_sram_addr[4]</Signal>
-                <Signal>inst_sram_addr[3]</Signal>
-                <Signal>inst_sram_addr[2]</Signal>
-                <Signal>inst_sram_addr[1]</Signal>
-                <Signal>inst_sram_addr[0]</Signal>
-            </Bus>
-            <Signal>inst_sram_en</Signal>
-            <Signal>inst_sram_fetch</Signal>
-            <Bus name="cpu_awid[3:0]">
-                <Signal>cpu_awid[3]</Signal>
-                <Signal>cpu_awid[2]</Signal>
-                <Signal>cpu_awid[1]</Signal>
-                <Signal>cpu_awid[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awaddr[31:0]">
-                <Signal>cpu_awaddr[31]</Signal>
-                <Signal>cpu_awaddr[30]</Signal>
-                <Signal>cpu_awaddr[29]</Signal>
-                <Signal>cpu_awaddr[28]</Signal>
-                <Signal>cpu_awaddr[27]</Signal>
-                <Signal>cpu_awaddr[26]</Signal>
-                <Signal>cpu_awaddr[25]</Signal>
-                <Signal>cpu_awaddr[24]</Signal>
-                <Signal>cpu_awaddr[23]</Signal>
-                <Signal>cpu_awaddr[22]</Signal>
-                <Signal>cpu_awaddr[21]</Signal>
-                <Signal>cpu_awaddr[20]</Signal>
-                <Signal>cpu_awaddr[19]</Signal>
-                <Signal>cpu_awaddr[18]</Signal>
-                <Signal>cpu_awaddr[17]</Signal>
-                <Signal>cpu_awaddr[16]</Signal>
-                <Signal>cpu_awaddr[15]</Signal>
-                <Signal>cpu_awaddr[14]</Signal>
-                <Signal>cpu_awaddr[13]</Signal>
-                <Signal>cpu_awaddr[12]</Signal>
-                <Signal>cpu_awaddr[11]</Signal>
-                <Signal>cpu_awaddr[10]</Signal>
-                <Signal>cpu_awaddr[9]</Signal>
-                <Signal>cpu_awaddr[8]</Signal>
-                <Signal>cpu_awaddr[7]</Signal>
-                <Signal>cpu_awaddr[6]</Signal>
-                <Signal>cpu_awaddr[5]</Signal>
-                <Signal>cpu_awaddr[4]</Signal>
-                <Signal>cpu_awaddr[3]</Signal>
-                <Signal>cpu_awaddr[2]</Signal>
-                <Signal>cpu_awaddr[1]</Signal>
-                <Signal>cpu_awaddr[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awlen[3:0]">
-                <Signal>cpu_awlen[3]</Signal>
-                <Signal>cpu_awlen[2]</Signal>
-                <Signal>cpu_awlen[1]</Signal>
-                <Signal>cpu_awlen[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awsize[2:0]">
-                <Signal>cpu_awsize[2]</Signal>
-                <Signal>cpu_awsize[1]</Signal>
-                <Signal>cpu_awsize[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awburst[1:0]">
-                <Signal>cpu_awburst[1]</Signal>
-                <Signal>cpu_awburst[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awlock[1:0]">
-                <Signal>cpu_awlock[1]</Signal>
-                <Signal>cpu_awlock[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awcache[3:0]">
-                <Signal>cpu_awcache[3]</Signal>
-                <Signal>cpu_awcache[2]</Signal>
-                <Signal>cpu_awcache[1]</Signal>
-                <Signal>cpu_awcache[0]</Signal>
-            </Bus>
-            <Bus name="cpu_awprot[2:0]">
-                <Signal>cpu_awprot[2]</Signal>
-                <Signal>cpu_awprot[1]</Signal>
-                <Signal>cpu_awprot[0]</Signal>
-            </Bus>
-            <Bus name="cpu_wid[3:0]">
-                <Signal>cpu_wid[3]</Signal>
-                <Signal>cpu_wid[2]</Signal>
-                <Signal>cpu_wid[1]</Signal>
-                <Signal>cpu_wid[0]</Signal>
-            </Bus>
-            <Bus name="cpu_wdata[31:0]">
-                <Signal>cpu_wdata[31]</Signal>
-                <Signal>cpu_wdata[30]</Signal>
-                <Signal>cpu_wdata[29]</Signal>
-                <Signal>cpu_wdata[28]</Signal>
-                <Signal>cpu_wdata[27]</Signal>
-                <Signal>cpu_wdata[26]</Signal>
-                <Signal>cpu_wdata[25]</Signal>
-                <Signal>cpu_wdata[24]</Signal>
-                <Signal>cpu_wdata[23]</Signal>
-                <Signal>cpu_wdata[22]</Signal>
-                <Signal>cpu_wdata[21]</Signal>
-                <Signal>cpu_wdata[20]</Signal>
-                <Signal>cpu_wdata[19]</Signal>
-                <Signal>cpu_wdata[18]</Signal>
-                <Signal>cpu_wdata[17]</Signal>
-                <Signal>cpu_wdata[16]</Signal>
-                <Signal>cpu_wdata[15]</Signal>
-                <Signal>cpu_wdata[14]</Signal>
-                <Signal>cpu_wdata[13]</Signal>
-                <Signal>cpu_wdata[12]</Signal>
-                <Signal>cpu_wdata[11]</Signal>
-                <Signal>cpu_wdata[10]</Signal>
-                <Signal>cpu_wdata[9]</Signal>
-                <Signal>cpu_wdata[8]</Signal>
-                <Signal>cpu_wdata[7]</Signal>
-                <Signal>cpu_wdata[6]</Signal>
-                <Signal>cpu_wdata[5]</Signal>
-                <Signal>cpu_wdata[4]</Signal>
-                <Signal>cpu_wdata[3]</Signal>
-                <Signal>cpu_wdata[2]</Signal>
-                <Signal>cpu_wdata[1]</Signal>
-                <Signal>cpu_wdata[0]</Signal>
-            </Bus>
-            <Bus name="cpu_wstrb[3:0]">
-                <Signal>cpu_wstrb[3]</Signal>
-                <Signal>cpu_wstrb[2]</Signal>
-                <Signal>cpu_wstrb[1]</Signal>
-                <Signal>cpu_wstrb[0]</Signal>
-            </Bus>
-            <Bus name="cpu_bid[3:0]">
-                <Signal>cpu_bid[3]</Signal>
-                <Signal>cpu_bid[2]</Signal>
-                <Signal>cpu_bid[1]</Signal>
-                <Signal>cpu_bid[0]</Signal>
-            </Bus>
-            <Bus name="cpu_bresp[1:0]">
-                <Signal>cpu_bresp[1]</Signal>
-                <Signal>cpu_bresp[0]</Signal>
-            </Bus>
-            <Signal>cpu_awvalid</Signal>
-            <Signal>cpu_awready</Signal>
-            <Signal>cpu_wlast</Signal>
-            <Signal>cpu_wvalid</Signal>
-            <Signal>cpu_wready</Signal>
-            <Signal>cpu_bvalid</Signal>
-            <Signal>cpu_bready</Signal>
-            <Signal>m1_axil_awvalid</Signal>
+            <Signal>clk_400M</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>m1_axil_awvalid</Signal>
+                    <Signal>sys_resetn</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -235,7 +32,7 @@
             <Trigger index="15"/>
         </Triggers>
         <MatchUnits>
-            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="3" counter="2" countinuous="0" func="1" value0="0" value1="0" trigger="0"/>
+            <MatchUnit index="0" enabled="1" match_type="5" counter_enable="0" counter_width="3" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
             <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00011100000000000000000000000100" value1="00000000000000000000000000000000" trigger="1"/>
             <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00011100000000000000000000000100" value1="00000000000000000000000000000000" trigger="1"/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -252,9 +49,9 @@
             <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
-        <Expressions type="Static">
+        <Expressions type="Dynamic" ex_implementation="0">
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0000011111010111</GAO_ID>
+    <GAO_ID>0111010100111101</GAO_ID>
 </GAO_CONFIG>

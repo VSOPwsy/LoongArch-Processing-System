@@ -28,7 +28,7 @@ module TOP (
 
     wire locked0, locked1, locked2;
     wire locked;
-    wire clk_8M, clk_50M, clk_100M;
+    wire clk_8M, clk_50M, clk_100M, clk_400M;
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
@@ -661,7 +661,9 @@ module TOP (
 		.apb_enab			(apb0_enab				),
 		.apb_datai			(apb0_datai				),
 		.apb_datao			(apb0_datao				),
-		.apb_ack			(apb0_ack				)
+		.apb_ack			(apb0_ack				),
+
+		.led				(led					)
 	);
 
 

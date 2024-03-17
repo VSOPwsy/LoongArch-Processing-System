@@ -1,7 +1,8 @@
 `include "config.v"
 
 module apb_register_if # (
-    parameter REG_NUM = 8
+    parameter REG_NUM = 8,
+    parameter LOG2_REG_NUM = 3
 )
 (
     input                      clk,
