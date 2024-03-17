@@ -1,4 +1,7 @@
-<img width="1172" alt="6F0206BC94AFE4A88D267C98B7F8D4F6" src="https://github.com/VSOPwsy/LoongArch-Processing-System/assets/138192626/1c81e9f2-75f8-4e86-a788-60fbd2bf2cca">
 
+![IMG_3845(20240317-214432)](https://github.com/VSOPwsy/LoongArch-Processing-System/assets/138192626/91dc9c22-825d-4699-99c0-f142bdca82b1)
 
+Pay attention: 
+modify MODEL_ADDR_START & MODEL_HEAD_NUM in sd_read_model.v after copying STORIES.bin 
+modify ddr_max_addr & sd_sec_num in sd_read_para_top.v after culculating
 
