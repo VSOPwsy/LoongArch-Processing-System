@@ -14,10 +14,8 @@ module sd_read_model(
     output  reg  [15:0]  ddr_wr_data      //DDR写数据
 );
 
-
-
 parameter MODEL_ADDR_START = 32'd67072; //模型文件起始扇区地址，拷贝sd卡后看
-parameter MODEL_HEAD_NUM = 6'd54; //如果模型文件有头文件，修改此值跳过不读
+parameter MODEL_HEAD_NUM = 6'd0; //如果模型文件有头文件，修改此值跳过不读
 
 reg                 rd_busy_d0       ;
 reg                 rd_busy_d1       ;  

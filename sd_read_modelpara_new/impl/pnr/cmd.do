@@ -1,10 +1,10 @@
--d C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg
+-d C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg
 -p GW2A-18C-PBGA256-8
 -pn GW2A-LV18PG256C8/I7
--cst C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model_para_new.cst
--cfg C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\pnr\device.cfg
--sdc C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model_para_new.sdc
--gao_crc 1100110101110110
+-cst C:\Users\YJQ\Desktop\sd_read_modelpara_new\src\sd_read_model_para_new.cst
+-cfg C:\Users\YJQ\Desktop\sd_read_modelpara_new\impl\pnr\device.cfg
+-sdc C:\Users\YJQ\Desktop\sd_read_modelpara_new\src\sd_read_model_para_new.sdc
+-gao_crc 0010100011010000
 -bit
 -tr
 -ph

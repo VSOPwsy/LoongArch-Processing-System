@@ -9,14 +9,13 @@ version=3.0
 [Config]
 ALEMPTY=0
 ALFULL=0
-ALFULL_SET=1
 COUNT_R=true
 COUNT_W=true
 DEPTH_R=9
 DEPTH_W=9
 ECC=false
 EN_ALEMPTY=false
-EN_ALFULL=true
+EN_ALFULL=false
 FWFT=true
 IMPL=0
 IO_INSERTION=false

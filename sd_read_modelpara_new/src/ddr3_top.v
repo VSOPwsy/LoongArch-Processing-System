@@ -38,6 +38,7 @@ module ddr3_top(
     );                
                       
 //wire define  
+wire           ddr_rst;
 wire           app_rdy              ;
 wire [2:0]     app_cmd              ;
 wire           app_en               ;

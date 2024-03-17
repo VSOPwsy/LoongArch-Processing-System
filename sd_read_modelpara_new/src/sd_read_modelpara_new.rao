@@ -2,10 +2,36 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="memory_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="2" module_name="sd_read_para_top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="sys_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="sd_read_para_top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">sys_clk</Signal>
-            <Signal capture_enable="true">memory_clk</Signal>
+            <Signal capture_enable="true">sys_init_done</Signal>
+            <Signal capture_enable="true">sd_miso</Signal>
+            <Signal capture_enable="true">sd_cs</Signal>
+            <Signal capture_enable="true">sd_mosi</Signal>
+            <Signal capture_enable="true">sys_rst_n</Signal>
+            <Signal capture_enable="true">ddr_reset_n</Signal>
+            <Signal capture_enable="true">ddr_wr_en</Signal>
+            <Signal capture_enable="true">sd_rd_busy</Signal>
+            <Signal capture_enable="true">sd_rd_val_en</Signal>
+            <Signal capture_enable="true">sd_rd_start_en</Signal>
+            <Bus capture_enable="true" name="sd_rd_val_data[15:0]">
+                <Signal>sd_rd_val_data[15]</Signal>
+                <Signal>sd_rd_val_data[14]</Signal>
+                <Signal>sd_rd_val_data[13]</Signal>
+                <Signal>sd_rd_val_data[12]</Signal>
+                <Signal>sd_rd_val_data[11]</Signal>
+                <Signal>sd_rd_val_data[10]</Signal>
+                <Signal>sd_rd_val_data[9]</Signal>
+                <Signal>sd_rd_val_data[8]</Signal>
+                <Signal>sd_rd_val_data[7]</Signal>
+                <Signal>sd_rd_val_data[6]</Signal>
+                <Signal>sd_rd_val_data[5]</Signal>
+                <Signal>sd_rd_val_data[4]</Signal>
+                <Signal>sd_rd_val_data[3]</Signal>
+                <Signal>sd_rd_val_data[2]</Signal>
+                <Signal>sd_rd_val_data[1]</Signal>
+                <Signal>sd_rd_val_data[0]</Signal>
+            </Bus>
             <Bus capture_enable="true" name="ddr_wr_data[15:0]">
                 <Signal>ddr_wr_data[15]</Signal>
                 <Signal>ddr_wr_data[14]</Signal>
@@ -24,31 +50,194 @@
                 <Signal>ddr_wr_data[1]</Signal>
                 <Signal>ddr_wr_data[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">init_calib_complete</Signal>
-            <Signal capture_enable="true">sys_init_done</Signal>
-            <Signal capture_enable="true">sd_init_done</Signal>
-            <Signal capture_enable="true">sd_miso</Signal>
-            <Signal capture_enable="true">sd_cs</Signal>
-            <Signal capture_enable="true">sd_mosi</Signal>
+            <Bus capture_enable="true" name="u_ddr3_top/app_wdf_data[127:0]">
+                <Signal>u_ddr3_top/app_wdf_data[127]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[126]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[125]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[124]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[123]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[122]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[121]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[120]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[119]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[118]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[117]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[116]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[115]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[114]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[113]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[112]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[111]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[110]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[109]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[108]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[107]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[106]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[105]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[104]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[103]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[102]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[101]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[100]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[99]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[98]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[97]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[96]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[95]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[94]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[93]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[92]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[91]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[90]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[89]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[88]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[87]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[86]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[85]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[84]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[83]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[82]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[81]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[80]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[79]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[78]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[77]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[76]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[75]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[74]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[73]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[72]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[71]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[70]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[69]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[68]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[67]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[66]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[65]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[64]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[63]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[62]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[61]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[60]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[59]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[58]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[57]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[56]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[55]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[54]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[53]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[52]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[51]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[50]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[49]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[48]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[47]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[46]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[45]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[44]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[43]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[42]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[41]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[40]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[39]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[38]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[37]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[36]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[35]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[34]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[33]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[32]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[31]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[30]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[29]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[28]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[27]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[26]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[25]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[24]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[23]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[22]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[21]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[20]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[19]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[18]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[17]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[16]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[15]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[14]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[13]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[12]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[11]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[10]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[9]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[8]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[7]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[6]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[5]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[4]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[3]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[2]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[1]</Signal>
+                <Signal>u_ddr3_top/app_wdf_data[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="u_ddr3_top/app_addr[28:0]">
+                <Signal>u_ddr3_top/app_addr[28]</Signal>
+                <Signal>u_ddr3_top/app_addr[27]</Signal>
+                <Signal>u_ddr3_top/app_addr[26]</Signal>
+                <Signal>u_ddr3_top/app_addr[25]</Signal>
+                <Signal>u_ddr3_top/app_addr[24]</Signal>
+                <Signal>u_ddr3_top/app_addr[23]</Signal>
+                <Signal>u_ddr3_top/app_addr[22]</Signal>
+                <Signal>u_ddr3_top/app_addr[21]</Signal>
+                <Signal>u_ddr3_top/app_addr[20]</Signal>
+                <Signal>u_ddr3_top/app_addr[19]</Signal>
+                <Signal>u_ddr3_top/app_addr[18]</Signal>
+                <Signal>u_ddr3_top/app_addr[17]</Signal>
+                <Signal>u_ddr3_top/app_addr[16]</Signal>
+                <Signal>u_ddr3_top/app_addr[15]</Signal>
+                <Signal>u_ddr3_top/app_addr[14]</Signal>
+                <Signal>u_ddr3_top/app_addr[13]</Signal>
+                <Signal>u_ddr3_top/app_addr[12]</Signal>
+                <Signal>u_ddr3_top/app_addr[11]</Signal>
+                <Signal>u_ddr3_top/app_addr[10]</Signal>
+                <Signal>u_ddr3_top/app_addr[9]</Signal>
+                <Signal>u_ddr3_top/app_addr[8]</Signal>
+                <Signal>u_ddr3_top/app_addr[7]</Signal>
+                <Signal>u_ddr3_top/app_addr[6]</Signal>
+                <Signal>u_ddr3_top/app_addr[5]</Signal>
+                <Signal>u_ddr3_top/app_addr[4]</Signal>
+                <Signal>u_ddr3_top/app_addr[3]</Signal>
+                <Signal>u_ddr3_top/app_addr[2]</Signal>
+                <Signal>u_ddr3_top/app_addr[1]</Signal>
+                <Signal>u_ddr3_top/app_addr[0]</Signal>
+            </Bus>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>led</Signal>
+                    <Signal>sd_mosi</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1">
                 <SignalList>
-                    <Signal>sys_clk</Signal>
+                    <Signal>init_calib_complete</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="2">
                 <SignalList>
-                    <Signal>led</Signal>
+                    <Signal>sys_init_done</Signal>
                 </SignalList>
             </Trigger>
-            <Trigger index="3"/>
-            <Trigger index="4"/>
+            <Trigger index="3">
+                <SignalList>
+                    <Signal>sd_rd_val_en</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="4">
+                <SignalList>
+                    <Signal>ddr_wr_en</Signal>
+                </SignalList>
+            </Trigger>
             <Trigger index="5"/>
             <Trigger index="6"/>
             <Trigger index="7"/>
@@ -62,10 +251,10 @@
             <Trigger index="15"/>
         </Triggers>
         <MatchUnits>
-            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="0" value1="0" trigger="2"/>
-            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="1"/>
-            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="2"/>
-            <MatchUnit index="3" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="0" value1="0" trigger="0"/>
+            <MatchUnit index="0" enabled="0" match_type="5" counter_enable="1" counter_width="2" counter="4" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
+            <MatchUnit index="2" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="2"/>
+            <MatchUnit index="3" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="4"/>
             <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -80,9 +269,8 @@
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
         <Expressions type="Dynamic" ex_implementation="0">
-            <Expression>M0</Expression>
             <Expression>M3</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0101000000101111</GAO_ID>
+    <GAO_ID>0010100011010000</GAO_ID>
 </GAO_CONFIG>

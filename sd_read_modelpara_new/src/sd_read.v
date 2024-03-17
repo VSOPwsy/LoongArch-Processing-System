@@ -101,7 +101,7 @@ always @(posedge clk_ref_180deg or negedge rst_n) begin
         rx_en_t <= 1'b0; 
         rx_finish_en <= 1'b0;
         //数据头0xfe 8'b1111_1110，所以检测0为起始位
-        if(rd_data_flag && sd_miso == 1'b0 && rx_flag == 1'b0)    
+        if(rd_data_flag && sd_miso == 1'b0 && rx_flag == 1'b0)      
             rx_flag <= 1'b1;   
         else if(rx_flag) begin
             rx_bit_cnt <= rx_bit_cnt + 4'd1;

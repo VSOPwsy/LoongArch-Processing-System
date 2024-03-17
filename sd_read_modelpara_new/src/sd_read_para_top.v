@@ -21,11 +21,9 @@ module sd_read_para_top(
     output [1:0]          ddr_dm        ,
     inout  [1:0]          ddr_dqs_n     ,    
     inout  [15:0]         ddr_dq        ,  //ddr3 数据
-    inout  [1:0]          ddr_dqs       ,
-    output led
+    inout  [1:0]          ddr_dqs       
     );     
 
-assign led = 1'b0;
  
 wire         clk_50m_180deg;
 wire         clk_50m;
@@ -143,8 +141,8 @@ ddr3_top u_ddr3_top(
     .app_addr_wr_max     (ddr_max_addr)  ,  //写ddr3的结束地址
     .wr_bust_len         (wr_bust_len)         ,  //从ddr3中写数据时的突发长度  
     .ddr3_read_valid     (1'b1)                 ,
-    .rd_load             (1'b0)             ,
-    .wr_load             (1'b0)     ,
+    .rd_load             (1'b1)             ,
+    .wr_load             (1'b1)     ,
     .ddr3_pingpang_en    (1'b1)                 ,
     .rddata              ( )  
     );      
