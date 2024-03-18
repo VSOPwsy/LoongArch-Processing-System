@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="ddr_pipe" Register="17" Lut="18" Bsram="6"/>
+<Module name="ddr_pipe" Register="25" Lut="21" Bsram="6"/>

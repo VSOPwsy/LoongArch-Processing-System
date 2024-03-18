@@ -21,16 +21,16 @@
 `define APB_ADDR_BASE       32'hbfee0000
 `define APB_ADDR_LEN        32'h00000fff
 
-`define DDR_ADDR_BASE       32'h00000000
-`define DDR_ADDR_LEN        32'h00000fff
+`define DDR_ADDR_BASE       32'h0f000000
+`define DDR_ADDR_LEN        32'h00ffffff
 
-// //AXI0
+//AXI0
 `define AXI_SLV0_ADDR_BASE   (`APB_ADDR_BASE)
 `define AXI_SLV0_ADDR_LEN    (`APB_ADDR_LEN )
 
 //AXI1
-`define AXI_SLV1_ADDR_BASE   32'hffffffff
-`define AXI_SLV1_ADDR_LEN    32'h00000000
+`define AXI_SLV1_ADDR_BASE   (`DDR_ADDR_BASE)
+`define AXI_SLV1_ADDR_LEN    (`DDR_ADDR_LEN )
 //AXI2
 `define AXI_SLV2_ADDR_BASE   32'hffffffff
 `define AXI_SLV2_ADDR_LEN    32'h00000000

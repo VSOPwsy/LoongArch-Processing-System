@@ -30,6 +30,6 @@ ResetSynchronization=true
 SSRAM=false
 StandardFIFO=true
 Synthesis_tool=GowinSynthesis
-WriteDataNum=false
+WriteDataNum=true
 WriteDataWidth=182
 WriteDepth=2

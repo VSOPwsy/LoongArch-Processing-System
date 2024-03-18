@@ -483,11 +483,11 @@ int main(void)
 
     // EnableInt();				//开总中断
 
-	volatile int *p = (volatile int *)0xbfee0000;
-	*p = 0x01;
+	volatile int *p = (volatile int *)0x8f000000;
 	// *p |= (0x01<<1);
-
+	// *p = 0x01;
 	// // my_delay_ms(1000);
+	int a;
 
     while(1){
 	// 	// WDG_DogFeed();
@@ -495,15 +495,12 @@ int main(void)
 
 	// 	*p |= (0x01<<1);
 		
-		*p = 0x01;
-		// my_delay_ms(1000);
-		
-		*p = 0x02;
+		a = *p + 1;
 
 		// my_delay_ms(1000);
     }
 
-    return 0;
+    return a;
 }
 
 

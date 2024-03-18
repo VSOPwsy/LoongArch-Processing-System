@@ -126,18 +126,18 @@ module axicb_slv_switch (
 	reg rch_running;
 	reg [SLV_NB - 1:0] routes = MST_ROUTES;
 	generate
-		if (MST_ROUTES[0] == 1'b1) begin : SLV0_AW_ROUTE_ON
+		// if (MST_ROUTES[0] == 1'b1) begin : SLV0_AW_ROUTE_ON
 			assign slv_aw_targeted[0] = ((i_awch[0+:AXI_ADDR_W] >= slv0_start_addr[0+:AXI_ADDR_W]) && (i_awch[0+:AXI_ADDR_W] <= slv0_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
-		end
-		else begin : SLV0_AW_ROUTE_OFF
-			assign slv_aw_targeted[0] = 1'b0;
-		end
-		if (MST_ROUTES[1] == 1'b1) begin : SLV1_AW_ROUTE_ON
+		// end
+		// else begin : SLV0_AW_ROUTE_OFF
+		// 	assign slv_aw_targeted[0] = 1'b0;
+		// end
+		// if (MST_ROUTES[1] == 1'b1) begin : SLV1_AW_ROUTE_ON
 			assign slv_aw_targeted[1] = ((i_awch[0+:AXI_ADDR_W] >= slv1_start_addr[0+:AXI_ADDR_W]) && (i_awch[0+:AXI_ADDR_W] <= slv1_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
-		end
-		else begin : SLV1_AW_ROUTE_OFF
-			assign slv_aw_targeted[1] = 1'b0;
-		end
+		// end
+		// else begin : SLV1_AW_ROUTE_OFF
+		// 	assign slv_aw_targeted[1] = 1'b0;
+		// end
 		if (MST_ROUTES[2] == 1'b1) begin : SLV2_AW_ROUTE_ON
 			assign slv_aw_targeted[2] = ((i_awch[0+:AXI_ADDR_W] >= slv2_start_addr[0+:AXI_ADDR_W]) && (i_awch[0+:AXI_ADDR_W] <= slv2_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
 		end
@@ -231,18 +231,18 @@ module axicb_slv_switch (
 	assign o_bready[3] = (bch_grant[3] & i_bready) & bch_mr_empty;
 	assign i_bch = (!bch_mr_empty ? {2'h3, bch_mr_id} : (bch_grant[0] ? o_bch[0+:BCH_W] : (bch_grant[1] ? o_bch[BCH_W+:BCH_W] : (bch_grant[2] ? o_bch[2 * BCH_W+:BCH_W] : (bch_grant[3] ? o_bch[3 * BCH_W+:BCH_W] : {BCH_W {1'b0}})))));
 	generate
-		if (MST_ROUTES[0] == 1'b1) begin : SLV0_AR_ROUTE_ON
+		// if (MST_ROUTES[0] == 1'b1) begin : SLV0_AR_ROUTE_ON
 			assign slv_ar_targeted[0] = ((i_arch[0+:AXI_ADDR_W] >= slv0_start_addr[0+:AXI_ADDR_W]) && (i_arch[0+:AXI_ADDR_W] <= slv0_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
-		end
-		else begin : SLV0_AR_ROUTE_OFF
-			assign slv_ar_targeted[0] = 1'b0;
-		end
-		if (MST_ROUTES[1] == 1'b1) begin : SLV1_AR_ROUTE_ON
+		// end
+		// else begin : SLV0_AR_ROUTE_OFF
+		// 	assign slv_ar_targeted[0] = 1'b0;
+		// end
+		// if (MST_ROUTES[1] == 1'b1) begin : SLV1_AR_ROUTE_ON
 			assign slv_ar_targeted[1] = ((i_arch[0+:AXI_ADDR_W] >= slv1_start_addr[0+:AXI_ADDR_W]) && (i_arch[0+:AXI_ADDR_W] <= slv1_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
-		end
-		else begin : SLV1_AR_ROUTE_OFF
-			assign slv_ar_targeted[1] = 1'b0;
-		end
+		// end
+		// else begin : SLV1_AR_ROUTE_OFF
+		// 	assign slv_ar_targeted[1] = 1'b0;
+		// end
 		if (MST_ROUTES[2] == 1'b1) begin : SLV2_AR_ROUTE_ON
 			assign slv_ar_targeted[2] = ((i_arch[0+:AXI_ADDR_W] >= slv2_start_addr[0+:AXI_ADDR_W]) && (i_arch[0+:AXI_ADDR_W] <= slv2_end_addr[0+:AXI_ADDR_W]) ? 1'b1 : 1'b0);
 		end

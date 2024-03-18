@@ -91,6 +91,8 @@ module DDR_Controller #
     output wire                     s_axi_rvalid,
     input  wire                     s_axi_rready,
 
+    output wire init_calib_complete,
+
     
     inout  [15:0]   ddr_dq,
     inout  [1:0]    ddr_dqs,
@@ -109,6 +111,8 @@ module DDR_Controller #
     output [1:0]    ddr_dm
 );
 
+    wire clk_if;
+    assign clk_if = clk;
 
     
     wire [ID_WIDTH-1:0]      ram_cmd_id;
@@ -118,13 +122,13 @@ module DDR_Controller #
     wire                     ram_cmd_wr_en;
     wire                     ram_cmd_rd_en;
     wire                     ram_cmd_last;
-    reg                      ram_cmd_ready;
+    reg                      ram_cmd_ready = 1;
     reg  [ID_WIDTH-1:0]      ram_rd_resp_id;
     reg  [DATA_WIDTH-1:0]    ram_rd_resp_data;
     reg                      ram_rd_resp_last;
     reg                      ram_rd_resp_valid;
     wire                     ram_rd_resp_ready;
-
+    
     axi_ram_wr_rd_if #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
@@ -225,7 +229,7 @@ module DDR_Controller #
 
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
-        .clk             (clk),
+        .clk             (clk_if),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),
         .rst_n           (resetn),
@@ -273,6 +277,7 @@ module DDR_Controller #
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;
     reg pipe_rden = 0;
+    wire [1:0] pipe_Wnum;
     wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;    // width = 182
     wire pipe_empty;
 
@@ -283,6 +288,7 @@ module DDR_Controller #
 		.RdClk(ui_clk), //input RdClk
 		.WrEn(pipe_wren), //input WrEn
 		.RdEn(pipe_rden), //input RdEn
+		.Wnum(pipe_Wnum), //output [1:0] Wnum
 		.Q(pipe_out), //output [182-1:0] Q
 		.Empty(pipe_empty), //output Empty
 		.Full() //output Full
@@ -334,24 +340,29 @@ module DDR_Controller #
 
     reg [1:0] state_current, state_next;
     reg ddr_rd_done_flag = 0;
+    reg ram_cmd_ready_next;
 
     always @(*) begin
-        if (~resetn) begin
-            pipe_wren = 1'b0;
+        pipe_in = 0;
+        pipe_wren = 0;
+        ram_cmd_ready_next = 1;
+        if ((ram_cmd_wr_en | ram_cmd_rd_en) & pipe_empty & ram_cmd_ready) begin
+            pipe_wren = 1'b1;
+            pipe_in = {ram_cmd_rd_en, ram_cmd_last, ram_cmd_id, ram_cmd_addr, ram_cmd_wr_en ? ram_cmd_wr_data : 0, ram_cmd_wr_en ? ram_cmd_wr_strb : 0}; // 1 for rd, 0 for wr
+            ram_cmd_ready_next = 1'b0;
         end
-        else begin
-            if ((ram_cmd_wr_en | ram_cmd_rd_en) & pipe_empty & ram_cmd_ready) begin
-                pipe_wren = 1'b1;
-                pipe_in = {ram_cmd_rd_en, ram_cmd_last, ram_cmd_id, ram_cmd_addr, ram_cmd_wr_en ? ram_cmd_wr_data : 0, ram_cmd_wr_en ? ram_cmd_wr_strb : 0}; // 1 for rd, 0 for wr
-            end 
+
+        if (|pipe_Wnum) begin
+            ram_cmd_ready_next = 1'b0;
         end
     end
+
     always @(posedge clk_if) begin
         if (~resetn) begin
-            ram_cmd_ready <= 1'b1;
+            ram_cmd_ready <= 1'b0;
         end
         else begin
-            ram_cmd_ready <= pipe_empty;
+            ram_cmd_ready <= ram_cmd_ready_next;
         end
     end
 

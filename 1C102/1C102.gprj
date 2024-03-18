@@ -46,6 +46,7 @@
         <File path="src/hw/amba/axi_ram_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/apb_register_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_fifo_rd/ddr_fifo_rd.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_fifo_wr/ddr_fifo_wr.v" type="file.verilog" enable="1"/>
@@ -59,6 +60,6 @@
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>

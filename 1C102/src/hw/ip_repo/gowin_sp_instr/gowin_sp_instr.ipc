@@ -8,7 +8,7 @@ version=3.0
 
 [Config]
 BYTE_SIZE=0
-DEPTH=2929
+DEPTH=2900
 LANG=0
 MEM_FILE=../../../sw/build/1c102_instr.mi
 READ=0
