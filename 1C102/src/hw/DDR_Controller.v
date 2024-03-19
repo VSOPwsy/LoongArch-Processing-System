@@ -430,7 +430,7 @@ module DDR_Controller #
                                 app_addr <= pipe_out[0 +: ADDR_WIDTH];
                                 app_wdf_wren <= 1'b1;
                                 app_wdf_data <= pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
-                                app_wdf_mask <= pipe_out[ADDR_WIDTH +: STRB_WIDTH];
+                                app_wdf_mask <= ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
                                 app_wdf_end <= 1'b1;
                             end
                         end

@@ -22,12 +22,12 @@ module ddr_ctr_wr_rd_test (
     input ddr_ready
 );
 
-assign awaddr = 32'h0000f000;
+assign awaddr = 32'h8f00f000;
 assign wdata = 32'h87654321;
-assign wstrb = 16'h0000;
+assign wstrb = 4'b1111;
 assign awlen = 0;
 
-assign araddr = 32'h0000f000;
+assign araddr = 32'h8f00f000;
 assign arlen = 0;
 
 assign rready = 1'b1;
