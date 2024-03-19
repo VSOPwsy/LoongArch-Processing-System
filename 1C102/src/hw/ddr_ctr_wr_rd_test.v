@@ -7,8 +7,8 @@ module ddr_ctr_wr_rd_test (
     output wire [7:0] awlen,
     input awready,
 
-    output wire [128:0] wdata,
-    output wire [16:0] wstrb,
+    output wire [31:0] wdata,
+    output wire [3:0] wstrb,
     output reg wvalid,
     input wire wready,
 
@@ -23,7 +23,7 @@ module ddr_ctr_wr_rd_test (
 );
 
 assign awaddr = 32'h0000f000;
-assign wdata = 128'h00000000_00000000_12345678_87654321;
+assign wdata = 32'h87654321;
 assign wstrb = 16'h0000;
 assign awlen = 0;
 

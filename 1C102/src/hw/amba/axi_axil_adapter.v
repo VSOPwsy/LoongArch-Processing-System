@@ -45,7 +45,7 @@ module axi_axil_adapter #
     // Width of output (master) AXI lite interface wstrb (width of data bus in words)
     parameter AXIL_STRB_WIDTH = (AXIL_DATA_WIDTH/8),
     // When adapting to a wider bus, re-pack full-width burst instead of passing through narrow burst if possible
-    parameter CONVERT_BURST = 1,
+    parameter CONVERT_BURST = 0,
     // When adapting to a wider bus, re-pack all bursts instead of passing through narrow burst if possible
     parameter CONVERT_NARROW_BURST = 0
 )

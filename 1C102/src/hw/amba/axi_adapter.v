@@ -65,7 +65,7 @@ module axi_adapter #
     // Width of ruser signal
     parameter RUSER_WIDTH = 1,
     // When adapting to a wider bus, re-pack full-width burst instead of passing through narrow burst if possible
-    parameter CONVERT_BURST = 1,
+    parameter CONVERT_BURST = 0,
     // When adapting to a wider bus, re-pack all bursts instead of passing through narrow burst if possible
     parameter CONVERT_NARROW_BURST = 0,
     // Forward ID through adapter

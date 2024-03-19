@@ -423,7 +423,7 @@ module DDR_Controller #
                                 last <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
                             end
                         end
-                        else begin
+                        else begin: __WRITE__
                             if (app_cmd_ready & app_wdf_rdy) begin
                                 app_cmd <= 3'b000;
                                 app_cmd_en <= 1'b1;
