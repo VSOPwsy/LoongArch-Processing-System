@@ -2,7 +2,7 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="ddr_ctr/ui_clk" trig_type="0" storage_depth="512" window_num="1" capture_amount="512" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="ddr_ctr/ui_clk" trig_type="0" storage_depth="256" window_num="1" capture_amount="256" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
             <Signal>init_calib_complete</Signal>
             <Signal>ddr_wr_rd_test/wrflag</Signal>
@@ -66,15 +66,47 @@
             <Signal>ddr_ctr/ram_cmd_wr_en</Signal>
             <Signal>ddr_ctr/pipe_empty</Signal>
             <Signal>ddr_ctr/app_cmd_ready</Signal>
-            <Signal>ddr_ctr/app_wdf_rdy</Signal>
             <Signal>ddr_ctr/pipe_rden</Signal>
+            <Signal>ddr_ctr/ui_clk</Signal>
             <Bus name="ddr_ctr/app_cmd[2:0]">
                 <Signal>ddr_ctr/app_cmd[2]</Signal>
                 <Signal>ddr_ctr/app_cmd[1]</Signal>
                 <Signal>ddr_ctr/app_cmd[0]</Signal>
             </Bus>
+            <Bus name="ddr_ctr/app_addr[28:0]">
+                <Signal>ddr_ctr/app_addr[28]</Signal>
+                <Signal>ddr_ctr/app_addr[27]</Signal>
+                <Signal>ddr_ctr/app_addr[26]</Signal>
+                <Signal>ddr_ctr/app_addr[25]</Signal>
+                <Signal>ddr_ctr/app_addr[24]</Signal>
+                <Signal>ddr_ctr/app_addr[23]</Signal>
+                <Signal>ddr_ctr/app_addr[22]</Signal>
+                <Signal>ddr_ctr/app_addr[21]</Signal>
+                <Signal>ddr_ctr/app_addr[20]</Signal>
+                <Signal>ddr_ctr/app_addr[19]</Signal>
+                <Signal>ddr_ctr/app_addr[18]</Signal>
+                <Signal>ddr_ctr/app_addr[17]</Signal>
+                <Signal>ddr_ctr/app_addr[16]</Signal>
+                <Signal>ddr_ctr/app_addr[15]</Signal>
+                <Signal>ddr_ctr/app_addr[14]</Signal>
+                <Signal>ddr_ctr/app_addr[13]</Signal>
+                <Signal>ddr_ctr/app_addr[12]</Signal>
+                <Signal>ddr_ctr/app_addr[11]</Signal>
+                <Signal>ddr_ctr/app_addr[10]</Signal>
+                <Signal>ddr_ctr/app_addr[9]</Signal>
+                <Signal>ddr_ctr/app_addr[8]</Signal>
+                <Signal>ddr_ctr/app_addr[7]</Signal>
+                <Signal>ddr_ctr/app_addr[6]</Signal>
+                <Signal>ddr_ctr/app_addr[5]</Signal>
+                <Signal>ddr_ctr/app_addr[4]</Signal>
+                <Signal>ddr_ctr/app_addr[3]</Signal>
+                <Signal>ddr_ctr/app_addr[2]</Signal>
+                <Signal>ddr_ctr/app_addr[1]</Signal>
+                <Signal>ddr_ctr/app_addr[0]</Signal>
+            </Bus>
             <Signal>ddr_ctr/app_cmd_en</Signal>
-            <Signal>ddr_ctr/app_wdf_wren</Signal>
+            <Signal>ddr_ctr/app_cmd_ready</Signal>
+            <Signal>ddr_ctr/app_wdf_rdy</Signal>
             <Bus name="ddr_ctr/app_wdf_data[127:0]">
                 <Signal>ddr_ctr/app_wdf_data[127]</Signal>
                 <Signal>ddr_ctr/app_wdf_data[126]</Signal>
@@ -205,37 +237,8 @@
                 <Signal>ddr_ctr/app_wdf_data[1]</Signal>
                 <Signal>ddr_ctr/app_wdf_data[0]</Signal>
             </Bus>
-            <Bus name="ddr_ctr/app_addr[28:0]">
-                <Signal>ddr_ctr/app_addr[28]</Signal>
-                <Signal>ddr_ctr/app_addr[27]</Signal>
-                <Signal>ddr_ctr/app_addr[26]</Signal>
-                <Signal>ddr_ctr/app_addr[25]</Signal>
-                <Signal>ddr_ctr/app_addr[24]</Signal>
-                <Signal>ddr_ctr/app_addr[23]</Signal>
-                <Signal>ddr_ctr/app_addr[22]</Signal>
-                <Signal>ddr_ctr/app_addr[21]</Signal>
-                <Signal>ddr_ctr/app_addr[20]</Signal>
-                <Signal>ddr_ctr/app_addr[19]</Signal>
-                <Signal>ddr_ctr/app_addr[18]</Signal>
-                <Signal>ddr_ctr/app_addr[17]</Signal>
-                <Signal>ddr_ctr/app_addr[16]</Signal>
-                <Signal>ddr_ctr/app_addr[15]</Signal>
-                <Signal>ddr_ctr/app_addr[14]</Signal>
-                <Signal>ddr_ctr/app_addr[13]</Signal>
-                <Signal>ddr_ctr/app_addr[12]</Signal>
-                <Signal>ddr_ctr/app_addr[11]</Signal>
-                <Signal>ddr_ctr/app_addr[10]</Signal>
-                <Signal>ddr_ctr/app_addr[9]</Signal>
-                <Signal>ddr_ctr/app_addr[8]</Signal>
-                <Signal>ddr_ctr/app_addr[7]</Signal>
-                <Signal>ddr_ctr/app_addr[6]</Signal>
-                <Signal>ddr_ctr/app_addr[5]</Signal>
-                <Signal>ddr_ctr/app_addr[4]</Signal>
-                <Signal>ddr_ctr/app_addr[3]</Signal>
-                <Signal>ddr_ctr/app_addr[2]</Signal>
-                <Signal>ddr_ctr/app_addr[1]</Signal>
-                <Signal>ddr_ctr/app_addr[0]</Signal>
-            </Bus>
+            <Signal>ddr_ctr/app_wdf_wren</Signal>
+            <Signal>ddr_ctr/app_wdf_end</Signal>
             <Bus name="ddr_ctr/app_rd_data[127:0]">
                 <Signal>ddr_ctr/app_rd_data[127]</Signal>
                 <Signal>ddr_ctr/app_rd_data[126]</Signal>
@@ -367,24 +370,7 @@
                 <Signal>ddr_ctr/app_rd_data[0]</Signal>
             </Bus>
             <Signal>ddr_ctr/app_rd_data_valid</Signal>
-            <Bus name="ddr_dq[15:0]">
-                <Signal>ddr_dq[15]</Signal>
-                <Signal>ddr_dq[14]</Signal>
-                <Signal>ddr_dq[13]</Signal>
-                <Signal>ddr_dq[12]</Signal>
-                <Signal>ddr_dq[11]</Signal>
-                <Signal>ddr_dq[10]</Signal>
-                <Signal>ddr_dq[9]</Signal>
-                <Signal>ddr_dq[8]</Signal>
-                <Signal>ddr_dq[7]</Signal>
-                <Signal>ddr_dq[6]</Signal>
-                <Signal>ddr_dq[5]</Signal>
-                <Signal>ddr_dq[4]</Signal>
-                <Signal>ddr_dq[3]</Signal>
-                <Signal>ddr_dq[2]</Signal>
-                <Signal>ddr_dq[1]</Signal>
-                <Signal>ddr_dq[0]</Signal>
-            </Bus>
+            <Signal>ddr_ctr/app_rd_data_end</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0"/>
@@ -430,5 +416,5 @@
             <Expression>M2</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0000010001010100</GAO_ID>
+    <GAO_ID>1111001000001101</GAO_ID>
 </GAO_CONFIG>

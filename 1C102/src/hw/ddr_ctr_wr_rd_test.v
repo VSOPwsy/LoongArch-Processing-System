@@ -22,7 +22,7 @@ module ddr_ctr_wr_rd_test (
 
 assign awaddr = 32'h0000f000;
 assign wdata = 128'h00000000_00000000_12345678_87654321;
-assign wstrb = 16'hffff;
+assign wstrb = 16'h0000;
 assign awlen = 0;
 
 assign araddr = 32'h0000f000;
