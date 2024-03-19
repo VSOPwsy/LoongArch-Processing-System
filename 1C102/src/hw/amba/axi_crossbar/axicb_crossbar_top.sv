@@ -13,7 +13,6 @@
 `default_nettype none
 
 `include "axicb_checker.sv"
-`include "../../config.v"
 
 module axicb_crossbar_top
 
@@ -23,11 +22,11 @@ module axicb_crossbar_top
         ///////////////////////////////////////////////////////////////////////
 
         // Address width in bits
-        parameter AXI_ADDR_W = `ADDR_WIDTH,
+        parameter AXI_ADDR_W = 8,
         // ID width in bits
-        parameter AXI_ID_W = `ID_WIDTH,
+        parameter AXI_ID_W = 8,
         // Data width in bits
-        parameter AXI_DATA_W = `CPU_DATA_WIDTH,
+        parameter AXI_DATA_W = 8,
 
         // Number of master(s)
         parameter MST_NB = 4,
@@ -99,8 +98,8 @@ module axicb_crossbar_top
         // Master 0 configuration
         ///////////////////////////////////////////////////////////////////////
 
-        parameter MST0_CDC = 1,
-        parameter MST0_OSTDREQ_NUM = 0,
+        parameter MST0_CDC = 0,
+        parameter MST0_OSTDREQ_NUM = 4,
         parameter MST0_OSTDREQ_SIZE = 1,
         parameter MST0_PRIORITY = 0,
         parameter [SLV_NB-1:0] MST0_ROUTES = 4'b1_1_1_1,
@@ -178,22 +177,22 @@ module axicb_crossbar_top
         ///////////////////////////////////////////////////////////////////////
 
         parameter SLV0_CDC = 0,
-        parameter SLV0_START_ADDR = `AXI_SLV0_ADDR_BASE,
-        parameter SLV0_END_ADDR = `AXI_SLV0_ADDR_BASE + `AXI_SLV0_ADDR_LEN,
-        parameter SLV0_OSTDREQ_NUM = 0,
+        parameter SLV0_START_ADDR = 0,
+        parameter SLV0_END_ADDR = 4095,
+        parameter SLV0_OSTDREQ_NUM = 4,
         parameter SLV0_OSTDREQ_SIZE = 1,
-        parameter SLV0_KEEP_BASE_ADDR = 1,
+        parameter SLV0_KEEP_BASE_ADDR = 0,
 
         ///////////////////////////////////////////////////////////////////////
         // Slave 1 configuration
         ///////////////////////////////////////////////////////////////////////
 
         parameter SLV1_CDC = 0,
-        parameter SLV1_START_ADDR = `AXI_SLV1_ADDR_BASE,
-        parameter SLV1_END_ADDR = `AXI_SLV1_ADDR_BASE + `AXI_SLV1_ADDR_LEN,
-        parameter SLV1_OSTDREQ_NUM = 0,
+        parameter SLV1_START_ADDR = 4096,
+        parameter SLV1_END_ADDR = 8191,
+        parameter SLV1_OSTDREQ_NUM = 4,
         parameter SLV1_OSTDREQ_SIZE = 1,
-        parameter SLV1_KEEP_BASE_ADDR = 1,
+        parameter SLV1_KEEP_BASE_ADDR = 0,
 
         ///////////////////////////////////////////////////////////////////////
         // Slave 2 configuration

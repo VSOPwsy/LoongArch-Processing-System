@@ -7,22 +7,13 @@
 *   AXI interface
 ******************/
 
-`define AXI_SLV_MUX_2            // SLV_MUX_2-6   Optional 2-6 AXI buses
-//`define AXI_SLV_MUX_3
-//`define AXI_SLV_MUX_4
-//`define AXI_SLV_MUX_5
-//`define AXI_SLV_MUX_6
-
-
-
-//AXI0   connect APBbrige 
-//AXI0   this address is the remaining address on other ways
-
 `define APB_ADDR_BASE       32'hbfee0000
 `define APB_ADDR_LEN        32'h00000fff
+`define APB_ADDR_END        (`APB_ADDR_BASE + `APB_ADDR_LEN)
 
 `define DDR_ADDR_BASE       32'h0f000000
 `define DDR_ADDR_LEN        32'h00ffffff
+`define DDR_ADDR_END        (`DDR_ADDR_BASE + `DDR_ADDR_LEN)
 
 //AXI0
 `define AXI_SLV0_ADDR_BASE   (`APB_ADDR_BASE)
