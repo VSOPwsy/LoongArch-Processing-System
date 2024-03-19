@@ -47,6 +47,7 @@
         <File path="src/hw/apb_register_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_fifo_rd/ddr_fifo_rd.v" type="file.verilog" enable="1"/>

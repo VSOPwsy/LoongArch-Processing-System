@@ -843,19 +843,42 @@ module TOP (
 	// );
 
 
-	ddr_ctr_wr_test ddr_wr_test (
+	// ddr_ctr_wr_test ddr_wr_test (
+	// 	.clk(clk_100M),
+	// 	.rstn(locked&sys_resetn),
+	// 	.awaddr(arb_ctr_awaddr),
+	// 	.awvalid(arb_ctr_awvalid),
+	// 	.awready(arb_ctr_awready),
+	// 	.awlen(arb_ctr_awlen),
+	// 	.wdata(arb_ctr_wdata),
+	// 	.wstrb(arb_ctr_wstrb),
+	// 	.wvalid(arb_ctr_wvalid),
+	// 	.wready(arb_ctr_wready),
+	// 	.ddr_ready(init_calib_complete)
+	// );
+
+
+	ddr_ctr_wr_rd_test ddr_wr_rd_test (
 		.clk(clk_100M),
 		.rstn(locked&sys_resetn),
+
 		.awaddr(arb_ctr_awaddr),
 		.awvalid(arb_ctr_awvalid),
 		.awready(arb_ctr_awready),
 		.awlen(arb_ctr_awlen),
+
 		.wdata(arb_ctr_wdata),
+		.wstrb(arb_ctr_wstrb),
 		.wvalid(arb_ctr_wvalid),
 		.wready(arb_ctr_wready),
+
+		.araddr(arb_ctr_araddr),
+		.arvalid(arb_ctr_arvalid),
+		.arready(arb_ctr_arready),
+		.arlen(arb_ctr_arlen),
+
 		.ddr_ready(init_calib_complete)
 	);
-
 
 	DDR_Controller ddr_ctr (
 		.clk				(clk_100M				),
@@ -917,5 +940,19 @@ module TOP (
 		.ddr_reset_n		(ddr_reset_n			),
 		.ddr_dm				(ddr_dm					)
 	);
+
+	assign led[3:2] = 2'b0;
+	assign led[0] = init_calib_complete;
+	reg [1:0] cnt = 0;
+	always @(posedge init_calib_complete, negedge sys_resetn) begin
+		if (~sys_resetn) begin
+			cnt <= 0;
+		end
+		else begin
+			cnt <= cnt == 2'b10 ? cnt : cnt + 1;
+		end
+	end
+
+	assign led[1] = cnt[1];
 
 endmodule
