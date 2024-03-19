@@ -832,13 +832,27 @@ module TOP (
 
 
 
-	ddr_ctr_rd_test ddr_rd_test (
+	// ddr_ctr_rd_test ddr_rd_test (
+	// 	.clk(clk_100M),
+	// 	.rstn(locked&sys_resetn),
+	// 	.araddr(arb_ctr_araddr),
+	// 	.arvalid(arb_ctr_arvalid),
+	// 	.arready(arb_ctr_arready),
+	// 	.arlen(arb_ctr_arlen),
+	// 	.ddr_ready(init_calib_complete)
+	// );
+
+
+	ddr_ctr_wr_test ddr_wr_test (
 		.clk(clk_100M),
 		.rstn(locked&sys_resetn),
-		.araddr(arb_ctr_araddr),
-		.arvalid(arb_ctr_arvalid),
-		.arready(arb_ctr_arready),
-		.arlen(arb_ctr_arlen),
+		.awaddr(arb_ctr_awaddr),
+		.awvalid(arb_ctr_awvalid),
+		.awready(arb_ctr_awready),
+		.awlen(arb_ctr_awlen),
+		.wdata(arb_ctr_wdata),
+		.wvalid(arb_ctr_wvalid),
+		.wready(arb_ctr_wready),
 		.ddr_ready(init_calib_complete)
 	);
 

@@ -2,74 +2,205 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_400M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
-            <Signal>clk_100M</Signal>
-            <Signal>ddr_rd_test/arvalid</Signal>
-            <Signal>ddr_rd_test/arready</Signal>
-            <Signal>ddr_ctr/s_axi_arvalid</Signal>
-            <Bus name="ddr_ctr/s_axi_araddr[31:0]">
-                <Signal>ddr_ctr/s_axi_araddr[31]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[30]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[29]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[28]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[27]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[26]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[25]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[24]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[23]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[22]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[21]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[20]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[19]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[18]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[17]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[16]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[15]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[14]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[13]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[12]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[11]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[10]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[9]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[8]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[7]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[6]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[5]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[4]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[3]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[2]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[1]</Signal>
-                <Signal>ddr_ctr/s_axi_araddr[0]</Signal>
+            <Signal>init_calib_complete</Signal>
+            <Bus name="arb_ctr_awaddr[31:0]">
+                <Signal>arb_ctr_awaddr[31]</Signal>
+                <Signal>arb_ctr_awaddr[30]</Signal>
+                <Signal>arb_ctr_awaddr[29]</Signal>
+                <Signal>arb_ctr_awaddr[28]</Signal>
+                <Signal>arb_ctr_awaddr[27]</Signal>
+                <Signal>arb_ctr_awaddr[26]</Signal>
+                <Signal>arb_ctr_awaddr[25]</Signal>
+                <Signal>arb_ctr_awaddr[24]</Signal>
+                <Signal>arb_ctr_awaddr[23]</Signal>
+                <Signal>arb_ctr_awaddr[22]</Signal>
+                <Signal>arb_ctr_awaddr[21]</Signal>
+                <Signal>arb_ctr_awaddr[20]</Signal>
+                <Signal>arb_ctr_awaddr[19]</Signal>
+                <Signal>arb_ctr_awaddr[18]</Signal>
+                <Signal>arb_ctr_awaddr[17]</Signal>
+                <Signal>arb_ctr_awaddr[16]</Signal>
+                <Signal>arb_ctr_awaddr[15]</Signal>
+                <Signal>arb_ctr_awaddr[14]</Signal>
+                <Signal>arb_ctr_awaddr[13]</Signal>
+                <Signal>arb_ctr_awaddr[12]</Signal>
+                <Signal>arb_ctr_awaddr[11]</Signal>
+                <Signal>arb_ctr_awaddr[10]</Signal>
+                <Signal>arb_ctr_awaddr[9]</Signal>
+                <Signal>arb_ctr_awaddr[8]</Signal>
+                <Signal>arb_ctr_awaddr[7]</Signal>
+                <Signal>arb_ctr_awaddr[6]</Signal>
+                <Signal>arb_ctr_awaddr[5]</Signal>
+                <Signal>arb_ctr_awaddr[4]</Signal>
+                <Signal>arb_ctr_awaddr[3]</Signal>
+                <Signal>arb_ctr_awaddr[2]</Signal>
+                <Signal>arb_ctr_awaddr[1]</Signal>
+                <Signal>arb_ctr_awaddr[0]</Signal>
             </Bus>
-            <Signal>ddr_ctr/ram_cmd_rd_en</Signal>
-            <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arready</Signal>
-            <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arready_next</Signal>
-            <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arvalid</Signal>
-            <Bus name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/state_reg[0:0]">
-                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/state_reg[0]</Signal>
+            <Signal>arb_ctr_awvalid</Signal>
+            <Signal>arb_ctr_awready</Signal>
+            <Bus name="arb_ctr_wdata[127:0]">
+                <Signal>arb_ctr_wdata[127]</Signal>
+                <Signal>arb_ctr_wdata[126]</Signal>
+                <Signal>arb_ctr_wdata[125]</Signal>
+                <Signal>arb_ctr_wdata[124]</Signal>
+                <Signal>arb_ctr_wdata[123]</Signal>
+                <Signal>arb_ctr_wdata[122]</Signal>
+                <Signal>arb_ctr_wdata[121]</Signal>
+                <Signal>arb_ctr_wdata[120]</Signal>
+                <Signal>arb_ctr_wdata[119]</Signal>
+                <Signal>arb_ctr_wdata[118]</Signal>
+                <Signal>arb_ctr_wdata[117]</Signal>
+                <Signal>arb_ctr_wdata[116]</Signal>
+                <Signal>arb_ctr_wdata[115]</Signal>
+                <Signal>arb_ctr_wdata[114]</Signal>
+                <Signal>arb_ctr_wdata[113]</Signal>
+                <Signal>arb_ctr_wdata[112]</Signal>
+                <Signal>arb_ctr_wdata[111]</Signal>
+                <Signal>arb_ctr_wdata[110]</Signal>
+                <Signal>arb_ctr_wdata[109]</Signal>
+                <Signal>arb_ctr_wdata[108]</Signal>
+                <Signal>arb_ctr_wdata[107]</Signal>
+                <Signal>arb_ctr_wdata[106]</Signal>
+                <Signal>arb_ctr_wdata[105]</Signal>
+                <Signal>arb_ctr_wdata[104]</Signal>
+                <Signal>arb_ctr_wdata[103]</Signal>
+                <Signal>arb_ctr_wdata[102]</Signal>
+                <Signal>arb_ctr_wdata[101]</Signal>
+                <Signal>arb_ctr_wdata[100]</Signal>
+                <Signal>arb_ctr_wdata[99]</Signal>
+                <Signal>arb_ctr_wdata[98]</Signal>
+                <Signal>arb_ctr_wdata[97]</Signal>
+                <Signal>arb_ctr_wdata[96]</Signal>
+                <Signal>arb_ctr_wdata[95]</Signal>
+                <Signal>arb_ctr_wdata[94]</Signal>
+                <Signal>arb_ctr_wdata[93]</Signal>
+                <Signal>arb_ctr_wdata[92]</Signal>
+                <Signal>arb_ctr_wdata[91]</Signal>
+                <Signal>arb_ctr_wdata[90]</Signal>
+                <Signal>arb_ctr_wdata[89]</Signal>
+                <Signal>arb_ctr_wdata[88]</Signal>
+                <Signal>arb_ctr_wdata[87]</Signal>
+                <Signal>arb_ctr_wdata[86]</Signal>
+                <Signal>arb_ctr_wdata[85]</Signal>
+                <Signal>arb_ctr_wdata[84]</Signal>
+                <Signal>arb_ctr_wdata[83]</Signal>
+                <Signal>arb_ctr_wdata[82]</Signal>
+                <Signal>arb_ctr_wdata[81]</Signal>
+                <Signal>arb_ctr_wdata[80]</Signal>
+                <Signal>arb_ctr_wdata[79]</Signal>
+                <Signal>arb_ctr_wdata[78]</Signal>
+                <Signal>arb_ctr_wdata[77]</Signal>
+                <Signal>arb_ctr_wdata[76]</Signal>
+                <Signal>arb_ctr_wdata[75]</Signal>
+                <Signal>arb_ctr_wdata[74]</Signal>
+                <Signal>arb_ctr_wdata[73]</Signal>
+                <Signal>arb_ctr_wdata[72]</Signal>
+                <Signal>arb_ctr_wdata[71]</Signal>
+                <Signal>arb_ctr_wdata[70]</Signal>
+                <Signal>arb_ctr_wdata[69]</Signal>
+                <Signal>arb_ctr_wdata[68]</Signal>
+                <Signal>arb_ctr_wdata[67]</Signal>
+                <Signal>arb_ctr_wdata[66]</Signal>
+                <Signal>arb_ctr_wdata[65]</Signal>
+                <Signal>arb_ctr_wdata[64]</Signal>
+                <Signal>arb_ctr_wdata[63]</Signal>
+                <Signal>arb_ctr_wdata[62]</Signal>
+                <Signal>arb_ctr_wdata[61]</Signal>
+                <Signal>arb_ctr_wdata[60]</Signal>
+                <Signal>arb_ctr_wdata[59]</Signal>
+                <Signal>arb_ctr_wdata[58]</Signal>
+                <Signal>arb_ctr_wdata[57]</Signal>
+                <Signal>arb_ctr_wdata[56]</Signal>
+                <Signal>arb_ctr_wdata[55]</Signal>
+                <Signal>arb_ctr_wdata[54]</Signal>
+                <Signal>arb_ctr_wdata[53]</Signal>
+                <Signal>arb_ctr_wdata[52]</Signal>
+                <Signal>arb_ctr_wdata[51]</Signal>
+                <Signal>arb_ctr_wdata[50]</Signal>
+                <Signal>arb_ctr_wdata[49]</Signal>
+                <Signal>arb_ctr_wdata[48]</Signal>
+                <Signal>arb_ctr_wdata[47]</Signal>
+                <Signal>arb_ctr_wdata[46]</Signal>
+                <Signal>arb_ctr_wdata[45]</Signal>
+                <Signal>arb_ctr_wdata[44]</Signal>
+                <Signal>arb_ctr_wdata[43]</Signal>
+                <Signal>arb_ctr_wdata[42]</Signal>
+                <Signal>arb_ctr_wdata[41]</Signal>
+                <Signal>arb_ctr_wdata[40]</Signal>
+                <Signal>arb_ctr_wdata[39]</Signal>
+                <Signal>arb_ctr_wdata[38]</Signal>
+                <Signal>arb_ctr_wdata[37]</Signal>
+                <Signal>arb_ctr_wdata[36]</Signal>
+                <Signal>arb_ctr_wdata[35]</Signal>
+                <Signal>arb_ctr_wdata[34]</Signal>
+                <Signal>arb_ctr_wdata[33]</Signal>
+                <Signal>arb_ctr_wdata[32]</Signal>
+                <Signal>arb_ctr_wdata[31]</Signal>
+                <Signal>arb_ctr_wdata[30]</Signal>
+                <Signal>arb_ctr_wdata[29]</Signal>
+                <Signal>arb_ctr_wdata[28]</Signal>
+                <Signal>arb_ctr_wdata[27]</Signal>
+                <Signal>arb_ctr_wdata[26]</Signal>
+                <Signal>arb_ctr_wdata[25]</Signal>
+                <Signal>arb_ctr_wdata[24]</Signal>
+                <Signal>arb_ctr_wdata[23]</Signal>
+                <Signal>arb_ctr_wdata[22]</Signal>
+                <Signal>arb_ctr_wdata[21]</Signal>
+                <Signal>arb_ctr_wdata[20]</Signal>
+                <Signal>arb_ctr_wdata[19]</Signal>
+                <Signal>arb_ctr_wdata[18]</Signal>
+                <Signal>arb_ctr_wdata[17]</Signal>
+                <Signal>arb_ctr_wdata[16]</Signal>
+                <Signal>arb_ctr_wdata[15]</Signal>
+                <Signal>arb_ctr_wdata[14]</Signal>
+                <Signal>arb_ctr_wdata[13]</Signal>
+                <Signal>arb_ctr_wdata[12]</Signal>
+                <Signal>arb_ctr_wdata[11]</Signal>
+                <Signal>arb_ctr_wdata[10]</Signal>
+                <Signal>arb_ctr_wdata[9]</Signal>
+                <Signal>arb_ctr_wdata[8]</Signal>
+                <Signal>arb_ctr_wdata[7]</Signal>
+                <Signal>arb_ctr_wdata[6]</Signal>
+                <Signal>arb_ctr_wdata[5]</Signal>
+                <Signal>arb_ctr_wdata[4]</Signal>
+                <Signal>arb_ctr_wdata[3]</Signal>
+                <Signal>arb_ctr_wdata[2]</Signal>
+                <Signal>arb_ctr_wdata[1]</Signal>
+                <Signal>arb_ctr_wdata[0]</Signal>
             </Bus>
-            <Signal>ddr_ctr/axi_ram_if/ram_cmd_ready</Signal>
-            <Bus name="ddr_ctr/pipe_Wnum[1:0]">
-                <Signal>ddr_ctr/pipe_Wnum[1]</Signal>
-                <Signal>ddr_ctr/pipe_Wnum[0]</Signal>
+            <Bus name="arb_ctr_wstrb[15:0]">
+                <Signal>arb_ctr_wstrb[15]</Signal>
+                <Signal>arb_ctr_wstrb[14]</Signal>
+                <Signal>arb_ctr_wstrb[13]</Signal>
+                <Signal>arb_ctr_wstrb[12]</Signal>
+                <Signal>arb_ctr_wstrb[11]</Signal>
+                <Signal>arb_ctr_wstrb[10]</Signal>
+                <Signal>arb_ctr_wstrb[9]</Signal>
+                <Signal>arb_ctr_wstrb[8]</Signal>
+                <Signal>arb_ctr_wstrb[7]</Signal>
+                <Signal>arb_ctr_wstrb[6]</Signal>
+                <Signal>arb_ctr_wstrb[5]</Signal>
+                <Signal>arb_ctr_wstrb[4]</Signal>
+                <Signal>arb_ctr_wstrb[3]</Signal>
+                <Signal>arb_ctr_wstrb[2]</Signal>
+                <Signal>arb_ctr_wstrb[1]</Signal>
+                <Signal>arb_ctr_wstrb[0]</Signal>
             </Bus>
-            <Signal>ddr_ctr/pipe_wren</Signal>
-            <Signal>ddr_ctr/pipe_empty</Signal>
-            <Signal>ddr_ctr/ram_cmd_ready_next</Signal>
+            <Signal>arb_ctr_wvalid</Signal>
+            <Signal>arb_ctr_wready</Signal>
+            <Signal>ddr_ctr/ram_cmd_wr_en</Signal>
         </SignalList>
         <Triggers>
-            <Trigger index="0">
+            <Trigger index="0"/>
+            <Trigger index="1"/>
+            <Trigger index="2">
                 <SignalList>
-                    <Signal>ddr_rd_test/arvalid</Signal>
+                    <Signal>init_calib_complete</Signal>
                 </SignalList>
             </Trigger>
-            <Trigger index="1">
-                <SignalList>
-                    <Signal>ddr_rd_test/flag</Signal>
-                </SignalList>
-            </Trigger>
-            <Trigger index="2"/>
             <Trigger index="3"/>
             <Trigger index="4"/>
             <Trigger index="5"/>
@@ -86,8 +217,8 @@
         </Triggers>
         <MatchUnits>
             <MatchUnit index="0" enabled="0" match_type="5" counter_enable="0" counter_width="3" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
-            <MatchUnit index="1" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
-            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00011100000000000000000000000100" value1="00000000000000000000000000000000" trigger="1"/>
+            <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
+            <MatchUnit index="2" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="2"/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -103,8 +234,8 @@
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
         <Expressions type="Static">
-            <Expression>M1</Expression>
+            <Expression>M2</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1010000011001100</GAO_ID>
+    <GAO_ID>0101001101100101</GAO_ID>
 </GAO_CONFIG>
