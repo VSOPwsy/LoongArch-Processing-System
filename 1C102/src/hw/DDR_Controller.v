@@ -462,29 +462,22 @@ module DDR_Controller #
      * Read from rfifo
      */
     always @(*) begin
-        if (~resetn) begin
-            rfifo_rden = 1'b0;
-        end
-        else begin
-            if (~rfifo_empty & ~ram_rd_resp_valid) begin
-                rfifo_rden = 1'b1;
-            end
+        rfifo_rden = 1'b0;
+        if (~rfifo_empty & ram_rd_resp_ready) begin
+            rfifo_rden = 1'b1;
         end
     end
-    always @(posedge clk_if) begin
-        if (~resetn) begin
-            ram_rd_resp_valid <= 1'b1;
-        end
-        else begin
-            if (~rfifo_empty & ~ram_rd_resp_valid) begin
-                ram_rd_resp_id <= id;
-                ram_rd_resp_data <= rfifo_rddata;
-                ram_rd_resp_last <= last;
-                ram_rd_resp_valid <= 1'b1;
-            end
-            if (ram_rd_resp_valid & ram_rd_resp_ready) begin
-                ram_rd_resp_valid <= 1'b0;
-            end
+
+    always @(*) begin
+        ram_rd_resp_valid = 0;
+        ram_rd_resp_id = 0;
+        ram_rd_resp_data = 0;
+        ram_rd_resp_last = 0;
+        if (~rfifo_empty & ram_rd_resp_ready) begin
+            ram_rd_resp_valid = 1'b1;
+            ram_rd_resp_id = id;
+            ram_rd_resp_data = rfifo_rddata;
+            ram_rd_resp_last = last;
         end
     end
 

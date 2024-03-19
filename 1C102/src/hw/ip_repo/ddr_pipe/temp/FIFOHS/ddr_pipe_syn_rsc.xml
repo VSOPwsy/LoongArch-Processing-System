@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="ddr_pipe" Register="210" Lut="21" Ssram="46"/>
+<Module name="ddr_pipe" Register="220" Alu="5" Lut="24" Ssram="46"/>

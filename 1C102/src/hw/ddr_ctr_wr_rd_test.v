@@ -17,6 +17,8 @@ module ddr_ctr_wr_rd_test (
     output wire [7:0] arlen,
     input arready,
 
+    output wire rready,
+
     input ddr_ready
 );
 
@@ -27,6 +29,9 @@ assign awlen = 0;
 
 assign araddr = 32'h0000f000;
 assign arlen = 0;
+
+assign rready = 1'b1;
+
 reg wrflag = 0;
 always @(posedge clk) begin
     if (~rstn) begin

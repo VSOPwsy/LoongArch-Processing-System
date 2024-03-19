@@ -877,6 +877,8 @@ module TOP (
 		.arready(arb_ctr_arready),
 		.arlen(arb_ctr_arlen),
 
+		.rready(arb_ctr_rready),
+
 		.ddr_ready(init_calib_complete)
 	);
 
