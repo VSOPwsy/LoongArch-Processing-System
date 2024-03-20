@@ -2,7 +2,7 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>beta</Version>
-    <Device id="GW2A-18C" package="PBGA256" speed="8" partNumber="GW2A-LV18PG256C8/I7"/>
+    <Device id="GW5A-25A" package="MBGA121N" speed="1" partNumber="GW5A-LV25MG121NC1/I0"/>
     <FileList>
         <File path="C:/Gowin/Gowin_V1.9.9Beta-4_Education/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/ddr3_1_4code_hs.v" type="verilog"/>
         <File path="C:/Gowin/Gowin_V1.9.9Beta-4_Education/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/DDR3_TOP.v" type="verilog"/>

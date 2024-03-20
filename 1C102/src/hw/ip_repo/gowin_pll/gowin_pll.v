@@ -5,17 +5,17 @@
 //Part Number: GW5A-LV25MG121NC1/I0
 //Device: GW5A-25
 //Device Version: A
-//Created Time: Thu Feb 29 19:38:53 2024
+//Created Time: Wed Mar 20 08:23:34 2024
 
-module Gowin_PLL (lock, clkout0, clkin, reset);
+module Gowin_PLL (lock, clkout0, clkout1, clkout2, clkin, reset);
 
 output lock;
 output clkout0;
+output clkout1;
+output clkout2;
 input clkin;
 input reset;
 
-wire clkout1_o;
-wire clkout2_o;
 wire clkout3_o;
 wire clkout4_o;
 wire clkout5_o;
@@ -29,8 +29,8 @@ assign gw_gnd = 1'b0;
 PLLA PLLA_inst (
     .LOCK(lock),
     .CLKOUT0(clkout0),
-    .CLKOUT1(clkout1_o),
-    .CLKOUT2(clkout2_o),
+    .CLKOUT1(clkout1),
+    .CLKOUT2(clkout2),
     .CLKOUT3(clkout3_o),
     .CLKOUT4(clkout4_o),
     .CLKOUT5(clkout5_o),
@@ -63,7 +63,7 @@ defparam PLLA_inst.CLKFB_SEL = "INTERNAL";
 defparam PLLA_inst.ODIV0_SEL = 100;
 defparam PLLA_inst.ODIV0_FRAC_SEL = 0;
 defparam PLLA_inst.ODIV1_SEL = 8;
-defparam PLLA_inst.ODIV2_SEL = 8;
+defparam PLLA_inst.ODIV2_SEL = 2;
 defparam PLLA_inst.ODIV3_SEL = 8;
 defparam PLLA_inst.ODIV4_SEL = 8;
 defparam PLLA_inst.ODIV5_SEL = 8;
@@ -71,8 +71,8 @@ defparam PLLA_inst.ODIV6_SEL = 8;
 defparam PLLA_inst.MDIV_SEL = 16;
 defparam PLLA_inst.MDIV_FRAC_SEL = 0;
 defparam PLLA_inst.CLKOUT0_EN = "TRUE";
-defparam PLLA_inst.CLKOUT1_EN = "FALSE";
-defparam PLLA_inst.CLKOUT2_EN = "FALSE";
+defparam PLLA_inst.CLKOUT1_EN = "TRUE";
+defparam PLLA_inst.CLKOUT2_EN = "TRUE";
 defparam PLLA_inst.CLKOUT3_EN = "FALSE";
 defparam PLLA_inst.CLKOUT4_EN = "FALSE";
 defparam PLLA_inst.CLKOUT5_EN = "FALSE";

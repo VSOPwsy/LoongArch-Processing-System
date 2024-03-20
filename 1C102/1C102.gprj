@@ -3,7 +3,7 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device name="GW2A-18C" pn="GW2A-LV18PG256C8/I7">gw2a18c-011</Device>
+    <Device name="GW5A-25A" pn="GW5A-LV25MG121NC1/I0">gw5a25a-002</Device>
     <FileList>
         <File path="src/hw/DDR_Controller.v" type="file.verilog" enable="1"/>
         <File path="src/hw/LED_driver.v" type="file.verilog" enable="1"/>
@@ -42,16 +42,12 @@
         <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_fifo_rd/ddr_fifo_rd.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_pipe/ddr_pipe.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/gowin_rpll_100M/gowin_rpll_100M.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/gowin_rpll_400M/gowin_rpll_400M.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>
