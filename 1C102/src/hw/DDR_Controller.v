@@ -386,7 +386,7 @@ module DDR_Controller #
                 IDLE: begin
                     state_next = IDLE;
                     if (~pipe_empty) begin
-                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
+                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
                             if (app_cmd_ready) begin
                                 state_next = READ;
                                 pipe_rden = 1'b1;
@@ -397,7 +397,7 @@ module DDR_Controller #
                             end
                         end
                         else begin
-                            if (app_cmd_ready & app_wdf_rdy) begin
+                            if (app_cmd_ready & app_wdf_rdy) begin: __WRITE__
                                 pipe_rden = 1'b1;
 
                                 app_cmd = 3'b000;
@@ -437,11 +437,13 @@ module DDR_Controller #
             case (state_current)
                 IDLE: begin
                     if (~pipe_empty) begin
-                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
+                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
                             if (app_cmd_ready) begin
                                 id <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH +: ID_WIDTH];
                                 last <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
                             end
+                        end
+                        else begin
                         end
                     end
                 end
