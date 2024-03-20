@@ -282,22 +282,27 @@ module DDR_Controller #
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;
     reg pipe_rden = 0;
-    wire [1:0] pipe_Wnum;
     wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;    // width = 182
     wire pipe_empty;
     wire pipe_full;
 
-	ddr_pipe pipe(
-		.Data(pipe_in), //input [182-1:0] Data
-		.Reset(~resetn), //input Reset
-		.WrClk(clk_if), //input WrClk
-		.RdClk(ui_clk), //input RdClk
-		.WrEn(pipe_wren), //input WrEn
-		.RdEn(pipe_rden), //input RdEn
-		.Wnum(pipe_Wnum), //output Wnum
-		.Q(pipe_out), //output [182-1:0] Q
-		.Empty(pipe_empty), //output Empty
-		.Full(pipe_full) //output Full
+	async_fifo # (
+        .DSIZE(STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2),
+        .ASIZE(2),
+        .FALLTHROUGH("TRUE")
+    ) pipe (
+		.wclk(clk_if),
+        .wrst_n(resetn),
+		.winc(pipe_wren),
+		.wdata(pipe_in),
+		.wfull(pipe_full),
+        .awfull(),
+		.rclk(ui_clk),
+        .rrst_n(resetn),
+		.rinc(pipe_rden),
+		.rdata(pipe_out),
+		.rempty(pipe_empty),
+        .arempty()
 	);
 
 
@@ -307,18 +312,24 @@ module DDR_Controller #
     wire [127:0] rfifo_rddata;
     wire rfifo_empty;
 
-	ddr_fifo_rd rfifo(
-		.Data(rfifo_wrdata), //input [127:0] Data
-		.Reset(~resetn), //input Reset
-		.WrClk(ui_clk), //input WrClk
-		.RdClk(clk_if), //input RdClk
-		.WrEn(rfifo_wren), //input WrEn
-		.RdEn(rfifo_rden), //input RdEn
-		.Q(rfifo_rddata), //output [127:0] Q
-		.Empty(rfifo_empty), //output Empty
-		.Full() //output Full
+	async_fifo # (
+        .DSIZE(`DDR_DATA_WIDTH),
+        .ASIZE(2),
+        .FALLTHROUGH("TRUE")
+    ) rfifo (
+		.wclk(ui_clk),
+        .wrst_n(resetn),
+		.winc(rfifo_wren),
+		.wdata(rfifo_wrdata),
+		.wfull(),
+        .awfull(),
+		.rclk(clk_if),
+        .rrst_n(resetn),
+		.rinc(rfifo_rden),
+		.rdata(rfifo_rddata),
+		.rempty(rfifo_empty),
+        .arempty()
 	);
-
 
     localparam IDLE = 2'b00;
     localparam READ = 2'b01;
@@ -337,7 +348,7 @@ module DDR_Controller #
             ram_cmd_ready_next = 1'b0;
         end
 
-        if (|pipe_Wnum) begin
+        if (pipe_full) begin
             ram_cmd_ready_next = 1'b0;
         end
     end

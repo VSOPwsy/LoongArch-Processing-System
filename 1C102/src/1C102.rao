@@ -2,272 +2,12 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="ddr_ctr/ui_clk" trig_type="0" storage_depth="256" window_num="1" capture_amount="256" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
+            <Signal>sys_resetn</Signal>
             <Signal>init_calib_complete</Signal>
             <Signal>ddr_wr_rd_test/wrflag</Signal>
             <Signal>ddr_wr_rd_test/rdflag</Signal>
-            <Signal>clk_8M</Signal>
-            <Bus name="cpu_arb_32_awaddr[31:0]">
-                <Signal>cpu_arb_32_awaddr[31]</Signal>
-                <Signal>cpu_arb_32_awaddr[30]</Signal>
-                <Signal>cpu_arb_32_awaddr[29]</Signal>
-                <Signal>cpu_arb_32_awaddr[28]</Signal>
-                <Signal>cpu_arb_32_awaddr[27]</Signal>
-                <Signal>cpu_arb_32_awaddr[26]</Signal>
-                <Signal>cpu_arb_32_awaddr[25]</Signal>
-                <Signal>cpu_arb_32_awaddr[24]</Signal>
-                <Signal>cpu_arb_32_awaddr[23]</Signal>
-                <Signal>cpu_arb_32_awaddr[22]</Signal>
-                <Signal>cpu_arb_32_awaddr[21]</Signal>
-                <Signal>cpu_arb_32_awaddr[20]</Signal>
-                <Signal>cpu_arb_32_awaddr[19]</Signal>
-                <Signal>cpu_arb_32_awaddr[18]</Signal>
-                <Signal>cpu_arb_32_awaddr[17]</Signal>
-                <Signal>cpu_arb_32_awaddr[16]</Signal>
-                <Signal>cpu_arb_32_awaddr[15]</Signal>
-                <Signal>cpu_arb_32_awaddr[14]</Signal>
-                <Signal>cpu_arb_32_awaddr[13]</Signal>
-                <Signal>cpu_arb_32_awaddr[12]</Signal>
-                <Signal>cpu_arb_32_awaddr[11]</Signal>
-                <Signal>cpu_arb_32_awaddr[10]</Signal>
-                <Signal>cpu_arb_32_awaddr[9]</Signal>
-                <Signal>cpu_arb_32_awaddr[8]</Signal>
-                <Signal>cpu_arb_32_awaddr[7]</Signal>
-                <Signal>cpu_arb_32_awaddr[6]</Signal>
-                <Signal>cpu_arb_32_awaddr[5]</Signal>
-                <Signal>cpu_arb_32_awaddr[4]</Signal>
-                <Signal>cpu_arb_32_awaddr[3]</Signal>
-                <Signal>cpu_arb_32_awaddr[2]</Signal>
-                <Signal>cpu_arb_32_awaddr[1]</Signal>
-                <Signal>cpu_arb_32_awaddr[0]</Signal>
-            </Bus>
-            <Bus name="cpu_arb_32_wdata[31:0]">
-                <Signal>cpu_arb_32_wdata[31]</Signal>
-                <Signal>cpu_arb_32_wdata[30]</Signal>
-                <Signal>cpu_arb_32_wdata[29]</Signal>
-                <Signal>cpu_arb_32_wdata[28]</Signal>
-                <Signal>cpu_arb_32_wdata[27]</Signal>
-                <Signal>cpu_arb_32_wdata[26]</Signal>
-                <Signal>cpu_arb_32_wdata[25]</Signal>
-                <Signal>cpu_arb_32_wdata[24]</Signal>
-                <Signal>cpu_arb_32_wdata[23]</Signal>
-                <Signal>cpu_arb_32_wdata[22]</Signal>
-                <Signal>cpu_arb_32_wdata[21]</Signal>
-                <Signal>cpu_arb_32_wdata[20]</Signal>
-                <Signal>cpu_arb_32_wdata[19]</Signal>
-                <Signal>cpu_arb_32_wdata[18]</Signal>
-                <Signal>cpu_arb_32_wdata[17]</Signal>
-                <Signal>cpu_arb_32_wdata[16]</Signal>
-                <Signal>cpu_arb_32_wdata[15]</Signal>
-                <Signal>cpu_arb_32_wdata[14]</Signal>
-                <Signal>cpu_arb_32_wdata[13]</Signal>
-                <Signal>cpu_arb_32_wdata[12]</Signal>
-                <Signal>cpu_arb_32_wdata[11]</Signal>
-                <Signal>cpu_arb_32_wdata[10]</Signal>
-                <Signal>cpu_arb_32_wdata[9]</Signal>
-                <Signal>cpu_arb_32_wdata[8]</Signal>
-                <Signal>cpu_arb_32_wdata[7]</Signal>
-                <Signal>cpu_arb_32_wdata[6]</Signal>
-                <Signal>cpu_arb_32_wdata[5]</Signal>
-                <Signal>cpu_arb_32_wdata[4]</Signal>
-                <Signal>cpu_arb_32_wdata[3]</Signal>
-                <Signal>cpu_arb_32_wdata[2]</Signal>
-                <Signal>cpu_arb_32_wdata[1]</Signal>
-                <Signal>cpu_arb_32_wdata[0]</Signal>
-            </Bus>
-            <Bus name="cpu_arb_32_wstrb[3:0]">
-                <Signal>cpu_arb_32_wstrb[3]</Signal>
-                <Signal>cpu_arb_32_wstrb[2]</Signal>
-                <Signal>cpu_arb_32_wstrb[1]</Signal>
-                <Signal>cpu_arb_32_wstrb[0]</Signal>
-            </Bus>
-            <Signal>cpu_arb_32_awvalid</Signal>
-            <Signal>cpu_arb_32_wvalid</Signal>
-            <Bus name="cpu_arb_128_awaddr[31:0]">
-                <Signal>cpu_arb_128_awaddr[31]</Signal>
-                <Signal>cpu_arb_128_awaddr[30]</Signal>
-                <Signal>cpu_arb_128_awaddr[29]</Signal>
-                <Signal>cpu_arb_128_awaddr[28]</Signal>
-                <Signal>cpu_arb_128_awaddr[27]</Signal>
-                <Signal>cpu_arb_128_awaddr[26]</Signal>
-                <Signal>cpu_arb_128_awaddr[25]</Signal>
-                <Signal>cpu_arb_128_awaddr[24]</Signal>
-                <Signal>cpu_arb_128_awaddr[23]</Signal>
-                <Signal>cpu_arb_128_awaddr[22]</Signal>
-                <Signal>cpu_arb_128_awaddr[21]</Signal>
-                <Signal>cpu_arb_128_awaddr[20]</Signal>
-                <Signal>cpu_arb_128_awaddr[19]</Signal>
-                <Signal>cpu_arb_128_awaddr[18]</Signal>
-                <Signal>cpu_arb_128_awaddr[17]</Signal>
-                <Signal>cpu_arb_128_awaddr[16]</Signal>
-                <Signal>cpu_arb_128_awaddr[15]</Signal>
-                <Signal>cpu_arb_128_awaddr[14]</Signal>
-                <Signal>cpu_arb_128_awaddr[13]</Signal>
-                <Signal>cpu_arb_128_awaddr[12]</Signal>
-                <Signal>cpu_arb_128_awaddr[11]</Signal>
-                <Signal>cpu_arb_128_awaddr[10]</Signal>
-                <Signal>cpu_arb_128_awaddr[9]</Signal>
-                <Signal>cpu_arb_128_awaddr[8]</Signal>
-                <Signal>cpu_arb_128_awaddr[7]</Signal>
-                <Signal>cpu_arb_128_awaddr[6]</Signal>
-                <Signal>cpu_arb_128_awaddr[5]</Signal>
-                <Signal>cpu_arb_128_awaddr[4]</Signal>
-                <Signal>cpu_arb_128_awaddr[3]</Signal>
-                <Signal>cpu_arb_128_awaddr[2]</Signal>
-                <Signal>cpu_arb_128_awaddr[1]</Signal>
-                <Signal>cpu_arb_128_awaddr[0]</Signal>
-            </Bus>
-            <Bus name="cpu_arb_128_wdata[127:0]">
-                <Signal>cpu_arb_128_wdata[127]</Signal>
-                <Signal>cpu_arb_128_wdata[126]</Signal>
-                <Signal>cpu_arb_128_wdata[125]</Signal>
-                <Signal>cpu_arb_128_wdata[124]</Signal>
-                <Signal>cpu_arb_128_wdata[123]</Signal>
-                <Signal>cpu_arb_128_wdata[122]</Signal>
-                <Signal>cpu_arb_128_wdata[121]</Signal>
-                <Signal>cpu_arb_128_wdata[120]</Signal>
-                <Signal>cpu_arb_128_wdata[119]</Signal>
-                <Signal>cpu_arb_128_wdata[118]</Signal>
-                <Signal>cpu_arb_128_wdata[117]</Signal>
-                <Signal>cpu_arb_128_wdata[116]</Signal>
-                <Signal>cpu_arb_128_wdata[115]</Signal>
-                <Signal>cpu_arb_128_wdata[114]</Signal>
-                <Signal>cpu_arb_128_wdata[113]</Signal>
-                <Signal>cpu_arb_128_wdata[112]</Signal>
-                <Signal>cpu_arb_128_wdata[111]</Signal>
-                <Signal>cpu_arb_128_wdata[110]</Signal>
-                <Signal>cpu_arb_128_wdata[109]</Signal>
-                <Signal>cpu_arb_128_wdata[108]</Signal>
-                <Signal>cpu_arb_128_wdata[107]</Signal>
-                <Signal>cpu_arb_128_wdata[106]</Signal>
-                <Signal>cpu_arb_128_wdata[105]</Signal>
-                <Signal>cpu_arb_128_wdata[104]</Signal>
-                <Signal>cpu_arb_128_wdata[103]</Signal>
-                <Signal>cpu_arb_128_wdata[102]</Signal>
-                <Signal>cpu_arb_128_wdata[101]</Signal>
-                <Signal>cpu_arb_128_wdata[100]</Signal>
-                <Signal>cpu_arb_128_wdata[99]</Signal>
-                <Signal>cpu_arb_128_wdata[98]</Signal>
-                <Signal>cpu_arb_128_wdata[97]</Signal>
-                <Signal>cpu_arb_128_wdata[96]</Signal>
-                <Signal>cpu_arb_128_wdata[95]</Signal>
-                <Signal>cpu_arb_128_wdata[94]</Signal>
-                <Signal>cpu_arb_128_wdata[93]</Signal>
-                <Signal>cpu_arb_128_wdata[92]</Signal>
-                <Signal>cpu_arb_128_wdata[91]</Signal>
-                <Signal>cpu_arb_128_wdata[90]</Signal>
-                <Signal>cpu_arb_128_wdata[89]</Signal>
-                <Signal>cpu_arb_128_wdata[88]</Signal>
-                <Signal>cpu_arb_128_wdata[87]</Signal>
-                <Signal>cpu_arb_128_wdata[86]</Signal>
-                <Signal>cpu_arb_128_wdata[85]</Signal>
-                <Signal>cpu_arb_128_wdata[84]</Signal>
-                <Signal>cpu_arb_128_wdata[83]</Signal>
-                <Signal>cpu_arb_128_wdata[82]</Signal>
-                <Signal>cpu_arb_128_wdata[81]</Signal>
-                <Signal>cpu_arb_128_wdata[80]</Signal>
-                <Signal>cpu_arb_128_wdata[79]</Signal>
-                <Signal>cpu_arb_128_wdata[78]</Signal>
-                <Signal>cpu_arb_128_wdata[77]</Signal>
-                <Signal>cpu_arb_128_wdata[76]</Signal>
-                <Signal>cpu_arb_128_wdata[75]</Signal>
-                <Signal>cpu_arb_128_wdata[74]</Signal>
-                <Signal>cpu_arb_128_wdata[73]</Signal>
-                <Signal>cpu_arb_128_wdata[72]</Signal>
-                <Signal>cpu_arb_128_wdata[71]</Signal>
-                <Signal>cpu_arb_128_wdata[70]</Signal>
-                <Signal>cpu_arb_128_wdata[69]</Signal>
-                <Signal>cpu_arb_128_wdata[68]</Signal>
-                <Signal>cpu_arb_128_wdata[67]</Signal>
-                <Signal>cpu_arb_128_wdata[66]</Signal>
-                <Signal>cpu_arb_128_wdata[65]</Signal>
-                <Signal>cpu_arb_128_wdata[64]</Signal>
-                <Signal>cpu_arb_128_wdata[63]</Signal>
-                <Signal>cpu_arb_128_wdata[62]</Signal>
-                <Signal>cpu_arb_128_wdata[61]</Signal>
-                <Signal>cpu_arb_128_wdata[60]</Signal>
-                <Signal>cpu_arb_128_wdata[59]</Signal>
-                <Signal>cpu_arb_128_wdata[58]</Signal>
-                <Signal>cpu_arb_128_wdata[57]</Signal>
-                <Signal>cpu_arb_128_wdata[56]</Signal>
-                <Signal>cpu_arb_128_wdata[55]</Signal>
-                <Signal>cpu_arb_128_wdata[54]</Signal>
-                <Signal>cpu_arb_128_wdata[53]</Signal>
-                <Signal>cpu_arb_128_wdata[52]</Signal>
-                <Signal>cpu_arb_128_wdata[51]</Signal>
-                <Signal>cpu_arb_128_wdata[50]</Signal>
-                <Signal>cpu_arb_128_wdata[49]</Signal>
-                <Signal>cpu_arb_128_wdata[48]</Signal>
-                <Signal>cpu_arb_128_wdata[47]</Signal>
-                <Signal>cpu_arb_128_wdata[46]</Signal>
-                <Signal>cpu_arb_128_wdata[45]</Signal>
-                <Signal>cpu_arb_128_wdata[44]</Signal>
-                <Signal>cpu_arb_128_wdata[43]</Signal>
-                <Signal>cpu_arb_128_wdata[42]</Signal>
-                <Signal>cpu_arb_128_wdata[41]</Signal>
-                <Signal>cpu_arb_128_wdata[40]</Signal>
-                <Signal>cpu_arb_128_wdata[39]</Signal>
-                <Signal>cpu_arb_128_wdata[38]</Signal>
-                <Signal>cpu_arb_128_wdata[37]</Signal>
-                <Signal>cpu_arb_128_wdata[36]</Signal>
-                <Signal>cpu_arb_128_wdata[35]</Signal>
-                <Signal>cpu_arb_128_wdata[34]</Signal>
-                <Signal>cpu_arb_128_wdata[33]</Signal>
-                <Signal>cpu_arb_128_wdata[32]</Signal>
-                <Signal>cpu_arb_128_wdata[31]</Signal>
-                <Signal>cpu_arb_128_wdata[30]</Signal>
-                <Signal>cpu_arb_128_wdata[29]</Signal>
-                <Signal>cpu_arb_128_wdata[28]</Signal>
-                <Signal>cpu_arb_128_wdata[27]</Signal>
-                <Signal>cpu_arb_128_wdata[26]</Signal>
-                <Signal>cpu_arb_128_wdata[25]</Signal>
-                <Signal>cpu_arb_128_wdata[24]</Signal>
-                <Signal>cpu_arb_128_wdata[23]</Signal>
-                <Signal>cpu_arb_128_wdata[22]</Signal>
-                <Signal>cpu_arb_128_wdata[21]</Signal>
-                <Signal>cpu_arb_128_wdata[20]</Signal>
-                <Signal>cpu_arb_128_wdata[19]</Signal>
-                <Signal>cpu_arb_128_wdata[18]</Signal>
-                <Signal>cpu_arb_128_wdata[17]</Signal>
-                <Signal>cpu_arb_128_wdata[16]</Signal>
-                <Signal>cpu_arb_128_wdata[15]</Signal>
-                <Signal>cpu_arb_128_wdata[14]</Signal>
-                <Signal>cpu_arb_128_wdata[13]</Signal>
-                <Signal>cpu_arb_128_wdata[12]</Signal>
-                <Signal>cpu_arb_128_wdata[11]</Signal>
-                <Signal>cpu_arb_128_wdata[10]</Signal>
-                <Signal>cpu_arb_128_wdata[9]</Signal>
-                <Signal>cpu_arb_128_wdata[8]</Signal>
-                <Signal>cpu_arb_128_wdata[7]</Signal>
-                <Signal>cpu_arb_128_wdata[6]</Signal>
-                <Signal>cpu_arb_128_wdata[5]</Signal>
-                <Signal>cpu_arb_128_wdata[4]</Signal>
-                <Signal>cpu_arb_128_wdata[3]</Signal>
-                <Signal>cpu_arb_128_wdata[2]</Signal>
-                <Signal>cpu_arb_128_wdata[1]</Signal>
-                <Signal>cpu_arb_128_wdata[0]</Signal>
-            </Bus>
-            <Bus name="cpu_arb_128_wstrb[15:0]">
-                <Signal>cpu_arb_128_wstrb[15]</Signal>
-                <Signal>cpu_arb_128_wstrb[14]</Signal>
-                <Signal>cpu_arb_128_wstrb[13]</Signal>
-                <Signal>cpu_arb_128_wstrb[12]</Signal>
-                <Signal>cpu_arb_128_wstrb[11]</Signal>
-                <Signal>cpu_arb_128_wstrb[10]</Signal>
-                <Signal>cpu_arb_128_wstrb[9]</Signal>
-                <Signal>cpu_arb_128_wstrb[8]</Signal>
-                <Signal>cpu_arb_128_wstrb[7]</Signal>
-                <Signal>cpu_arb_128_wstrb[6]</Signal>
-                <Signal>cpu_arb_128_wstrb[5]</Signal>
-                <Signal>cpu_arb_128_wstrb[4]</Signal>
-                <Signal>cpu_arb_128_wstrb[3]</Signal>
-                <Signal>cpu_arb_128_wstrb[2]</Signal>
-                <Signal>cpu_arb_128_wstrb[1]</Signal>
-                <Signal>cpu_arb_128_wstrb[0]</Signal>
-            </Bus>
-            <Signal>cpu_arb_128_awvalid</Signal>
-            <Signal>cpu_arb_128_wvalid</Signal>
             <Bus name="arb_ctr_awaddr[31:0]">
                 <Signal>arb_ctr_awaddr[31]</Signal>
                 <Signal>arb_ctr_awaddr[30]</Signal>
@@ -458,6 +198,7 @@
                 <Signal>ddr_ctr/app_cmd[1]</Signal>
                 <Signal>ddr_ctr/app_cmd[0]</Signal>
             </Bus>
+            <Signal>ddr_ctr/app_cmd_en</Signal>
             <Bus name="ddr_ctr/app_addr[28:0]">
                 <Signal>ddr_ctr/app_addr[28]</Signal>
                 <Signal>ddr_ctr/app_addr[27]</Signal>
@@ -489,6 +230,157 @@
                 <Signal>ddr_ctr/app_addr[1]</Signal>
                 <Signal>ddr_ctr/app_addr[0]</Signal>
             </Bus>
+            <Bus name="ddr_ctr/app_wdf_data[127:0]">
+                <Signal>ddr_ctr/app_wdf_data[127]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[126]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[125]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[124]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[123]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[122]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[121]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[120]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[119]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[118]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[117]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[116]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[115]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[114]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[113]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[112]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[111]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[110]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[109]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[108]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[107]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[106]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[105]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[104]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[103]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[102]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[101]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[100]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[99]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[98]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[97]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[96]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[95]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[94]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[93]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[92]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[91]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[90]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[89]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[88]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[87]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[86]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[85]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[84]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[83]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[82]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[81]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[80]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[79]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[78]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[77]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[76]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[75]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[74]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[73]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[72]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[71]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[70]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[69]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[68]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[67]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[66]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[65]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[64]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[63]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[62]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[61]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[60]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[59]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[58]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[57]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[56]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[55]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[54]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[53]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[52]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[51]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[50]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[49]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[48]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[47]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[46]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[45]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[44]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[43]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[42]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[41]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[40]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[39]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[38]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[37]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[36]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[35]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[34]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[33]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[32]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[31]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[30]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[29]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[28]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[27]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[26]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[25]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[24]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[23]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[22]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[21]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[20]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[19]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[18]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[17]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[16]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[15]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[14]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[13]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[12]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[11]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[10]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[9]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[8]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[7]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[6]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[5]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[4]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[3]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[2]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[1]</Signal>
+                <Signal>ddr_ctr/app_wdf_data[0]</Signal>
+            </Bus>
+            <Bus name="ddr_ctr/app_wdf_mask[15:0]">
+                <Signal>ddr_ctr/app_wdf_mask[15]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[14]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[13]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[12]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[11]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[10]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[9]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[8]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[7]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[6]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[5]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[4]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[3]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[2]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[1]</Signal>
+                <Signal>ddr_ctr/app_wdf_mask[0]</Signal>
+            </Bus>
+            <Signal>ddr_ctr/app_wdf_wren</Signal>
+            <Signal>ddr_ctr/app_rd_data_valid</Signal>
+            <Signal>ddr_ctr/app_rd_data_end</Signal>
             <Bus name="ddr_ctr/app_rd_data[127:0]">
                 <Signal>ddr_ctr/app_rd_data[127]</Signal>
                 <Signal>ddr_ctr/app_rd_data[126]</Signal>
@@ -619,32 +511,18 @@
                 <Signal>ddr_ctr/app_rd_data[1]</Signal>
                 <Signal>ddr_ctr/app_rd_data[0]</Signal>
             </Bus>
-            <Bus name="ddr_ctr/app_wdf_mask[15:0]">
-                <Signal>ddr_ctr/app_wdf_mask[15]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[14]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[13]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[12]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[11]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[10]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[9]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[8]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[7]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[6]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[5]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[4]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[3]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[2]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[1]</Signal>
-                <Signal>ddr_ctr/app_wdf_mask[0]</Signal>
-            </Bus>
-            <Signal>ddr_ctr/app_cmd_en</Signal>
-            <Signal>ddr_ctr/app_rd_data_valid</Signal>
-            <Signal>ddr_ctr/app_rd_data_end</Signal>
-            <Signal>ddr_ctr/app_wdf_wren</Signal>
         </SignalList>
         <Triggers>
-            <Trigger index="0"/>
-            <Trigger index="1"/>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>sys_resetn</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1">
+                <SignalList>
+                    <Signal>ddr_wr_rd_test/wrflag</Signal>
+                </SignalList>
+            </Trigger>
             <Trigger index="2">
                 <SignalList>
                     <Signal>init_calib_complete</Signal>
@@ -682,9 +560,9 @@
             <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
-        <Expressions type="Static">
+        <Expressions type="Dynamic" ex_implementation="0">
             <Expression>M2</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0110000011101000</GAO_ID>
+    <GAO_ID>1000111010000101</GAO_ID>
 </GAO_CONFIG>

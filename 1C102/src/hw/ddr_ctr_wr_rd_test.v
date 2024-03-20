@@ -34,7 +34,7 @@ assign rready = 1'b1;
 
 reg wrflag = 0;
 always @(posedge clk) begin
-    if (~rstn) begin
+    if (~rstn | ~ddr_ready) begin
         awvalid <= 1'b0;
         wvalid <= 1'b0;
         wrflag <= 0;
@@ -61,7 +61,7 @@ end
 
 reg rdflag = 0;
 always @(posedge clk) begin
-    if (~rstn) begin
+    if (~rstn | ~ddr_ready) begin
         arvalid <= 1'b0;
         rdflag <= 1'b0;
     end
