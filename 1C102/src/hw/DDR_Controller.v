@@ -334,7 +334,7 @@ module DDR_Controller #
     localparam IDLE = 2'b00;
     localparam READ = 2'b01;
 
-    reg [1:0] state_current, state_next;
+    reg state_current, state_next;
     reg ddr_rd_done_flag = 0;
     reg ram_cmd_ready_next;
 
