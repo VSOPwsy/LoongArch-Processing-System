@@ -1,0 +1,95 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_memory_interface\ddr3_memory_interface.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_rw.v'
+WARN  (EX3628) : Redeclaration of ANSI port 'app_addr' is not allowed("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_rw.v":59)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v'
+Undeclared symbol 'ui_clk', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":61)
+Undeclared symbol 'ddr_rst', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":62)
+Undeclared symbol 'app_wdf_wren', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":70)
+Undeclared symbol 'rfifo_wren', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":81)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr_rpll\ddr_rpll.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\rd_fifo\rd_fifo.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_ctrl_top.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_init.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_para_top.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_rpll\sd_rpll.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_write.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\wr_fifo\wr_fifo.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_crc32.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
+WARN  (EX3073) : Port 'Almost_Full' remains unconnected for this instance("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":175)
+Compiling module 'ddr3_fifo_ctrl'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":2)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":72)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":107)
+Compiling module 'rd_fifo'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\rd_fifo\rd_fifo.v":909)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\rd_fifo\rd_fifo.v":908)
+WARN  (EX3670) : Actual bit length 10 differs from formal bit length 11 for port 'Wnum'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":170)
+Compiling module 'wr_fifo'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\wr_fifo\wr_fifo.v":915)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\wr_fifo\wr_fifo.v":914)
+WARN  (EX3670) : Actual bit length 10 differs from formal bit length 11 for port 'Rnum'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":184)
+WARN  (EX1998) : Net 'dataout[8][15]' does not have a driver("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_fifo_ctrl.v":38)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_memory_interface\ddr3_memory_interface.v":20351)
+Compiling module 'ddr3_memory_interface'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_memory_interface\ddr3_memory_interface.v":20352)
+Compiling module 'ddr3_rw'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_rw.v":1)
+Compiling module 'ddr3_top'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":1)
+WARN  (EX3670) : Actual bit length 29 differs from formal bit length 28 for port 'app_addr'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":68)
+WARN  (EX3670) : Actual bit length 29 differs from formal bit length 30 for port 'addr'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":98)
+WARN  (EX3670) : Actual bit length 14 differs from formal bit length 15 for port 'O_ddr_addr'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr3_top.v":118)
+Compiling module 'ddr_rpll'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\ddr_rpll\ddr_rpll.v":10)
+Compiling module 'sd_ctrl_top'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_ctrl_top.v":1)
+Compiling module 'sd_init'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_init.v":1)
+Compiling module 'sd_write'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_write.v":1)
+Compiling module 'sd_read'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read.v":1)
+Compiling module 'sd_read_model'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model.v":1)
+WARN  (EX3791) : Expression size 2 truncated to fit in target size 1("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_model.v":59)
+Compiling module 'sd_read_para_top'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_para_top.v":1)
+Compiling module 'sd_rpll'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_rpll\sd_rpll.v":10)
+WARN  (EX3670) : Actual bit length 24 differs from formal bit length 28 for port 'app_addr_rd_max'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_para_top.v":138)
+WARN  (EX3670) : Actual bit length 24 differs from formal bit length 28 for port 'app_addr_wr_max'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_read_para_top.v":141)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_crc32.v":74)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_mem_ctrl.v":1256)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_top.v":3042)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO\GW_CON\gw_con_top.v":377)
+Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
+Compiling module 'gw_gao'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
+Trying to combine GAO to RTL design
+NOTE  (EX0101) : Current top module is "sd_read_para_top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "sd_write" instantiated to "u_sd_write" is swept in optimizing("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\src\sd_ctrl_top.v":91)
+[95%] Generate netlist file "C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new.vg" completed
+[100%] Generate report file "C:\Gowin\Gowin_V1.9.9.01_x64\IDE\bin\Documents\sd_read_modelpara_new\impl\gwsynthesis\sd_read_modelpara_new_syn.rpt.html" completed
+GowinSynthesis finish
