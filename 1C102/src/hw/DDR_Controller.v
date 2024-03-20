@@ -369,6 +369,15 @@ module DDR_Controller #
      */
     always @(*) begin
         pipe_rden = 1'b0;
+
+        app_cmd = 'b0;
+        app_addr = 'b0;
+        app_cmd_en = 'b0;
+        app_wdf_wren = 'b0;
+        app_wdf_data = 'b0;
+        app_wdf_mask = 'b0;
+        app_wdf_end = 'b0;
+
         if (~resetn) begin
             state_next = IDLE;
         end
@@ -381,25 +390,32 @@ module DDR_Controller #
                             if (app_cmd_ready) begin
                                 state_next = READ;
                                 pipe_rden = 1'b1;
+
+                                app_cmd = 3'b001;
+                                app_cmd_en = 1'b1;
+                                app_addr = pipe_out[0 +: ADDR_WIDTH];
                             end
                         end
                         else begin
                             if (app_cmd_ready & app_wdf_rdy) begin
                                 pipe_rden = 1'b1;
+
+                                app_cmd = 3'b000;
+                                app_cmd_en = 1'b1;
+                                app_addr = pipe_out[0 +: ADDR_WIDTH];
+                                app_wdf_wren = 1'b1;
+                                app_wdf_data = pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
+                                app_wdf_mask = ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
+                                app_wdf_end = 1'b1;
                             end
                         end
-                    end
-                    else begin
-                        state_next = IDLE;
                     end
                 end
 
                 READ: begin
+                    state_next = READ;
                     if (ddr_rd_done_flag & rfifo_empty) begin
                         state_next = IDLE;
-                    end
-                    else begin
-                        state_next = READ;
                     end
                 end
                 default: state_next = IDLE;
@@ -420,38 +436,17 @@ module DDR_Controller #
             state_current <= state_next;
             case (state_current)
                 IDLE: begin
-                    app_cmd_en <= 1'b0;
-                    app_wdf_wren <= 1'b0;
-                    app_wdf_end <= 1'b0;
-
                     if (~pipe_empty) begin
                         if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
                             if (app_cmd_ready) begin
-                                app_cmd <= 3'b001;
-                                app_cmd_en <= 1'b1;
-                                app_addr <= pipe_out[0 +: ADDR_WIDTH];
                                 id <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH +: ID_WIDTH];
                                 last <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
-                            end
-                        end
-                        else begin: __WRITE__
-                            if (app_cmd_ready & app_wdf_rdy) begin
-                                app_cmd <= 3'b000;
-                                app_cmd_en <= 1'b1;
-                                app_addr <= pipe_out[0 +: ADDR_WIDTH];
-                                app_wdf_wren <= 1'b1;
-                                app_wdf_data <= pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
-                                app_wdf_mask <= ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
-                                app_wdf_end <= 1'b1;
                             end
                         end
                     end
                 end
 
                 READ: begin
-                    if (app_cmd_ready) begin
-                        app_cmd_en <= 1'b0;
-                    end
                     if (app_rd_data_valid) begin
                         ddr_rd_done_flag <= 1'b1;
                         rfifo_wren <= 1'b1;

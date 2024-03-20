@@ -38,9 +38,9 @@
         <File path="src/hw/async_fifo/sync_w2r.v" type="file.verilog" enable="1"/>
         <File path="src/hw/async_fifo/wptr_full.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ddr_testing/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ddr_testing/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ddr_testing/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_fifo_rd/ddr_fifo_rd.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_pipe/ddr_pipe.v" type="file.verilog" enable="1"/>
