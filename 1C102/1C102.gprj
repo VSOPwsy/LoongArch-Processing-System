@@ -52,6 +52,6 @@
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>
