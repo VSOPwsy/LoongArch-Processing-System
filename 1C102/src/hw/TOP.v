@@ -5,24 +5,29 @@
 module TOP (
     input sys_resetn,
 
-    output [3:0] led,
+	output	[3:0]	led,
 
-	
-    inout  [15:0]   ddr_dq,
-    inout  [1:0]    ddr_dqs,
-    inout  [1:0]    ddr_dqs_n,
-    output [13:0]   ddr_addr,
-    output [2:0]    ddr_bank,
-    output          ddr_cs,
-    output          ddr_ras,
-    output          ddr_cas,
-    output          ddr_we,
-    output          ddr_ck,
-    output          ddr_ck_n,
-    output          ddr_cke,
-    output          ddr_odt,
-    output          ddr_reset_n,
-    output [1:0]    ddr_dm
+
+	inout	[15:0]	ddr_dq,
+	inout	[1:0]	ddr_dqs,
+	inout	[1:0]	ddr_dqs_n,
+	output	[13:0]	ddr_addr,
+	output	[2:0]	ddr_bank,
+	output			ddr_cs,
+	output			ddr_ras,
+	output			ddr_cas,
+	output			ddr_we,
+	output			ddr_ck,
+	output			ddr_ck_n,
+	output			ddr_cke,
+	output			ddr_odt,
+	output			ddr_reset_n,
+	output	[1:0]	ddr_dm,
+
+	input			sd_miso,
+	output			sd_clk,
+	output			sd_cs,
+	output			sd_mosi
 );
 
 	wire clk_osc;  /* synthesis syn_keep=1 */  // 105MHz
@@ -284,7 +289,19 @@ module TOP (
 		.clk_count			(clk_8M					),
 		.hard_resetn		(locked&sys_resetn		),
 		.soft_resetn		(locked&sys_resetn		),
+    la132_top CPU (
+		.boot_pc			(32'h1c000000			),
+		.clk				(clk_8M					),
+		.clk_count			(clk_8M					),
+		.hard_resetn		(locked&sys_resetn		),
+		.soft_resetn		(locked&sys_resetn		),
 
+		.sleeping			(sleeping_o				),
+        .can_high_freq		(can_high_freq			),
+		.cpu_fetch_pc		(fetch_pc				),
+		.wb_pc				(debug_pc				),
+		.mode_lisa			(1'b1					), 
+		.inst_xor			(32'b0					),
 		.sleeping			(sleeping_o				),
         .can_high_freq		(can_high_freq			),
 		.cpu_fetch_pc		(fetch_pc				),
@@ -294,7 +311,19 @@ module TOP (
 
 		.nmi				(1'b0					),
 		.ext_int			(interrupt				),
+		.nmi				(1'b0					),
+		.ext_int			(interrupt				),
 
+		.arid				(cpu_arid[3:0]			),
+		.araddr				(cpu_araddr				),
+		.arlen				(cpu_arlen				),
+		.arsize				(cpu_arsize				),
+		.arburst			(cpu_arburst			),
+		.arlock				(cpu_arlock				),
+		.arcache			(cpu_arcache			),
+		.arprot				(cpu_arprot				),
+		.arvalid			(cpu_arvalid			),
+		.arready			(cpu_arready			),
 		.arid				(cpu_arid[3:0]			),
 		.araddr				(cpu_araddr				),
 		.arlen				(cpu_arlen				),
@@ -312,7 +341,23 @@ module TOP (
 		.rlast				(cpu_rlast				),
 		.rvalid				(cpu_rvalid				),
 		.rready				(cpu_rready				),
+		.rid				(cpu_rid[3:0]			),
+		.rdata				(cpu_rdata				),
+		.rresp				(cpu_rresp				),
+		.rlast				(cpu_rlast				),
+		.rvalid				(cpu_rvalid				),
+		.rready				(cpu_rready				),
 
+		.awid				(cpu_awid[3:0]			),
+		.awaddr				(cpu_awaddr				),
+		.awlen				(cpu_awlen				),
+		.awsize				(cpu_awsize				),
+		.awburst			(cpu_awburst			),
+		.awlock				(cpu_awlock				),
+		.awcache			(cpu_awcache			),
+		.awprot				(cpu_awprot				),
+		.awvalid			(cpu_awvalid			),
+		.awready			(cpu_awready			),
 		.awid				(cpu_awid[3:0]			),
 		.awaddr				(cpu_awaddr				),
 		.awlen				(cpu_awlen				),
@@ -330,12 +375,32 @@ module TOP (
 		.wlast				(cpu_wlast				),
 		.wvalid				(cpu_wvalid				),
 		.wready				(cpu_wready				),
+		.wid				(cpu_wid[3:0]			),
+		.wdata				(cpu_wdata				),
+		.wstrb				(cpu_wstrb				),
+		.wlast				(cpu_wlast				),
+		.wvalid				(cpu_wvalid				),
+		.wready				(cpu_wready				),
 
 		.bid				(cpu_bid[3:0]			),
 		.bresp				(cpu_bresp				),
 		.bvalid				(cpu_bvalid				),
 		.bready				(cpu_bready				),
+		.bid				(cpu_bid[3:0]			),
+		.bresp				(cpu_bresp				),
+		.bvalid				(cpu_bvalid				),
+		.bready				(cpu_bready				),
 
+		.inst_sram_en		(inst_sram_en			),
+		.inst_sram_wr		(inst_sram_wr			),
+		.inst_sram_fetch	(inst_sram_fetch		),
+		.inst_sram_strb		(inst_sram_strb			),
+		.inst_sram_addr		(inst_sram_addr			),
+		.inst_sram_wdata	(inst_sram_wdata		),
+		.inst_sram_rdata	(inst_sram_rdata		),
+		.inst_sram_ack		(inst_sram_ack			),
+		.inst_sram_rrdy		(inst_sram_rrdy			),
+		.inst_sram_resp		(inst_sram_resp			),
 		.inst_sram_en		(inst_sram_en			),
 		.inst_sram_wr		(inst_sram_wr			),
 		.inst_sram_fetch	(inst_sram_fetch		),
@@ -357,6 +422,16 @@ module TOP (
 		.data_sram_ack		(data_sram_ack			),
 		.data_sram_rrdy		(data_sram_rrdy			),
 		.data_sram_resp		(data_sram_resp			),
+		.data_sram_en		(data_sram_en			),
+		.data_sram_wr		(data_sram_wr			),
+		.data_sram_fetch	(data_sram_fetch		),
+		.data_sram_strb		(data_sram_strb			),
+		.data_sram_addr		(data_sram_addr			),
+		.data_sram_wdata	(data_sram_wdata		),
+		.data_sram_rdata	(data_sram_rdata		),
+		.data_sram_ack		(data_sram_ack			),
+		.data_sram_rrdy		(data_sram_rrdy			),
+		.data_sram_resp		(data_sram_resp			),
 
 		.trstn				(ljtag_trst_i			),
 		.tck				(ljtag_tck_i			),
@@ -365,7 +440,16 @@ module TOP (
 		.tdo				(ljtag_tdo_o			),
 		.ljtag_prrst		(ljtag_prrst_src		),
 		.ljtag_lock			(1'b0					),
+		.trstn				(ljtag_trst_i			),
+		.tck				(ljtag_tck_i			),
+		.tdi				(ljtag_tdi_i			),
+		.tms				(ljtag_tms_i			),
+		.tdo				(ljtag_tdo_o			),
+		.ljtag_prrst		(ljtag_prrst_src		),
+		.ljtag_lock			(1'b0					),
 
+		.prid_revision		(4'd0					),
+		.cpunum				(10'b0					),
 		.prid_revision		(4'd0					),
 		.cpunum				(10'b0					),
 
@@ -393,7 +477,33 @@ module TOP (
 		.dbus3_valid		(1'b0					), // unused
 		.dbus3_base			(32'h0000_0000			),
 		.dbus3_mask			(32'h0000_0000			),
+		.ibus0_valid		(1'b1					),
+		.ibus0_base			(32'h1c00_0000			), // va: 1c00_0000 & bfc0_0000
+		.ibus0_mask			(32'h1f00_0000			), // flash 128K, + 4 special page
+		.ibus1_valid		(1'b1					),
+		.ibus1_base			(32'h9f00_0000			), // va: 9fR0_0000 & bf00_0000
+		.ibus1_mask			(32'hdff0_0000			),
+		.ibus2_valid		(1'b0					), // flash_en
+		.ibus2_base			(32'h9fe6_0000			), // va: 9fe6_0000 & bfe6_0000
+		.ibus2_mask			(32'hdfff_ff00			),
+		.ibus3_valid		(1'b0					), // compact_mem&flash_en),
+		.ibus3_base			(32'h8000_3000			), // for va: 8000_30xx & 0000_00xx -> pa: 0000_30xx & 4000_00xx
+		.ibus3_mask			(32'h7fff_ff00			),
+		.dbus0_valid		(1'b1					),
+		.dbus0_base			(32'h8000_0000			),
+		.dbus0_mask			(32'hdfff_e000			), // 8K byte, for va: 8000_0000 & a000_0000 -> pa: 0000_0000
+		.dbus1_valid		(1'b1					),
+		.dbus1_base			(32'h0000_0000			),
+		.dbus1_mask			(32'hffff_e000			), // 8K byte, for va: 0000_0000             -> pa: 0000_0000
+		.dbus2_valid		(1'b0					), // unused
+		.dbus2_base			(32'h0000_0000			),
+		.dbus2_mask			(32'h0000_0000			),
+		.dbus3_valid		(1'b0					), // unused
+		.dbus3_base			(32'h0000_0000			),
+		.dbus3_mask			(32'h0000_0000			),
 
+		.test_mode			(1'b0					)
+	);
 		.test_mode			(1'b0					)
 	);
 
@@ -418,8 +528,22 @@ module TOP (
         .ad					(data_sram_addr[31:2]	), //input [11:0] ad
         .din				(data_sram_wdata		) //input [31:0] din
     );
+    Gowin_SP_Data DRAM (
+        .dout				(data_sram_rdata		), //output [31:0] dout
+        .clk				(clk_8M					), //input clk
+        .oce				(data_sram_en			), //input oce
+        .ce					(data_sram_en			), //input ce
+        .reset				(~(locked&sys_resetn)	), //input reset
+        .wre				(data_sram_wr			), //input wre
+        .ad					(data_sram_addr[31:2]	), //input [11:0] ad
+        .din				(data_sram_wdata		) //input [31:0] din
+    );
     
 
+	axicb_crossbar_top # (
+		.AXI_ADDR_W			(`ADDR_WIDTH			),
+		.AXI_ID_W			(`ID_WIDTH				),
+		.AXI_DATA_W			(`CPU_DATA_WIDTH		),
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`ID_WIDTH				),
@@ -428,7 +552,15 @@ module TOP (
 		.MST0_CDC			(1						),
 		.MST0_OSTDREQ_NUM	(0						),
 		.MST0_PRIORITY		(0						),
+		.MST0_CDC			(1						),
+		.MST0_OSTDREQ_NUM	(0						),
+		.MST0_PRIORITY		(0						),
 
+		.SLV0_CDC			(0						),
+		.SLV0_START_ADDR	(`APB_ADDR_BASE			),
+		.SLV0_END_ADDR		(`APB_ADDR_END			),
+		.SLV0_OSTDREQ_NUM	(0						),
+		.SLV0_KEEP_BASE_ADDR(1						),
 		.SLV0_CDC			(0						),
 		.SLV0_START_ADDR	(`APB_ADDR_BASE			),
 		.SLV0_END_ADDR		(`APB_ADDR_END			),
@@ -706,6 +838,41 @@ module TOP (
     	.s_axi_rlast		(cpu_arb_32_rlast		),
     	.s_axi_rvalid		(cpu_arb_32_rvalid		),
     	.s_axi_rready		(cpu_arb_32_rready		),
+    	.s_axi_awid			(cpu_arb_32_awid		),
+    	.s_axi_awaddr		(cpu_arb_32_awaddr		),
+    	.s_axi_awlen		(cpu_arb_32_awlen		),
+    	.s_axi_awsize		(cpu_arb_32_awsize		),
+    	.s_axi_awburst		(cpu_arb_32_awburst		),
+    	.s_axi_awlock		(cpu_arb_32_awlock		),
+    	.s_axi_awcache		(cpu_arb_32_awcache		),
+    	.s_axi_awprot		(cpu_arb_32_awprot		),
+    	.s_axi_awvalid		(cpu_arb_32_awvalid		),
+    	.s_axi_awready		(cpu_arb_32_awready		),
+    	.s_axi_wdata		(cpu_arb_32_wdata		),
+    	.s_axi_wstrb		(cpu_arb_32_wstrb		),
+    	.s_axi_wlast		(cpu_arb_32_wlast		),
+    	.s_axi_wvalid		(cpu_arb_32_wvalid		),
+    	.s_axi_wready		(cpu_arb_32_wready		),
+    	.s_axi_bid			(cpu_arb_32_bid			),
+    	.s_axi_bresp		(cpu_arb_32_bresp		),
+    	.s_axi_bvalid		(cpu_arb_32_bvalid		),
+    	.s_axi_bready		(cpu_arb_32_bready		),
+    	.s_axi_arid			(cpu_arb_32_arid		),
+    	.s_axi_araddr		(cpu_arb_32_araddr		),
+    	.s_axi_arlen		(cpu_arb_32_arlen		),
+    	.s_axi_arsize		(cpu_arb_32_arsize		),
+    	.s_axi_arburst		(cpu_arb_32_arburst		),
+    	.s_axi_arlock		(cpu_arb_32_arlock		),
+    	.s_axi_arcache		(cpu_arb_32_arcache		),
+    	.s_axi_arprot		(cpu_arb_32_arprot		),
+    	.s_axi_arvalid		(cpu_arb_32_arvalid		),
+    	.s_axi_arready		(cpu_arb_32_arready		),
+    	.s_axi_rid			(cpu_arb_32_rid			),
+    	.s_axi_rdata		(cpu_arb_32_rdata		),
+    	.s_axi_rresp		(cpu_arb_32_rresp		),
+    	.s_axi_rlast		(cpu_arb_32_rlast		),
+    	.s_axi_rvalid		(cpu_arb_32_rvalid		),
+    	.s_axi_rready		(cpu_arb_32_rready		),
     
     	.m_axi_awid			(cpu_arb_128_awid		),
     	.m_axi_awaddr		(cpu_arb_128_awaddr		),
@@ -745,6 +912,10 @@ module TOP (
 	);
 
 
+	axicb_crossbar_top # (
+		.AXI_ADDR_W			(`ADDR_WIDTH			),
+		.AXI_ID_W			(`CPU_DATA_WIDTH		),
+		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`CPU_DATA_WIDTH		),
@@ -858,6 +1029,7 @@ module TOP (
 		.memory_clk			(clk_504M				),
 		.pll_lock			(locked					),
 		.resetn				(locked&sys_resetn		),
+		.ui_clk				(ddr_ui_clk				),
 		.s_axi_awid			(arb_ctr_awid			),
 		.s_axi_awaddr		(arb_ctr_awaddr			),
 		.s_axi_awlen		(arb_ctr_awlen			),
@@ -895,6 +1067,14 @@ module TOP (
 		.s_axi_rvalid		(arb_ctr_rvalid			),
 		.s_axi_rready		(arb_ctr_rready			),
 
+		.ml_app_rdy			(ml_app_rdy				),
+		.ml_app_cmd_en		(ml_app_cmd_en			),
+		.ml_app_addr		(ml_app_addr			),
+		.ml_app_wdf_rdy		(ml_app_wdf_rdy			),
+		.ml_app_wdf_data	(ml_app_wdf_data		),
+		.ml_app_wdf_mask	(ml_app_wdf_mask		),
+		.ml_app_wdf_wren	(ml_app_wdf_wren		),
+
 		.init_calib_complete(init_calib_complete	),
 
 		.ddr_dq				(ddr_dq					),
@@ -915,5 +1095,24 @@ module TOP (
 	);
 	
 	assign led[3] = init_calib_complete;
+
+
+	sd_read_para_top ModelLoader (    
+		.sys_clk			(clk_osc				),
+		.sys_rst_n			(sys_resetn				),
+		.sd_miso			(sd_miso				),
+		.sd_clk				(sd_clk					),
+		.sd_cs				(sd_cs					),
+		.sd_mosi			(sd_mosi				),
+		.ui_clk				(ddr_ui_clk				),
+		.init_calib_complete(init_calib_complete	),
+		.app_rdy			(ml_app_rdy				),
+		.app_cmd_en			(ml_app_cmd_en			),
+		.app_addr			(ml_app_addr			),
+		.app_wdf_rdy		(ml_app_wdf_rdy			),
+		.app_wdf_data		(ml_app_wdf_data		),
+		.app_wdf_mask		(ml_app_wdf_mask		),
+		.app_wdf_wren		(ml_app_wdf_wren		)
+	);
 
 endmodule

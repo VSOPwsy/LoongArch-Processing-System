@@ -2,36 +2,23 @@
 
 module DDR_Controller #
 (
-    // Width of data bus in bits
     parameter DATA_WIDTH = `DDR_DATA_WIDTH,
-    // Width of address bus in bits
     parameter ADDR_WIDTH = `ADDR_WIDTH,
-    // Width of wstrb (width of data bus in words)
     parameter STRB_WIDTH = (DATA_WIDTH/8),
-    // Width of ID signal
     parameter ID_WIDTH = `ID_WIDTH,
-    // Propagate awuser signal
+
     parameter AWUSER_ENABLE = 0,
-    // Width of awuser signal
     parameter AWUSER_WIDTH = 1,
-    // Propagate wuser signal
     parameter WUSER_ENABLE = 0,
-    // Width of wuser signal
     parameter WUSER_WIDTH = 1,
-    // Propagate buser signal
     parameter BUSER_ENABLE = 0,
-    // Width of buser signal
     parameter BUSER_WIDTH = 1,
-    // Propagate aruser signal
     parameter ARUSER_ENABLE = 0,
-    // Width of aruser signal
     parameter ARUSER_WIDTH = 1,
-    // Propagate ruser signal
     parameter RUSER_ENABLE = 0,
-    // Width of ruser signal
     parameter RUSER_WIDTH = 1,
-    // Width of auser output
     parameter AUSER_WIDTH = (ARUSER_ENABLE && (!AWUSER_ENABLE || ARUSER_WIDTH > AWUSER_WIDTH)) ? ARUSER_WIDTH : AWUSER_WIDTH,
+    
     // Extra pipeline register on output
     parameter PIPELINE_OUTPUT = 0,
     // Interleave read and write burst cycles
@@ -42,6 +29,8 @@ module DDR_Controller #
     input  wire                     memory_clk,
     input  wire                     pll_lock,
     input  wire                     resetn,
+
+    output wire                     ui_clk,
 
     /*
      * AXI slave interface
@@ -91,6 +80,17 @@ module DDR_Controller #
     output wire                     s_axi_rvalid,
     input  wire                     s_axi_rready,
 
+    input  wire                     model_init_complete,
+
+    output wire                     ml_app_rdy,
+    input  wire                     ml_app_cmd_en,
+    input  wire [ADDR_WIDTH-1:0]    ml_app_addr,
+    output wire                     ml_app_wdf_rdy,
+    input  wire [DATA_WIDTH-1:0]    ml_app_wdf_data,
+    input  wire [STRB_WIDTH-1:0]    ml_app_wdf_mask,
+    input  wire                     ml_app_wdf_wren,
+    
+
     output wire init_calib_complete,
 
     
@@ -113,6 +113,8 @@ module DDR_Controller #
 
     wire clk_if;
     assign clk_if = clk;
+
+    wire ddr_rst;
 
     
     wire [ID_WIDTH-1:0]      ram_cmd_id;
@@ -230,8 +232,9 @@ module DDR_Controller #
     reg app_wdf_wren = 0;
     reg app_wdf_end = 0;
     wire app_wdf_rdy;
-    wire ui_clk;
 
+    assign ml_app_rdy = app_cmd_ready;
+    assign ml_app_wdf_rdy = app_wdf_rdy;
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk_if),
@@ -243,14 +246,14 @@ module DDR_Controller #
         .ddr_rst         (ddr_rst),
         .init_calib_complete(init_calib_complete),
         .cmd_ready       (app_cmd_ready),
-        .cmd             (app_cmd),
-        .cmd_en          (app_cmd_en),
-        .addr            (app_addr),
+        .cmd             (model_init_complete ? 3'b000 : app_cmd),
+        .cmd_en          (model_init_complete ? ml_app_cmd_en : app_cmd_en),
+        .addr            (model_init_complete ? ml_app_addr : app_addr),
         .wr_data_rdy     (app_wdf_rdy),
-        .wr_data         (app_wdf_data),
-        .wr_data_en      (app_wdf_wren),
-        .wr_data_end     (app_wdf_end),
-        .wr_data_mask    (app_wdf_mask),
+        .wr_data         (model_init_complete ? ml_app_wdf_data : app_wdf_data),
+        .wr_data_en      (model_init_complete ? ml_app_wdf_wren : app_wdf_wren),
+        .wr_data_end     (model_init_complete ? 1'b1 : app_wdf_end),
+        .wr_data_mask    (model_init_complete ? ml_app_wdf_mask : app_wdf_mask),
         .rd_data         (app_rd_data),
         .rd_data_valid   (app_rd_data_valid),
         .rd_data_end     (app_rd_data_end),
@@ -296,7 +299,7 @@ module DDR_Controller #
 		.wfull(pipe_full),
         .awfull(),
 		.rclk(ui_clk),
-        .rrst_n(resetn),
+        .rrst_n(~ddr_rst&resetn),
 		.rinc(pipe_rden),
 		.rdata(pipe_out),
 		.rempty(pipe_empty),
@@ -316,7 +319,7 @@ module DDR_Controller #
         .FALLTHROUGH("TRUE")
     ) rfifo (
 		.wclk(ui_clk),
-        .wrst_n(resetn),
+        .wrst_n(~ddr_rst&resetn),
 		.winc(rfifo_wren),
 		.wdata(rfifo_wrdata),
 		.wfull(),
@@ -375,50 +378,45 @@ module DDR_Controller #
         app_wdf_data = 'b0;
         app_wdf_mask = 'b0;
         app_wdf_end = 'b0;
+        
+        case (state_current)
+            IDLE: begin
+                state_next = IDLE;
+                if (~pipe_empty) begin
+                    if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
+                        if (app_cmd_ready) begin
+                            state_next = READ;
+                            pipe_rden = 1'b1;
 
-        if (~resetn) begin
-            state_next = IDLE;
-        end
-        else begin
-            case (state_current)
-                IDLE: begin
+                            app_cmd = 3'b001;
+                            app_cmd_en = 1'b1;
+                            app_addr = pipe_out[0 +: ADDR_WIDTH];
+                        end
+                    end
+                    else begin
+                        if (app_cmd_ready & app_wdf_rdy) begin: __WRITE__
+                            pipe_rden = 1'b1;
+
+                            app_cmd = 3'b000;
+                            app_cmd_en = 1'b1;
+                            app_addr = pipe_out[0 +: ADDR_WIDTH];
+                            app_wdf_wren = 1'b1;
+                            app_wdf_data = pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
+                            app_wdf_mask = ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
+                            app_wdf_end = 1'b1;
+                        end
+                    end
+                end
+            end
+
+            READ: begin
+                state_next = READ;
+                if (ddr_rd_done_flag & rfifo_empty) begin
                     state_next = IDLE;
-                    if (~pipe_empty) begin
-                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
-                            if (app_cmd_ready) begin
-                                state_next = READ;
-                                pipe_rden = 1'b1;
-
-                                app_cmd = 3'b001;
-                                app_cmd_en = 1'b1;
-                                app_addr = pipe_out[0 +: ADDR_WIDTH];
-                            end
-                        end
-                        else begin
-                            if (app_cmd_ready & app_wdf_rdy) begin: __WRITE__
-                                pipe_rden = 1'b1;
-
-                                app_cmd = 3'b000;
-                                app_cmd_en = 1'b1;
-                                app_addr = pipe_out[0 +: ADDR_WIDTH];
-                                app_wdf_wren = 1'b1;
-                                app_wdf_data = pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
-                                app_wdf_mask = ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
-                                app_wdf_end = 1'b1;
-                            end
-                        end
-                    end
                 end
-
-                READ: begin
-                    state_next = READ;
-                    if (ddr_rd_done_flag & rfifo_empty) begin
-                        state_next = IDLE;
-                    end
-                end
-                default: state_next = IDLE;
-            endcase
-        end
+            end
+            default: state_next = IDLE;
+        endcase
     end
 
 
@@ -426,7 +424,7 @@ module DDR_Controller #
     reg last;
 
     always @(posedge ui_clk) begin
-        if (~resetn) begin
+        if (~resetn | ddr_rst) begin
             state_current <= IDLE;
             ddr_rd_done_flag <= 1'b0;
         end
