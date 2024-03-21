@@ -25,8 +25,10 @@ module TOP (
     output [1:0]    ddr_dm
 );
 
-	wire clk_osc; // 105MHz
-    wire clk_8M, clk_126M, clk_504M;
+	wire clk_osc;  /* synthesis syn_keep=1 */  // 105MHz
+    wire clk_8M;   /* synthesis syn_keep=1 */ 
+	wire clk_126M; /* synthesis syn_keep=1 */ 
+	wire clk_504M; /* synthesis syn_keep=1 */ 
     wire locked;
 
 
