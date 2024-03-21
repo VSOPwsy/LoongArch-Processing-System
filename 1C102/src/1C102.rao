@@ -2,9 +2,28 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="sd_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="sd_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
             <Signal capture_enable="true">ModelLoader/sd_init_done</Signal>
+            <Bus capture_enable="true" name="ModelLoader/sd_rd_val_data[15:0]">
+                <Signal>ModelLoader/sd_rd_val_data[15]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[14]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[13]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[12]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[11]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[10]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[9]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[8]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[7]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[6]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[5]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[4]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[3]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[2]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[1]</Signal>
+                <Signal>ModelLoader/sd_rd_val_data[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">init_calib_complete</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -50,5 +69,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0111100001000001</GAO_ID>
+    <GAO_ID>1001110101110000</GAO_ID>
 </GAO_CONFIG>
