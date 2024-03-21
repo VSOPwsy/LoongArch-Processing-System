@@ -1,5 +1,6 @@
 module sd_read(
     input                clk_ref       ,  //时钟信号
+    input                clk_ref_180deg,  //时钟信号,与clk_ref相位相差180度
     input                rst_n         ,  //复位信号,低电平有效
     //SD卡接口
     input                sd_miso       ,  //SD卡SPI串行输入数据信号
@@ -56,7 +57,7 @@ end
 
 //接收sd卡返回的响应数据
 //在clk_ref_180deg(sd_clk)的上升沿锁存数据
-always @(negedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref_180deg or negedge rst_n) begin
     if(!rst_n) begin
         res_en <= 1'b0;
         res_data <= 8'd0;
@@ -87,7 +88,7 @@ end
 
 //接收SD卡有效数据
 //在clk_ref_180deg(sd_clk)的上升沿锁存数据
-always @(negedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref_180deg or negedge rst_n) begin
     if(!rst_n) begin
         rx_en_t <= 1'b0;
         rx_data_t <= 16'd0;
