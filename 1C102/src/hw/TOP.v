@@ -3,7 +3,6 @@
 `include"config.v"
 
 module TOP (
-    input clk_osc,
     input sys_resetn,
 
     output [3:0] led,
@@ -26,20 +25,23 @@ module TOP (
     output [1:0]    ddr_dm
 );
 
+	wire clk_osc; // 105MHz
+    wire clk_8M, clk_126M, clk_504M;
     wire locked;
-    wire clk_8M, clk_50M, clk_100M, clk_400M;
-	assign clk_50M = clk_osc;
 
+
+    Gowin_OSC OSC_CLOCK(
+        .oscout(clk_osc)
+    );
 
     Gowin_PLL PLL(
         .lock(locked), //output lock
         .clkout0(clk_8M), //output clkout0
-        .clkout1(clk_100M), //output clkout1
-        .clkout2(clk_400M), //output clkout2
+        .clkout1(clk_126M), //output clkout1
+        .clkout2(clk_504M), //output clkout2
         .clkin(clk_osc), //input clkin
         .reset(~sys_resetn) //input reset
     );
-
 
     wire [31:0]               	fetch_pc;
 	wire                      	sleeping_o;
@@ -404,7 +406,6 @@ module TOP (
         .din				(inst_sram_wdata		) //input [31:0] din
     );
 
-
     Gowin_SP_Data DRAM (
         .dout				(data_sram_rdata		), //output [31:0] dout
         .clk				(clk_8M					), //input clk
@@ -438,7 +439,7 @@ module TOP (
 		.SLV1_OSTDREQ_NUM	(0						),
 		.SLV1_KEEP_BASE_ADDR(1						)
 	) AXI_Crossbar (
-		.aclk				(clk_100M				),
+		.aclk				(clk_126M				),
 		.aresetn			(locked&sys_resetn		),
 		.srst				(~(locked&sys_resetn)	),
 		.slv0_aclk			(clk_8M					),
@@ -481,7 +482,7 @@ module TOP (
 		.slv0_rlast			(cpu_rlast				),
 
 		
-		.mst0_aclk			(clk_100M				),
+		.mst0_aclk			(clk_126M				),
 		.mst0_aresetn		(locked&sys_resetn		),
 		.mst0_srst			(~(locked&sys_resetn)	),
 		.mst0_awvalid		(axi2apb_awvalid		),
@@ -521,7 +522,7 @@ module TOP (
 		.mst0_rlast			(axi2apb_rlast			),
 
 
-		.mst1_aclk			(clk_100M				),
+		.mst1_aclk			(clk_126M				),
 		.mst1_aresetn		(locked&sys_resetn		),
 		.mst1_srst			(~(locked&sys_resetn)	),
 		.mst1_awvalid		(cpu_arb_32_awvalid		),
@@ -567,7 +568,7 @@ module TOP (
 	 * AXI SLAVE 0
 	 */
 	axi2apb_bridge apb (
-		.clk				(clk_100M				),
+		.clk				(clk_126M				),
 		.rst_n				(locked&sys_resetn		),
 		.axi_s_awid			(axi2apb_awid			),
 		.axi_s_awaddr		(axi2apb_awaddr			),
@@ -665,7 +666,7 @@ module TOP (
 		.S_DATA_WIDTH		(`CPU_DATA_WIDTH		),
 		.M_DATA_WIDTH		(`DDR_DATA_WIDTH		)
 	) axi_adapter_32_to_128 (
-    	.clk				(clk_100M				),
+    	.clk				(clk_126M				),
     	.rst				(~(locked&sys_resetn)	),
 
     	.s_axi_awid			(cpu_arb_32_awid		),
@@ -765,10 +766,10 @@ module TOP (
 		.SLV0_OSTDREQ_NUM	(0						),
 		.SLV0_KEEP_BASE_ADDR(0						)
 	) AXI_Arbiter (
-		.aclk				(clk_100M				),
+		.aclk				(clk_126M				),
 		.aresetn			(locked&sys_resetn		),
 		.srst				(~(locked&sys_resetn)	),
-		.slv0_aclk			(clk_100M				),
+		.slv0_aclk			(clk_126M				),
 		.slv0_aresetn		(locked&sys_resetn		),
 		.slv0_srst			(~(locked&sys_resetn)	),
 		.slv0_awvalid		(cpu_arb_128_awvalid	),
@@ -808,7 +809,7 @@ module TOP (
 		.slv0_rlast			(cpu_arb_128_rlast		),
 
 		
-		.mst0_aclk			(clk_100M				),
+		.mst0_aclk			(clk_126M				),
 		.mst0_aresetn		(locked&sys_resetn		),
 		.mst0_srst			(~(locked&sys_resetn)	),
 		.mst0_awvalid		(arb_ctr_awvalid		),
@@ -851,8 +852,8 @@ module TOP (
 
 
 	DDR_Controller ddr_ctr (
-		.clk				(clk_100M				),
-		.memory_clk			(clk_400M				),
+		.clk				(clk_126M				),
+		.memory_clk			(clk_504M				),
 		.pll_lock			(locked					),
 		.resetn				(locked&sys_resetn		),
 		.s_axi_awid			(arb_ctr_awid			),

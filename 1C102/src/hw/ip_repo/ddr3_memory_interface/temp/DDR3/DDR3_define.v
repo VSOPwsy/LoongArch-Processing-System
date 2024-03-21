@@ -1,2 +1,3 @@
 `define DDR3_PHY_MC
-`define ARORA_25K
+`define CMD_ODELAY_OPEN
+`define ARORA_138K

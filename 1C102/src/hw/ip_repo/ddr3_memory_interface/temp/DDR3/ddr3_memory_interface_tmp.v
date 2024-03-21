@@ -1,11 +1,11 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Template file for instantiation
-//GOWIN Version: V1.9.9 Beta-4 Education
-//Part Number: GW5A-LV25MG121NC1/I0
-//Device: GW5A-25
-//Device Version: A
-//Created Time: Wed Mar 20 08:27:06 2024
+//Tool Version: V1.9.9.01 (64-bit)
+//Part Number: GW5AT-LV138PG484AC2/I1
+//Device: GW5AT-138
+//Device Version: B
+//Created Time: Thu Mar 21 10:58:56 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
@@ -16,6 +16,9 @@
 		.memory_clk(memory_clk_i), //input memory_clk
 		.pll_lock(pll_lock_i), //input pll_lock
 		.rst_n(rst_n_i), //input rst_n
+		.clk_out(clk_out_o), //output clk_out
+		.ddr_rst(ddr_rst_o), //output ddr_rst
+		.init_calib_complete(init_calib_complete_o), //output init_calib_complete
 		.cmd_ready(cmd_ready_o), //output cmd_ready
 		.cmd(cmd_i), //input [2:0] cmd
 		.cmd_en(cmd_en_i), //input cmd_en
@@ -32,9 +35,6 @@
 		.ref_req(ref_req_i), //input ref_req
 		.sr_ack(sr_ack_o), //output sr_ack
 		.ref_ack(ref_ack_o), //output ref_ack
-		.init_calib_complete(init_calib_complete_o), //output init_calib_complete
-		.clk_out(clk_out_o), //output clk_out
-		.ddr_rst(ddr_rst_o), //output ddr_rst
 		.burst(burst_i), //input burst
 		.O_ddr_addr(O_ddr_addr_o), //output [13:0] O_ddr_addr
 		.O_ddr_ba(O_ddr_ba_o), //output [2:0] O_ddr_ba

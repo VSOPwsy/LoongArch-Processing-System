@@ -235,9 +235,13 @@ module DDR_Controller #
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk_if),
+        .pll_stop        (),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),
         .rst_n           (resetn),
+        .clk_out         (ui_clk),
+        .ddr_rst         (ddr_rst),
+        .init_calib_complete(init_calib_complete),
         .cmd_ready       (app_cmd_ready),
         .cmd             (app_cmd),
         .cmd_en          (app_cmd_en),
@@ -254,13 +258,8 @@ module DDR_Controller #
         .ref_req         (1'b0),
         .sr_ack          (sr_ack),
         .ref_ack         (ref_ack),
-        .init_calib_complete(init_calib_complete),
-        .clk_out         (ui_clk),
-
         .burst           (1'b0),
-        .ddr_rst         (ddr_rst),
 
-        // mem interface
         .O_ddr_addr      (ddr_addr),
         .O_ddr_ba        (ddr_bank),
         .O_ddr_cs_n      (ddr_cs),
@@ -277,7 +276,6 @@ module DDR_Controller #
         .IO_ddr_dqs      (ddr_dqs),
         .IO_ddr_dqs_n    (ddr_dqs_n)
     );
-
     
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;

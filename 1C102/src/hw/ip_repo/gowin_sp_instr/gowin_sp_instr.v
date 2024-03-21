@@ -1,11 +1,11 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//GOWIN Version: V1.9.9 Beta-4 Education
-//Part Number: GW2A-LV18PG256C8/I7
-//Device: GW2A-18
-//Device Version: C
-//Created Time: Tue Mar 19 13:54:49 2024
+//Tool Version: V1.9.9.01 (64-bit)
+//Part Number: GW5AT-LV138PG484AC2/I1
+//Device: GW5AT-138
+//Device Version: B
+//Created Time: Thu Mar 21 10:52:50 2024
 
 module Gowin_SP_Instr (dout, clk, oce, ce, reset, wre, ad, din);
 
@@ -511,11 +511,12 @@ defparam sp_inst_5.INIT_RAM_34 = 256'h697069740072646E5F715F34697069740072646E5F
 defparam sp_inst_5.INIT_RAM_35 = 256'h0072646E5F715F37697069740072646E5F715F36697069740072646E5F715F35;
 defparam sp_inst_5.INIT_RAM_36 = 256'h00000000000000000000000000000000000000000000000000000072646E5F74;
 
-DFFE dff_inst_0 (
+DFFRE dff_inst_0 (
   .Q(dff_q_0),
   .D(ad[11]),
   .CLK(clk),
-  .CE(ce)
+  .CE(ce),
+  .RESET(gw_gnd)
 );
 MUX2 mux_inst_2 (
   .O(dout[0]),

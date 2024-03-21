@@ -1,10 +1,9 @@
 parameter DRAM_TYPE = "DDR3";
-`define DDR3
 parameter nCK_PER_CLK = 4;
-parameter tCK = 2500;
+parameter tCK = 1984;
 parameter REG_CTRL = "OFF";
 parameter DQ_WIDTH = 16;
-parameter DRAM_WIDTH = 16;
+parameter DRAM_WIDTH = 8;
 parameter ECC = "OFF";
 parameter RANK_WIDTH = 1;
 parameter BANK_WIDTH = 3;
