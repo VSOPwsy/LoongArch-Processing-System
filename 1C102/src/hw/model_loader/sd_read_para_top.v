@@ -29,12 +29,14 @@ parameter ddr_min_addr = 32'd000000;
 parameter ddr_max_addr = 32'd384000;
 parameter sd_sec_num = 16'd1212;
 
+assign  rst_n = sys_rst_n & lock_o;	
 assign  sys_init_done = init_calib_complete & sd_init_done;	
 
 //SD卡顶层控制模块
 sd_ctrl_top u_sd_ctrl_top(
     .clk_ref                (sys_clk),
-    .rst_n                  (sys_rst_n),
+    .clk_ref_180deg         (clk_50m_180deg),
+    .rst_n                  (rst_n),
     //SD卡接口
     .sd_miso                (sd_miso),
     .sd_clk                 (sd_clk),
@@ -51,6 +53,13 @@ sd_ctrl_top u_sd_ctrl_top(
     );
 
 
+sd_rpll u_sd_rpll(
+        .clkout(clk_50m), //output clkout
+        .lock(lock_o), //output lock
+        .clkoutp(clk_50m_180deg), //output clkoutp
+        .reset(~sys_rst_n), 
+        .clkin(sys_clk) 
+    );
 sd_read_model u_sd_read_model(
     .clk                   (sys_clk),
     .rst_n                 (sys_rst_n & sys_init_done),

@@ -1,5 +1,6 @@
 module sd_ctrl_top(
     input                clk_ref       ,  //时钟信号
+    input                clk_ref_180deg,  //时钟信号,与clk_ref相位相差180度
     input                rst_n         ,  //复位信号,低电平有效
     //SD卡接口
     input                sd_miso       ,  //SD卡SPI串行输入数据信号
@@ -27,11 +28,8 @@ wire                rd_sd_mosi    ;       //读数据模块SD数据输出信号
 //**                    main code
 //*****************************************************
 
-//////////////////////////////////////////////////////////////////
-////////////////// constrain output delay ////////////////////////
-//////////////////////////////////////////////////////////////////
-// assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  clk_ref_180deg; ///////// Use CLK_OSC ?
-assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  clk_ref;
+//SD卡的SPI_CLK  
+assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  clk_ref_180deg;
 
 //SD卡接口信号选择
 always @(*) begin
@@ -67,6 +65,7 @@ sd_init u_sd_init(
 //SD卡读数据
 sd_read u_sd_read(
     .clk_ref            (clk_ref),
+    .clk_ref_180deg     (clk_ref_180deg),
     .rst_n              (rst_n),
     
     .sd_miso            (sd_miso),
