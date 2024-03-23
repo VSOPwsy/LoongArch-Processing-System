@@ -18,7 +18,7 @@ module sd_read_model(
 
 
 parameter MODEL_ADDR_START = 32'd67072; //模型文件起始扇区地址，拷贝sd卡后看
-parameter MODEL_HEAD_NUM = 6'd54; //如果模型文件有头文件，修改此值跳过不读
+parameter MODEL_HEAD_NUM = 6'd0; //如果模型文件有头文件，修改此值跳过不读
 
 reg                 rd_busy_d0       ;
 reg                 rd_busy_d1       ;  
@@ -80,14 +80,7 @@ always @(posedge clk or negedge rst_n) begin
                         rd_flow_state <= 1'b1;
                     end
                 end
-            end 
-            default:begin
-                rd_flow_state <= rd_flow_state;
-                rd_start_en   <= rd_start_en;
-                rd_sec_addr   <= rd_sec_addr;
-                rd_sec_cnt    <= rd_sec_cnt;
-                init_model_complete <= init_model_complete;
-            end 
+            end
         endcase
     end
 end

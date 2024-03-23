@@ -8,7 +8,7 @@ module ddr_ctr_rd_test (
     input ddr_ready
 );
 
-assign araddr = 32'h0000f000;
+assign araddr = 32'h00000001;
 assign arlen = 0;
 reg flag = 0;
 always @(posedge clk) begin
