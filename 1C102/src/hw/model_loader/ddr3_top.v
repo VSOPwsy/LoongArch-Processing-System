@@ -41,7 +41,7 @@ module ddr3_top(
         .arempty()
 	);
 
-    assign app_en = app_rdy & app_wdf_rdy & ~fifo_empty;
+    assign app_cmd_en = app_rdy & app_wdf_rdy & ~fifo_empty;
     assign app_wdf_wren = app_rdy & app_wdf_rdy & ~fifo_empty;
     assign app_wdf_mask = 16'hFFFC;
 
@@ -51,7 +51,7 @@ module ddr3_top(
         end
         else begin
             if (app_wdf_wren & (app_addr < app_addr_wr_max)) begin
-                app_addr <= app_addr + 1;
+                app_addr <= app_addr + 'd8;
             end
         end
     end

@@ -908,6 +908,20 @@ module TOP (
 	// 	.ddr_ready(init_calib_complete)
 	// );
 
+
+	ddr_ctr_rd_test ddr_rd_test (
+		.clk(clk_100M),
+		.rstn(sys_resetn),
+
+		.araddr(arb_ctr_araddr),
+		.arvalid(arb_ctr_arvalid),
+		.arlen(arb_ctr_arlen),
+		.arready(arb_ctr_arready),
+
+		.ddr_ready(init_model_complete)
+	);
+
+
 	DDR_Controller ddr_ctr (
 		.clk				(clk_100M				),
 		.memory_clk			(clk_400M				),
@@ -958,9 +972,9 @@ module TOP (
 		.ml_app_wdf_data	(ml_app_wdf_data		),
 		.ml_app_wdf_mask	(ml_app_wdf_mask		),
 		.ml_app_wdf_wren	(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	),
 
 		.init_calib_complete(init_calib_complete	),
-
 		.ddr_dq				(ddr_dq					),
 		.ddr_dqs			(ddr_dqs				),
 		.ddr_dqs_n			(ddr_dqs_n				),
@@ -996,7 +1010,8 @@ module TOP (
 		.app_wdf_rdy		(ml_app_wdf_rdy			),
 		.app_wdf_data		(ml_app_wdf_data		),
 		.app_wdf_mask		(ml_app_wdf_mask		),
-		.app_wdf_wren		(ml_app_wdf_wren		)
+		.app_wdf_wren		(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	)
 	);
 
 endmodule

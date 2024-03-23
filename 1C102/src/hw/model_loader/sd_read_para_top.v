@@ -15,7 +15,10 @@ module sd_read_para_top(
     input           app_wdf_rdy          ,
     output [127:0]  app_wdf_data         ,
     output [15:0]   app_wdf_mask         ,
-    output          app_wdf_wren         
+    output          app_wdf_wren         ,
+
+    output init_model_complete
+
     );     
 
 wire         sys_init_done;
@@ -29,14 +32,13 @@ parameter ddr_min_addr = 32'd000000;
 parameter ddr_max_addr = 32'd384000;
 parameter sd_sec_num = 16'd1212;
 
-assign  rst_n = sys_rst_n & lock_o;	
 assign  sys_init_done = init_calib_complete & sd_init_done;	
 
 //SD卡顶层控制模块
 sd_ctrl_top u_sd_ctrl_top(
     .clk_ref                (sys_clk),
     .clk_ref_180deg         (clk_50m_180deg),
-    .rst_n                  (rst_n),
+    .rst_n                  (sys_rst_n),
     //SD卡接口
     .sd_miso                (sd_miso),
     .sd_clk                 (sd_clk),
@@ -70,7 +72,7 @@ sd_read_model u_sd_read_model(
     .sd_rd_val_en          (sd_rd_val_en),
     .sd_rd_val_data        (sd_rd_val_data),
 
-    .model_rd_done         (),
+    .init_model_complete   (init_model_complete),
     .rd_start_en           (sd_rd_start_en),
     .rd_sec_addr           (sd_rd_sec_addr),
     .ddr_wr_en             (ddr_wr_en),
@@ -87,7 +89,7 @@ ddr3_top u_ddr3_top(
     .app_addr_wr_max     (ddr_max_addr)         ,  //写ddr3的结束地址
 
     .app_rdy             (app_rdy)              ,
-    .app_cmd_en          (app_cmd_en)               ,
+    .app_cmd_en          (app_cmd_en)           ,
     .app_addr            (app_addr)             ,
     .app_wdf_rdy         (app_wdf_rdy)          ,
     .app_wdf_data        (app_wdf_data)         ,

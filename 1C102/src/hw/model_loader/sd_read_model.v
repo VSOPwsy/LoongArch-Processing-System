@@ -1,14 +1,14 @@
 module sd_read_model(
     input                clk           ,  //时钟信号
     input                rst_n         ,  //复位信号,低电平有效
-    input        [23:0]  ddr_min_addr  ,
-    input        [23:0]  ddr_max_addr  ,  //DDR读写最大地址  
+    input        [32:0]  ddr_min_addr  ,
+    input        [32:0]  ddr_max_addr  ,  //DDR读写最大地址  
     input        [15:0]  sd_sec_num    ,  //SD卡读扇区个数               
     input                rd_busy       ,  //SD卡读忙信号
     input                sd_rd_val_en  ,  //SD卡读数据有效信号
     input        [15:0]  sd_rd_val_data,  //SD卡读出的数据
 
-    output  reg          model_rd_done ,  //模型参数读取完成
+    output  reg          init_model_complete ,  //模型参数读取完成
     output  reg          rd_start_en   ,  //开始写SD卡数据信号
     output  reg  [31:0]  rd_sec_addr   ,  //读数据扇区地址
     output  reg          ddr_wr_en     ,  //DDR写使能信号
@@ -52,36 +52,41 @@ always @(posedge clk or negedge rst_n) begin
         rd_start_en   <= 0;
         rd_sec_addr   <= 0;
         rd_sec_cnt    <= 0;
-        model_rd_done <= 0;
+        init_model_complete <= 0;
     end
     else begin
+        rd_start_en <= 1'b0;
         case (rd_flow_state)
-            1'd0:begin //准备读取SD卡数据
-                rd_flow_state <= rd_flow_state + 1;
-                rd_start_en <= 1'b1;
-                rd_sec_addr <= MODEL_ADDR_START;
+            1'd0:begin
+                if (~init_model_complete) begin
+                    rd_flow_state <= rd_flow_state + 1;
+                    rd_start_en <= 1'b1;
+                    rd_sec_addr <= MODEL_ADDR_START;
+                end
             end
             1'd1:begin
-                //读忙信号的下降沿代表读完一个扇区,开始读取下一扇区地址数据
                 if(neg_rd_busy) begin                          
-                    rd_sec_cnt <= rd_sec_cnt + 1'b1;//计算读扇区次数
-                    rd_sec_addr <= rd_sec_addr + 32'd1; //输出读扇区地址
-					//读扇区次数==预先设定好的需要读的扇区次数
+                    rd_sec_cnt <= rd_sec_cnt + 1'b1;
+                    rd_sec_addr <= rd_sec_addr + 32'd1;
+
                     if(rd_sec_cnt == sd_sec_num - 1'b1) begin
-                        model_rd_done <= 1'b1;
+                        rd_sec_cnt <= 16'd0;
+                        rd_flow_state <= 0;
+                        init_model_complete <= 1'b1;
                     end    
                     else begin
-                        rd_start_en <= 1'b1;    
-                        model_rd_done <= 1'b0;
+                        rd_start_en <= 1'b1;
+                        init_model_complete <= 1'b0;
+                        rd_flow_state <= 1'b1;
                     end
-                end 
+                end
             end 
             default:begin
                 rd_flow_state <= rd_flow_state;
                 rd_start_en   <= rd_start_en;
                 rd_sec_addr   <= rd_sec_addr;
                 rd_sec_cnt    <= rd_sec_cnt;
-                model_rd_done <= model_rd_done;
+                init_model_complete <= init_model_complete;
             end 
         endcase
     end
@@ -98,7 +103,7 @@ always @(posedge clk or negedge rst_n) begin
     else begin
         ddr_wr_en <= 1'b0;
         case (ddr_flow_state)
-            2'd0: begin //排除头部无效数据
+            2'd0: begin
                 if (sd_rd_val_en) begin
                     if(model_head_cnt == MODEL_HEAD_NUM - 1'b1) begin
                         ddr_flow_state <= ddr_flow_state + 1'b1;
