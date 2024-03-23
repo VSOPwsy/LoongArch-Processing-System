@@ -309,6 +309,18 @@ module TOP (
 
 	wire						init_calib_complete;
 
+
+	wire						ml_app_rdy;
+	wire						ml_app_cmd_en;
+	wire [`ADDR_WIDTH	 -1 :0] ml_app_addr;
+	wire						ml_app_wdf_rdy;
+	wire [`DDR_DATA_WIDTH-1 :0] ml_app_wdf_data;
+	wire [`DDR_STRB_WIDTH-1 :0] ml_app_wdf_mask;
+	wire						ml_app_wdf_wren;
+
+	wire						init_model_complete;
+
+
     // la132_top CPU (
 	// 	.boot_pc			(32'h1c000000			),
 	// 	.clk				(clk_8M					),
@@ -884,42 +896,42 @@ module TOP (
 	// );
 
 
-	ddr_ctr_wr_rd_test ddr_wr_rd_test (
-		.clk(clk_100M),
-		.rstn(sys_resetn),
-
-		.awaddr(arb_ctr_awaddr),
-		.awvalid(arb_ctr_awvalid),
-		.awlen(arb_ctr_awlen),
-		.awready(arb_ctr_awready),
-
-		.wdata(arb_ctr_wdata),
-		.wstrb(arb_ctr_wstrb),
-		.wvalid(arb_ctr_wvalid),
-		.wready(arb_ctr_wready),
-
-		.araddr(arb_ctr_araddr),
-		.arvalid(arb_ctr_arvalid),
-		.arlen(arb_ctr_arlen),
-		.arready(arb_ctr_arready),
-
-		.rready(arb_ctr_rready),
-
-		.ddr_ready(init_calib_complete)
-	);
-
-
-	// ddr_ctr_rd_test ddr_rd_test (
+	// ddr_ctr_wr_rd_test ddr_wr_rd_test (
 	// 	.clk(clk_100M),
-	// 	.rstn(locked&sys_resetn),
+	// 	.rstn(sys_resetn),
+
+	// 	.awaddr(arb_ctr_awaddr),
+	// 	.awvalid(arb_ctr_awvalid),
+	// 	.awlen(arb_ctr_awlen),
+	// 	.awready(arb_ctr_awready),
+
+	// 	.wdata(arb_ctr_wdata),
+	// 	.wstrb(arb_ctr_wstrb),
+	// 	.wvalid(arb_ctr_wvalid),
+	// 	.wready(arb_ctr_wready),
 
 	// 	.araddr(arb_ctr_araddr),
 	// 	.arvalid(arb_ctr_arvalid),
 	// 	.arlen(arb_ctr_arlen),
 	// 	.arready(arb_ctr_arready),
 
-	// 	.ddr_ready(init_model_complete)
+	// 	.rready(arb_ctr_rready),
+
+	// 	.ddr_ready(init_calib_complete)
 	// );
+
+
+	ddr_ctr_rd_test ddr_rd_test (
+		.clk(clk_100M),
+		.rstn(locked&sys_resetn),
+
+		.araddr(arb_ctr_araddr),
+		.arvalid(arb_ctr_arvalid),
+		.arlen(arb_ctr_arlen),
+		.arready(arb_ctr_arready),
+
+		.ddr_ready(init_model_complete)
+	);
 
 
 	DDR_Controller ddr_ctr (
@@ -992,26 +1004,26 @@ module TOP (
 		.ddr_dm				(ddr_dm					)
 	);
 	// assign led[2:0] = 0;
-	assign led[3] = init_calib_complete;
+	assign led[3] = init_model_complete;
 
-	assign init_model_complete = 1'b1;
-	// sd_read_para_top ModelLoader (    
-	// 	.sys_clk			(clk_osc				),
-	// 	.sys_rst_n			(sys_resetn				),
-	// 	.sd_miso			(sd_miso				),
-	// 	.sd_clk				(sd_clk					),
-	// 	.sd_cs				(sd_cs					),
-	// 	.sd_mosi			(sd_mosi				),
-	// 	.ui_clk				(ddr_ui_clk				),
-	// 	.init_calib_complete(init_calib_complete	),
-	// 	.app_rdy			(ml_app_rdy				),
-	// 	.app_cmd_en			(ml_app_cmd_en			),
-	// 	.app_addr			(ml_app_addr			),
-	// 	.app_wdf_rdy		(ml_app_wdf_rdy			),
-	// 	.app_wdf_data		(ml_app_wdf_data		),
-	// 	.app_wdf_mask		(ml_app_wdf_mask		),
-	// 	.app_wdf_wren		(ml_app_wdf_wren		),
-	// 	.init_model_complete(init_model_complete	)
-	// );
+	//assign init_model_complete = 1'b1;
+	sd_read_para_top ModelLoader (    
+		.sys_clk			(clk_osc				),
+		.sys_rst_n			(locked&sys_resetn		),
+		.sd_miso			(sd_miso				),
+		.sd_clk				(sd_clk					),
+		.sd_cs				(sd_cs					),
+		.sd_mosi			(sd_mosi				),
+		.ui_clk				(ddr_ui_clk				),
+		.init_calib_complete(init_calib_complete	),
+		.app_rdy			(ml_app_rdy				),
+		.app_cmd_en			(ml_app_cmd_en			),
+		.app_addr			(ml_app_addr			),
+		.app_wdf_rdy		(ml_app_wdf_rdy			),
+		.app_wdf_data		(ml_app_wdf_data		),
+		.app_wdf_mask		(ml_app_wdf_mask		),
+		.app_wdf_wren		(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	)
+	);
 
 endmodule

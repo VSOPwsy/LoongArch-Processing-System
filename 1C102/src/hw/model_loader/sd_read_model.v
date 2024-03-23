@@ -20,6 +20,14 @@ module sd_read_model(
 parameter MODEL_ADDR_START = 32'd67072; //模型文件起始扇区地址，拷贝sd卡后看
 parameter MODEL_HEAD_NUM = 6'd0; //如果模型文件有头文件，修改此值跳过不读
 
+
+parameter DELAY = 1000;
+reg init_model_complete_flag;
+reg [9:0] cnt;
+always @(posedge clk) cnt <= (rst_n & init_model_complete_flag) ? (cnt >= DELAY ? DELAY : cnt + 1) : 0;
+assign init_model_complete = cnt == DELAY;
+
+
 reg                 rd_busy_d0       ;
 reg                 rd_busy_d1       ;  
 reg                 rd_flow_state    ;  //读sd卡状态控制
@@ -52,13 +60,13 @@ always @(posedge clk or negedge rst_n) begin
         rd_start_en   <= 0;
         rd_sec_addr   <= 0;
         rd_sec_cnt    <= 0;
-        init_model_complete <= 0;
+        init_model_complete_flag <= 0;
     end
     else begin
         rd_start_en <= 1'b0;
         case (rd_flow_state)
             1'd0:begin
-                if (~init_model_complete) begin
+                if (~init_model_complete_flag) begin
                     rd_flow_state <= rd_flow_state + 1;
                     rd_start_en <= 1'b1;
                     rd_sec_addr <= MODEL_ADDR_START;
@@ -72,11 +80,11 @@ always @(posedge clk or negedge rst_n) begin
                     if(rd_sec_cnt == sd_sec_num - 1'b1) begin
                         rd_sec_cnt <= 16'd0;
                         rd_flow_state <= 0;
-                        init_model_complete <= 1'b1;
+                        init_model_complete_flag <= 1'b1;
                     end    
                     else begin
                         rd_start_en <= 1'b1;
-                        init_model_complete <= 1'b0;
+                        init_model_complete_flag <= 1'b0;
                         rd_flow_state <= 1'b1;
                     end
                 end
@@ -98,7 +106,14 @@ always @(posedge clk or negedge rst_n) begin
         case (ddr_flow_state)
             2'd0: begin
                 if (sd_rd_val_en) begin
-                    if(model_head_cnt == MODEL_HEAD_NUM - 1'b1) begin
+                    if (MODEL_HEAD_NUM == 0) begin
+                        ddr_wr_data <= sd_rd_val_data;
+                        ddr_wr_en <= 1'b1;
+                        ddr_flow_state <= ddr_flow_state + 1'b1;
+                        model_head_cnt <= 6'd0;
+                        ddr_wr_cnt <= ddr_wr_cnt + 1'b1;
+                    end
+                    else if(model_head_cnt == MODEL_HEAD_NUM - 1'b1) begin
                         ddr_flow_state <= ddr_flow_state + 1'b1;
                         model_head_cnt <= 6'd0;
                     end  

@@ -530,6 +530,12 @@
             <Signal capture_enable="true">ddr_ctr/ml_app_cmd_en</Signal>
             <Signal capture_enable="true">ddr_ctr/ml_app_wdf_rdy</Signal>
             <Signal capture_enable="true">ddr_ctr/ml_app_wdf_wren</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/offset[3:0]">
+                <Signal>ddr_ctr/offset[3]</Signal>
+                <Signal>ddr_ctr/offset[2]</Signal>
+                <Signal>ddr_ctr/offset[1]</Signal>
+                <Signal>ddr_ctr/offset[0]</Signal>
+            </Bus>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -542,8 +548,49 @@
                     <Signal>ml_app_wdf_wren</Signal>
                 </SignalList>
             </Trigger>
-            <Trigger index="2"/>
-            <Trigger index="3"/>
+            <Trigger index="2">
+                <SignalList>
+                    <Bus restorename="ModelLoader/u_ddr3_top/app_addr_reg[31:0]">
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[31]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[30]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[29]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[28]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[27]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[26]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[25]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[24]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[23]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[22]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[21]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[20]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[19]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[18]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[17]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[16]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[15]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[14]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[13]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[12]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[11]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[10]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[9]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[8]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[7]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[6]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[5]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[4]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[3]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[2]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[1]</Signal>
+                        <Signal>ModelLoader/u_ddr3_top/app_addr_reg[0]</Signal>
+                    </Bus>
+                </SignalList>
+            </Trigger>
+            <Trigger index="3">
+                <SignalList>
+                    <Signal>ddr_ctr/app_wdf_wren</Signal>
+                </SignalList>
+            </Trigger>
             <Trigger index="4"/>
             <Trigger index="5"/>
             <Trigger index="6"/>
@@ -560,8 +607,8 @@
         <MatchUnits>
             <MatchUnit index="0" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
             <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="1"/>
-            <MatchUnit index="2" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="2"/>
-            <MatchUnit index="3" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="3"/>
+            <MatchUnit index="2" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="1" countinuous="1" func="0" value0="000000000000000000000000000000R0" value1="00000000000000000000000000000000" trigger="2"/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="3"/>
             <MatchUnit index="4" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="F" value1="0" trigger="4"/>
             <MatchUnit index="5" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="5"/>
             <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -579,5 +626,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0011110011000000</GAO_ID>
+    <GAO_ID>0100100001101011</GAO_ID>
 </GAO_CONFIG>
