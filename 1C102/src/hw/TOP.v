@@ -295,18 +295,6 @@ module TOP (
 	wire						init_model_complete;
 
 
-
-	wire						ml_app_rdy;
-	wire						ml_app_cmd_en;
-	wire [`ADDR_WIDTH	 -1 :0] ml_app_addr;
-	wire						ml_app_wdf_rdy;
-	wire [`DDR_DATA_WIDTH-1 :0] ml_app_wdf_data;
-	wire [`DDR_STRB_WIDTH-1 :0] ml_app_wdf_mask;
-	wire						ml_app_wdf_wren;
-
-	wire						init_model_complete;
-
-
     la132_top CPU (
 		.boot_pc			(32'h1c000000			),
 		.clk				(clk_8M					),
@@ -489,30 +477,6 @@ module TOP (
 		.dbus3_valid		(1'b0					), // unused
 		.dbus3_base			(32'h0000_0000			),
 		.dbus3_mask			(32'h0000_0000			),
-		.ibus0_valid		(1'b1					),
-		.ibus0_base			(32'h1c00_0000			), // va: 1c00_0000 & bfc0_0000
-		.ibus0_mask			(32'h1f00_0000			), // flash 128K, + 4 special page
-		.ibus1_valid		(1'b1					),
-		.ibus1_base			(32'h9f00_0000			), // va: 9fR0_0000 & bf00_0000
-		.ibus1_mask			(32'hdff0_0000			),
-		.ibus2_valid		(1'b0					), // flash_en
-		.ibus2_base			(32'h9fe6_0000			), // va: 9fe6_0000 & bfe6_0000
-		.ibus2_mask			(32'hdfff_ff00			),
-		.ibus3_valid		(1'b0					), // compact_mem&flash_en),
-		.ibus3_base			(32'h8000_3000			), // for va: 8000_30xx & 0000_00xx -> pa: 0000_30xx & 4000_00xx
-		.ibus3_mask			(32'h7fff_ff00			),
-		.dbus0_valid		(1'b1					),
-		.dbus0_base			(32'h8000_0000			),
-		.dbus0_mask			(32'hdfff_e000			), // 8K byte, for va: 8000_0000 & a000_0000 -> pa: 0000_0000
-		.dbus1_valid		(1'b1					),
-		.dbus1_base			(32'h0000_0000			),
-		.dbus1_mask			(32'hffff_e000			), // 8K byte, for va: 0000_0000             -> pa: 0000_0000
-		.dbus2_valid		(1'b0					), // unused
-		.dbus2_base			(32'h0000_0000			),
-		.dbus2_mask			(32'h0000_0000			),
-		.dbus3_valid		(1'b0					), // unused
-		.dbus3_base			(32'h0000_0000			),
-		.dbus3_mask			(32'h0000_0000			),
 
 		.test_mode			(1'b0					)
 	);
@@ -538,17 +502,6 @@ module TOP (
         .ad					(data_sram_addr[31:2]	), //input [11:0] ad
         .din				(data_sram_wdata		) //input [31:0] din
     );
-    Gowin_SP_Data DRAM (
-        .dout				(data_sram_rdata		), //output [31:0] dout
-        .clk				(clk_8M					), //input clk
-        .oce				(data_sram_en			), //input oce
-        .ce					(data_sram_en			), //input ce
-        .reset				(~(locked&sys_resetn)	), //input reset
-        .wre				(data_sram_wr			), //input wre
-        .ad					(data_sram_addr[31:2]	), //input [11:0] ad
-        .din				(data_sram_wdata		) //input [31:0] din
-    );
-    
 
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),

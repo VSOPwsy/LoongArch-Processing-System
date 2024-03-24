@@ -238,13 +238,9 @@ module DDR_Controller #
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk_if),
-        .pll_stop        (),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),
         .rst_n           (resetn),
-        .clk_out         (ui_clk),
-        .ddr_rst         (ddr_rst),
-        .init_calib_complete(init_calib_complete),
         .cmd_ready       (app_cmd_ready),
         .cmd             (init_model_complete ? app_cmd      : 3'b000),
         .cmd_en          (init_model_complete ? app_cmd_en   : ml_app_cmd_en),
@@ -261,8 +257,13 @@ module DDR_Controller #
         .ref_req         (1'b0),
         .sr_ack          (sr_ack),
         .ref_ack         (ref_ack),
-        .burst           (1'b0),
+        .init_calib_complete(init_calib_complete),
+        .clk_out         (ui_clk),
 
+        .burst           (1'b0),
+        .ddr_rst         (ddr_rst),
+
+        // mem interface
         .O_ddr_addr      (ddr_addr),
         .O_ddr_ba        (ddr_bank),
         .O_ddr_cs_n      (ddr_cs),
@@ -279,6 +280,7 @@ module DDR_Controller #
         .IO_ddr_dqs      (ddr_dqs),
         .IO_ddr_dqs_n    (ddr_dqs_n)
     );
+
     
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;
@@ -370,48 +372,33 @@ module DDR_Controller #
      */
     always @(*) begin
         pipe_rden = 1'b0;
-
-        app_cmd = 'b0;
-        app_addr = 'b0;
-        app_cmd_en = 'b0;
-        app_wdf_wren = 'b0;
-        app_wdf_data = 'b0;
-        app_wdf_mask = 'b0;
-        app_wdf_end = 'b0;
-        
         case (state_current)
             IDLE: begin
                 state_next = IDLE;
                 if (~pipe_empty) begin
-                    if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
+                    if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
                         if (app_cmd_ready) begin
                             state_next = READ;
                             pipe_rden = 1'b1;
-
-                            app_cmd = 3'b001;
-                            app_cmd_en = 1'b1;
-                            app_addr = pipe_out[0 +: ADDR_WIDTH];
                         end
                     end
                     else begin
-                        if (app_cmd_ready & app_wdf_rdy) begin: __WRITE__
+                        if (app_cmd_ready & app_wdf_rdy) begin
                             pipe_rden = 1'b1;
-
-                            app_cmd = 3'b000;
-                            app_cmd_en = 1'b1;
-                            app_addr = pipe_out[0 +: ADDR_WIDTH];
-                            app_wdf_wren = 1'b1;
-                            app_wdf_data = pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH];
-                            app_wdf_mask = ~pipe_out[ADDR_WIDTH +: STRB_WIDTH];
-                            app_wdf_end = 1'b1;
                         end
                     end
+                end
+                else begin
+                    state_next = IDLE;
                 end
             end
 
             READ: begin
                 if ((app_rd_data_valid | ddr_rd_done_flag) & rfifo_empty) begin
                     state_next = IDLE;
+                end
+                else begin
+                    state_next = READ;
                 end
             end
             default: state_next = IDLE;
@@ -440,7 +427,7 @@ module DDR_Controller #
                 IDLE: begin
                     ddr_rd_done_flag <= 1'b0;
                     if (~pipe_empty) begin
-                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
+                        if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
                             if (app_cmd_ready) begin
                                 app_cmd <= 3'b001;
                                 app_cmd_en <= 1'b1;
