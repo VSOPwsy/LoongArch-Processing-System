@@ -1,11 +1,10 @@
-`include "config.v"
 
 module DDR_Controller #
 (
-    parameter DATA_WIDTH = `DDR_DATA_WIDTH,
-    parameter ADDR_WIDTH = `ADDR_WIDTH,
+    parameter DATA_WIDTH = 128,
+    parameter ADDR_WIDTH = 32,
     parameter STRB_WIDTH = (DATA_WIDTH/8),
-    parameter ID_WIDTH = `ID_WIDTH,
+    parameter ID_WIDTH = 8,
 
     parameter AWUSER_ENABLE = 0,
     parameter AWUSER_WIDTH = 1,
@@ -309,14 +308,14 @@ module DDR_Controller #
 	);
 
 
-    reg [127:0] rfifo_wrdata;
+    reg [DATA_WIDTH + ID_WIDTH + 1 - 1:0] rfifo_wrdata;
     reg rfifo_wren = 0;
     reg rfifo_rden = 0;
-    wire [127:0] rfifo_rddata;
+    wire [DATA_WIDTH + ID_WIDTH + 1 - 1:0] rfifo_rddata;
     wire rfifo_empty;
 
 	async_fifo # (
-        .DSIZE(`DDR_DATA_WIDTH),
+        .DSIZE(DATA_WIDTH + ID_WIDTH + 1),
         .ASIZE(2),
         .FALLTHROUGH("TRUE")
     ) rfifo (
@@ -334,10 +333,10 @@ module DDR_Controller #
         .arempty()
 	);
 
-    localparam IDLE = 2'b00;
-    localparam READ = 2'b01;
+    localparam DDR_IDLE = 2'b00;
+    localparam DDR_READ = 2'b01;
 
-    reg [1:0] state_current, state_next;
+    reg state_current, state_next;
     reg ddr_rd_done_flag = 0;
     reg ram_cmd_ready_next;
 
@@ -373,12 +372,12 @@ module DDR_Controller #
     always @(*) begin
         pipe_rden = 1'b0;
         case (state_current)
-            IDLE: begin
-                state_next = IDLE;
+            DDR_IDLE: begin
+                state_next = DDR_IDLE;
                 if (~pipe_empty) begin
                     if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
                         if (app_cmd_ready) begin
-                            state_next = READ;
+                            state_next = DDR_READ;
                             pipe_rden = 1'b1;
                         end
                     end
@@ -389,30 +388,30 @@ module DDR_Controller #
                     end
                 end
                 else begin
-                    state_next = IDLE;
+                    state_next = DDR_IDLE;
                 end
             end
 
-            READ: begin
+            DDR_READ: begin
                 if ((app_rd_data_valid | ddr_rd_done_flag) & rfifo_empty) begin
-                    state_next = IDLE;
+                    state_next = DDR_IDLE;
                 end
                 else begin
-                    state_next = READ;
+                    state_next = DDR_READ;
                 end
             end
-            default: state_next = IDLE;
+            default: state_next = DDR_IDLE;
         endcase
     end
 
 
-    reg [`ID_WIDTH-1:0] id;
-    reg last;
+    reg [ID_WIDTH-1:0] id_reg;
+    reg last_reg;
     reg [$clog2(DATA_WIDTH/8) - 1 : 0] offset;
 
     always @(posedge ui_clk) begin
         if (~resetn | ddr_rst) begin
-            state_current <= IDLE;
+            state_current <= DDR_IDLE;
             ddr_rd_done_flag <= 1'b0;
             rfifo_wren <= 1'b0;
         end
@@ -424,7 +423,7 @@ module DDR_Controller #
             rfifo_wren <= 1'b0;
 
             case (state_current)
-                IDLE: begin
+                DDR_IDLE: begin
                     ddr_rd_done_flag <= 1'b0;
                     if (~pipe_empty) begin
                         if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin: __READ__
@@ -433,8 +432,8 @@ module DDR_Controller #
                                 app_cmd_en <= 1'b1;
                                 app_addr <= pipe_out[0 +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << $clog2(DATA_WIDTH/8));
                                 offset <= pipe_out[$clog2(DATA_WIDTH/8) - 1 : 0];
-                                id <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH +: ID_WIDTH];
-                                last <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
+                                id_reg <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH +: ID_WIDTH];
+                                last_reg <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
                             end
                         end
                         else begin: __WRITE__
@@ -452,11 +451,11 @@ module DDR_Controller #
                     end
                 end
 
-                READ: begin
+                DDR_READ: begin
                     if (app_rd_data_valid) begin
                         ddr_rd_done_flag <= 1'b1;
                         // rfifo_wrdata <= app_rd_data >> (8 * offset);
-                        rfifo_wrdata <= app_rd_data;
+                        rfifo_wrdata <= {last_reg, id_reg, app_rd_data};
                         if (rfifo_empty) begin
                             rfifo_wren <= 1'b1;
                         end
@@ -471,25 +470,57 @@ module DDR_Controller #
 
 
     /*
-     * Read from rfifo
+     * rfifo FSM
      */
-    always @(*) begin
-        rfifo_rden = 1'b0;
-        if (~rfifo_empty & ram_rd_resp_ready) begin
-            rfifo_rden = 1'b1;
-        end
-    end
+
+    reg rfifo_state_current, rfifo_state_next;
+    localparam RFIFO_IDLE = 1'b0;
+    localparam RFIFO_READ = 1'b1;
 
     always @(*) begin
-        ram_rd_resp_valid = 0;
-        ram_rd_resp_id = 0;
-        ram_rd_resp_data = 0;
-        ram_rd_resp_last = 0;
-        if (~rfifo_empty & ram_rd_resp_ready) begin
-            ram_rd_resp_valid = 1'b1;
-            ram_rd_resp_id = id;
-            ram_rd_resp_data = rfifo_rddata;
-            ram_rd_resp_last = last;
+        rfifo_rden = 1'b0;
+        case (rfifo_state_current)
+            RFIFO_IDLE: begin
+                rfifo_state_next = RFIFO_IDLE;
+                if (~rfifo_empty) begin
+                    rfifo_state_next = RFIFO_READ;
+                    rfifo_rden = 1'b1;
+                end
+            end
+
+            RFIFO_READ: begin
+                rfifo_state_next = RFIFO_READ;
+                if (ram_rd_resp_ready) begin
+                    rfifo_state_next = RFIFO_IDLE;
+                end
+            end
+        endcase
+    end
+
+    always @(posedge clk_if) begin
+        if (~resetn) begin
+            rfifo_state_current <= RFIFO_IDLE;
+            ram_rd_resp_valid <= 1'b0;
+        end
+        else begin
+            rfifo_state_current <= rfifo_state_next;
+
+            case (rfifo_state_current)
+                RFIFO_IDLE: begin
+                    if (~rfifo_empty) begin
+                        ram_rd_resp_valid <= 1'b1;
+                        ram_rd_resp_data <= rfifo_rddata[0 +: DATA_WIDTH];
+                        ram_rd_resp_id <= rfifo_rddata[DATA_WIDTH +: ID_WIDTH];
+                        ram_rd_resp_last <= rfifo_rddata[DATA_WIDTH + ID_WIDTH +: 1];
+                    end
+                end
+
+                RFIFO_READ: begin
+                    if (ram_rd_resp_ready) begin
+                        ram_rd_resp_valid <= 1'b0;
+                    end
+                end
+            endcase
         end
     end
 
