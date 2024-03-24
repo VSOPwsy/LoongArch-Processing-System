@@ -73,7 +73,7 @@ module TOP (
 	wire                      	cpu_wvalid;
 	wire                      	cpu_wready;
 	wire [`ID_WIDTH      -1 :0] cpu_bid;
-	wire [`RESP_WIDTH   -1 :0 ]	cpu_bresp;
+	wire [`RESP_WIDTH    -1 :0]	cpu_bresp;
 	wire                      	cpu_bvalid;
 	wire                      	cpu_bready;
 	wire [`ID_WIDTH      -1 :0] cpu_arid;
@@ -514,8 +514,6 @@ module TOP (
 		.dbus3_base			(32'h0000_0000			),
 		.dbus3_mask			(32'h0000_0000			),
 
-		.test_mode			(1'b0					)
-	);
 		.test_mode			(1'b0					)
 	);
 
