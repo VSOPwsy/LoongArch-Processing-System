@@ -27,11 +27,8 @@ wire                rd_sd_mosi    ;       //读数据模块SD数据输出信号
 //**                    main code
 //*****************************************************
 
-//////////////////////////////////////////////////////////////////
-////////////////// constrain output delay ////////////////////////
-//////////////////////////////////////////////////////////////////
-// assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  clk_ref_180deg; ///////// Use CLK_OSC ?
-assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  clk_ref;
+//SD卡的SPI_CLK  
+assign  sd_clk = (sd_init_done==1'b0)  ?  init_sd_clk  :  ~clk_ref;
 
 //SD卡接口信号选择
 always @(*) begin

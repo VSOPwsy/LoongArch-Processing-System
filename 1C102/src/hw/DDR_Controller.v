@@ -80,7 +80,7 @@ module DDR_Controller #
     output wire                     s_axi_rvalid,
     input  wire                     s_axi_rready,
 
-    input  wire                     model_init_complete,
+    input  wire                     init_model_complete,
 
     output wire                     ml_app_rdy,
     input  wire                     ml_app_cmd_en,
@@ -246,14 +246,14 @@ module DDR_Controller #
         .ddr_rst         (ddr_rst),
         .init_calib_complete(init_calib_complete),
         .cmd_ready       (app_cmd_ready),
-        .cmd             (model_init_complete ? 3'b000 : app_cmd),
-        .cmd_en          (model_init_complete ? ml_app_cmd_en : app_cmd_en),
-        .addr            (model_init_complete ? ml_app_addr : app_addr),
+        .cmd             (init_model_complete ? app_cmd      : 3'b000),
+        .cmd_en          (init_model_complete ? app_cmd_en   : ml_app_cmd_en),
+        .addr            (init_model_complete ? app_addr     : ml_app_addr),
         .wr_data_rdy     (app_wdf_rdy),
-        .wr_data         (model_init_complete ? ml_app_wdf_data : app_wdf_data),
-        .wr_data_en      (model_init_complete ? ml_app_wdf_wren : app_wdf_wren),
-        .wr_data_end     (model_init_complete ? 1'b1 : app_wdf_end),
-        .wr_data_mask    (model_init_complete ? ml_app_wdf_mask : app_wdf_mask),
+        .wr_data         (init_model_complete ? app_wdf_data : ml_app_wdf_data),
+        .wr_data_en      (init_model_complete ? app_wdf_wren : ml_app_wdf_wren),
+        .wr_data_end     (init_model_complete ? app_wdf_end  : 1'b1),
+        .wr_data_mask    (init_model_complete ? app_wdf_mask : ml_app_wdf_mask),
         .rd_data         (app_rd_data),
         .rd_data_valid   (app_rd_data_valid),
         .rd_data_end     (app_rd_data_end),
@@ -410,8 +410,7 @@ module DDR_Controller #
             end
 
             READ: begin
-                state_next = READ;
-                if (ddr_rd_done_flag & rfifo_empty) begin
+                if ((app_rd_data_valid | ddr_rd_done_flag) & rfifo_empty) begin
                     state_next = IDLE;
                 end
             end
@@ -422,24 +421,46 @@ module DDR_Controller #
 
     reg [`ID_WIDTH-1:0] id;
     reg last;
+    reg [$clog2(DATA_WIDTH/8) - 1 : 0] offset;
 
     always @(posedge ui_clk) begin
         if (~resetn | ddr_rst) begin
             state_current <= IDLE;
             ddr_rd_done_flag <= 1'b0;
+            rfifo_wren <= 1'b0;
         end
         else begin
             state_current <= state_next;
+            app_cmd_en <= 1'b0;
+            app_wdf_wren <= 1'b0;
+            app_wdf_end <= 1'b0;
+            rfifo_wren <= 1'b0;
+
             case (state_current)
                 IDLE: begin
+                    ddr_rd_done_flag <= 1'b0;
                     if (~pipe_empty) begin
                         if (pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH + 1 +: 1]) begin
                             if (app_cmd_ready) begin
+                                app_cmd <= 3'b001;
+                                app_cmd_en <= 1'b1;
+                                app_addr <= pipe_out[0 +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << $clog2(DATA_WIDTH/8));
+                                offset <= pipe_out[$clog2(DATA_WIDTH/8) - 1 : 0];
                                 id <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH +: ID_WIDTH];
                                 last <= pipe_out[ADDR_WIDTH + STRB_WIDTH + DATA_WIDTH + ID_WIDTH +: 1];
                             end
                         end
-                        else begin
+                        else begin: __WRITE__
+                            if (app_cmd_ready & app_wdf_rdy) begin
+                                app_cmd <= 3'b000;
+                                app_cmd_en <= 1'b1;
+                                app_addr <= pipe_out[0 +: ADDR_WIDTH] & ({ADDR_WIDTH{1'b1}} << $clog2(DATA_WIDTH/8));
+                                offset <= pipe_out[$clog2(DATA_WIDTH/8) - 1 : 0];
+                                app_wdf_wren <= 1'b1;
+                                app_wdf_data <= pipe_out[ADDR_WIDTH + STRB_WIDTH +: DATA_WIDTH] << (8 * pipe_out[$clog2(DATA_WIDTH/8) - 1 : 0]);
+                                app_wdf_mask <= ~(pipe_out[ADDR_WIDTH +: STRB_WIDTH] << pipe_out[$clog2(DATA_WIDTH/8) - 1 : 0]);
+                                app_wdf_end <= 1'b1;
+                            end
                         end
                     end
                 end
@@ -447,14 +468,14 @@ module DDR_Controller #
                 READ: begin
                     if (app_rd_data_valid) begin
                         ddr_rd_done_flag <= 1'b1;
-                        rfifo_wren <= 1'b1;
+                        // rfifo_wrdata <= app_rd_data >> (8 * offset);
                         rfifo_wrdata <= app_rd_data;
+                        if (rfifo_empty) begin
+                            rfifo_wren <= 1'b1;
+                        end
                     end
-                    if (ddr_rd_done_flag) begin
-                        rfifo_wren <= 1'b0;
-                    end
-                    if (ddr_rd_done_flag & rfifo_empty) begin
-                        ddr_rd_done_flag <= 1'b0;
+                    else if (ddr_rd_done_flag & rfifo_empty) begin
+                        rfifo_wren <= 1'b1;
                     end
                 end
             endcase

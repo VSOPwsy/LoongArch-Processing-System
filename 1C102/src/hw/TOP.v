@@ -283,12 +283,30 @@ module TOP (
 
 	wire						init_calib_complete;
 
-    la132_top CPU (
-		.boot_pc			(32'h1c000000			),
-		.clk				(clk_8M					),
-		.clk_count			(clk_8M					),
-		.hard_resetn		(locked&sys_resetn		),
-		.soft_resetn		(locked&sys_resetn		),
+
+	wire						ml_app_rdy;
+	wire						ml_app_cmd_en;
+	wire [`ADDR_WIDTH	 -1 :0] ml_app_addr;
+	wire						ml_app_wdf_rdy;
+	wire [`DDR_DATA_WIDTH-1 :0] ml_app_wdf_data;
+	wire [`DDR_STRB_WIDTH-1 :0] ml_app_wdf_mask;
+	wire						ml_app_wdf_wren;
+
+	wire						init_model_complete;
+
+
+
+	wire						ml_app_rdy;
+	wire						ml_app_cmd_en;
+	wire [`ADDR_WIDTH	 -1 :0] ml_app_addr;
+	wire						ml_app_wdf_rdy;
+	wire [`DDR_DATA_WIDTH-1 :0] ml_app_wdf_data;
+	wire [`DDR_STRB_WIDTH-1 :0] ml_app_wdf_mask;
+	wire						ml_app_wdf_wren;
+
+	wire						init_model_complete;
+
+
     la132_top CPU (
 		.boot_pc			(32'h1c000000			),
 		.clk				(clk_8M					),
@@ -300,13 +318,7 @@ module TOP (
         .can_high_freq		(can_high_freq			),
 		.cpu_fetch_pc		(fetch_pc				),
 		.wb_pc				(debug_pc				),
-		.mode_lisa			(1'b1					), 
-		.inst_xor			(32'b0					),
-		.sleeping			(sleeping_o				),
-        .can_high_freq		(can_high_freq			),
-		.cpu_fetch_pc		(fetch_pc				),
-		.wb_pc				(debug_pc				),
-		.mode_lisa			(1'b1					), 
+		.mode_lisa			(1'b1					),
 		.inst_xor			(32'b0					),
 
 		.nmi				(1'b0					),
@@ -540,10 +552,6 @@ module TOP (
     );
     
 
-	axicb_crossbar_top # (
-		.AXI_ADDR_W			(`ADDR_WIDTH			),
-		.AXI_ID_W			(`ID_WIDTH				),
-		.AXI_DATA_W			(`CPU_DATA_WIDTH		),
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`ID_WIDTH				),
@@ -916,10 +924,6 @@ module TOP (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`CPU_DATA_WIDTH		),
 		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
-	axicb_crossbar_top # (
-		.AXI_ADDR_W			(`ADDR_WIDTH			),
-		.AXI_ID_W			(`CPU_DATA_WIDTH		),
-		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
 		
 		.MST0_CDC			(0						),
 		.MST0_OSTDREQ_NUM	(0						),
@@ -1023,7 +1027,6 @@ module TOP (
 	);
 
 
-
 	DDR_Controller ddr_ctr (
 		.clk				(clk_126M				),
 		.memory_clk			(clk_504M				),
@@ -1074,9 +1077,9 @@ module TOP (
 		.ml_app_wdf_data	(ml_app_wdf_data		),
 		.ml_app_wdf_mask	(ml_app_wdf_mask		),
 		.ml_app_wdf_wren	(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	),
 
 		.init_calib_complete(init_calib_complete	),
-
 		.ddr_dq				(ddr_dq					),
 		.ddr_dqs			(ddr_dqs				),
 		.ddr_dqs_n			(ddr_dqs_n				),
@@ -1093,13 +1096,11 @@ module TOP (
 		.ddr_reset_n		(ddr_reset_n			),
 		.ddr_dm				(ddr_dm					)
 	);
-	
-	assign led[3] = init_calib_complete;
 
 
 	sd_read_para_top ModelLoader (    
 		.sys_clk			(clk_osc				),
-		.sys_rst_n			(sys_resetn				),
+		.sys_rst_n			(locked&sys_resetn		),
 		.sd_miso			(sd_miso				),
 		.sd_clk				(sd_clk					),
 		.sd_cs				(sd_cs					),
@@ -1112,7 +1113,9 @@ module TOP (
 		.app_wdf_rdy		(ml_app_wdf_rdy			),
 		.app_wdf_data		(ml_app_wdf_data		),
 		.app_wdf_mask		(ml_app_wdf_mask		),
-		.app_wdf_wren		(ml_app_wdf_wren		)
+		.app_wdf_wren		(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	)
 	);
 
+	assign led[3] = init_model_complete;
 endmodule
