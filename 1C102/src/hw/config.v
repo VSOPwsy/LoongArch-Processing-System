@@ -86,6 +86,15 @@
 `define APB_SLV8_ADDR_LEN    32'hffffffff     //APB8 length
 
 
+// Model
+`define MODEL_DDR_MIN_ADDR  32'd000000
+`define MODEL_DDR_MAX_ADDR  32'd384000
+`define MODEL_SD_SEC_NUM    16'd1212
+`define MODEL_ADDR_START    32'd67072
+`define MODEL_HEAD_NUM      6'd0
+
+
+
 
 // FLASH controller
 `define ERASE_PAGE_CMD   4'b1010

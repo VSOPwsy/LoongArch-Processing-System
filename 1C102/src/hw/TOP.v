@@ -939,7 +939,13 @@ module TOP (
 	);
 
 
-	sd_read_para_top ModelLoader (    
+	sd_read_para_top # (
+		.DDR_MIN_ADDR		(`MODEL_DDR_MIN_ADDR	),
+		.DDR_MAX_ADDR		(`MODEL_DDR_MAX_ADDR	),
+		.SD_SEC_NUM			(`MODEL_SD_SEC_NUM		),
+		.MODEL_ADDR_START	(`MODEL_ADDR_START		),
+		.MODEL_HEAD_NUM		(`MODEL_HEAD_NUM		)
+	) ModelLoader (    
 		.sys_clk			(clk_osc				),
 		.sys_rst_n			(locked&sys_resetn		),
 		.sd_miso			(sd_miso				),

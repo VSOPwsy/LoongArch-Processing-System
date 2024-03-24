@@ -1,9 +1,13 @@
-module sd_read_model(
+module sd_read_model # (
+    parameter DDR_MIN_ADDR = 32'd000000,
+    parameter DDR_MAX_ADDR = 32'd384000,
+    parameter SD_SEC_NUM = 16'd1212,
+    parameter MODEL_ADDR_START = 32'd67072,
+    parameter MODEL_HEAD_NUM = 6'd0
+)
+(
     input                clk           ,  //时钟信号
-    input                rst_n         ,  //复位信号,低电平有效
-    input        [32:0]  ddr_min_addr  ,
-    input        [32:0]  ddr_max_addr  ,  //DDR读写最大地址  
-    input        [15:0]  sd_sec_num    ,  //SD卡读扇区个数               
+    input                rst_n         ,  //复位信号,低电平有效             
     input                rd_busy       ,  //SD卡读忙信号
     input                sd_rd_val_en  ,  //SD卡读数据有效信号
     input        [15:0]  sd_rd_val_data,  //SD卡读出的数据
@@ -14,12 +18,6 @@ module sd_read_model(
     output  reg          ddr_wr_en     ,  //DDR写使能信号
     output  reg  [15:0]  ddr_wr_data      //DDR写数据
 );
-
-
-
-parameter MODEL_ADDR_START = 32'd67072; //模型文件起始扇区地址，拷贝sd卡后看
-parameter MODEL_HEAD_NUM = 6'd0; //如果模型文件有头文件，修改此值跳过不读
-
 
 parameter DELAY = 1000;
 reg init_model_complete_flag;
@@ -77,7 +75,7 @@ always @(posedge clk or negedge rst_n) begin
                     rd_sec_cnt <= rd_sec_cnt + 1'b1;
                     rd_sec_addr <= rd_sec_addr + 32'd1;
 
-                    if(rd_sec_cnt == sd_sec_num - 1'b1) begin
+                    if(rd_sec_cnt == SD_SEC_NUM - 1'b1) begin
                         rd_sec_cnt <= 16'd0;
                         rd_flow_state <= 0;
                         init_model_complete_flag <= 1'b1;
@@ -99,7 +97,7 @@ always @(posedge clk or negedge rst_n) begin
         ddr_wr_en      <= 0;
         ddr_flow_state <= 0;
         model_head_cnt <= 0;
-        ddr_wr_cnt <= ddr_min_addr;
+        ddr_wr_cnt <= DDR_MIN_ADDR;
     end
     else begin
         ddr_wr_en <= 1'b0;
@@ -129,7 +127,7 @@ always @(posedge clk or negedge rst_n) begin
                     ddr_wr_en <= 1'b1;
                 end 
                 if(ddr_wr_en) begin
-                    if(ddr_wr_cnt == ddr_max_addr - 1'b1) begin
+                    if(ddr_wr_cnt == DDR_MAX_ADDR - 1'b1) begin
                         ddr_wr_cnt <= ddr_wr_cnt;
                     end
                     else begin

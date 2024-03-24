@@ -1,12 +1,12 @@
-module ddr3_top(
+module ddr3_top # (
+    parameter DDR_MIN_ADDR = 32'd000000,
+    parameter DDR_MAX_ADDR = 32'd384000
+)(
     input           wr_clk              ,  //写fifo写时钟
     input           ui_clk              ,
     input           rst_n               ,
     input           wr_en               ,  //数据有效使能信号
     input  [15:0]   wrdata              ,  //写有效数据
-    input  [31:0]   app_addr_wr_min     , 
-    input  [31:0]   app_addr_wr_max     , 
-
     
     input               app_rdy              ,
     output              app_cmd_en           ,
@@ -52,10 +52,10 @@ module ddr3_top(
 
     always @(posedge ui_clk) begin
         if (~rst_n) begin
-            app_addr_reg <= app_addr_wr_min;
+            app_addr_reg <= DDR_MIN_ADDR;
         end
         else begin
-            if (app_wdf_wren & (app_addr_reg < app_addr_wr_max)) begin
+            if (app_wdf_wren & (app_addr_reg < DDR_MAX_ADDR   )) begin
                 app_addr_reg <= app_addr_reg + 'd2;
             end
         end
