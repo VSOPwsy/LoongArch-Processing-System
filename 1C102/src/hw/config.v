@@ -51,7 +51,9 @@
 `define DDR_DATA_WIDTH 128
 `define DDR_STRB_WIDTH (`DDR_DATA_WIDTH/8)
 
-
+`define DDR_ARB_MST_NUM         16
+`define DDR_ARB_EXT_ID_WIDTH    $clog2(`DDR_ARB_MST_NUM)
+`define DDR_ARB_ID_WIDTH        (`ID_WIDTH + `DDR_ARB_EXT_ID_WIDTH)
 
 /*****************
 *   APB interface      9-way APB
@@ -84,6 +86,15 @@
 //APB8
 `define APB_SLV8_ADDR_BASE   32'hffffffff     //APB8 base address   
 `define APB_SLV8_ADDR_LEN    32'hffffffff     //APB8 length
+
+
+// Model
+`define MODEL_DDR_MIN_ADDR  32'd000000
+`define MODEL_DDR_MAX_ADDR  32'd384000
+`define MODEL_SD_SEC_NUM    16'd1212
+`define MODEL_ADDR_START    32'd67072
+`define MODEL_HEAD_NUM      6'd0
+
 
 
 

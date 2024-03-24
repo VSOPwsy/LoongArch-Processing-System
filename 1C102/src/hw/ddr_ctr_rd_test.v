@@ -5,11 +5,13 @@ module ddr_ctr_rd_test (
     output reg arvalid,
     output wire [7:0] arlen,
     input arready,
+    output rready,
     input ddr_ready
 );
 
-assign araddr = 32'h00000000;
+assign araddr = 32'h8f000000;
 assign arlen = 0;
+assign rready = 1'b1;
 reg flag = 0;
 always @(posedge clk) begin
     if (~rstn) begin
