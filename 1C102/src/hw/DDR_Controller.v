@@ -5,7 +5,7 @@ module DDR_Controller #
     parameter DATA_WIDTH = `DDR_DATA_WIDTH,
     parameter ADDR_WIDTH = `ADDR_WIDTH,
     parameter STRB_WIDTH = (DATA_WIDTH/8),
-    parameter ID_WIDTH = `ID_WIDTH,
+    parameter ID_WIDTH = `DDR_ARB_ID_WIDTH,
 
     parameter AWUSER_ENABLE = 0,
     parameter AWUSER_WIDTH = 1,

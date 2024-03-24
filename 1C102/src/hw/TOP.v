@@ -767,14 +767,17 @@ module TOP (
 		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
 		
 		.MST0_CDC			(0						),
+		.MST0_ID_MASK		('h10					),
 		.MST0_OSTDREQ_NUM	(0						),
 		.MST0_PRIORITY		(0						),
 
 		.MST1_CDC			(0						),
+		.MST1_ID_MASK		('h20					),
 		.MST1_OSTDREQ_NUM	(0						),
 		.MST1_PRIORITY		(0						),
 		
 		.MST2_CDC			(0						),
+		.MST2_ID_MASK		('h30					),
 		.MST2_OSTDREQ_NUM	(0						),
 		.MST2_PRIORITY		(0						),
 
@@ -799,7 +802,7 @@ module TOP (
 		.slv0_awlock		(cpu_arb_128_awlock		),
 		.slv0_awcache		(cpu_arb_128_awcache	),
 		.slv0_awprot		(cpu_arb_128_awprot		),
-		.slv0_awid			(cpu_arb_128_awid		),
+		.slv0_awid			({'d1,cpu_arb_128_awid}	),
 		.slv0_wvalid		(cpu_arb_128_wvalid		),
 		.slv0_wready		(cpu_arb_128_wready		),
 		.slv0_wlast			(cpu_arb_128_wlast		),
@@ -818,7 +821,7 @@ module TOP (
 		.slv0_arlock		(cpu_arb_128_arlock		),
 		.slv0_arcache		(cpu_arb_128_arcache	),
 		.slv0_arprot		(cpu_arb_128_arprot		),
-		.slv0_arid			(cpu_arb_128_arid		),
+		.slv0_arid			({'d1,cpu_arb_128_arid}	),
 		.slv0_rvalid		(cpu_arb_128_rvalid		),
 		.slv0_rready		(cpu_arb_128_rready		),
 		.slv0_rid			(cpu_arb_128_rid		),
@@ -868,7 +871,11 @@ module TOP (
 	);
 
 
-	DDR_Controller ddr_ctr (
+	DDR_Controller # (
+		.DATA_WIDTH			(`DDR_DATA_WIDTH		),
+		.ADDR_WIDTH			(`ADDR_WIDTH			),
+		.ID_WIDTH			(`DDR_ARB_ID_WIDTH		)
+	) ddr_ctr (
 		.clk				(clk_126M				),
 		.memory_clk			(clk_504M				),
 		.pll_lock			(locked					),
