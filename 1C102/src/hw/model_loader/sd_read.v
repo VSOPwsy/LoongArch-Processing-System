@@ -1,6 +1,5 @@
 module sd_read(
     input                clk_ref       ,  //时钟信号
-    input                clk_ref_180deg,  //时钟信号,与clk_ref相位相差180度
     input                rst_n         ,  //复位信号,低电平有效
     //SD卡接口
     input                sd_miso       ,  //SD卡SPI串行输入数据信号
@@ -36,7 +35,7 @@ wire           pos_rd_en     ;            //开始读SD卡数据信号的上升�
 //**                    main code
 //*****************************************************
 assign  pos_rd_en = (~rd_en_d1) & rd_en_d0;
-//rd_start_en信号延时打拍
+
 always @(posedge clk_ref or negedge rst_n) begin
     if(!rst_n) begin
         rd_en_d0 <= 1'b0;
@@ -47,9 +46,8 @@ always @(posedge clk_ref or negedge rst_n) begin
         rd_en_d1 <= rd_en_d0;
     end
 end
-//接收sd卡返回的响应数据
-//在clk_ref_180deg(sd_clk)的上升沿锁存数据
-always @(posedge clk_ref_180deg or negedge rst_n) begin
+
+always @(negedge clk_ref or negedge rst_n) begin
     if(!rst_n) begin
         res_en <= 1'b0;
         res_data <= 8'd0;
@@ -57,7 +55,6 @@ always @(posedge clk_ref_180deg or negedge rst_n) begin
         res_bit_cnt <= 6'd0;
     end
     else begin
-        //sd_miso = 0 开始接收响应数据
         if(sd_miso == 1'b0 && res_flag == 1'b0 && rd_ctrl_cnt == 4'd1) begin
             res_flag <= 1'b1;
             res_data <= {res_data[6:0],sd_miso};
@@ -77,9 +74,8 @@ always @(posedge clk_ref_180deg or negedge rst_n) begin
             res_en <= 1'b0;
     end
 end
-//接收SD卡有效数据
-//在clk_ref_180deg(sd_clk)的上升沿锁存数据
-always @(posedge clk_ref_180deg or negedge rst_n) begin
+
+always @(negedge clk_ref or negedge rst_n) begin
     if(!rst_n) begin
         rx_en_t <= 1'b0;
         rx_data_t <= 16'd0;

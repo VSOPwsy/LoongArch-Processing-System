@@ -455,7 +455,8 @@ module DDR_Controller #
                 READ: begin
                     if (app_rd_data_valid) begin
                         ddr_rd_done_flag <= 1'b1;
-                        rfifo_wrdata <= app_rd_data >> (8 * offset);
+                        // rfifo_wrdata <= app_rd_data >> (8 * offset);
+                        rfifo_wrdata <= app_rd_data;
                         if (rfifo_empty) begin
                             rfifo_wren <= 1'b1;
                         end
