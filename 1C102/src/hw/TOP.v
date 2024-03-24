@@ -752,10 +752,10 @@ module TOP (
     	.m_axi_arprot		(cpu_arb_128_arprot		),
     	.m_axi_arvalid		(cpu_arb_128_arvalid	),
     	.m_axi_arready		(cpu_arb_128_arready	),
-    	.m_axi_rid			(arbiter_rid			),
-    	.m_axi_rdata		(arbiter_rdata			),
-    	.m_axi_rresp		(arbiter_rresp			),
-    	.m_axi_rlast		(arbiter_rlast			),
+    	.m_axi_rid			(cpu_arb_128_rid		),
+    	.m_axi_rdata		(cpu_arb_128_rdata		),
+    	.m_axi_rresp		(cpu_arb_128_rresp		),
+    	.m_axi_rlast		(cpu_arb_128_rlast		),
     	.m_axi_rvalid		(cpu_arb_128_rvalid		),
     	.m_axi_rready		(cpu_arb_128_rready		)
 	);
@@ -763,7 +763,7 @@ module TOP (
 
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
-		.AXI_ID_W			(`CPU_DATA_WIDTH		),
+		.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
 		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
 		
 		.MST0_CDC			(0						),
