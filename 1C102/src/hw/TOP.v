@@ -286,11 +286,11 @@ module TOP (
 	wire                     	arb_ctr_wlast;
 	wire                     	arb_ctr_wvalid;
 	wire                     	arb_ctr_wready;
-	wire [`ID_WIDTH 	 -1 :0] arb_ctr_bid;
+	wire [`DDR_ARB_ID_WIDTH-1:0]arb_ctr_bid;
 	wire [1:0]               	arb_ctr_bresp;
 	wire                     	arb_ctr_bvalid;
 	wire                     	arb_ctr_bready;
-	wire [`ID_WIDTH  	 -1 :0] arb_ctr_arid;
+	wire [`DDR_ARB_ID_WIDTH-1:0]arb_ctr_arid;
 	wire [`ADDR_WIDTH	 -1 :0] arb_ctr_araddr;
 	wire [7:0]               	arb_ctr_arlen;
 	wire [2:0]               	arb_ctr_arsize;
@@ -300,7 +300,7 @@ module TOP (
 	wire [2:0]               	arb_ctr_arprot;
 	wire                     	arb_ctr_arvalid;
 	wire                     	arb_ctr_arready;
-	wire [`ID_WIDTH  	 -1 :0] arb_ctr_rid;
+	wire [`DDR_ARB_ID_WIDTH-1:0]arb_ctr_rid;
 	wire [`DDR_DATA_WIDTH-1 :0] arb_ctr_rdata;
 	wire [1:0]               	arb_ctr_rresp;
 	wire                     	arb_ctr_rlast;
