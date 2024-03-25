@@ -483,7 +483,7 @@ int main(void)
 
     // EnableInt();				//开总中断
 
-	volatile int *p = (volatile int *)0x8f000000;
+	volatile int *p = (volatile int *)0xbfee0000;
 	*p = 0;
     while(1){
 	// 	// WDG_DogFeed();
