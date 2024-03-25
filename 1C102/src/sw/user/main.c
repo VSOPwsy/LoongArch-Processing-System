@@ -485,15 +485,8 @@ int main(void)
 
 	volatile int *p = (volatile int *)0x8f000000;
 	*p = 0;
-	// *p |= (0x01<<1);
-	// *p = 0x01;
-	// // my_delay_ms(1000);
-
     while(1){
 	// 	// WDG_DogFeed();
-	// 	// printf("test....\n");
-
-	// 	*p |= (0x01<<1);
 		
 		*p = *p + 1;
 
