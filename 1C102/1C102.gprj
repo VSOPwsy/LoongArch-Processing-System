@@ -26,6 +26,7 @@
         <File path="src/hw/amba/axi_crossbar/axicb_slv_switch.sv" type="file.verilog" enable="1"/>
         <File path="src/hw/amba/axi_crossbar/axicb_switch_top.sv" type="file.verilog" enable="1"/>
         <File path="src/hw/amba/axi_ram_if.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/apb_register.v" type="file.verilog" enable="1"/>
         <File path="src/hw/apb_register_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/async_fifo/async_bidir_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/async_fifo/async_bidir_ramif_fifo.v" type="file.verilog" enable="1"/>
@@ -59,6 +60,6 @@
         <File path="src/hw/model_loader/sd_rpll/sd_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>

@@ -1,4 +1,3 @@
-`timescale 1 ns / 1 ps
 `include "config.v"
 
 module LED_driver (
@@ -17,25 +16,72 @@ module LED_driver (
 );
 
     wire [`APB_DATA_WIDTH-1:0] R0;
+	wire [`APB_DATA_WIDTH-1:0] reg_apb_wdata;
+	wire [2:0]    reg_apb_addr;
+	wire           reg_apb_wen;
 
-	apb_register_if # (
-		.REG_NUM(2),
-		.LOG2_REG_NUM(1)
-	) apb_if (
-		.clk(clk),
-		.resetn(resetn),
+	wire [`APB_DATA_WIDTH-1:0] yjq_wdata;
+	wire [2:0]		  yjq_addr;
+	wire           	   yjq_wen;
+	
 
-		.apb_req(apb_req),
-		.apb_psel(apb_psel),
-		.apb_rw(apb_rw),
-		.apb_addr(apb_addr),
-		.apb_enab(apb_enab),
-		.apb_datai(apb_datai),
-		.apb_datao(apb_datao),
-		.apb_ack(apb_ack),
+	apb_register #(
+    	.REG_NUM(2)
+	) apb_register_inst (
+    	.clk(clk),
+    	.resetn(resetn),
 
-		.R0(R0)
+    	.reg_apb_wen(reg_apb_wen),
+    	.reg_apb_wdata(reg_apb_wdata),
+    	.reg_apb_addr(reg_apb_addr),
+
+		.yjq_wen(yjq_wen),
+		.yjq_wdata(yjq_wdata),
+		.yjq_addr(yjq_addr),
+
+    	.R0(R0),
+		.R1(R1)
 	);
+
+	apb_register_if #(
+    	.REG_NUM(2)
+	) apb_reg_inst (
+    	.clk(clk),
+    	.resetn(resetn),
+
+    	.apb_req(apb_req),
+    	.apb_psel(apb_psel),
+    	.apb_rw(apb_rw),
+    	.apb_addr(apb_addr),
+    	.apb_enab(apb_enab),
+    	.apb_datai(apb_datai),
+    	.apb_reg_wdata(reg_apb_wdata),  
+    	.apb_reg_addr(reg_apb_addr),   
+    	.apb_reg_wen(reg_apb_wen),    
+    	.R0(R0),
+		.R1(R1),
+    	.apb_datao(apb_datao),
+    	.apb_ack(apb_ack)
+	);
+	
+	// apb_register_if # (
+	// 	.REG_NUM(2),
+	// 	.LOG2_REG_NUM(1)
+	// ) apb_if (
+	// 	.clk(clk),
+	// 	.resetn(resetn),
+
+	// 	.apb_req(apb_req),
+	// 	.apb_psel(apb_psel),
+	// 	.apb_rw(apb_rw),
+	// 	.apb_addr(apb_addr),
+	// 	.apb_enab(apb_enab),
+	// 	.apb_datai(apb_datai),
+	// 	.apb_datao(apb_datao),
+	// 	.apb_ack(apb_ack),
+
+	// 	.R0(R0)
+	// );
 
 	assign led = R0[3:0];
 endmodule
