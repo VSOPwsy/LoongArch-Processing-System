@@ -7,8 +7,8 @@
 *   AXI interface
 ******************/
 
-`define APB_ADDR_BASE       32'hbfee0000
-`define APB_ADDR_LEN        32'h00000fff
+`define APB_ADDR_BASE       32'hbe000000
+`define APB_ADDR_LEN        32'h01ffffff
 `define APB_ADDR_END        (`APB_ADDR_BASE + `APB_ADDR_LEN)
 
 `define DDR_ADDR_BASE       32'h8f000000
@@ -59,15 +59,17 @@
 *   APB interface      9-way APB
 ******************/
 //APB0
-`define APB_SLV0_ADDR_BASE   32'hbfee0000     //APB0 base address    
-`define APB_SLV0_ADDR_LEN    32'h00000fff     //APB0 length
-
+//INTC
+`define APB_SLV0_ADDR_BASE   32'hbfea0000     //APB0 base address    
+`define APB_SLV0_ADDR_LEN    32'h00000007     //APB0 length
 //APB1
-`define APB_SLV1_ADDR_BASE   32'hffffffff     //APB1 base address    
-`define APB_SLV1_ADDR_LEN    32'hffffffff     //APB1 length
+//UART0
+`define APB_SLV1_ADDR_BASE   32'hbfe80000     //APB1 base address    
+`define APB_SLV1_ADDR_LEN    32'h00000007     //APB1 length
 //APB2
-`define APB_SLV2_ADDR_BASE   32'hffffffff     //APB2 base address    
-`define APB_SLV2_ADDR_LEN    32'hffffffff     //APB3 length
+//I2C
+`define APB_SLV2_ADDR_BASE   32'hbfe90000     //APB2 base address    
+`define APB_SLV2_ADDR_LEN    32'h00000007     //APB3 length
 //APB3
 `define APB_SLV3_ADDR_BASE   32'hffffffff     //APB3 base address    
 `define APB_SLV3_ADDR_LEN    32'hffffffff     //APB3 length
@@ -84,8 +86,9 @@
 `define APB_SLV7_ADDR_BASE   32'hffffffff     //APB7 base address   
 `define APB_SLV7_ADDR_LEN    32'hffffffff     //APB7 length
 //APB8
-`define APB_SLV8_ADDR_BASE   32'hffffffff     //APB8 base address   
-`define APB_SLV8_ADDR_LEN    32'hffffffff     //APB8 length
+//LED
+`define APB_SLV8_ADDR_BASE   32'hbff00000     //APB8 base address   
+`define APB_SLV8_ADDR_LEN    32'h00000001     //APB8 length
 
 
 // Model

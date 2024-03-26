@@ -223,6 +223,22 @@ module TOP (
 	wire [`APB_DATA_WIDTH-1 :0] apb2_datao;
 	wire                      	apb2_ack;
 
+	wire                      	apb3_psel;
+	wire                      	apb3_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb3_addr;
+	wire                      	apb3_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb3_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb3_datao;
+	wire                      	apb3_ack;
+
+	wire                      	apb4_psel;
+	wire                      	apb4_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb4_addr;
+	wire                      	apb4_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb4_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb4_datao;
+	wire                      	apb4_ack;
+
 	wire [`ID_WIDTH      -1 :0] cpu_arb_32_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_awaddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_32_awlen;
@@ -703,7 +719,6 @@ module TOP (
 		.apb_datao_cpu		(apb_datao				),
 		.apb_ack_cpu		(apb_ready				),
 
-		.apb0_req			( ),
 		.apb0_psel			(apb0_psel				),
 		.apb0_rw			(apb0_rw				),
 		.apb0_addr			(apb0_addr				),
@@ -711,7 +726,7 @@ module TOP (
 		.apb0_datai			(apb0_datai				),
 		.apb0_datao			(apb0_datao				),
 		.apb0_ack			(apb0_ack				),
-		
+
 		.apb1_psel			(apb1_psel				),
 		.apb1_rw			(apb1_rw				),
 		.apb1_addr			(apb1_addr				),
@@ -719,31 +734,88 @@ module TOP (
 		.apb1_datai			(apb1_datai				),
 		.apb1_datao			(apb1_datao				),
 		.apb1_ack			(apb1_ack				),
-
+		
 		.apb2_psel			(apb2_psel				),
 		.apb2_rw			(apb2_rw				),
 		.apb2_addr			(apb2_addr				),
 		.apb2_enab			(apb2_enab				),
 		.apb2_datai			(apb2_datai				),
 		.apb2_datao			(apb2_datao				),
-		.apb2_ack			(apb2_ack				)
+		.apb2_ack			(apb2_ack				),
+		
+		.apb3_psel			(apb3_psel				),
+		.apb3_rw			(apb3_rw				),
+		.apb3_addr			(apb3_addr				),
+		.apb3_enab			(apb3_enab				),
+		.apb3_datai			(apb3_datai				),
+		.apb3_datao			(apb3_datao				),
+		.apb3_ack			(apb3_ack				),
+		
+		.apb4_psel			(apb4_psel				),
+		.apb4_rw			(apb4_rw				),
+		.apb4_addr			(apb4_addr				),
+		.apb4_enab			(apb4_enab				),
+		.apb4_datai			(apb4_datai				),
+		.apb4_datao			(apb4_datao				),
+		.apb4_ack			(apb4_ack				),
+		
+		.apb5_psel			(apb5_psel				),
+		.apb5_rw			(apb5_rw				),
+		.apb5_addr			(apb5_addr				),
+		.apb5_enab			(apb5_enab				),
+		.apb5_datai			(apb5_datai				),
+		.apb5_datao			(apb5_datao				),
+		.apb5_ack			(apb5_ack				),
+		
+		.apb6_psel			(apb6_psel				),
+		.apb6_rw			(apb6_rw				),
+		.apb6_addr			(apb6_addr				),
+		.apb6_enab			(apb6_enab				),
+		.apb6_datai			(apb6_datai				),
+		.apb6_datao			(apb6_datao				),
+		.apb6_ack			(apb6_ack				),
+		
+		.apb7_psel			(apb7_psel				),
+		.apb7_rw			(apb7_rw				),
+		.apb7_addr			(apb7_addr				),
+		.apb7_enab			(apb7_enab				),
+		.apb7_datai			(apb7_datai				),
+		.apb7_datao			(apb7_datao				),
+		.apb7_ack			(apb7_ack				),
+		
+		.apb8_psel			(apb8_psel				),
+		.apb8_rw			(apb8_rw				),
+		.apb8_addr			(apb8_addr				),
+		.apb8_enab			(apb8_enab				),
+		.apb8_datai			(apb8_datai				),
+		.apb8_datao			(apb8_datao				),
+		.apb8_ack			(apb8_ack				)
 	);
-
-
-	LED_driver LED (
-		.clk				(apb_clk				),
-		.resetn				(apb_reset_n			),
+	
+	CONFREG IntController(
+		.apb_pclk			(apb_clk				),
+		.apb_prstn			(apb_reset_n			),
+		
 		.apb_psel			(apb0_psel				),
-		.apb_rw				(apb0_rw				),
-		.apb_addr			(apb0_addr				),
-		.apb_enab			(apb0_enab				),
-		.apb_datai			(apb0_datai				),
-		.apb_datao			(apb0_datao				),
+		.apb_pwrite			(apb0_rw				),
+		.apb_paddr			(apb0_addr				),
+		.apb_penable		(apb0_enab				),
+		.apb_pwdata			(apb0_datai				),
+		.apb_prdata			(apb0_datao				),
 		.apb_ack			(apb0_ack				),
 
-		.led				(led[1:0]				)
-	);
+		.timer_int			(timer_int				),
+		.i2c_int			(i2c_int				),
+		.uart1_int			(uart1_int				),
+		.uart0_int			(uart0_int				),
+		.flash_int			(flash_int				),
+		.spi_int			(spi_int				),
+		.vpwm_int			(vpwm_int				),
+		.dma_int			(dma_int				),
 
+		.int_o				(interrupt[4]			)
+	);
+	
 	UART_TOP UART0(
 		.apb_pclk			(apb_clk				),
 		.apb_prstn			(apb_reset_n			),
@@ -758,33 +830,26 @@ module TOP (
 
 		.RsRx				(RsRx					),
 		.RsTx				(RsTx					),
-		.uart_irq			(uart0_int				),
+		.uart_irq			(uart0_int				)
 	);
-	
-	
-	CONFREG IntController(
-		.apb_pclk			(apb_clk				),
-		.apb_prstn			(apb_reset_n			),
-		
-		.apb_psel			(apb2_psel				),
-		.apb_pwrite			(apb2_rw				),
-		.apb_paddr			(apb2_addr				),
-		.apb_penable		(apb2_enab				),
-		.apb_pwdata			(apb2_datai				),
-		.apb_prdata			(apb2_datao				),
-		.apb_ack			(apb2_ack				),
 
-		.timer_int			(timer_int				),
-		.i2c_int			(i2c_int				),
-		.uart1_int			(uart1_int				),
-		.uart0_int			(uart0_int				),
-		.flash_int			(flash_int				),
-		.spi_int			(spi_int				),
-		.vpwm_int			(vpwm_int				),
-		.dma_int			(dma_int				),
+	
 
-		.int_o				(interrupt[4]			)
+	LED_driver LED (
+		.clk				(apb_clk				),
+		.resetn				(apb_reset_n			),
+		.apb_psel			(apb8_psel				),
+		.apb_rw				(apb8_rw				),
+		.apb_addr			(apb8_addr				),
+		.apb_enab			(apb8_enab				),
+		.apb_datai			(apb8_datai				),
+		.apb_datao			(apb8_datao				),
+		.apb_ack			(apb8_ack				),
+
+		.led				(led[1:0]				)
 	);
+
+	
 
 	// axi_adapter # (
 	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
