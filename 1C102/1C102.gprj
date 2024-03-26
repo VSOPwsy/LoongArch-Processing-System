@@ -39,6 +39,7 @@
         <File path="src/hw/async_fifo/sync_w2r.v" type="file.verilog" enable="1"/>
         <File path="src/hw/async_fifo/wptr_full.v" type="file.verilog" enable="1"/>
         <File path="src/hw/config.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/confreg/confreg.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
@@ -58,6 +59,12 @@
         <File path="src/hw/model_loader/sd_read_model.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_read_para_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_rpll/sd_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/baudgen.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/uart_rfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/uart_tfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/uart_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/uart/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
         <File path="src/1C102.rao" type="file.gao" enable="0"/>

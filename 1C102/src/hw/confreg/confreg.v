@@ -9,6 +9,7 @@ module CONFREG (
     input             apb_penable,
     input [7:0]       apb_pwdata,
     output reg [7:0]  apb_prdata,
+	output 			  apb_ack,
 
 	input             timer_int,
 	input             i2c_int,
@@ -21,7 +22,8 @@ module CONFREG (
 
     output            int_o
 );
-	
+	assign apb_ack = 1'b1;
+
 	wire we = apb_psel & apb_penable & apb_pwrite;
 	wire re = apb_psel & apb_penable &~apb_pwrite;
 

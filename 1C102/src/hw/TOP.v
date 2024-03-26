@@ -392,8 +392,6 @@ module TOP (
 
 	wire						init_model_complete;
 
-	assign int
-
     la132_top CPU (
 		.boot_pc			(32'h1c000000			),
 		.clk				(clk_8M					),

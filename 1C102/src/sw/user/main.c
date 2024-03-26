@@ -7,6 +7,7 @@
 #include "ls1x_wdg.h"
 #include "ls1x_string.h"
 #include "UserGpio.h"
+#include "soc_printf.h"
 extern void wakeup_reset(void);
 extern int do_d1(int argc,void *argv[]);
 extern int do_d4(int argc,void *argv[]);

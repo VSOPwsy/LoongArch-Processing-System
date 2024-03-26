@@ -26,18 +26,22 @@ module BAUDGEN (
 			2'b00:
 			begin
 				counting_targets = 207;// 208.333 9600
+				counting_targets = 2603;// 208.333 9600
 			end
 			2'b01:
 			begin
-				counting_targets = 103;// 104.166 19200
+				// counting_targets = 103;// 104.166 19200
+				counting_targets = 1301;// 104.166 19200
 			end
 			2'b10:
 			begin
 				counting_targets = 51;// 52.083 38400
+				counting_targets = 650;// 52.083 38400
 			end
 			2'b11:
 			begin
 				counting_targets = 16;// 17.361 115200
+				counting_targets = 217;// 17.361 115200
 			end
 		endcase
 	end
