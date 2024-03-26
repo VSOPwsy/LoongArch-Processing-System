@@ -1,6 +1,19 @@
 #ifndef _LS1X_H_
 #define _LS1X_H_
 #include "test.h"
+
+// ================================================================ soc 
+/*
+	1.
+	because some type aliases are defined using typedef in 'test.h', but these definitions conflict with those defined 
+in the default header file 'stdint.h'. therefore, the duplicated parts in 'test.h' are annotated.
+	2.
+	'stdio.h' conflicts with the project, so this file cannot be used.
+*/
+#include <stdint.h>
+// #include <stdio.h>
+// ================================================================ soc 
+
 /*****************************************************/
 /******************  NORMAL ADDRESS SPACE  ******************/
 #define UNCACHED_MEMORY_ADDR 	0xa0000000

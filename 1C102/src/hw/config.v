@@ -63,8 +63,10 @@
 `define APB_SLV0_ADDR_LEN    32'h00000fff     //APB0 length
 
 //APB1
-`define APB_SLV1_ADDR_BASE   32'hffffffff     //APB1 base address    
-`define APB_SLV1_ADDR_LEN    32'hffffffff     //APB1 length
+`define APB_SLV1_ADDR_BASE   32'hbfe88000     //APB1 base address
+`define APB_SLV1_ADDR_LEN    32'h00000fff     //APB1 length
+
+
 //APB2
 `define APB_SLV2_ADDR_BASE   32'hffffffff     //APB2 base address    
 `define APB_SLV2_ADDR_LEN    32'hffffffff     //APB3 length
