@@ -1,5 +1,10 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define	DEBUG()  printf("\r\n <  line: %d func:%s   >\r\n",__LINE__,__FUNCTION__)
 
 void ls1x_logo(void);
@@ -29,5 +34,10 @@ extern unsigned char mygetchar(void);
 
 #define log_printf1(fmt, args...)        //myprintf(UART0, fmt, ##args)
 #define log_uart_printf1(fmt, args...) // log_printf1(fmt ,##args)
+
+#ifdef __cplusplus
+}
 #endif
+
+#endif // CONFIG_H_
 

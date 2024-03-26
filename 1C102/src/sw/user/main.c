@@ -449,6 +449,38 @@ START:
 
 int main(void)
 {
+    EnableInt();// 开总中断
+
+	UART_FIFO_CTRL = 0x05;// baud_rate = 19200, enable parity check
+    my_delay_ms(2000);// delay 2000ms at least after modifying UART_FIFO_CTRL. delay 1000ms is false.
+    
+    soc_printf("\r\n");
+    my_delay_ms(25);
+    
+    uint8_t *str0 = "ABCD";
+    soc_printf("str0 = %s\r\n", str0);
+	my_delay_ms(25);
+
+    uint8_t buf0[4] = "ABCD";
+    soc_printf("len = %d\r\n", sizeof(buf0));
+	my_delay_ms(25);
+
+	volatile int num = 8;
+    soc_printf("num = %d\r\n", num);
+    my_delay_ms(25);
+
+	gpio_init(1, 1);
+	gpio_init(20, 1);
+	uart1_interrupt();
+
+    while(1) {
+        my_delay_ms(1000);
+		gpio_write(1, 1);
+		my_delay_ms(1000);
+		gpio_write(1, 0);
+    }
+
+    return 0;
 	// INT8U rstSrc = (PMU_CMDSTS >> 26) & 0x3;
 	// if ((rstSrc == 0x03) && ((PMU_CMDSTS & 0x01ff0000) == 0x00010000)  )			// ??PMU_CmdSts?????24:16λ?е?16λ?1???????0??????????????μ?1??????????????ι????????NB?????
     // {
@@ -483,15 +515,15 @@ int main(void)
 
     // EnableInt();				//开总中断
 
-	volatile int *p = (volatile int *)0xbfee0000;
-	*p = 0;
-    while(1){
-	// 	// WDG_DogFeed();
+	// volatile int *p = (volatile int *)0xbfee0000;
+	// *p = 0;
+    // while(1){
+	// // 	// WDG_DogFeed();
 		
-		*p = *p + 1;
+	// 	*p = *p + 1;
 
-		my_delay_ms(1000);
-    }
+	// 	my_delay_ms(1000);
+    // }
 
 }
 
