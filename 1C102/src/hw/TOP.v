@@ -712,13 +712,13 @@ module TOP (
 		.apb0_datao			(apb0_datao				),
 		.apb0_ack			(apb0_ack				),
 		
-		.apb1_psel			(apb2_psel				),
-		.apb1_rw			(apb2_rw				),
-		.apb1_addr			(apb2_addr				),
-		.apb1_enab			(apb2_enab				),
-		.apb1_datai			(apb2_datai				),
-		.apb1_datao			(apb2_datao				),
-		.apb1_ack			(apb2_ack				),
+		.apb1_psel			(apb1_psel				),
+		.apb1_rw			(apb1_rw				),
+		.apb1_addr			(apb1_addr				),
+		.apb1_enab			(apb1_enab				),
+		.apb1_datai			(apb1_datai				),
+		.apb1_datao			(apb1_datao				),
+		.apb1_ack			(apb1_ack				),
 
 		.apb2_psel			(apb2_psel				),
 		.apb2_rw			(apb2_rw				),
@@ -744,21 +744,22 @@ module TOP (
 		.led				(led[1:0]				)
 	);
 
-	UART_TOP UART(
+	UART_TOP UART0(
 		.apb_pclk			(apb_clk				),
 		.apb_prstn			(apb_reset_n			),
 
 		.apb_psel			(apb1_psel				),
-		.apb_pwrite			(apb1_pwrite			),
+		.apb_pwrite			(apb1_rw				),
 		.apb_paddr			(apb1_addr				),
 		.apb_penable		(apb1_enab				),
-		.apb_pwdata			(apb1_pwdata			),
-		.apb_prdata			(apb1_prdata			),
+		.apb_pwdata			(apb1_datai				),
+		.apb_prdata			(apb1_datao				),
+		.uart_ready			(apb1_ack				),
+
 		.RsRx				(RsRx					),
 		.RsTx				(RsTx					),
-		.uart_irq			(), //
-		.uart_ready			(apb1_ack				) 
-	);	
+		.uart_irq			(uart0_int				),
+	);
 	
 	
 	CONFREG IntController(
