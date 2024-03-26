@@ -4,7 +4,6 @@ module LED_driver (
 	input wire                      	clk,
 	input wire                      	resetn,
 
-	input wire                      	apb_req,
 	input wire                      	apb_psel,
 	input wire                      	apb_rw,    // 0 for rd, 1 for wr
 	input wire  [`ADDR_WIDTH     -1 :0]	apb_addr,
@@ -48,8 +47,6 @@ module LED_driver (
 	) apb_reg_inst (
     	.clk(clk),
     	.resetn(resetn),
-
-    	.apb_req(apb_req),
     	.apb_psel(apb_psel),
     	.apb_rw(apb_rw),
     	.apb_addr(apb_addr),
@@ -63,25 +60,6 @@ module LED_driver (
     	.apb_datao(apb_datao),
     	.apb_ack(apb_ack)
 	);
-	
-	// apb_register_if # (
-	// 	.REG_NUM(2),
-	// 	.LOG2_REG_NUM(1)
-	// ) apb_if (
-	// 	.clk(clk),
-	// 	.resetn(resetn),
-
-	// 	.apb_req(apb_req),
-	// 	.apb_psel(apb_psel),
-	// 	.apb_rw(apb_rw),
-	// 	.apb_addr(apb_addr),
-	// 	.apb_enab(apb_enab),
-	// 	.apb_datai(apb_datai),
-	// 	.apb_datao(apb_datao),
-	// 	.apb_ack(apb_ack),
-
-	// 	.R0(R0)
-	// );
 
 	assign led = R0[3:0];
 endmodule

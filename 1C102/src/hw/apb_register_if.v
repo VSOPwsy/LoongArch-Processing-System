@@ -7,7 +7,6 @@ module apb_register_if # (
     input                            clk,
     input                            resetn,
 
-    input                            apb_req,
     input                            apb_psel,
 	input                            apb_rw,    // 0 for rd, 1 for wr
     input      [`ADDR_WIDTH-1:0]     apb_addr,
@@ -47,7 +46,7 @@ module apb_register_if # (
         else begin
             case (state_current)
                 IDLE: begin
-                    if (apb_req & apb_psel & ~apb_enab) begin
+                    if (apb_psel & ~apb_enab) begin
                         state_next = ENABLE;
                     end
                     else begin
@@ -73,7 +72,7 @@ module apb_register_if # (
         else begin
             case (state_current)
                 IDLE: begin
-                    if (apb_req & apb_psel & ~apb_enab) begin
+                    if (apb_psel & ~apb_enab) begin
                         if (apb_rw) begin
                             apb_ack <= 1'b1;
                             apb_reg_wdata <= apb_datai;

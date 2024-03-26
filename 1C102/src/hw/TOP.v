@@ -8,6 +8,9 @@ module TOP (
 
 	output	[3:0]	led,
 
+	input 			RsRx,
+	output 			RsTx,
+
 
 	inout	[15:0]	ddr_dq,
 	inout	[1:0]	ddr_dqs,
@@ -198,6 +201,15 @@ module TOP (
 	wire [`APB_DATA_WIDTH-1 :0] apb0_datai;
 	wire [`APB_DATA_WIDTH-1 :0] apb0_datao;
 	wire                      	apb0_ack;
+
+	wire					  	apb1_req;
+	wire                      	apb1_psel;
+	wire                      	apb1_pwrite;
+	wire [`ADDR_WIDTH    -1 :0] apb1_addr;
+	wire                      	apb1_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb1_pwdata;
+	wire [`APB_DATA_WIDTH-1 :0] apb1_prdata;
+	wire                      	apb1_ack;
 
 	wire [`ID_WIDTH      -1 :0] cpu_arb_32_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_awaddr;
@@ -692,8 +704,6 @@ module TOP (
 	LED_driver LED (
 		.clk				(apb_clk				),
 		.resetn				(apb_reset_n			),
-
-		.apb_req			(apb0_req				),
 		.apb_psel			(apb0_psel				),
 		.apb_rw				(apb0_rw				),
 		.apb_addr			(apb0_addr				),
@@ -705,7 +715,21 @@ module TOP (
 		.led				(led[1:0]				)
 	);
 
+	UART_TOP UART(
+		.apb_pclk			(apb_clk				),
+		.apb_prstn			(apb_reset_n			),
 
+		.apb_psel			(apb1_psel				),
+		.apb_pwrite			(apb1_pwrite			),
+		.apb_paddr			(apb1_addr				),
+		.apb_penable		(apb1_enab				),
+		.apb_pwdata			(apb1_pwdata			),
+		.apb_prdata			(apb1_prdata			),
+		.RsRx				(RsRx					),
+		.RsTx				(RsTx					),
+		.uart_irq			(), //
+		.uart_ready			(apb1_ack				) 
+	);
 
 	// axi_adapter # (
 	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
