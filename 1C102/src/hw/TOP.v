@@ -141,7 +141,14 @@ module TOP (
 	wire                      	data_sram_ack  = 1'b1;
 	wire                      	data_sram_resp = 1'b0;
 
-
+	wire						timer_int;
+	wire						i2c_int;
+	wire						uart1_int;
+	wire						uart0_int;
+	wire						flash_int;
+	wire						spi_int;
+	wire						vpwm_int;
+	wire						dma_int;
 
 	wire [`ID_WIDTH      -1 :0] axi2apb_awid;
 	wire [`ADDR_WIDTH    -1 :0] axi2apb_awaddr;
@@ -179,7 +186,6 @@ module TOP (
 	wire                      	axi2apb_rvalid;
 	wire                      	axi2apb_rready;
 
-
 	wire 					  	apb_clk;
 	wire  					  	apb_reset_n;
 	wire                      	apb_psel;
@@ -198,6 +204,24 @@ module TOP (
 	wire [`APB_DATA_WIDTH-1 :0] apb0_datai;
 	wire [`APB_DATA_WIDTH-1 :0] apb0_datao;
 	wire                      	apb0_ack;
+
+	wire					  	apb1_req;
+	wire                      	apb1_psel;
+	wire                      	apb1_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb1_addr;
+	wire                      	apb1_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb1_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb1_datao;
+	wire                      	apb1_ack;
+
+	wire					  	apb2_req;
+	wire                      	apb2_psel;
+	wire                      	apb2_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb2_addr;
+	wire                      	apb2_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb2_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb2_datao;
+	wire                      	apb2_ack;
 
 	wire [`ID_WIDTH      -1 :0] cpu_arb_32_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_awaddr;
@@ -320,6 +344,7 @@ module TOP (
 
 	wire						init_model_complete;
 
+	assign int
 
     la132_top CPU (
 		.boot_pc			(32'h1c000000			),
@@ -685,7 +710,15 @@ module TOP (
 		.apb0_enab			(apb0_enab				),
 		.apb0_datai			(apb0_datai				),
 		.apb0_datao			(apb0_datao				),
-		.apb0_ack			(apb0_ack				)
+		.apb0_ack			(apb0_ack				),
+		
+		.apb2_psel			(apb2_psel				),
+		.apb2_rw			(apb2_rw				),
+		.apb2_addr			(apb2_addr				),
+		.apb2_enab			(apb2_enab				),
+		.apb2_datai			(apb2_datai				),
+		.apb2_datao			(apb2_datao				),
+		.apb2_ack			(apb2_ack				)
 	);
 
 
@@ -693,7 +726,6 @@ module TOP (
 		.clk				(apb_clk				),
 		.resetn				(apb_reset_n			),
 
-		.apb_req			(apb0_req				),
 		.apb_psel			(apb0_psel				),
 		.apb_rw				(apb0_rw				),
 		.apb_addr			(apb0_addr				),
@@ -705,7 +737,29 @@ module TOP (
 		.led				(led[1:0]				)
 	);
 
+	CONFREG IntController(
+		.apb_pclk			(apb_clk				),
+		.apb_prstn			(apb_reset_n			),
+		
+		.apb_psel			(apb2_psel				),
+		.apb_pwrite			(apb2_rw				),
+		.apb_paddr			(apb2_addr				),
+		.apb_penable		(apb2_enab				),
+		.apb_pwdata			(apb2_datai				),
+		.apb_prdata			(apb2_datao				),
+		.apb_ack			(apb2_ack				),
 
+		.timer_int			(timer_int				),
+		.i2c_int			(i2c_int				),
+		.uart1_int			(uart1_int				),
+		.uart0_int			(uart0_int				),
+		.flash_int			(flash_int				),
+		.spi_int			(spi_int				),
+		.vpwm_int			(vpwm_int				),
+		.dma_int			(dma_int				),
+
+		.int_o				(interrupt[4]			)
+	);
 
 	// axi_adapter # (
 	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
