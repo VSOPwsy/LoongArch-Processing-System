@@ -239,6 +239,38 @@ module TOP (
 	wire [`APB_DATA_WIDTH-1 :0] apb4_datao;
 	wire                      	apb4_ack;
 
+	wire                      	apb5_psel;
+	wire                      	apb5_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb5_addr;
+	wire                      	apb5_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb5_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb5_datao;
+	wire                      	apb5_ack;
+
+	wire                      	apb6_psel;
+	wire                      	apb6_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb6_addr;
+	wire                      	apb6_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb6_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb6_datao;
+	wire                      	apb6_ack;
+
+	wire                      	apb7_psel;
+	wire                      	apb7_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb7_addr;
+	wire                      	apb7_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb7_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb7_datao;
+	wire                      	apb7_ack;
+
+	wire                      	apb8_psel;
+	wire                      	apb8_rw;
+	wire [`ADDR_WIDTH    -1 :0] apb8_addr;
+	wire                      	apb8_enab;
+	wire [`APB_DATA_WIDTH-1 :0] apb8_datai;
+	wire [`APB_DATA_WIDTH-1 :0] apb8_datao;
+	wire                      	apb8_ack;
+
 	wire [`ID_WIDTH      -1 :0] cpu_arb_32_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_awaddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_32_awlen;
