@@ -59,21 +59,7 @@ module UART_TFIFO
 	end
 
 	// ================================================================
-	reg clk_div2;
-
 	always @(posedge clk, negedge rstn)
-	begin
-		if(!rstn)
-		begin
-			clk_div2 <= 0;
-		end
-		else
-		begin
-			clk_div2 <= ~clk_div2;
-		end
-	end
-
-	always @(posedge clk_div2, negedge rstn)
 	begin
 		if(!rstn)
 		begin

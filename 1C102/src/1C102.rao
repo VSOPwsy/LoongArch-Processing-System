@@ -2,36 +2,24 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="8192" window_num="1" capture_amount="8192" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="16384" window_num="1" capture_amount="16384" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
         <SignalList>
-            <Bus capture_enable="true" name="UART0/uBAUDGEN/baudtick_ctrl[1:0]">
-                <Signal>UART0/uBAUDGEN/baudtick_ctrl[1]</Signal>
-                <Signal>UART0/uBAUDGEN/baudtick_ctrl[0]</Signal>
-            </Bus>
             <Signal capture_enable="true">UART0/uart_wr</Signal>
-            <Bus capture_enable="true" name="UART0/uart_wdata[7:0]">
-                <Signal>UART0/uart_wdata[7]</Signal>
-                <Signal>UART0/uart_wdata[6]</Signal>
-                <Signal>UART0/uart_wdata[5]</Signal>
-                <Signal>UART0/uart_wdata[4]</Signal>
-                <Signal>UART0/uart_wdata[3]</Signal>
-                <Signal>UART0/uart_wdata[2]</Signal>
-                <Signal>UART0/uart_wdata[1]</Signal>
-                <Signal>UART0/uart_wdata[0]</Signal>
+            <Bus capture_enable="true" name="UART0/uFIFO_TX/w_ptr_reg[3:0]">
+                <Signal>UART0/uFIFO_TX/w_ptr_reg[3]</Signal>
+                <Signal>UART0/uFIFO_TX/w_ptr_reg[2]</Signal>
+                <Signal>UART0/uFIFO_TX/w_ptr_reg[1]</Signal>
+                <Signal>UART0/uFIFO_TX/w_ptr_reg[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">UART0/tx_full</Signal>
-            <Signal capture_enable="true">UART0/tx_empty</Signal>
-            <Bus capture_enable="true" name="UART0/tx_data[7:0]">
-                <Signal>UART0/tx_data[7]</Signal>
-                <Signal>UART0/tx_data[6]</Signal>
-                <Signal>UART0/tx_data[5]</Signal>
-                <Signal>UART0/tx_data[4]</Signal>
-                <Signal>UART0/tx_data[3]</Signal>
-                <Signal>UART0/tx_data[2]</Signal>
-                <Signal>UART0/tx_data[1]</Signal>
-                <Signal>UART0/tx_data[0]</Signal>
+            <Bus capture_enable="true" name="UART0/uFIFO_TX/r_ptr_reg[3:0]">
+                <Signal>UART0/uFIFO_TX/r_ptr_reg[3]</Signal>
+                <Signal>UART0/uFIFO_TX/r_ptr_reg[2]</Signal>
+                <Signal>UART0/uFIFO_TX/r_ptr_reg[1]</Signal>
+                <Signal>UART0/uFIFO_TX/r_ptr_reg[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">RsTx</Signal>
+            <Signal capture_enable="true">UART0/uFIFO_TX/rd</Signal>
+            <Signal capture_enable="true">UART0/uFIFO_TX/wr</Signal>
+            <Signal capture_enable="true">UART0/uFIFO_TX/empty</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -57,7 +45,7 @@
         </Triggers>
         <MatchUnits>
             <MatchUnit index="0" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
-            <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="1"/>
+            <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
             <MatchUnit index="2" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="1" countinuous="1" func="0" value0="000000000000000000000000000000R0" value1="00000000000000000000000000000000" trigger="2"/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="3"/>
             <MatchUnit index="4" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="F" value1="0" trigger="4"/>
@@ -77,5 +65,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0010011000111011</GAO_ID>
+    <GAO_ID>1011011100001110</GAO_ID>
 </GAO_CONFIG>

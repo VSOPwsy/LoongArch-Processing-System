@@ -14,7 +14,7 @@ module sync_w2r
     input  wire [ASIZE:0] wptr
     );
 
-    reg [ASIZE:0] rq1_wptr;
+    (* ASYNC_REG = "TRUE" *) reg [ASIZE:0] rq1_wptr;
 
     always @(posedge rclk or negedge rrst_n) begin
 

@@ -2,7 +2,9 @@
 
 `include"config.v"
 
-module TOP (
+module TOP # (
+	parameter CLK_FREQ = 50_000_000
+)(
 	input			clk_osc,
 	input			sys_resetn,
 
@@ -36,7 +38,10 @@ module TOP (
 
     wire locked0, locked1, locked2;
     wire locked;
-    wire clk_8M, clk_50M, clk_100M, clk_400M;
+    wire clk_8M;		/* synthesis syn_keep=1 */
+	wire clk_50M;		/* synthesis syn_keep=1 */
+	wire clk_100M;		/* synthesis syn_keep=1 */
+	wire clk_400M;		/* synthesis syn_keep=1 */
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
@@ -846,7 +851,9 @@ module TOP (
 		.int_o				(interrupt[4]			)
 	);
 	
-	UART_TOP UART0(
+	UART_TOP #(
+		.CLK_FREQ			(CLK_FREQ*2				)
+	) UART0(
 		.apb_pclk			(apb_clk				),
 		.apb_prstn			(apb_reset_n			),
 

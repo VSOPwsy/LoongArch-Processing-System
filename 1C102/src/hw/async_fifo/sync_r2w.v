@@ -14,7 +14,7 @@ module sync_r2w
     output reg  [ASIZE:0] wq2_rptr
     );
 
-    reg [ASIZE:0] wq1_rptr;
+    (* ASYNC_REG = "TRUE" *) reg [ASIZE:0] wq1_rptr;
 
     always @(posedge wclk or negedge wrst_n) begin
 

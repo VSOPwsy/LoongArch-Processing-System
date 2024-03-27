@@ -21,10 +21,10 @@ module UART_TX (
 	reg [1:0] next_state;
 	reg [3:0] b_reg;          // baud tick counter
 	reg [3:0] b_next;
-	reg [2:0] count_reg;      // data bit counter
-	reg [2:0] count_next;
-	reg [7:0] data_reg;       // data register
-	reg [7:0] data_next;
+	reg [3:0] count_reg;      // data bit counter
+	reg [3:0] count_next;
+	reg [8:0] data_reg;       // data register
+	reg [8:0] data_next;
 	reg tx_reg;               // output data reg
 	reg tx_next;
 	
@@ -50,7 +50,7 @@ module UART_TX (
 	end
 
 	// ================================================================ parity check below
-	assign eor_value = d_in[6] ^ d_in[5] ^ d_in[4] ^ d_in[3] ^ d_in[2] ^ d_in[1] ^ d_in[0];
+	assign eor_value = d_in[7] ^ d_in[6] ^ d_in[5] ^ d_in[4] ^ d_in[3] ^ d_in[2] ^ d_in[1] ^ d_in[0];
 	// ================================================================ parity check above
 
 	// Next State Logic
@@ -79,14 +79,14 @@ module UART_TX (
 				end
 				else
 				begin
-					data_next[6:0] = d_in[6:0];
+					data_next[7:0] = d_in[7:0];
 					if(eor_value) 
 					begin
-						data_next[7] = 0;
+						data_next[8] = 1;
 					end
 					else 
 					begin
-						data_next[7] = 1;
+						data_next[8] = 0;
 					end
 				end
 				// ================================================================ parity check above
@@ -115,7 +115,7 @@ module UART_TX (
 				begin
 					b_next = 0;
 					data_next = data_reg >> 1;
-					if(count_reg == 7)// 8 data bits
+					if(count_reg == 8)// 8 data bits + 1 check
 						next_state = stop_st;
 					else
 						count_next = count_reg + 1;
