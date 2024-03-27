@@ -82,11 +82,11 @@ module UART_TX (
 					data_next[7:0] = d_in[7:0];
 					if(eor_value) 
 					begin
-						data_next[8] = 1;
+						data_next[8] = 0;
 					end
 					else 
 					begin
-						data_next[8] = 0;
+						data_next[8] = 1;
 					end
 				end
 				// ================================================================ parity check above
@@ -115,7 +115,7 @@ module UART_TX (
 				begin
 					b_next = 0;
 					data_next = data_reg >> 1;
-					if(count_reg == 8)// 8 data bits + 1 check
+					if(count_reg == 8)// 8 data bits
 						next_state = stop_st;
 					else
 						count_next = count_reg + 1;

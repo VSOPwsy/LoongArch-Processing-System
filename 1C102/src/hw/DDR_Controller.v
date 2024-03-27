@@ -284,7 +284,6 @@ module DDR_Controller #
     reg [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_in = 0;
     reg pipe_wren = 0;
     reg pipe_rden = 0;
-    wire [1:0] pipe_Wnum;
     wire [STRB_WIDTH + ADDR_WIDTH + DATA_WIDTH + ID_WIDTH + 2 - 1 : 0] pipe_out;    // width = 182
     wire pipe_empty;
     wire pipe_full;
@@ -351,7 +350,7 @@ module DDR_Controller #
             ram_cmd_ready_next = 1'b0;
         end
 
-        if (|pipe_Wnum) begin
+        if (pipe_full) begin
             ram_cmd_ready_next = 1'b0;
         end
     end

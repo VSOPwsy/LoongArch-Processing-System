@@ -1,4 +1,4 @@
-module UART_TOP #(
+module UART_TOP # (
 	parameter CLK_FREQ = 50_000_000
 )(
 	input wire         apb_pclk,
@@ -103,7 +103,7 @@ module UART_TOP #(
 	
 	//================================================================
 	// generate a fixed baud rate 19200bps
-	BAUDGEN #(
+	BAUDGEN # (
 		.CLK_FREQ(CLK_FREQ)
 	) uBAUDGEN (
 		.clk(apb_pclk),
