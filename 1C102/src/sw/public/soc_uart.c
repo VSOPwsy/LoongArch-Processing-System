@@ -8,6 +8,9 @@
 #include "soc_uart.h"
 #include "soc_ls1c102.h"
 
-void uart0_interrupt() {
-    intc->en |= 0x04;                    // 开启 UART0 全局中断
+void uart1_interrupt() {
+    intc->en |= 0x04;                    // 开启 UART1 全局中断
 }
+
+
+

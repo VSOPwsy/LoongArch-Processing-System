@@ -1,18 +1,4 @@
-#include "../driver/calIn8M.h"
-#include"ls1x.h"
-#include"ls1x_gpio.h"
-#include"ls1x_wdg.h"
-#include"ls1x_common.h"
-#include"ls1x_exti.h"
-#include"ls1c102_interrupt.h"
-#include"ls1c102_touch.h"
-#include"ls1c102_ptimer.h"
-#include"ls1c102_i2c.h"
-#include"Config.h"
-
-
-#define	BEBUG_IRQ()  printf("\r\n <  line: %d func:%s   >\r\n",__LINE__,__FUNCTION__)
-void (* const exti_irq_handle[32])(void);
+#include "1c102_Interrupt.h"
 
 void exti_gpioa0_irq_handler(void)
 {
@@ -360,6 +346,7 @@ void BAT_FAIL(void)
     }
 }
 
+volatile int state = 0;
 /***********************************************************************
  函数功能:    	INTC中断处理函数
  @param:		无
@@ -370,36 +357,59 @@ void BAT_FAIL(void)
  ***********************************************************************/
 void intc_handler(void)
 {
-
 	INT8U IntReg = INT_OUT;
 	
-    if(IntReg  & IRQ_TIMER)//Timer
-    { 
+    if(IntReg  & IRQ_TIMER)// Timer
+    {
         if(TIM_GetITStatus(TIM_FLAG_Trigger))
         {
+			// state = ~state;// false
+			state = !state;// right
+			gpio_write(20, state);
+
             TIM_ClearIT(TIM_FLAG_Trigger);
-            printf("Peripherals Timer clear interrupt..\n");
+            // printf("Peripherals Timer clear interrupt..\n");
         }
     }
-    if (IntReg & UART1_INT_OUT) //Uart1
+    if (IntReg & UART1_INT_OUT)// Uart1
 	{
-    	uint8_t chr = UART1_RxData ;
-        printf("uart1 recv:0x%x\n",chr);
+		UART1_HANDLER();
+		// uint8_t chr = UART1_RxData ;
+        // printf("uart1 recv:0x%x\n",chr);
 
+		// ================================================================ soc
+		char uart_fifo0_ctrl;
+		int uart0;
+		int flag = 0;
 
-		INT_CLR = UART1_INT_CLR;
+		uart_fifo0_ctrl = UART_FIFO_CTRL;
+		while ((uart_fifo0_ctrl & 0x01) == 0) {
+			uart0 = UART_FIFO;
+			if(uart0 == '\r') {
+				UART_FIFO = '\r';
+				flag = 1;
+			} else if(flag) {
+				flag = 0;
+				UART_FIFO = '\n';// when received data is '\n', it is usually false, so send '\n' after receiving data '\r'.
+			} else {
+				UART_FIFO = uart0;
+			}
+			uart_fifo0_ctrl = UART_FIFO_CTRL;
+		}
+		// ================================================================ soc
+
+		// INT_CLR |= UART1_INT_CLR;
 	}
-	if (IntReg & UART0_INT_OUT) //Uart0
+	if (IntReg & UART0_INT_OUT)// dUart0
 	{
-    	uint8_t chr = UART0_RxData ;
-       	printf("uart0 recv:0x%x\n",chr);
-    	recv_dat_int(chr);
+		// uint8_t chr = UART0_RxData ;
+		// printf("uart0 recv:0x%x\n",chr);
+		// recv_dat_int(chr);
 		INT_CLR = UART0_INT_CLR;
 	}
 
 	INT_CLR = 0xff;
 }
-
 
 void TIMER_HANDLER(void)
 {

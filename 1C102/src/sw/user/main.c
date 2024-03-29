@@ -7,7 +7,6 @@
 #include "ls1x_wdg.h"
 #include "ls1x_string.h"
 #include "UserGpio.h"
-#include "soc_printf.h"
 extern void wakeup_reset(void);
 extern int do_d1(int argc,void *argv[]);
 extern int do_d4(int argc,void *argv[]);
@@ -42,7 +41,7 @@ extern unsigned int str2num(unsigned char);
 int do_help(int argc, void *argv[]);
 int do_exit(int argc, void *argv[]);
 
-unsigned int nmi_caller;
+// unsigned int nmi_caller;
 
 static struct cmd_struct {
 	const char *cmdname;
@@ -445,12 +444,27 @@ START:
 }
 
 
-
+// ================================================================
+// ================================================================
+// ================================================================
+#include "soc_ls1c102.h"
 #include "my_delay.h"
-#include "math.h"
 
-int main(void)
-{
+#include "soc_gpio.h"
+#include "soc_pwm.h"
+#include "soc_hpet.h"
+#include "soc_uart.h"
+#include "soc_printf.h"
+
+#include "1c102_Interrupt.h"
+// ================================================================
+
+#define LED *(volatile int32_t*)0xbff00000
+
+volatile int num = 0; 
+
+int main(void) {
+
     EnableInt();// 开总中断
 
 	UART_FIFO_CTRL = 0x05;// baud_rate = 19200, enable parity check
@@ -461,73 +475,50 @@ int main(void)
     
     uint8_t *str0 = "ABCD";
     soc_printf("str0 = %s\r\n", str0);
-	my_delay_ms(25);
-	int32_t a = (int)sqrt(100);
+	my_delay_ms(25);// delay 25ms at least between two soc_printf.
+    // soc_printf("str0 = %s over 16 char\r\n", str0);// sending more than 16 characters at once will get stuck
+    // my_delay_ms(25);
+    
+	/*
+    uint8_t buf0[4] = {"ABCD"};
+    soc_printf("strlen = %d\r\n", sizeof(buf0));
+    my_delay_ms(25);
+    // soc_printf("buf0 = %s\r\n", buf0);// there is an error with printing the character array
+    // my_delay_ms(25);
+    
+    for(volatile int i = 0; i < 4; i++)
+    {
+        soc_printf("buf0 = %c\r\n", buf0[i]);
+        my_delay_ms(25);
+    }
+
+    uint8_t buf1[4];
+    memset(buf1, 0x1, 4);
+    for(volatile int i = 0; i < 4; i++)
+    {
+        soc_printf("buf1 = %d\r\n", buf1[i]);
+        my_delay_ms(25);
+    }
+	*/
+
     uint8_t buf0[4] = "ABCD";
-    // soc_printf("len = %d\r\n", sizeof(buf0));
-    soc_printf("len = %d\r\n", a);
+    soc_printf("len = %d\r\n", sizeof(buf0));
 	my_delay_ms(25);
 
 	volatile int num = 8;
     soc_printf("num = %d\r\n", num);
     my_delay_ms(25);
 
-	gpio_init(1, 1);
-	gpio_init(20, 1);
-	uart0_interrupt();
+	uart1_interrupt();
 
     while(1) {
-        my_delay_ms(1000);
-		gpio_write(1, 1);
-		my_delay_ms(1000);
-		gpio_write(1, 0);
     }
 
     return 0;
-	// INT8U rstSrc = (PMU_CMDSTS >> 26) & 0x3;
-	// if ((rstSrc == 0x03) && ((PMU_CMDSTS & 0x01ff0000) == 0x00010000)  )			// ??PMU_CmdSts?????24:16λ?е?16λ?1???????0??????????????μ?1??????????????ι????????NB?????
-    // {
-	// 	//休眠定时唤醒
-    // }
-    // else
-    // {
-	// 	if(rstSrc == 0x0)
-	// 	{
-	// 		//外部复位：需要等待内部32k稳定
-	// 		delay_ms(1000);
-	// 	}
-	// 	else if(rstSrc == 0x03)
-	// 	{
-	// 		//休眠唤醒
-	// 	}
-	// 	else
-	// 	{
-	// 		//看门狗复位
-	// 	}
-    // }
-    // /*Clock Init*/
-    // SystemClockInit();	//时钟等系统配置
-    // /*IoRemap Init*/
-    // GPIOInit();			//io配置
-    // /*WDT Init*/
-    // WdgInit();			//看门狗配置
-    // /*Cal In8M*/
-    // int g_f = cal_in8m_touch();	//计算内部8M时钟频率
-    // /*Uart Init*/
-    // Uart0_init_buad(g_f*1000);	//串口配置
-
-    // EnableInt();				//开总中断
-
-	// volatile int *p = (volatile int *)0xbfee0000;
-	// *p = 0;
-    // while(1){
-	// // 	// WDG_DogFeed();
-		
-	// 	*p = *p + 1;
-
-	// 	my_delay_ms(1000);
-    // }
-
 }
 
-
+void UART1_HANDLER(void)
+{
+	LED ^= (int32_t)0x00000001;
+	uart1_interrupt();
+}

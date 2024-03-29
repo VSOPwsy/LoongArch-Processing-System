@@ -6,19 +6,19 @@
 //#include"stdint.h"
 #include"ls1x.h"
 /**
- * @说明：I2C接口宏定义
+ * @閻犲洤鐡ㄥΣ鎴︽晬濞嗭拷2C闁规亽鍎辫ぐ娑氣偓鐟扮箰閻ｇ偓绋婇敓锟�
  *
  */
 typedef struct
 {
-  volatile uint8_t PRERL;			/* 分频值低字节寄存器 */
-  volatile uint8_t PRERH;			/* 分频值高字节寄存器 */
-  volatile uint8_t CTRL;				/* 控制寄存器 */
-  volatile uint8_t DR;				/* 数据寄存器 */
-  volatile uint8_t CR_SR;			/* 命令寄存器 兼 状态寄存器 */
-  volatile uint8_t BLTOP;			/* 总线死锁时间寄存器 */
-  volatile uint8_t RESERVED0;			/* 保留字节  */
-  volatile uint8_t SADDR;			/* 从模式地址寄存器 */
+  volatile uint8_t PRERL;			/* 闁告帒妫濋。鍫曞磹闂傚绉甸悗娑欘殙婵☆厾鈧潧瀚悺銊╁闯閿燂拷 */
+  volatile uint8_t PRERH;			/* 闁告帒妫濋。鍫曞磹婵傚摜褰悗娑欘殙婵☆厾鈧潧瀚悺銊╁闯閿燂拷 */
+  volatile uint8_t CTRL;				/* 闁硅矇鍐ㄧ厬閻庨潧瀚悺銊╁闯閿燂拷 */
+  volatile uint8_t DR;				/* 闁轰胶澧楀畵浣衡偓闈涘閻°劑宕抽敓锟� */
+  volatile uint8_t CR_SR;			/* 闁告稒鍨濋幎銈団偓闈涘閻°劑宕抽敓锟� 闁稿骏鎷� 闁绘ǹ鍩栭埀顑跨閻﹀海鈧稒锚濞咃拷 */
+  volatile uint8_t BLTOP;			/* 闁诡剝宕甸崵搴☆潰婵犳碍鏁氶柡鍐ㄧ埣濡法鈧潧瀚悺銊╁闯閿燂拷 */
+  volatile uint8_t RESERVED0;			/* 濞ｅ洦绻勯弳鈧悗娑欘殙婵★拷  */
+  volatile uint8_t SADDR;			/* 濞寸姴瀛╄啯鐎殿喖绻愬﹢鎾锤閳ь剛鈧潧瀚悺銊╁闯閿燂拷 */
 } I2C_TypeDef;
 
 #define I2C                 ((I2C_TypeDef *) I2C_BASE)
@@ -97,16 +97,16 @@ typedef struct
 
 
 /**
- *@˵����  I2C_STATE_Flags
+ *@鐠囨挳鏁撻弬銈嗗闁跨喐鏋婚幏锟�  I2C_STATE_Flags
  */
-#define I2C_STATE_RxACK                     ((uint8_t)0x80)  /* 收到的应答位： 0表示收到应答，1表示收到NACK */
-#define I2C_STATE_BUSY                      ((uint8_t)0x40)  /* 总线忙标志  */
-#define I2C_STATE_AL                        ((uint8_t)0x20)  /* 失去仲裁：1表示主设备失去总线控制权  */
-#define I2C_STATE_Slave_Addressed           ((uint8_t)0x10)  /* 被寻址：1表示作为从设备时已被寻址成功  */
-#define I2C_STATE_Slave_Rw                  ((uint8_t)0x08)  /* 从设备读写：0表示被读 ，1表示被写 */
-#define I2C_STATE_Buslock                   ((uint8_t)0x04)  /* 总线死锁：1表示总线出现死锁 */
-#define I2C_STATE_TIP                       ((uint8_t)0x02)  /* 传输进行：1表示主设备有效，正在传输 */
-#define I2C_STATE_IF                        ((uint8_t)0x01)  /* 中断标志位： 1表示传输完一个字节或主设备失去仲裁 */
+#define I2C_STATE_RxACK                     ((uint8_t)0x80)  /* 闁衡偓鐠哄搫鐓傞柣銊ュ缁ㄨ尙绮甸弬鍓хТ闁挎冻鎷� 0閻炴稏鍔庨妵姘跺绩鐠哄搫鐓傞幖瀛樻⒒閻＄喖鏁嶉敓锟�1閻炴稏鍔庨妵姘跺绩鐠哄搫鐓侼ACK */
+#define I2C_STATE_BUSY                      ((uint8_t)0x40)  /* 闁诡剝宕甸崵搴ょ疀濞嗘劗鍨奸煫鍥锋嫹  */
+#define I2C_STATE_AL                        ((uint8_t)0x20)  /* 濠㈣泛宕獮鎾寸閼奸姊块柨娑虫嫹1閻炴稏鍔庨妵姘▔閺勫浚鍟庡璺烘搐閵囨垿宕㈢紒妯峰亾閼姐倕娈犻柟璨夊啫鐓戦柡澶涙嫹  */
+#define I2C_STATE_Slave_Addressed           ((uint8_t)0x10)  /* 閻炴凹鍋勯浼村锤閳ь剟鏁嶉敓锟�1閻炴稏鍔庨妵姘媴濠娾偓鐠愮喐绂掓惔銈庡晭濠㈣泛娲﹀鍌氼啅閼奸娼堕悗浣冾嚙濞煎啴骞嬮幇顒€顫�  */
+#define I2C_STATE_Slave_Rw                  ((uint8_t)0x08)  /* 濞寸姴姘﹂鏇熷緞閸ヮ亶鍤㈤柛鎰懕缁憋拷0閻炴稏鍔庨妵姘辨偖椤愩儺鍤� 闁挎冻鎷�1閻炴稏鍔庨妵姘辨偖椤愩垹鏅� */
+#define I2C_STATE_Buslock                   ((uint8_t)0x04)  /* 闁诡剝宕甸崵搴☆潰婵犳碍鏁氶柨娑虫嫹1閻炴稏鍔庨妵姘跺箑閼姐倕娈犻柛鎴ｆ楠炲洤顫㈡繝姘暁 */
+#define I2C_STATE_TIP                       ((uint8_t)0x02)  /* 濞磋偐濮剧欢顓熸交濞戞粠鏀介柨娑虫嫹1閻炴稏鍔庨妵姘▔閺勫浚鍟庡璺烘处濠€渚€寮崼顒傜婵繐绲藉﹢顏呭閻樿櫣缈� */
+#define I2C_STATE_IF                        ((uint8_t)0x01)  /* 濞戞搩鍘介弻鍥冀閸パ呯濞达絽绋勭槐锟� 1閻炴稏鍔庨妵姘閻樿櫣缈婚悗鐟板缁斿瓨绋夐鍕憻闁煎搫鍊归崹銊︾▔閺勫浚鍟庡璺烘搐閵囨垿宕㈢拋鍐茬筏閻熶緤鎷� */
 /** @defgroup I2C_registers
   * @{
   */
@@ -154,27 +154,27 @@ typedef struct
 
 void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct);
 void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct);
-void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState);	//I2C主设备产生start信号
-void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState);		//I2C主设备产生stop信号
-void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState);//I2C主设备产生ack信号
-void I2C_ITConfig(I2C_TypeDef* I2Cx, FunctionalState NewState);			//I2C中断设置
-void I2C_ITCmd(I2C_TypeDef* I2Cx, FunctionalState NewState);			//I2C中断开启
-void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data);						//I2C发送数据
-void I2C_ReceiveData(I2C_TypeDef* I2Cx, FunctionalState ACK, FunctionalState STOP);		//I2C接收数据
-void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Direction);	//I2C发送从设备地址
-uint8_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register);		//I2C读取寄存器数值
+void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState);	//I2C濞戞挻妲掗鏇熷緞閸ワ箓鐛撻柣銏㈠妼tart濞ｅ洠鈧啿濞�
+void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState);		//I2C濞戞挻妲掗鏇熷緞閸ワ箓鐛撻柣銏㈠妼top濞ｅ洠鈧啿濞�
+void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState);//I2C濞戞挻妲掗鏇熷緞閸ワ箓鐛撻柣銏㈠壃ck濞ｅ洠鈧啿濞�
+void I2C_ITConfig(I2C_TypeDef* I2Cx, FunctionalState NewState);			//I2C濞戞搩鍘介弻鍥╂媼閸撗呮瀭
+void I2C_ITCmd(I2C_TypeDef* I2Cx, FunctionalState NewState);			//I2C濞戞搩鍘介弻鍥ь嚕閳ь剟宕ラ敓锟�
+void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data);						//I2C闁告瑦鍨块埀顑跨劍閺嗙喖骞戦敓锟�
+void I2C_ReceiveData(I2C_TypeDef* I2Cx, FunctionalState ACK, FunctionalState STOP);		//I2C闁规亽鍎查弫褰掑极閻楀牆绁�
+void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Direction);	//I2C闁告瑦鍨块埀顑挎缁姷鎷嬮幆褜妲甸柛锔芥緲濞硷拷
+uint8_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register);		//I2C閻犲洩顕цぐ鍥┾偓闈涘閻°劑宕抽妸锔芥闁稿⿵鎷�
 
-void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint8_t I2C_FLAG);				//I2C清除寄存器状态
-ITStatus I2C_GetStatus(I2C_TypeDef* I2Cx, uint8_t I2C_STATUS);			//I2C读取状态
-void I2C_ClearIT(I2C_TypeDef* I2Cx);									//I2C清除中断标志
-void I2C_wait(I2C_TypeDef* I2Cx);										//I2C等待传输完毕
-void I2C_Unlock(I2C_TypeDef* I2Cx);										//I2C解除总线死锁
-void I2C_BUSY(I2C_TypeDef* I2Cx);										//I2C等待总线空闲
+void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint8_t I2C_FLAG);				//I2C婵炴挸鎳樺▍搴ｂ偓闈涘閻°劑宕抽妸褍笑闁诡剨鎷�
+ITStatus I2C_GetStatus(I2C_TypeDef* I2Cx, uint8_t I2C_STATUS);			//I2C閻犲洩顕цぐ鍥偐閼哥鍋撻敓锟�
+void I2C_ClearIT(I2C_TypeDef* I2Cx);									//I2C婵炴挸鎳樺▍搴㈢▔椤撶喐鐒介柡宥呮搐缁伙拷
+void I2C_wait(I2C_TypeDef* I2Cx);										//I2C缂佹稑顦欢鐔稿閻樿櫣缈婚悗鐟版湰閻︼拷
+void I2C_Unlock(I2C_TypeDef* I2Cx);										//I2C閻熸瑱缍佸▍搴ㄥ箑閼姐倕娈犳慨婵嗩煼閺€锟�
+void I2C_BUSY(I2C_TypeDef* I2Cx);										//I2C缂佹稑顦欢鐔煎箑閼姐倕娈犵紒灞炬そ濡拷
 
-void CAT24_Write(uint16_t Waddr,uint8_t Tdata);							//I2C CAT24指定地址写入指定数据（查询方式）
-uint8_t CAT24_Read(uint16_t Raddr);										//I2C CAT24指定地址读出数据（查询方式）
-void CAT24_Write_Int(uint16_t Waddr,uint8_t Tdata);						//I2C CAT24指定地址写入指定数据（中断方式）
-uint8_t CAT24_Read_Int(uint16_t Raddr);									//I2C CAT24指定地址读出数据（中断方式）
+void CAT24_Write(uint16_t Waddr,uint8_t Tdata);							//I2C CAT24闁圭ǹ娲ら悾楣冨捶閺夋寧绲婚柛鎰懃閸欏棝骞愰崶褏鏆伴柡浣哄瀹撲線鏁嶉崼鐔哄弨閻犲洢鍨洪弻鐔奉嚕韫囥儳绀�
+uint8_t CAT24_Read(uint16_t Raddr);										//I2C CAT24闁圭ǹ娲ら悾楣冨捶閺夋寧绲婚悹鍥嚙閸ゎ參寮悧鍫濈ウ闁挎稑鐗婇悡锛勬嫚閵忊剝鐓欑€殿喖楠忕槐锟�
+void CAT24_Write_Int(uint16_t Waddr,uint8_t Tdata);						//I2C CAT24闁圭ǹ娲ら悾楣冨捶閺夋寧绲婚柛鎰懃閸欏棝骞愰崶褏鏆伴柡浣哄瀹撲線鏁嶉崼婊嗗幀闁哄偆鍘介弻鐔奉嚕韫囥儳绀�
+uint8_t CAT24_Read_Int(uint16_t Raddr);									//I2C CAT24闁圭ǹ娲ら悾楣冨捶閺夋寧绲婚悹鍥嚙閸ゎ參寮悧鍫濈ウ闁挎稑鐗呴懙鎴﹀棘椤撶喐鐓欑€殿喖楠忕槐锟�
 
 
 #endif /* INCLUDE_I2C_H_ */

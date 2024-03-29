@@ -45,6 +45,6 @@ void test_uart_send()
 	Buffer_clear(&g_recvBuff);
 	g_recv_flag = 0;
 	for(i=0;i<200;i++){
-		UART_SendData(UART0,i);
+		UART_SendData(UART1,i);
 	}
 }

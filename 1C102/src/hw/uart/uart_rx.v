@@ -21,10 +21,10 @@ module UART_RX (
 	reg [1:0] next_state;
 	reg [3:0] b_reg;// baud-rate/over sampling counter
 	reg [3:0] b_next;
-	reg [2:0] count_reg;// data-bit counter
-	reg [2:0] count_next;
-	reg [7:0] data_reg;// data register
-	reg [7:0] data_next;
+	reg [3:0] count_reg;// data-bit counter
+	reg [3:0] count_next;
+	reg [8:0] data_reg;// data register
+	reg [8:0] data_next;
 	
 	// State Machine  
 	always @(posedge clk, negedge rstn)
@@ -78,8 +78,8 @@ module UART_RX (
 				if(b_reg == 3)
 				begin
 					b_next = 0;
-					data_next = {rx, data_reg[7:1]};
-					if(count_next == 7) // 8 Data bits
+					data_next = {rx, data_reg[8:1]};
+					if(count_next == 8) // 8 Data bits
 						next_state = stop_st;
 					else
 						count_next = count_reg + 1'b1;
@@ -100,8 +100,8 @@ module UART_RX (
 						end
 						else
 						begin
-							if((data_reg[7] ^ data_reg[6] ^ data_reg[5] ^ data_reg[4] ^ data_reg[3] ^
-								data_reg[2] ^ data_reg[1] ^ data_reg[0]) == 1)
+							if((data_reg[8] ^ data_reg[7] ^ data_reg[6] ^ data_reg[5] ^ data_reg[4] ^ data_reg[3] ^
+								data_reg[2] ^ data_reg[1] ^ data_reg[0]) == 0)
 							begin
 								rx_done = 1'b1;
 							end
@@ -118,7 +118,7 @@ module UART_RX (
 		endcase
 	end
 	
-	assign dout = data_reg;
+	assign dout = data_reg[7:0];
 	
 endmodule
 

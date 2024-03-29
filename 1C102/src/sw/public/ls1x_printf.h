@@ -8,10 +8,10 @@
 
 
 
-int sprintf(char *str, const char *format, ...) ;
+int sprintf(char *str, const char *format, ...);
 
-int 		myprintf(char *fmt,...);
-void 		myputchar(unsigned char chr);
-INT8U mygetchar(void);
+int myprintf(char *fmt,...);
+void myputchar(unsigned char chr);
+uint8_t mygetchar(void);
 
 #endif

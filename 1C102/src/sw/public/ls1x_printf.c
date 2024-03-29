@@ -56,7 +56,12 @@ int printbase(long v,int w,int base,int sign)
     return 0;
 }
 
-int puts(char *s)
+// ================================================================
+/*
+	because the function 'puts' is defined in 'stdio.h', so 'puts' here should be renamed.
+*/
+// int puts(char *s)// original
+int ls1x_puts(char *s)
 {
 	char c;
 	while((c=*s))
@@ -88,7 +93,7 @@ again:
         switch(fmt[i+1])
         {
             case 's':
-                puts(*arg);
+                ls1x_puts(*arg);
                 arg++;
                 i++;
                 break;

@@ -1,9 +1,16 @@
 #ifndef __TEST_H__
 #define __TEST_H__
-#include "stdint-gcc.h"
+
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
+
+// ================================================================ soc 
+/*
+	because 'uint32_t' is used but it is annotated, 'stdint.h' is included.
+*/
+#include <stdint.h>
+// ================================================================ soc 
 
 #ifdef __cplusplus
   #define     __I     volatile                /*!< defines 'read only' permissions      */
@@ -32,8 +39,8 @@ typedef unsigned char bool;
 
 #define MAX_UINT (-1U)
 typedef unsigned int size_t;
-	 
-// typedef int 			int32_t;
+
+// typedef int 			int32_t;// exists initially
 typedef short   		int16_t;
 
 //typedef enum {FALSE = 0, TRUE = !FALSE} bool;
@@ -59,7 +66,7 @@ typedef unsigned char  const ucint8_t;   /* Read Only */
 typedef volatile unsigned int vuint32_t;
 typedef volatile unsigned short vuint16_t;
 typedef volatile unsigned char vuint8_t;
-// typedef unsigned int uint32_t;
+// typedef unsigned int uint32_t;// exists initially
 typedef unsigned char uchar_t;
 typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;

@@ -853,7 +853,7 @@ module TOP # (
 	
 	UART_TOP # (
 		.CLK_FREQ			(CLK_FREQ*2				)
-	) UART0(
+	) UART1 (
 		.apb_pclk			(apb_clk				),
 		.apb_prstn			(apb_reset_n			),
 
@@ -867,7 +867,7 @@ module TOP # (
 
 		.RsRx				(RsRx					),
 		.RsTx				(RsTx					),
-		.uart_irq			(uart0_int				)
+		.uart_irq			(uart1_int				)
 	);
 
 	

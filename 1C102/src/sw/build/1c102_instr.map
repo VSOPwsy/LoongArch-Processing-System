@@ -1,127 +1,39 @@
 Archive member included to satisfy reference by file (symbol)
 
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o)
-                              main.o (expf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_sqrt.o)
-                              main.o (sqrtf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-ef_exp.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (__ieee754_expf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-ef_sqrt.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_sqrt.o) (__ieee754_sqrtf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-s_lib_ver.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (__fdlib_version)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-s_matherr.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (matherr)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-sf_finite.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (finitef)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-sf_fpclassify.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_sqrt.o) (__fpclassifyf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(addsf3.o)
-                              main.o (__addsf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divsf3.o)
-                              main.o (__divsf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqsf2.o)
-                              main.o (__eqsf2)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(gesf2.o)
-                              main.o (__gesf2)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(lesf2.o)
-                              main.o (__lesf2)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(mulsf3.o)
-                              main.o (__mulsf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subsf3.o)
-                              main.o (__subsf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixsfsi.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-ef_exp.o) (__fixsfsi)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsisf.o)
-                              main.o (__floatsisf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatunsisf.o)
-                              main.o (__floatunsisf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
-                              main.o (__divdf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
-                              main.o (__muldf3)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsidf.o)
-                              main.o (__floatsidf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extendsfdf2.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (__extendsfdf2)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(truncdfsf2.o)
-                              main.o (__truncdfsf2)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-abs.o)
-                              main.o (abs)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-atof.o)
-                              main.o (atof)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-errno.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a(lib_a-wf_exp.o) (__errno)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-exit.o)
-                              main.o (exit)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
-                              main.o (fclose)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o) (__sflush_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o) (__sinit)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fopen.o)
-                              main.o (fopen)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fread.o)
-                              main.o (fread)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fseek.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fopen.o) (_fseek_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fseeko.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fseek.o) (_fseeko_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ftell.o)
-                              main.o (ftell)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ftello.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ftell.o) (_ftello_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o) (_fwalk)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-exit.o) (_global_impure_ptr)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fseeko.o) (__smakebuf_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
                               uartTest.o (printf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-qsort.o)
-                              main.o (qsort)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-refill.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fread.o) (__srefill_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o) (__sread)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-atof.o) (strtod)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-time.o)
-                              main.o (time)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o) (_vfprintf_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__swsetup_r)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-__call_atexit.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-exit.o) (__call_exitprocs)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-flags.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fopen.o) (__sflags)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-gdtoa-gethex.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (__gethex)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-gdtoa-hexnan.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (__hexnan)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (_fflush_r)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__sinit)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o) (_fwalk)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o) (_global_impure_ptr)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (_ldtoa_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (_localeconv_r)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (_localeconv_r)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o) (__smakebuf_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (memchr)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (_Balloc)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_fpclassify.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (__fpclassifyd)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o) (_Balloc)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (frexp)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-sf_nan.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (nanf)
-D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncmp.o)
-                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strtod.o) (strncmp)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o) (__sread)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (strncpy)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__sprint_r)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o) (_fclose_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o) (_fputwc_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
@@ -134,3 +46,1628 @@ D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/bui
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o) (_wcrtomb_r)
 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
                               D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o) (__wctomb)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__udivdi3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__umoddi3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o) (__divdf3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o) (__muldf3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__eqtf2)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__gttf2)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__lttf2)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__multf3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__subtf3)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__fixtfsi)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__floatsitf)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__extenddftf2)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o) (__trunctfdf2)
+D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+                              D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o) (__clz_tab)
+
+Allocating common symbols
+Common symbol       size              file
+
+exti_irq_handle     0x80              main.o
+STS                 0x1               ls1c102_i2c.o
+_rand_next          0x4               ls1x_printf.o
+SystemFreq          0x4               ls1x_clock.o
+Flash_pe            0x1               ls1x_flash.o
+
+Discarded input sections
+
+ .text          0x0000000000000000       0x14 start.o
+ .data          0x0000000000000000        0x0 start.o
+ .bss           0x0000000000000000        0x0 start.o
+ .data          0x0000000000000000        0x0 serial.o
+ .bss           0x0000000000000000        0x0 serial.o
+ .data          0x0000000000000000        0x0 wakeup.o
+ .bss           0x0000000000000000        0x0 wakeup.o
+ .text          0x0000000000000000        0x0 UserGpio.o
+ .data          0x0000000000000000        0x0 UserGpio.o
+ .bss           0x0000000000000000        0x0 UserGpio.o
+ .text.GPIOInit
+                0x0000000000000000       0x98 UserGpio.o
+ .comment       0x0000000000000000       0x12 UserGpio.o
+ .eh_frame      0x0000000000000000       0x3c UserGpio.o
+ .text          0x0000000000000000        0x0 ls1x_gpio.o
+ .data          0x0000000000000000        0x0 ls1x_gpio.o
+ .bss           0x0000000000000000        0x0 ls1x_gpio.o
+ .eh_frame      0x0000000000000000       0x38 ls1x_gpio.o
+ .text          0x0000000000000000        0x0 soc_hpet.o
+ .data          0x0000000000000000        0x0 soc_hpet.o
+ .bss           0x0000000000000000        0x0 soc_hpet.o
+ .text.timer_interrupt
+                0x0000000000000000       0x74 soc_hpet.o
+ .comment       0x0000000000000000       0x12 soc_hpet.o
+ .eh_frame      0x0000000000000000       0x38 soc_hpet.o
+ .text          0x0000000000000000        0x0 ls1x_spi.o
+ .data          0x0000000000000000        0x0 ls1x_spi.o
+ .bss           0x0000000000000000        0x0 ls1x_spi.o
+ .rodata        0x0000000000000000       0x42 ls1x_spi.o
+ .text.Spi_FreqDiv
+                0x0000000000000000      0x140 ls1x_spi.o
+ .text.Spi_Init
+                0x0000000000000000       0x70 ls1x_spi.o
+ .text.Spi_Send
+                0x0000000000000000       0x40 ls1x_spi.o
+ .text.Spiflash_Wrsr
+                0x0000000000000000       0x5c ls1x_spi.o
+ .text.Spiflash_Rdsr2
+                0x0000000000000000       0x4c ls1x_spi.o
+ .text.Spiflash_Rdsr3
+                0x0000000000000000       0x4c ls1x_spi.o
+ .text.Spiflash_Sector_Erase
+                0x0000000000000000       0x90 ls1x_spi.o
+ .text.SPI_TransByte
+                0x0000000000000000       0xe8 ls1x_spi.o
+ .text.SpiFlashCsn0Enable
+                0x0000000000000000       0x28 ls1x_spi.o
+ .text.SpiFlashCsn0Disable
+                0x0000000000000000       0x28 ls1x_spi.o
+ .eh_frame      0x0000000000000000      0x320 ls1x_spi.o
+ .text          0x0000000000000000        0x0 ls1x_printf.o
+ .data          0x0000000000000000        0x0 ls1x_printf.o
+ .bss           0x0000000000000000        0x0 ls1x_printf.o
+ .rodata        0x0000000000000000        0x7 ls1x_printf.o
+ .text.printBuf
+                0x0000000000000000       0x78 ls1x_printf.o
+ .text.mygetchar
+                0x0000000000000000       0x38 ls1x_printf.o
+ .text.vsputs   0x0000000000000000       0x54 ls1x_printf.o
+ .text.vsputchar
+                0x0000000000000000       0x44 ls1x_printf.o
+ .text.vsprintbase
+                0x0000000000000000      0x17c ls1x_printf.o
+ .text.vsprintf
+                0x0000000000000000      0x3d8 ls1x_printf.o
+ .rodata.vsprintf
+                0x0000000000000000      0x150 ls1x_printf.o
+ .text.sprintf  0x0000000000000000       0x6c ls1x_printf.o
+ .text.rand     0x0000000000000000       0x5c ls1x_printf.o
+ .eh_frame      0x0000000000000000      0x1dc ls1x_printf.o
+ COMMON         0x0000000000000000        0x4 ls1x_printf.o
+ .text          0x0000000000000000        0x0 ls1x_uart.o
+ .data          0x0000000000000000        0x0 ls1x_uart.o
+ .bss           0x0000000000000000        0x0 ls1x_uart.o
+ .text.UART_Init
+                0x0000000000000000      0x1f0 ls1x_uart.o
+ .text.UART_StructInit
+                0x0000000000000000       0x7c ls1x_uart.o
+ .text.UART_ITConfig
+                0x0000000000000000       0x88 ls1x_uart.o
+ .text.UART_ReceiveData
+                0x0000000000000000       0x4c ls1x_uart.o
+ .text.UART_GetFlagStatus
+                0x0000000000000000       0x64 ls1x_uart.o
+ .text.UART_GetITStatus
+                0x0000000000000000       0x60 ls1x_uart.o
+ .text.UART_ClearITPendingBit
+                0x0000000000000000       0xa0 ls1x_uart.o
+ .text.x_getchar
+                0x0000000000000000       0x2c ls1x_uart.o
+ .rodata        0x0000000000000000       0x10 ls1x_uart.o
+ .text.UartInit
+                0x0000000000000000       0x7c ls1x_uart.o
+ .text.Uart0_init_buad
+                0x0000000000000000       0x84 ls1x_uart.o
+ .text.Uart1_init
+                0x0000000000000000       0x68 ls1x_uart.o
+ .eh_frame      0x0000000000000000      0x1e8 ls1x_uart.o
+ .text          0x0000000000000000        0x0 ls1x_clock.o
+ .data          0x0000000000000000        0x0 ls1x_clock.o
+ .bss           0x0000000000000000        0x0 ls1x_clock.o
+ .text.CLOCK_IramToDramEn
+                0x0000000000000000       0x38 ls1x_clock.o
+ .text.CLOCK_WaitForHSEStartUp
+                0x0000000000000000       0x70 ls1x_clock.o
+ .text.CLOCK_WaitForLSEStartUp
+                0x0000000000000000       0x50 ls1x_clock.o
+ .text.CLOCK_HSEConfig
+                0x0000000000000000       0x98 ls1x_clock.o
+ .text.CLOCK_LSEConfig
+                0x0000000000000000       0x78 ls1x_clock.o
+ .text.CLOCK_StructInit
+                0x0000000000000000       0x5c ls1x_clock.o
+ .text.CLOCK_Init
+                0x0000000000000000      0x23c ls1x_clock.o
+ .text.CLOCK_GetFlagStatus
+                0x0000000000000000       0x3c ls1x_clock.o
+ .text.CLOCK_GetClocksFreq
+                0x0000000000000000       0x6c ls1x_clock.o
+ .text.SystemClockInit
+                0x0000000000000000       0x98 ls1x_clock.o
+ .comment       0x0000000000000000       0x12 ls1x_clock.o
+ .eh_frame      0x0000000000000000      0x184 ls1x_clock.o
+ COMMON         0x0000000000000000        0x4 ls1x_clock.o
+ .text          0x0000000000000000        0x0 ls1x_common.o
+ .data          0x0000000000000000        0x0 ls1x_common.o
+ .bss           0x0000000000000000        0x0 ls1x_common.o
+ .text.IsGlobalIntOpen
+                0x0000000000000000       0x38 ls1x_common.o
+ .text.Set_soft_int
+                0x0000000000000000       0x24 ls1x_common.o
+ .text.Set_soft_stop
+                0x0000000000000000       0x24 ls1x_common.o
+ .text.Wake_256sec_Set
+                0x0000000000000000       0xa8 ls1x_common.o
+ .eh_frame      0x0000000000000000      0x15c ls1x_common.o
+ .text          0x0000000000000000        0x0 ls1x_pmu.o
+ .data          0x0000000000000000        0x0 ls1x_pmu.o
+ .bss           0x0000000000000000        0x0 ls1x_pmu.o
+ .text.PMU_GetRstRrc
+                0x0000000000000000       0x6c ls1x_pmu.o
+ .text.PMU_GetBootSpiStatus
+                0x0000000000000000       0x50 ls1x_pmu.o
+ .comment       0x0000000000000000       0x12 ls1x_pmu.o
+ .eh_frame      0x0000000000000000       0x58 ls1x_pmu.o
+ .text          0x0000000000000000        0x0 ls1x_logo.o
+ .data          0x0000000000000000        0x0 ls1x_logo.o
+ .bss           0x0000000000000000        0x0 ls1x_logo.o
+ .rodata        0x0000000000000000      0x387 ls1x_logo.o
+ .text.ls1x_logo
+                0x0000000000000000       0x9c ls1x_logo.o
+ .comment       0x0000000000000000       0x12 ls1x_logo.o
+ .eh_frame      0x0000000000000000       0x3c ls1x_logo.o
+ .text          0x0000000000000000        0x0 soc_printf.o
+ .data          0x0000000000000000        0x0 soc_printf.o
+ .bss           0x0000000000000000        0x0 soc_printf.o
+ .eh_frame      0x0000000000000000       0xb0 soc_printf.o
+ .text          0x0000000000000000        0x0 soc_pwm.o
+ .data          0x0000000000000000        0x0 soc_pwm.o
+ .bss           0x0000000000000000        0x0 soc_pwm.o
+ .text.pwm_init
+                0x0000000000000000       0x58 soc_pwm.o
+ .text.pwm_set  0x0000000000000000       0x44 soc_pwm.o
+ .text.pwm_steering_engine_init
+                0x0000000000000000       0x5c soc_pwm.o
+ .text.pwm_steering_engine_set
+                0x0000000000000000       0x50 soc_pwm.o
+ .comment       0x0000000000000000       0x12 soc_pwm.o
+ .eh_frame      0x0000000000000000       0x9c soc_pwm.o
+ .text          0x0000000000000000        0x0 ls1x_latimer.o
+ .data          0x0000000000000000        0x0 ls1x_latimer.o
+ .bss           0x0000000000000000        0x0 ls1x_latimer.o
+ .text.SetTime  0x0000000000000000       0x54 ls1x_latimer.o
+ .text.CompareTime
+                0x0000000000000000       0x50 ls1x_latimer.o
+ .eh_frame      0x0000000000000000      0x19c ls1x_latimer.o
+ .text          0x0000000000000000        0x0 ls1x_string.o
+ .data          0x0000000000000000        0x0 ls1x_string.o
+ .bss           0x0000000000000000        0x0 ls1x_string.o
+ .text.memcmp   0x0000000000000000       0x88 ls1x_string.o
+ .text.memcpy   0x0000000000000000       0x70 ls1x_string.o
+ .text.memset   0x0000000000000000       0x60 ls1x_string.o
+ .text.strstr   0x0000000000000000       0xe0 ls1x_string.o
+ .text.pstrstr  0x0000000000000000       0xc8 ls1x_string.o
+ .text.strchr   0x0000000000000000       0x80 ls1x_string.o
+ .text.atoi     0x0000000000000000       0xe4 ls1x_string.o
+ .text.itoa     0x0000000000000000      0x17c ls1x_string.o
+ .text.strcat   0x0000000000000000       0xa0 ls1x_string.o
+ .text.strcpy   0x0000000000000000       0x5c ls1x_string.o
+ .text.strlen   0x0000000000000000       0x4c ls1x_string.o
+ .text.isContained
+                0x0000000000000000       0x78 ls1x_string.o
+ .text.strtok_r
+                0x0000000000000000      0x1d4 ls1x_string.o
+ .rodata        0x0000000000000000        0x5 ls1x_string.o
+ .text.hex_to_str
+                0x0000000000000000       0x8c ls1x_string.o
+ .text.str_to_hex
+                0x0000000000000000       0xf4 ls1x_string.o
+ .text.atohex   0x0000000000000000      0x164 ls1x_string.o
+ .eh_frame      0x0000000000000000      0x280 ls1x_string.o
+ .text          0x0000000000000000        0x0 ls1x_flash.o
+ .data          0x0000000000000000        0x0 ls1x_flash.o
+ .bss           0x0000000000000000        0x0 ls1x_flash.o
+ .text.FLASH_ErasePage
+                0x0000000000000000       0x58 ls1x_flash.o
+ .text.FLASH_EraseUserFlash
+                0x0000000000000000       0x9c ls1x_flash.o
+ .text.FLASH_ReadPage
+                0x0000000000000000       0xa4 ls1x_flash.o
+ .text.FLASH_WitePage
+                0x0000000000000000      0x494 ls1x_flash.o
+ .text.FLASH_WaitForPeEnd
+                0x0000000000000000       0x80 ls1x_flash.o
+ .text.FLASH_GetStatus
+                0x0000000000000000       0x34 ls1x_flash.o
+ .text.FLASH_GetFlagStatus
+                0x0000000000000000       0x4c ls1x_flash.o
+ .text.FLASH_ITConfig
+                0x0000000000000000       0x64 ls1x_flash.o
+ .text.FLASH_ITCmd
+                0x0000000000000000       0x68 ls1x_flash.o
+ .text.FLASH_ClearIT
+                0x0000000000000000       0x50 ls1x_flash.o
+ .text.FLASH_WiteTest
+                0x0000000000000000       0xac ls1x_flash.o
+ .rodata        0x0000000000000000        0xa ls1x_flash.o
+ .text.FLASH_ReadTest
+                0x0000000000000000       0xc0 ls1x_flash.o
+ .comment       0x0000000000000000       0x12 ls1x_flash.o
+ .eh_frame      0x0000000000000000      0x1cc ls1x_flash.o
+ COMMON         0x0000000000000000        0x1 ls1x_flash.o
+ .text          0x0000000000000000        0x0 ls1x_rtc.o
+ .data          0x0000000000000000        0x0 ls1x_rtc.o
+ .bss           0x0000000000000000        0x0 ls1x_rtc.o
+ .eh_frame      0x0000000000000000       0x80 ls1x_rtc.o
+ .text          0x0000000000000000        0x0 soc_gpio.o
+ .data          0x0000000000000000        0x0 soc_gpio.o
+ .bss           0x0000000000000000        0x0 soc_gpio.o
+ .text.gpio_read
+                0x0000000000000000       0xac soc_gpio.o
+ .eh_frame      0x0000000000000000       0x80 soc_gpio.o
+ .text          0x0000000000000000        0x0 soc_uart.o
+ .data          0x0000000000000000        0x0 soc_uart.o
+ .bss           0x0000000000000000        0x0 soc_uart.o
+ .eh_frame      0x0000000000000000       0x34 soc_uart.o
+ .text          0x0000000000000000        0x0 ls1x_exti.o
+ .data          0x0000000000000000        0x0 ls1x_exti.o
+ .bss           0x0000000000000000        0x0 ls1x_exti.o
+ .text.EXTI_DeInit
+                0x0000000000000000       0x40 ls1x_exti.o
+ .text.EXTI_GetFlagStatus
+                0x0000000000000000       0x50 ls1x_exti.o
+ .text.EXTI_ClearFlag
+                0x0000000000000000       0x3c ls1x_exti.o
+ .text.EXTI_GetITStatus
+                0x0000000000000000       0x70 ls1x_exti.o
+ .eh_frame      0x0000000000000000       0xfc ls1x_exti.o
+ .text          0x0000000000000000        0x0 ls1x_wdg.o
+ .data          0x0000000000000000        0x0 ls1x_wdg.o
+ .bss           0x0000000000000000        0x0 ls1x_wdg.o
+ .text.WdgInit  0x0000000000000000       0x30 ls1x_wdg.o
+ .eh_frame      0x0000000000000000       0x78 ls1x_wdg.o
+ .text          0x0000000000000000        0x0 ls1c102_i2c.o
+ .data          0x0000000000000000        0x0 ls1c102_i2c.o
+ .bss           0x0000000000000000        0x0 ls1c102_i2c.o
+ .text.I2C_ITConfig
+                0x0000000000000000       0x6c ls1c102_i2c.o
+ .text.I2C_ITCmd
+                0x0000000000000000       0x90 ls1c102_i2c.o
+ .text.I2C_GenerateSTART
+                0x0000000000000000       0x6c ls1c102_i2c.o
+ .text.I2C_AcknowledgeConfig
+                0x0000000000000000       0x6c ls1c102_i2c.o
+ .text.I2C_ReadRegister
+                0x0000000000000000       0x50 ls1c102_i2c.o
+ .text.I2C_ClearFlag
+                0x0000000000000000       0x48 ls1c102_i2c.o
+ .text.I2C_GetStatus
+                0x0000000000000000       0x5c ls1c102_i2c.o
+ .text.I2C_ClearIT
+                0x0000000000000000       0x50 ls1c102_i2c.o
+ .text.I2C_BUSY
+                0x0000000000000000       0x48 ls1c102_i2c.o
+ .text.CAT24_Write_Int
+                0x0000000000000000      0x140 ls1c102_i2c.o
+ .text.CAT24_Read_Int
+                0x0000000000000000      0x16c ls1c102_i2c.o
+ .eh_frame      0x0000000000000000      0x310 ls1c102_i2c.o
+ COMMON         0x0000000000000000        0x1 ls1c102_i2c.o
+ .text          0x0000000000000000        0x0 ls1c102_vpwm.o
+ .data          0x0000000000000000        0x0 ls1c102_vpwm.o
+ .bss           0x0000000000000000        0x0 ls1c102_vpwm.o
+ .text.vpwm_init_dma_bd
+                0x0000000000000000       0x94 ls1c102_vpwm.o
+ .text.vpwm_init_dma_bell
+                0x0000000000000000       0xd0 ls1c102_vpwm.o
+ .text.vpwm_init_dma_tips
+                0x0000000000000000       0x94 ls1c102_vpwm.o
+ .eh_frame      0x0000000000000000       0xc8 ls1c102_vpwm.o
+ .text          0x0000000000000000        0x0 ls1c102_touch.o
+ .data          0x0000000000000000        0x0 ls1c102_touch.o
+ .bss           0x0000000000000000        0x0 ls1c102_touch.o
+ .text.TOUCH_disablePollScan
+                0x0000000000000000       0x34 ls1c102_touch.o
+ .text.TOUCH_SetBaseVal
+                0x0000000000000000       0x7c ls1c102_touch.o
+ .text.Printf_KeyChannel
+                0x0000000000000000       0x7c ls1c102_touch.o
+ .text.Printf_KeyType
+                0x0000000000000000       0x8c ls1c102_touch.o
+ .text.Printf_KeyVal
+                0x0000000000000000      0x268 ls1c102_touch.o
+ .eh_frame      0x0000000000000000      0x2a0 ls1c102_touch.o
+ .text          0x0000000000000000        0x0 ls1c102_ptimer.o
+ .data          0x0000000000000000        0x0 ls1c102_ptimer.o
+ .bss           0x0000000000000000        0x0 ls1c102_ptimer.o
+ .text.TIM_GetCounter
+                0x0000000000000000       0x34 ls1c102_ptimer.o
+ .text.TIM_SetCounter
+                0x0000000000000000       0x30 ls1c102_ptimer.o
+ .text.TIM_SetCompare
+                0x0000000000000000       0x30 ls1c102_ptimer.o
+ .text.TIM_GetCompare
+                0x0000000000000000       0x34 ls1c102_ptimer.o
+ .eh_frame      0x0000000000000000      0x168 ls1c102_ptimer.o
+ .text          0x0000000000000000        0x0 calIn8M.o
+ .data          0x0000000000000000        0x0 calIn8M.o
+ .bss           0x0000000000000000        0x0 calIn8M.o
+ .text.check_clock
+                0x0000000000000000       0xd0 calIn8M.o
+ .rodata        0x0000000000000000       0x9e calIn8M.o
+ .text.buad_test
+                0x0000000000000000       0x68 calIn8M.o
+ .text.test_8m_out
+                0x0000000000000000       0xa0 calIn8M.o
+ .text.cal_in8m_touch
+                0x0000000000000000      0x204 calIn8M.o
+ .text.test_cal_in8m_touch_scan
+                0x0000000000000000      0x1c0 calIn8M.o
+ .comment       0x0000000000000000       0x12 calIn8M.o
+ .eh_frame      0x0000000000000000       0xc8 calIn8M.o
+ .text          0x0000000000000000        0x0 touch.o
+ .data          0x0000000000000000        0x0 touch.o
+ .bss           0x0000000000000000        0x0 touch.o
+ .text.ls1c102_touch_init
+                0x0000000000000000       0xfc touch.o
+ .rodata        0x0000000000000000       0x56 touch.o
+ .text.ls102_touch_test
+                0x0000000000000000       0x90 touch.o
+ .text.ls102_touch_basval_init
+                0x0000000000000000      0x18c touch.o
+ .comment       0x0000000000000000       0x12 touch.o
+ .eh_frame      0x0000000000000000       0x84 touch.o
+ .text          0x0000000000000000        0x0 uartTest.o
+ .data          0x0000000000000000        0x0 uartTest.o
+ .bss           0x0000000000000000        0x0 uartTest.o
+ .bss.g_recv_flag
+                0x0000000000000000        0x4 uartTest.o
+ .bss.g_recvCache
+                0x0000000000000000      0x100 uartTest.o
+ .bss.g_recvBuff
+                0x0000000000000000       0x14 uartTest.o
+ .text.recv_buf_init
+                0x0000000000000000       0x5c uartTest.o
+ .text.recv_dat_int
+                0x0000000000000000       0x50 uartTest.o
+ .rodata        0x0000000000000000       0x22 uartTest.o
+ .text.test_uart_recv
+                0x0000000000000000       0x64 uartTest.o
+ .text.test_uart_send
+                0x0000000000000000       0x74 uartTest.o
+ .comment       0x0000000000000000       0x12 uartTest.o
+ .eh_frame      0x0000000000000000       0xa8 uartTest.o
+ .text          0x0000000000000000        0x0 Buffer.o
+ .data          0x0000000000000000        0x0 Buffer.o
+ .bss           0x0000000000000000        0x0 Buffer.o
+ .text.Buffer_set
+                0x0000000000000000       0x90 Buffer.o
+ .text.Buffer_setReadData
+                0x0000000000000000       0x94 Buffer.o
+ .text.Buffer_reset
+                0x0000000000000000       0x4c Buffer.o
+ .text.Buffer_clear
+                0x0000000000000000       0x88 Buffer.o
+ .text.Buffer_canWrite
+                0x0000000000000000       0x40 Buffer.o
+ .text.Buffer_freeSize
+                0x0000000000000000       0x44 Buffer.o
+ .text.Buffer_read
+                0x0000000000000000       0x98 Buffer.o
+ .text.Buffer_readShort
+                0x0000000000000000       0x7c Buffer.o
+ .text.Buffer_readInt
+                0x0000000000000000       0x74 Buffer.o
+ .text.Buffer_write
+                0x0000000000000000       0xdc Buffer.o
+ .text.Buffer_writeShort
+                0x0000000000000000       0x70 Buffer.o
+ .text.Buffer_writeInt
+                0x0000000000000000       0x6c Buffer.o
+ .text.Buffer_charToHalfChar
+                0x0000000000000000       0xa4 Buffer.o
+ .text.Buffer_readHexChar
+                0x0000000000000000       0xa4 Buffer.o
+ .comment       0x0000000000000000       0x12 Buffer.o
+ .eh_frame      0x0000000000000000      0x220 Buffer.o
+ .text          0x0000000000000000        0x0 main.o
+ .data          0x0000000000000000        0x0 main.o
+ .bss           0x0000000000000000        0x0 main.o
+ .text.cmdline  0x0000000000000000      0xdbc main.o
+ .bss.num       0x0000000000000000        0x4 main.o
+ .eh_frame      0x0000000000000000       0xc8 main.o
+ COMMON         0x0000000000000000       0x80 main.o
+ .text          0x0000000000000000        0x0 1c102_cmd.o
+ .data          0x0000000000000000        0x0 1c102_cmd.o
+ .bss           0x0000000000000000        0x0 1c102_cmd.o
+ .text.sleep    0x0000000000000000       0xa4 1c102_cmd.o
+ .eh_frame      0x0000000000000000      0x550 1c102_cmd.o
+ .text          0x0000000000000000        0x0 1c102_Interrupt.o
+ .data          0x0000000000000000        0x0 1c102_Interrupt.o
+ .bss           0x0000000000000000        0x0 1c102_Interrupt.o
+ .text.SOFT_INT
+                0x0000000000000000       0x34 1c102_Interrupt.o
+ .text.TIMER_8M_INT
+                0x0000000000000000       0x44 1c102_Interrupt.o
+ .eh_frame      0x0000000000000000      0x5e4 1c102_Interrupt.o
+ .text          0x0000000000000000       0xb0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_info    0x0000000000000000      0xc23 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_abbrev  0x0000000000000000      0x285 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_loc     0x0000000000000000       0xc8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_line    0x0000000000000000      0x1e4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .debug_str     0x0000000000000000      0x6f2 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .eh_frame      0x0000000000000000       0x4c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-printf.o)
+ .text          0x0000000000000000     0x2db0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x42 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .rodata        0x0000000000000000      0x18c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .rodata.cst16  0x0000000000000000       0x30 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_info    0x0000000000000000     0x1e95 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_abbrev  0x0000000000000000      0x449 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_loc     0x0000000000000000     0x46ce D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_ranges  0x0000000000000000      0x1b0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_line    0x0000000000000000     0x1da4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .debug_str     0x0000000000000000      0xa48 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .eh_frame      0x0000000000000000       0xa0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfprintf.o)
+ .text          0x0000000000000000      0x160 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_info    0x0000000000000000      0xbe7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_abbrev  0x0000000000000000      0x267 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_loc     0x0000000000000000       0xd4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_ranges  0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_line    0x0000000000000000      0x2f9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .debug_str     0x0000000000000000      0x701 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .eh_frame      0x0000000000000000       0x3c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wsetup.o)
+ .text          0x0000000000000000      0x2f0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_info    0x0000000000000000      0xd67 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_abbrev  0x0000000000000000      0x2f5 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_loc     0x0000000000000000      0x392 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_ranges  0x0000000000000000       0x50 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_line    0x0000000000000000      0x452 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .debug_str     0x0000000000000000      0x72f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .eh_frame      0x0000000000000000       0x98 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fflush.o)
+ .text          0x0000000000000000      0x400 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_info    0x0000000000000000     0x10b8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_abbrev  0x0000000000000000      0x3cc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_loc     0x0000000000000000      0x394 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_ranges  0x0000000000000000       0x98 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_line    0x0000000000000000      0x506 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .debug_str     0x0000000000000000      0x80b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .eh_frame      0x0000000000000000      0x18c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-findfp.o)
+ .text          0x0000000000000000      0x170 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_info    0x0000000000000000      0xc99 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_abbrev  0x0000000000000000      0x245 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_loc     0x0000000000000000      0x1d1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_line    0x0000000000000000      0x28f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .debug_str     0x0000000000000000      0x6f3 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .eh_frame      0x0000000000000000       0x90 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fwalk.o)
+ .text          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .data          0x0000000000000000      0x430 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .rodata        0x0000000000000000        0x4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .rodata.str1.4
+                0x0000000000000000        0x2 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .debug_info    0x0000000000000000      0x91f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000000000      0x1af D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000000       0x18 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000000000       0xf5 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .debug_str     0x0000000000000000      0x57d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-impure.o)
+ .text          0x0000000000000000     0x3960 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .rodata.str1.4
+                0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .rodata        0x0000000000000000      0x450 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_info    0x0000000000000000     0x5587 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_abbrev  0x0000000000000000      0x4f7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_loc     0x0000000000000000     0x6fe1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_ranges  0x0000000000000000      0x768 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_line    0x0000000000000000     0x35ec D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .debug_str     0x0000000000000000      0x9d1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .eh_frame      0x0000000000000000      0x428 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-ldtoa.o)
+ .text          0x0000000000000000      0x100 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .data          0x0000000000000000       0x7c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .bss           0x0000000000000000        0xc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .rodata.str1.4
+                0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_info    0x0000000000000000      0xe3d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_abbrev  0x0000000000000000      0x32c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_loc     0x0000000000000000      0x19e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_line    0x0000000000000000      0x27d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .debug_str     0x0000000000000000      0x853 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .eh_frame      0x0000000000000000       0xc8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-locale.o)
+ .text          0x0000000000000000      0x1b0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_info    0x0000000000000000      0xde1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_abbrev  0x0000000000000000      0x271 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_loc     0x0000000000000000      0x18f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_line    0x0000000000000000      0x30b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .debug_str     0x0000000000000000      0x7f5 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .eh_frame      0x0000000000000000       0x54 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-makebuf.o)
+ .text          0x0000000000000000       0xf0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_info    0x0000000000000000      0x9d8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_abbrev  0x0000000000000000      0x20c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_loc     0x0000000000000000      0x1a3 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_line    0x0000000000000000      0x218 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .debug_str     0x0000000000000000      0x59b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .eh_frame      0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memchr.o)
+ .text          0x0000000000000000     0x1050 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .rodata        0x0000000000000000      0x128 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .rodata.cst8   0x0000000000000000       0x10 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_info    0x0000000000000000     0x1af0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_abbrev  0x0000000000000000      0x427 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_loc     0x0000000000000000     0x1f37 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_ranges  0x0000000000000000       0x98 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_line    0x0000000000000000     0x132f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .debug_str     0x0000000000000000      0x71a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .eh_frame      0x0000000000000000      0x320 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-mprec.o)
+ .text          0x0000000000000000       0xb0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .rodata.cst8   0x0000000000000000        0x8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_info    0x0000000000000000      0xa8f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_abbrev  0x0000000000000000      0x26c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_loc     0x0000000000000000      0x13a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_ranges  0x0000000000000000       0x18 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_line    0x0000000000000000      0x26f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .debug_str     0x0000000000000000      0x630 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .eh_frame      0x0000000000000000       0x38 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-s_frexp.o)
+ .text          0x0000000000000000      0x1b0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_info    0x0000000000000000      0xe7f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_abbrev  0x0000000000000000      0x2b1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_loc     0x0000000000000000      0x48a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_line    0x0000000000000000      0x2cf D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .debug_str     0x0000000000000000      0x747 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .eh_frame      0x0000000000000000       0xd0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-stdio.o)
+ .text          0x0000000000000000       0xd0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_info    0x0000000000000000      0x9bf D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_abbrev  0x0000000000000000      0x21a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_loc     0x0000000000000000      0x17e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_line    0x0000000000000000      0x207 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .debug_str     0x0000000000000000      0x5ab D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .eh_frame      0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-strncpy.o)
+ .text          0x0000000000000000     0x1620 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x2f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .rodata        0x0000000000000000      0x18c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_info    0x0000000000000000     0x1bad D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_abbrev  0x0000000000000000      0x45f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_loc     0x0000000000000000     0x2a0d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_ranges  0x0000000000000000      0x158 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_line    0x0000000000000000     0x138e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .debug_str     0x0000000000000000      0x97a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .eh_frame      0x0000000000000000      0x118 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-vfiprintf.o)
+ .text          0x0000000000000000      0x130 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_info    0x0000000000000000      0xcc9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_abbrev  0x0000000000000000      0x31e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_loc     0x0000000000000000      0x1b6 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_ranges  0x0000000000000000       0x30 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_line    0x0000000000000000      0x243 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .debug_str     0x0000000000000000      0x718 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .eh_frame      0x0000000000000000       0x64 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fclose.o)
+ .text          0x0000000000000000      0x280 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_info    0x0000000000000000      0xdd9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_abbrev  0x0000000000000000      0x330 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_loc     0x0000000000000000      0x3a5 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_ranges  0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_line    0x0000000000000000      0x33d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .debug_str     0x0000000000000000      0x738 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .eh_frame      0x0000000000000000       0xb0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fputwc.o)
+ .text          0x0000000000000000      0x520 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_info    0x0000000000000000      0xebe D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_abbrev  0x0000000000000000      0x2a2 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_loc     0x0000000000000000      0x6da D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_ranges  0x0000000000000000       0x18 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_line    0x0000000000000000      0x60c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .debug_str     0x0000000000000000      0x780 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .eh_frame      0x0000000000000000       0x90 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-fvwrite.o)
+ .text          0x0000000000000000      0x130 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_info    0x0000000000000000      0x9c4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_abbrev  0x0000000000000000      0x209 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_loc     0x0000000000000000      0x328 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_line    0x0000000000000000      0x231 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .debug_str     0x0000000000000000      0x5b4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .eh_frame      0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-memmove.o)
+ .text          0x0000000000000000      0x1a0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_info    0x0000000000000000      0xc85 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_abbrev  0x0000000000000000      0x2ba D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_loc     0x0000000000000000      0x1da D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_ranges  0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_line    0x0000000000000000      0x2d3 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .debug_str     0x0000000000000000      0x706 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .eh_frame      0x0000000000000000       0x58 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wbuf.o)
+ .text          0x0000000000000000      0x1a0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_info    0x0000000000000000      0xbfb D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_abbrev  0x0000000000000000      0x250 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_loc     0x0000000000000000      0x2f0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_ranges  0x0000000000000000       0x10 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_line    0x0000000000000000      0x248 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .debug_str     0x0000000000000000      0x60b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .eh_frame      0x0000000000000000       0x90 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wcrtomb.o)
+ .text          0x0000000000000000       0xa0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .data          0x0000000000000000        0x4 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_info    0x0000000000000000      0xb3a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_abbrev  0x0000000000000000      0x272 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_loc     0x0000000000000000      0x154 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_line    0x0000000000000000      0x1dd D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .debug_str     0x0000000000000000      0x620 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .eh_frame      0x0000000000000000       0x54 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a(lib_a-wctomb_r.o)
+ .text          0x0000000000000000      0x530 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000000000      0xbdc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x0000000000000000      0x1fe D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_loc     0x0000000000000000     0x1382 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x0000000000000000      0x188 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_line    0x0000000000000000      0x413 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .debug_str     0x0000000000000000      0x5b9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_udivdi3.o)
+ .text          0x0000000000000000      0x510 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_info    0x0000000000000000      0xc46 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x0000000000000000      0x233 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_loc     0x0000000000000000      0xcf3 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_ranges  0x0000000000000000      0x100 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_line    0x0000000000000000      0x3fd D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .debug_str     0x0000000000000000      0x5b9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .eh_frame      0x0000000000000000       0x28 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_umoddi3.o)
+ .text          0x0000000000000000      0x910 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .rodata        0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_info    0x0000000000000000      0x819 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_abbrev  0x0000000000000000      0x17d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_loc     0x0000000000000000     0x23c1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_ranges  0x0000000000000000      0x208 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_line    0x0000000000000000      0xa59 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .debug_str     0x0000000000000000      0x3bd D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .eh_frame      0x0000000000000000       0x48 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(divdf3.o)
+ .text          0x0000000000000000      0x780 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .rodata        0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_info    0x0000000000000000      0x7c1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_abbrev  0x0000000000000000      0x186 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_loc     0x0000000000000000     0x1250 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_ranges  0x0000000000000000      0x348 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_line    0x0000000000000000      0x919 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .debug_str     0x0000000000000000      0x415 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .eh_frame      0x0000000000000000       0x58 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(muldf3.o)
+ .text          0x0000000000000000       0xd0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_info    0x0000000000000000      0x28a D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_abbrev  0x0000000000000000      0x18e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_loc     0x0000000000000000       0xdb D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_ranges  0x0000000000000000       0x50 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_line    0x0000000000000000      0x16d D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .debug_str     0x0000000000000000      0x224 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .eh_frame      0x0000000000000000       0x30 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(eqtf2.o)
+ .text          0x0000000000000000      0x1a0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_info    0x0000000000000000      0x2ac D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_abbrev  0x0000000000000000      0x1af D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_loc     0x0000000000000000      0x216 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_ranges  0x0000000000000000       0x68 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_line    0x0000000000000000      0x21e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .debug_str     0x0000000000000000      0x248 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .eh_frame      0x0000000000000000       0x38 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(getf2.o)
+ .text          0x0000000000000000      0x190 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_info    0x0000000000000000      0x2ac D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_abbrev  0x0000000000000000      0x1af D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_loc     0x0000000000000000      0x1f7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_ranges  0x0000000000000000       0x70 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_line    0x0000000000000000      0x223 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .debug_str     0x0000000000000000      0x248 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .eh_frame      0x0000000000000000       0x3c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(letf2.o)
+ .text          0x0000000000000000     0x10e0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .rodata        0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_info    0x0000000000000000     0x156c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_abbrev  0x0000000000000000      0x1a3 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_loc     0x0000000000000000     0xce51 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_ranges  0x0000000000000000      0x830 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_line    0x0000000000000000     0x1302 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .debug_str     0x0000000000000000      0x5ae D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .eh_frame      0x0000000000000000       0x5c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(multf3.o)
+ .text          0x0000000000000000     0x1570 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_info    0x0000000000000000      0xeb0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_abbrev  0x0000000000000000      0x1cc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_loc     0x0000000000000000     0x25d6 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_ranges  0x0000000000000000      0x700 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_line    0x0000000000000000     0x13b7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .debug_str     0x0000000000000000      0x47b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .eh_frame      0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(subtf3.o)
+ .text          0x0000000000000000      0x130 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_info    0x0000000000000000      0x2ce D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_abbrev  0x0000000000000000      0x1a9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_loc     0x0000000000000000      0x470 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_ranges  0x0000000000000000       0x70 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_line    0x0000000000000000      0x1bc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .debug_str     0x0000000000000000      0x28c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .eh_frame      0x0000000000000000       0x38 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(fixtfsi.o)
+ .text          0x0000000000000000      0x170 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_info    0x0000000000000000      0x3d7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_abbrev  0x0000000000000000      0x1aa D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_loc     0x0000000000000000      0x3fc D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_ranges  0x0000000000000000       0xc8 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_line    0x0000000000000000      0x1c1 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .debug_str     0x0000000000000000      0x358 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .eh_frame      0x0000000000000000       0x38 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(floatsitf.o)
+ .text          0x0000000000000000      0x290 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_info    0x0000000000000000      0x407 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_abbrev  0x0000000000000000      0x1a9 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_loc     0x0000000000000000      0x53e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_ranges  0x0000000000000000      0x110 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_line    0x0000000000000000      0x3ab D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .debug_str     0x0000000000000000      0x2a0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .eh_frame      0x0000000000000000       0x4c D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(extenddftf2.o)
+ .text          0x0000000000000000      0x330 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_info    0x0000000000000000      0x55b D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_abbrev  0x0000000000000000      0x1bd D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_loc     0x0000000000000000      0x547 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_ranges  0x0000000000000000      0x140 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_line    0x0000000000000000      0x33e D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .debug_str     0x0000000000000000      0x3d7 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .eh_frame      0x0000000000000000       0x40 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(trunctfdf2.o)
+ .text          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .data          0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .bss           0x0000000000000000        0x0 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .rodata        0x0000000000000000      0x100 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_info    0x0000000000000000      0x41f D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000000000       0xdb D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_aranges
+                0x0000000000000000       0x18 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_line    0x0000000000000000      0x110 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .debug_str     0x0000000000000000      0x500 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+ .comment       0x0000000000000000       0x12 D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a(_clz.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+flash            0x000000001c000000 0x0000000000010000 r
+iram             0x0000000080000000 0x0000000000001000 rw
+dram             0x0000000080001000 0x0000000000001000 rw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x000000001c000000     0x7ae8
+                0x000000001c000000                . = ALIGN (0x4)
+ *(.text .text.*)
+ .text._start   0x000000001c000000     0x1128 start.o
+                0x000000001c000000                _start
+                0x000000001c0000a8                cpu_wait
+ .text          0x000000001c001128       0xbc serial.o
+                0x000000001c001128                serial_out
+                0x000000001c001144                outputaddr
+                0x000000001c0011a4                outputstring
+ .text          0x000000001c0011e4      0x148 wakeup.o
+                0x000000001c0011e4                cpu_sleep
+                0x000000001c00128c                wakeup_reset
+ .text.AFIO_RemapConfig
+                0x000000001c00132c       0xcc ls1x_gpio.o
+                0x000000001c00132c                AFIO_RemapConfig
+ .text.Spi_Write_Read_1to4
+                0x000000001c0013f8       0xf0 ls1x_spi.o
+                0x000000001c0013f8                Spi_Write_Read_1to4
+ .text.Spi_Write_Read_N
+                0x000000001c0014e8      0x124 ls1x_spi.o
+                0x000000001c0014e8                Spi_Write_Read_N
+ .text.Spi_Cs_Down
+                0x000000001c00160c       0x58 ls1x_spi.o
+                0x000000001c00160c                Spi_Cs_Down
+ .text.Spi_Cs_Up
+                0x000000001c001664       0x54 ls1x_spi.o
+                0x000000001c001664                Spi_Cs_Up
+ .text.Spiflash_Rdsr
+                0x000000001c0016b8       0x4c ls1x_spi.o
+                0x000000001c0016b8                Spiflash_Rdsr
+ .text.Spiflash_Wait_Wip_Zero
+                0x000000001c001704       0x38 ls1x_spi.o
+                0x000000001c001704                Spiflash_Wait_Wip_Zero
+ .text.Spiflash_Wren
+                0x000000001c00173c       0x4c ls1x_spi.o
+                0x000000001c00173c                Spiflash_Wren
+ .text.Spiflash_Rdid
+                0x000000001c001788       0x68 ls1x_spi.o
+                0x000000001c001788                Spiflash_Rdid
+ .text.Spiflash_Block64k_Erase
+                0x000000001c0017f0       0x90 ls1x_spi.o
+                0x000000001c0017f0                Spiflash_Block64k_Erase
+ .text.Spiflash_Page_Program
+                0x000000001c001880       0xa4 ls1x_spi.o
+                0x000000001c001880                Spiflash_Page_Program
+ .text.Spiflash_Read_Bytes
+                0x000000001c001924       0x9c ls1x_spi.o
+                0x000000001c001924                Spiflash_Read_Bytes
+ .text.myputchar
+                0x000000001c0019c0       0x3c ls1x_printf.o
+                0x000000001c0019c0                myputchar
+ .text.printbase
+                0x000000001c0019fc      0x160 ls1x_printf.o
+                0x000000001c0019fc                printbase
+ .text.ls1x_puts
+                0x000000001c001b5c       0x70 ls1x_printf.o
+                0x000000001c001b5c                ls1x_puts
+ .text.myprintf
+                0x000000001c001bcc      0x3a4 ls1x_printf.o
+                0x000000001c001bcc                myprintf
+ .text.Uart_init
+                0x000000001c001f70       0xb0 ls1x_uart.o
+                0x000000001c001f70                Uart_init
+ .text.UART_SendData
+                0x000000001c002020       0x4c ls1x_uart.o
+                0x000000001c002020                UART_SendData
+ .text.DisableInt
+                0x000000001c00206c       0x24 ls1x_common.o
+                0x000000001c00206c                DisableInt
+ .text.EnableInt
+                0x000000001c002090       0x24 ls1x_common.o
+                0x000000001c002090                EnableInt
+ .text.Set_Timer_stop
+                0x000000001c0020b4       0x20 ls1x_common.o
+                0x000000001c0020b4                Set_Timer_stop
+ .text.Set_Timer_clear
+                0x000000001c0020d4       0x24 ls1x_common.o
+                0x000000001c0020d4                Set_Timer_clear
+ .text.Set_Timer_Init
+                0x000000001c0020f8       0x30 ls1x_common.o
+                0x000000001c0020f8                Set_Timer_Init
+ .text.Wake_Set
+                0x000000001c002128       0xac ls1x_common.o
+                0x000000001c002128                Wake_Set
+ .text.soc_myputchar
+                0x000000001c0021d4       0x5c soc_printf.o
+                0x000000001c0021d4                soc_myputchar
+ .text.soc_puts
+                0x000000001c002230       0x70 soc_printf.o
+                0x000000001c002230                soc_puts
+ .text.soc_printbase
+                0x000000001c0022a0      0x160 soc_printf.o
+                0x000000001c0022a0                soc_printbase
+ .text.soc_myprintf
+                0x000000001c002400      0x3f4 soc_printf.o
+                0x000000001c002400                soc_myprintf
+ .text.get_count
+                0x000000001c0027f4       0x2c ls1x_latimer.o
+                0x000000001c0027f4                get_count
+ .text.open_count
+                0x000000001c002820       0x24 ls1x_latimer.o
+                0x000000001c002820                open_count
+ .text.close_count
+                0x000000001c002844       0x24 ls1x_latimer.o
+                0x000000001c002844                close_count
+ .text.start_count
+                0x000000001c002868       0x48 ls1x_latimer.o
+                0x000000001c002868                start_count
+ .text.stop_count
+                0x000000001c0028b0       0x88 ls1x_latimer.o
+                0x000000001c0028b0                stop_count
+ .text.delay_cycle
+                0x000000001c002938       0x68 ls1x_latimer.o
+                0x000000001c002938                delay_cycle
+ .text.delay_us
+                0x000000001c0029a0       0x38 ls1x_latimer.o
+                0x000000001c0029a0                delay_us
+ .text.delay_ms
+                0x000000001c0029d8       0x40 ls1x_latimer.o
+                0x000000001c0029d8                delay_ms
+ .text.delay_s  0x000000001c002a18       0x3c ls1x_latimer.o
+                0x000000001c002a18                delay_s
+ .text.strcmp   0x000000001c002a54       0x84 ls1x_string.o
+                0x000000001c002a54                strcmp
+ .text.Rtc_Read
+                0x000000001c002ad8       0xec ls1x_rtc.o
+                0x000000001c002ad8                Rtc_Read
+ .text.Rtc_Write
+                0x000000001c002bc4      0x16c ls1x_rtc.o
+                0x000000001c002bc4                Rtc_Write
+ .text.RtcUpdateData
+                0x000000001c002d30       0x4c ls1x_rtc.o
+                0x000000001c002d30                RtcUpdateData
+ .text.gpio_init
+                0x000000001c002d7c       0xf8 soc_gpio.o
+                0x000000001c002d7c                gpio_init
+ .text.gpio_write
+                0x000000001c002e74       0xf8 soc_gpio.o
+                0x000000001c002e74                gpio_write
+ .text.uart1_interrupt
+                0x000000001c002f6c       0x38 soc_uart.o
+                0x000000001c002f6c                uart1_interrupt
+ .text.EXTI_Init
+                0x000000001c002fa4      0x190 ls1x_exti.o
+                0x000000001c002fa4                EXTI_Init
+ .text.EXTI_StructInit
+                0x000000001c003134       0x48 ls1x_exti.o
+                0x000000001c003134                EXTI_StructInit
+ .text.EXTI_ClearITPendingBit
+                0x000000001c00317c       0x3c ls1x_exti.o
+                0x000000001c00317c                EXTI_ClearITPendingBit
+ .text.WDG_SetWatchDog
+                0x000000001c0031b8       0x4c ls1x_wdg.o
+                0x000000001c0031b8                WDG_SetWatchDog
+ .text.WDG_DogFeed
+                0x000000001c003204       0x2c ls1x_wdg.o
+                0x000000001c003204                WDG_DogFeed
+ .text.I2C_Init
+                0x000000001c003230      0x104 ls1c102_i2c.o
+                0x000000001c003230                I2C_Init
+ .text.I2C_StructInit
+                0x000000001c003334       0x5c ls1c102_i2c.o
+                0x000000001c003334                I2C_StructInit
+ .text.I2C_GenerateSTOP
+                0x000000001c003390       0x6c ls1c102_i2c.o
+                0x000000001c003390                I2C_GenerateSTOP
+ .text.I2C_SendData
+                0x000000001c0033fc       0x50 ls1c102_i2c.o
+                0x000000001c0033fc                I2C_SendData
+ .text.I2C_ReceiveData
+                0x000000001c00344c       0x60 ls1c102_i2c.o
+                0x000000001c00344c                I2C_ReceiveData
+ .text.I2C_Send7bitAddress
+                0x000000001c0034ac       0xac ls1c102_i2c.o
+                0x000000001c0034ac                I2C_Send7bitAddress
+ .text.I2C_wait
+                0x000000001c003558       0x48 ls1c102_i2c.o
+                0x000000001c003558                I2C_wait
+ .text.I2C_Unlock
+                0x000000001c0035a0       0x54 ls1c102_i2c.o
+                0x000000001c0035a0                I2C_Unlock
+ .text.CAT24_Write
+                0x000000001c0035f4      0x15c ls1c102_i2c.o
+                0x000000001c0035f4                CAT24_Write
+ .text.CAT24_Read
+                0x000000001c003750      0x160 ls1c102_i2c.o
+                0x000000001c003750                CAT24_Read
+ .text.dma_reset
+                0x000000001c0038b0       0x5c ls1c102_vpwm.o
+                0x000000001c0038b0                dma_reset
+ .text.dma_start
+                0x000000001c00390c       0xb0 ls1c102_vpwm.o
+                0x000000001c00390c                dma_start
+ .text.Touch_CountBaseInit
+                0x000000001c0039bc       0x90 ls1c102_touch.o
+                0x000000001c0039bc                Touch_CountBaseInit
+ .text.Touch_PerformInit
+                0x000000001c003a4c       0x88 ls1c102_touch.o
+                0x000000001c003a4c                Touch_PerformInit
+ .text.Touch_ControlConfig
+                0x000000001c003ad4       0xc8 ls1c102_touch.o
+                0x000000001c003ad4                Touch_ControlConfig
+ .text.TOUCH_Cmd
+                0x000000001c003b9c       0x68 ls1c102_touch.o
+                0x000000001c003b9c                TOUCH_Cmd
+ .text.TOUCH_GetBaseVal
+                0x000000001c003c04       0x4c ls1c102_touch.o
+                0x000000001c003c04                TOUCH_GetBaseVal
+ .text.TOUCH_GetCountValue
+                0x000000001c003c50       0x4c ls1c102_touch.o
+                0x000000001c003c50                TOUCH_GetCountValue
+ .text.TOUCH_EnablePollScan
+                0x000000001c003c9c       0x30 ls1c102_touch.o
+                0x000000001c003c9c                TOUCH_EnablePollScan
+ .text.TOUCH_EnableSingleScan
+                0x000000001c003ccc       0x30 ls1c102_touch.o
+                0x000000001c003ccc                TOUCH_EnableSingleScan
+ .text.TOUCH_SetDownTh
+                0x000000001c003cfc       0x7c ls1c102_touch.o
+                0x000000001c003cfc                TOUCH_SetDownTh
+ .text.TOUCH_SetChnAttr
+                0x000000001c003d78       0x7c ls1c102_touch.o
+                0x000000001c003d78                TOUCH_SetChnAttr
+ .text.TOUCH_SetAllChnAttr
+                0x000000001c003df4       0x64 ls1c102_touch.o
+                0x000000001c003df4                TOUCH_SetAllChnAttr
+ .text.TOUCH_Init
+                0x000000001c003e58       0xfc ls1c102_touch.o
+                0x000000001c003e58                TOUCH_Init
+ .text.Printf_CountVal
+                0x000000001c003f54       0xec ls1c102_touch.o
+                0x000000001c003f54                Printf_CountVal
+ .text.TIM_Init
+                0x000000001c004040       0xd8 ls1c102_ptimer.o
+                0x000000001c004040                TIM_Init
+ .text.TIM_StructInit
+                0x000000001c004118       0x7c ls1c102_ptimer.o
+                0x000000001c004118                TIM_StructInit
+ .text.TIM_Cmd  0x000000001c004194       0x54 ls1c102_ptimer.o
+                0x000000001c004194                TIM_Cmd
+ .text.TIM_ITConfig
+                0x000000001c0041e8       0x90 ls1c102_ptimer.o
+                0x000000001c0041e8                TIM_ITConfig
+ .text.TIM_GetITStatus
+                0x000000001c004278       0x4c ls1c102_ptimer.o
+                0x000000001c004278                TIM_GetITStatus
+ .text.TIM_ClearIT
+                0x000000001c0042c4       0x5c ls1c102_ptimer.o
+                0x000000001c0042c4                TIM_ClearIT
+ .text.do_exit  0x000000001c004320       0x28 main.o
+                0x000000001c004320                do_exit
+ .text.do_help  0x000000001c004348      0x208 main.o
+                0x000000001c004348                do_help
+ .text.main     0x000000001c004550      0x20c main.o
+                0x000000001c004550                main
+ .text.UART1_HANDLER
+                0x000000001c00475c       0x3c main.o
+                0x000000001c00475c                UART1_HANDLER
+ .text.do_nothing
+                0x000000001c004798       0x20 1c102_cmd.o
+                0x000000001c004798                do_nothing
+ .text.do_d1    0x000000001c0047b8      0x114 1c102_cmd.o
+                0x000000001c0047b8                do_d1
+ .text.do_d4    0x000000001c0048cc      0x120 1c102_cmd.o
+                0x000000001c0048cc                do_d4
+ .text.do_m1    0x000000001c0049ec       0x90 1c102_cmd.o
+                0x000000001c0049ec                do_m1
+ .text.do_m4    0x000000001c004a7c       0x8c 1c102_cmd.o
+                0x000000001c004a7c                do_m4
+ .text.str2num  0x000000001c004b08      0x214 1c102_cmd.o
+                0x000000001c004b08                str2num
+ .text.v_play   0x000000001c004d1c       0xac 1c102_cmd.o
+                0x000000001c004d1c                v_play
+ .text.touch_reg_show
+                0x000000001c004dc8      0x100 1c102_cmd.o
+                0x000000001c004dc8                touch_reg_show
+ .text.touch_value_show
+                0x000000001c004ec8       0xd4 1c102_cmd.o
+                0x000000001c004ec8                touch_value_show
+ .text.touch_test
+                0x000000001c004f9c      0x2b4 1c102_cmd.o
+                0x000000001c004f9c                touch_test
+ .text.hpet     0x000000001c005250      0x100 1c102_cmd.o
+                0x000000001c005250                hpet
+ .text.latimer  0x000000001c005350       0x94 1c102_cmd.o
+                0x000000001c005350                latimer
+ .text.delay    0x000000001c0053e4      0x104 1c102_cmd.o
+                0x000000001c0053e4                delay
+ .text.wakeup   0x000000001c0054e8       0x90 1c102_cmd.o
+                0x000000001c0054e8                wakeup
+ .text.a_to_n   0x000000001c005578       0x60 1c102_cmd.o
+                0x000000001c005578                a_to_n
+ .text.date     0x000000001c0055d8      0x720 1c102_cmd.o
+                0x000000001c0055d8                date
+ .text.watch_dog
+                0x000000001c005cf8       0x84 1c102_cmd.o
+                0x000000001c005cf8                watch_dog
+ .text.i2cp     0x000000001c005d7c       0x4c 1c102_cmd.o
+                0x000000001c005d7c                i2cp
+ .text.i2cw     0x000000001c005dc8      0x10c 1c102_cmd.o
+                0x000000001c005dc8                i2cw
+ .text.i2cr     0x000000001c005ed4       0xe0 1c102_cmd.o
+                0x000000001c005ed4                i2cr
+ .text.adc      0x000000001c005fb4      0x1a4 1c102_cmd.o
+                0x000000001c005fb4                adc
+ .text.batdet   0x000000001c006158      0x170 1c102_cmd.o
+                0x000000001c006158                batdet
+ .text.copy     0x000000001c0062c8      0x190 1c102_cmd.o
+                0x000000001c0062c8                copy
+ .text.uart_init
+                0x000000001c006458       0xac 1c102_cmd.o
+                0x000000001c006458                uart_init
+ .text.spi_init
+                0x000000001c006504       0x68 1c102_cmd.o
+                0x000000001c006504                spi_init
+ .text.spi_write
+                0x000000001c00656c      0x130 1c102_cmd.o
+                0x000000001c00656c                spi_write
+ .text.spi_read
+                0x000000001c00669c      0x170 1c102_cmd.o
+                0x000000001c00669c                spi_read
+ .text.spi_erase
+                0x000000001c00680c       0x90 1c102_cmd.o
+                0x000000001c00680c                spi_erase
+ .text.spi_flash
+                0x000000001c00689c      0x254 1c102_cmd.o
+                0x000000001c00689c                spi_flash
+ .text.gpio_int_test
+                0x000000001c006af0       0x94 1c102_cmd.o
+                0x000000001c006af0                gpio_int_test
+ .text.gpio_int
+                0x000000001c006b84       0x34 1c102_cmd.o
+                0x000000001c006b84                gpio_int
+ .text.tmp      0x000000001c006bb8       0x2c 1c102_cmd.o
+                0x000000001c006bb8                tmp
+ .text.copy_iram
+                0x000000001c006be4      0x138 1c102_cmd.o
+                0x000000001c006be4                copy_iram
+ .text.exti_gpioa0_irq_handler
+                0x000000001c006d1c       0x4c 1c102_Interrupt.o
+                0x000000001c006d1c                exti_gpioa0_irq_handler
+ .text.exti_gpioa1_irq_handler
+                0x000000001c006d68       0x4c 1c102_Interrupt.o
+                0x000000001c006d68                exti_gpioa1_irq_handler
+ .text.exti_gpioa2_irq_handler
+                0x000000001c006db4       0x4c 1c102_Interrupt.o
+                0x000000001c006db4                exti_gpioa2_irq_handler
+ .text.exti_gpioa3_irq_handler
+                0x000000001c006e00       0x4c 1c102_Interrupt.o
+                0x000000001c006e00                exti_gpioa3_irq_handler
+ .text.exti_gpioa4_irq_handler
+                0x000000001c006e4c       0x4c 1c102_Interrupt.o
+                0x000000001c006e4c                exti_gpioa4_irq_handler
+ .text.exti_gpioa5_irq_handler
+                0x000000001c006e98       0x4c 1c102_Interrupt.o
+                0x000000001c006e98                exti_gpioa5_irq_handler
+ .text.exti_gpioa6_irq_handler
+                0x000000001c006ee4       0x4c 1c102_Interrupt.o
+                0x000000001c006ee4                exti_gpioa6_irq_handler
+ .text.exti_gpioa7_irq_handler
+                0x000000001c006f30       0x4c 1c102_Interrupt.o
+                0x000000001c006f30                exti_gpioa7_irq_handler
+ .text.exti_gpiob0_irq_handler
+                0x000000001c006f7c       0x4c 1c102_Interrupt.o
+                0x000000001c006f7c                exti_gpiob0_irq_handler
+ .text.exti_gpiob1_irq_handler
+                0x000000001c006fc8       0x4c 1c102_Interrupt.o
+                0x000000001c006fc8                exti_gpiob1_irq_handler
+ .text.exti_gpiob2_irq_handler
+                0x000000001c007014       0x4c 1c102_Interrupt.o
+                0x000000001c007014                exti_gpiob2_irq_handler
+ .text.exti_gpiob3_irq_handler
+                0x000000001c007060       0x4c 1c102_Interrupt.o
+                0x000000001c007060                exti_gpiob3_irq_handler
+ .text.exti_gpiob4_irq_handler
+                0x000000001c0070ac       0x4c 1c102_Interrupt.o
+                0x000000001c0070ac                exti_gpiob4_irq_handler
+ .text.exti_gpiob5_irq_handler
+                0x000000001c0070f8       0x4c 1c102_Interrupt.o
+                0x000000001c0070f8                exti_gpiob5_irq_handler
+ .text.exti_gpiob6_irq_handler
+                0x000000001c007144       0x4c 1c102_Interrupt.o
+                0x000000001c007144                exti_gpiob6_irq_handler
+ .text.exti_gpiob7_irq_handler
+                0x000000001c007190       0x4c 1c102_Interrupt.o
+                0x000000001c007190                exti_gpiob7_irq_handler
+ .text.exti_gpioc0_irq_handler
+                0x000000001c0071dc       0x4c 1c102_Interrupt.o
+                0x000000001c0071dc                exti_gpioc0_irq_handler
+ .text.exti_gpioc1_irq_handler
+                0x000000001c007228       0x4c 1c102_Interrupt.o
+                0x000000001c007228                exti_gpioc1_irq_handler
+ .text.exti_gpioc2_irq_handler
+                0x000000001c007274       0x4c 1c102_Interrupt.o
+                0x000000001c007274                exti_gpioc2_irq_handler
+ .text.exti_gpioc3_irq_handler
+                0x000000001c0072c0       0x4c 1c102_Interrupt.o
+                0x000000001c0072c0                exti_gpioc3_irq_handler
+ .text.exti_gpioc4_irq_handler
+                0x000000001c00730c       0x4c 1c102_Interrupt.o
+                0x000000001c00730c                exti_gpioc4_irq_handler
+ .text.exti_gpioc5_irq_handler
+                0x000000001c007358       0x4c 1c102_Interrupt.o
+                0x000000001c007358                exti_gpioc5_irq_handler
+ .text.exti_gpioc6_irq_handler
+                0x000000001c0073a4       0x4c 1c102_Interrupt.o
+                0x000000001c0073a4                exti_gpioc6_irq_handler
+ .text.exti_gpioc7_irq_handler
+                0x000000001c0073f0       0x4c 1c102_Interrupt.o
+                0x000000001c0073f0                exti_gpioc7_irq_handler
+ .text.exti_gpiod0_irq_handler
+                0x000000001c00743c       0x4c 1c102_Interrupt.o
+                0x000000001c00743c                exti_gpiod0_irq_handler
+ .text.exti_gpiod1_irq_handler
+                0x000000001c007488       0x4c 1c102_Interrupt.o
+                0x000000001c007488                exti_gpiod1_irq_handler
+ .text.exti_gpiod2_irq_handler
+                0x000000001c0074d4       0x4c 1c102_Interrupt.o
+                0x000000001c0074d4                exti_gpiod2_irq_handler
+ .text.exti_gpiod3_irq_handler
+                0x000000001c007520       0x4c 1c102_Interrupt.o
+                0x000000001c007520                exti_gpiod3_irq_handler
+ .text.exti_gpiod4_irq_handler
+                0x000000001c00756c       0x4c 1c102_Interrupt.o
+                0x000000001c00756c                exti_gpiod4_irq_handler
+ .text.exti_gpiod5_irq_handler
+                0x000000001c0075b8       0x4c 1c102_Interrupt.o
+                0x000000001c0075b8                exti_gpiod5_irq_handler
+ .text.exti_gpiod6_irq_handler
+                0x000000001c007604       0x4c 1c102_Interrupt.o
+                0x000000001c007604                exti_gpiod6_irq_handler
+ .text.exti_gpiod7_irq_handler
+                0x000000001c007650       0x4c 1c102_Interrupt.o
+                0x000000001c007650                exti_gpiod7_irq_handler
+ .text.ext_handler
+                0x000000001c00769c       0xd0 1c102_Interrupt.o
+                0x000000001c00769c                ext_handler
+ .text.TIMER_WAKE_INT
+                0x000000001c00776c       0x48 1c102_Interrupt.o
+                0x000000001c00776c                TIMER_WAKE_INT
+ .text.TOUCH    0x000000001c0077b4       0x8c 1c102_Interrupt.o
+                0x000000001c0077b4                TOUCH
+ .text.UART2_INT
+                0x000000001c007840       0x3c 1c102_Interrupt.o
+                0x000000001c007840                UART2_INT
+ .text.BAT_FAIL
+                0x000000001c00787c       0xd8 1c102_Interrupt.o
+                0x000000001c00787c                BAT_FAIL
+ .text.intc_handler
+                0x000000001c007954      0x15c 1c102_Interrupt.o
+                0x000000001c007954                intc_handler
+ .text.TIMER_HANDLER
+                0x000000001c007ab0       0x38 1c102_Interrupt.o
+                0x000000001c007ab0                TIMER_HANDLER
+                0x000000001c007ae8                . = ALIGN (0x4)
+                0x000000001c007ae8                _etext = .
+
+.rodata         0x000000001c007b00     0x16ec
+                0x000000001c007b00                . = ALIGN (0x4)
+ *(.rodata .rodata.*)
+ .rodata        0x000000001c007b00       0x1a serial.o
+                0x000000001c007b00                msg_wakeup
+ *fill*         0x000000001c007b1a        0x2 
+ .rodata.myprintf
+                0x000000001c007b1c      0x150 ls1x_printf.o
+ .rodata.soc_myprintf
+                0x000000001c007c6c      0x150 soc_printf.o
+ .rodata        0x000000001c007dbc       0xaf ls1c102_i2c.o
+ *fill*         0x000000001c007e6b        0x1 
+ .rodata        0x000000001c007e6c       0xa2 ls1c102_touch.o
+ *fill*         0x000000001c007f0e        0x2 
+ .rodata        0x000000001c007f10      0x5b3 main.o
+ *fill*         0x000000001c0084c3        0x1 
+ .rodata        0x000000001c0084c4      0x881 1c102_cmd.o
+ *fill*         0x000000001c008d45        0x3 
+ .rodata.Ext_IrqHandle
+                0x000000001c008d48       0x80 1c102_Interrupt.o
+                0x000000001c008d48                Ext_IrqHandle
+ .rodata        0x000000001c008dc8       0xd2 1c102_Interrupt.o
+ *fill*         0x000000001c008e9a        0x2 
+ .rodata.BAT_FAIL
+                0x000000001c008e9c       0x44 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1643
+                0x000000001c008ee0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1647
+                0x000000001c008ef8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1651
+                0x000000001c008f10       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1655
+                0x000000001c008f28       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1659
+                0x000000001c008f40       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1663
+                0x000000001c008f58       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1667
+                0x000000001c008f70       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1671
+                0x000000001c008f88       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1675
+                0x000000001c008fa0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1679
+                0x000000001c008fb8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1683
+                0x000000001c008fd0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1687
+                0x000000001c008fe8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1691
+                0x000000001c009000       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1695
+                0x000000001c009018       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1699
+                0x000000001c009030       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1703
+                0x000000001c009048       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1707
+                0x000000001c009060       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1711
+                0x000000001c009078       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1715
+                0x000000001c009090       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1719
+                0x000000001c0090a8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1723
+                0x000000001c0090c0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1727
+                0x000000001c0090d8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1731
+                0x000000001c0090f0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1735
+                0x000000001c009108       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1739
+                0x000000001c009120       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1743
+                0x000000001c009138       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1747
+                0x000000001c009150       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1751
+                0x000000001c009168       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1755
+                0x000000001c009180       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1759
+                0x000000001c009198       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1763
+                0x000000001c0091b0       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1767
+                0x000000001c0091c8       0x18 1c102_Interrupt.o
+ .rodata.__FUNCTION__.1776
+                0x000000001c0091e0        0xc 1c102_Interrupt.o
+                0x000000001c0091ec                . = ALIGN (0x4)
+                0x000000001c0091ec                _sidata = ALIGN (., 0x4)
+                0x000000001c0091ec                . = ALIGN (0x4)
+
+.rela.dyn       0x000000001c0091ec        0x0
+ .rela.got      0x000000001c0091ec        0x0 start.o
+ .rela.rodata.myprintf
+                0x000000001c0091ec        0x0 start.o
+ .rela.rodata.soc_myprintf
+                0x000000001c0091ec        0x0 start.o
+ .rela.rodata   0x000000001c0091ec        0x0 start.o
+ .rela.rodata.Ext_IrqHandle
+                0x000000001c0091ec        0x0 start.o
+ .rela.rodata.BAT_FAIL
+                0x000000001c0091ec        0x0 start.o
+
+.data           0x0000000080001000        0xc load address 0x000000001c0091ec
+                0x0000000080001000                _sdata = .
+                0x0000000080001000                . = ALIGN (0x4)
+ *(.got.plt)
+ .got.plt       0x0000000080001000        0x0 start.o
+                0x0000000080001000                . = ALIGN (0x4)
+ *(.got)
+ .got           0x0000000080001000        0xc start.o
+                0x0000000080001000                _GLOBAL_OFFSET_TABLE_
+                0x000000008000100c                . = ALIGN (0x4)
+ *(.data .data.*)
+                0x000000008000100c                . = ALIGN (0x4)
+                0x000000008000100c                _edata = .
+
+.bss            0x0000000080000000        0x0
+                0x0000000080000000                _sbss = .
+                0x0000000080000000                . = ALIGN (0x4)
+ *(.sbss)
+                0x0000000080000000                . = ALIGN (0x4)
+ *(.bss)
+                0x0000000080000000                . = ALIGN (0x4)
+ *(.scommon)
+                0x0000000080000000                . = ALIGN (0x4)
+ *(COMMON)
+                0x0000000080000000                . = ALIGN (0x4)
+                0x0000000080000000                _ebss = .
+LOAD start.o
+LOAD serial.o
+LOAD wakeup.o
+LOAD UserGpio.o
+LOAD ls1x_gpio.o
+LOAD soc_hpet.o
+LOAD ls1x_spi.o
+LOAD ls1x_printf.o
+LOAD ls1x_uart.o
+LOAD ls1x_clock.o
+LOAD ls1x_common.o
+LOAD ls1x_pmu.o
+LOAD ls1x_logo.o
+LOAD soc_printf.o
+LOAD soc_pwm.o
+LOAD ls1x_latimer.o
+LOAD ls1x_string.o
+LOAD ls1x_flash.o
+LOAD ls1x_rtc.o
+LOAD soc_gpio.o
+LOAD soc_uart.o
+LOAD ls1x_exti.o
+LOAD ls1x_wdg.o
+LOAD ls1c102_i2c.o
+LOAD ls1c102_vpwm.o
+LOAD ls1c102_touch.o
+LOAD ls1c102_ptimer.o
+LOAD calIn8M.o
+LOAD touch.o
+LOAD uartTest.o
+LOAD Buffer.o
+LOAD main.o
+LOAD 1c102_cmd.o
+LOAD 1c102_Interrupt.o
+START GROUP
+LOAD D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libm.a
+LOAD D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/lib/gcc/loongarch32-newlib-elf/8.3.0\libgcc.a
+LOAD D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a
+END GROUP
+OUTPUT(1c102_instr.elf elf32-loongarch)
+
+.bss.state      0x0000000080000000        0x4
+ .bss.state     0x0000000080000000        0x4 1c102_Interrupt.o
+                0x0000000080000000                state
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 ls1x_gpio.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 ls1x_spi.o
+ .comment       0x0000000000000011       0x12 ls1x_printf.o
+ .comment       0x0000000000000011       0x12 ls1x_uart.o
+ .comment       0x0000000000000011       0x12 ls1x_common.o
+ .comment       0x0000000000000011       0x12 soc_printf.o
+ .comment       0x0000000000000011       0x12 ls1x_latimer.o
+ .comment       0x0000000000000011       0x12 ls1x_string.o
+ .comment       0x0000000000000011       0x12 ls1x_rtc.o
+ .comment       0x0000000000000011       0x12 soc_gpio.o
+ .comment       0x0000000000000011       0x12 soc_uart.o
+ .comment       0x0000000000000011       0x12 ls1x_exti.o
+ .comment       0x0000000000000011       0x12 ls1x_wdg.o
+ .comment       0x0000000000000011       0x12 ls1c102_i2c.o
+ .comment       0x0000000000000011       0x12 ls1c102_vpwm.o
+ .comment       0x0000000000000011       0x12 ls1c102_touch.o
+ .comment       0x0000000000000011       0x12 ls1c102_ptimer.o
+ .comment       0x0000000000000011       0x12 main.o
+ .comment       0x0000000000000011       0x12 1c102_cmd.o
+ .comment       0x0000000000000011       0x12 1c102_Interrupt.o
