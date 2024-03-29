@@ -392,7 +392,7 @@ void intc_handler(void)
 	if (IntReg & UART0_INT_OUT) //Uart0
 	{
     	uint8_t chr = UART0_RxData ;
-//        printf("uart0 recv:0x%x\n",chr);
+       	printf("uart0 recv:0x%x\n",chr);
     	recv_dat_int(chr);
 		INT_CLR = UART0_INT_CLR;
 	}

@@ -447,6 +447,7 @@ START:
 
 
 #include "my_delay.h"
+#include "math.h"
 
 int main(void)
 {
@@ -461,9 +462,10 @@ int main(void)
     uint8_t *str0 = "ABCD";
     soc_printf("str0 = %s\r\n", str0);
 	my_delay_ms(25);
-
+	int32_t a = (int)sqrt(100);
     uint8_t buf0[4] = "ABCD";
-    soc_printf("len = %d\r\n", sizeof(buf0));
+    // soc_printf("len = %d\r\n", sizeof(buf0));
+    soc_printf("len = %d\r\n", a);
 	my_delay_ms(25);
 
 	volatile int num = 8;
@@ -472,7 +474,7 @@ int main(void)
 
 	gpio_init(1, 1);
 	gpio_init(20, 1);
-	uart1_interrupt();
+	uart0_interrupt();
 
     while(1) {
         my_delay_ms(1000);

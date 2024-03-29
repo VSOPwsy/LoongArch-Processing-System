@@ -15,7 +15,7 @@ extern "C" {
 #define UART_FIFO *(volatile int*) 0xbfe80000
 #define UART_FIFO_CTRL *(volatile int*) 0xbfe80004
 
-void uart1_interrupt();
+void uart0_interrupt();
 
 #ifdef __cplusplus
 }

@@ -1,5 +1,13 @@
 {
     "files.associations": {
-        "my_delay.h": "c"
+        "my_delay.h": "c",
+        "math.h": "c",
+        "ls1x_pmu.h": "c",
+        "calin8m.h": "c",
+        "string.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "soc_printf.h": "c",
+        "time.h": "c"
     }
 }
