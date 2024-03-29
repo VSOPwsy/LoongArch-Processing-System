@@ -43,17 +43,18 @@
 `define PROT_WIDTH 3
 `define RESP_WIDTH 2
 
-`define CPU_DATA_WIDTH 32
-`define CPU_STRB_WIDTH (`CPU_DATA_WIDTH/8)
+`define CPU_ID_WIDTH    4
+`define CPU_DATA_WIDTH  32
+`define CPU_STRB_WIDTH  (`CPU_DATA_WIDTH/8)
 
-`define APB_DATA_WIDTH (`CPU_DATA_WIDTH)
+`define PERIPH_ID_WIDTH 8
 
-`define DDR_DATA_WIDTH 128
-`define DDR_STRB_WIDTH (`DDR_DATA_WIDTH/8)
+`define APB_DATA_WIDTH  (`CPU_DATA_WIDTH)
 
-`define DDR_ARB_MST_NUM         16
-`define DDR_ARB_EXT_ID_WIDTH    $clog2(`DDR_ARB_MST_NUM)
-`define DDR_ARB_ID_WIDTH        (`ID_WIDTH + `DDR_ARB_EXT_ID_WIDTH)
+`define DDR_DATA_WIDTH  128
+`define DDR_STRB_WIDTH  (`DDR_DATA_WIDTH/8)
+
+`define DDR_ARB_ID_WIDTH    12
 
 /*****************
 *   APB interface      9-way APB

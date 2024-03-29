@@ -90,7 +90,7 @@ module TOP # (
 	wire [31:0]               	debug_pc;
     wire [5:0]                	interrupt;
 
-	wire [`ID_WIDTH      -1 :0] cpu_awid;
+	wire [`CPU_ID_WIDTH  -1 :0] cpu_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_awaddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_awlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_awsize;
@@ -100,17 +100,17 @@ module TOP # (
 	wire [`PROT_WIDTH    -1 :0] cpu_awprot;
 	wire                      	cpu_awvalid;
 	wire                      	cpu_awready;
-	wire [`ID_WIDTH      -1 :0] cpu_wid;
+	wire [`CPU_ID_WIDTH  -1 :0] cpu_wid;
 	wire [`CPU_DATA_WIDTH-1 :0] cpu_wdata;
 	wire [`CPU_STRB_WIDTH-1 :0] cpu_wstrb;
 	wire                      	cpu_wlast;
 	wire                      	cpu_wvalid;
 	wire                      	cpu_wready;
-	wire [`ID_WIDTH      -1 :0] cpu_bid;
+	wire [`CPU_ID_WIDTH -1 :0] cpu_bid;
 	wire [`RESP_WIDTH   -1 :0 ]	cpu_bresp;
 	wire                      	cpu_bvalid;
 	wire                      	cpu_bready;
-	wire [`ID_WIDTH      -1 :0] cpu_arid;
+	wire [`CPU_ID_WIDTH  -1 :0] cpu_arid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_araddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_arsize;
@@ -120,7 +120,7 @@ module TOP # (
 	wire [`PROT_WIDTH    -1 :0] cpu_arprot;
 	wire                      	cpu_arvalid;
 	wire                      	cpu_arready;
-	wire [`ID_WIDTH      -1 :0] cpu_rid;
+	wire [`CPU_ID_WIDTH  -1 :0] cpu_rid;
 	wire [`CPU_DATA_WIDTH-1 :0] cpu_rdata;
 	wire [`RESP_WIDTH    -1 :0] cpu_rresp;
 	wire                      	cpu_rlast;
@@ -158,7 +158,7 @@ module TOP # (
 	wire						vpwm_int;
 	wire						dma_int;
 
-	wire [`ID_WIDTH      -1 :0] axi2apb_awid;
+	wire [`PERIPH_ID_WIDTH-1:0] axi2apb_awid;
 	wire [`ADDR_WIDTH    -1 :0] axi2apb_awaddr;
 	wire [`LEN_WIDTH     -1 :0] axi2apb_awlen;
 	wire [`SIZE_WIDTH    -1 :0] axi2apb_awsize;
@@ -173,11 +173,11 @@ module TOP # (
 	wire                      	axi2apb_wlast;
 	wire                      	axi2apb_wvalid;
 	wire                      	axi2apb_wready;
-	wire [`ID_WIDTH      -1 :0] axi2apb_bid;
+	wire [`PERIPH_ID_WIDTH-1:0]axi2apb_bid;
 	wire [`RESP_WIDTH    -1 :0] axi2apb_bresp;
 	wire                      	axi2apb_bvalid;
 	wire                      	axi2apb_bready;
-	wire [`ID_WIDTH      -1 :0] axi2apb_arid;
+	wire [`PERIPH_ID_WIDTH-1:0] axi2apb_arid;
 	wire [`ADDR_WIDTH    -1 :0] axi2apb_araddr;
 	wire [`LEN_WIDTH     -1 :0] axi2apb_arlen;
 	wire [`SIZE_WIDTH    -1 :0] axi2apb_arsize;
@@ -187,7 +187,7 @@ module TOP # (
 	wire [`PROT_WIDTH    -1 :0] axi2apb_arprot;
 	wire                      	axi2apb_arvalid;
 	wire                      	axi2apb_arready;
-	wire [`ID_WIDTH      -1 :0] axi2apb_rid;
+	wire [`PERIPH_ID_WIDTH-1:0] axi2apb_rid;
 	wire [`CPU_DATA_WIDTH-1 :0] axi2apb_rdata;
 	wire [`RESP_WIDTH    -1 :0] axi2apb_rresp;
 	wire                      	axi2apb_rlast;
@@ -276,7 +276,7 @@ module TOP # (
 	wire [`APB_DATA_WIDTH-1 :0] apb8_datao;
 	wire                      	apb8_ack;
 
-	wire [`ID_WIDTH      -1 :0] cpu_arb_32_awid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_32_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_awaddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_32_awlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_arb_32_awsize;
@@ -291,11 +291,11 @@ module TOP # (
 	wire                      	cpu_arb_32_wlast;
 	wire                      	cpu_arb_32_wvalid;
 	wire                      	cpu_arb_32_wready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_32_bid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_32_bid;
 	wire [`RESP_WIDTH    -1 :0] cpu_arb_32_bresp;
 	wire                      	cpu_arb_32_bvalid;
 	wire                      	cpu_arb_32_bready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_32_arid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_32_arid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_araddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_32_arlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_arb_32_arsize;
@@ -305,14 +305,14 @@ module TOP # (
 	wire [`PROT_WIDTH    -1 :0] cpu_arb_32_arprot;
 	wire                      	cpu_arb_32_arvalid;
 	wire                      	cpu_arb_32_arready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_32_rid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_32_rid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_32_rdata;
 	wire [`RESP_WIDTH    -1 :0] cpu_arb_32_rresp;
 	wire                      	cpu_arb_32_rlast;
 	wire                      	cpu_arb_32_rvalid;
 	wire                      	cpu_arb_32_rready;
 
-	wire [`ID_WIDTH      -1 :0] cpu_arb_128_awid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_128_awid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_128_awaddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_128_awlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_arb_128_awsize;
@@ -327,11 +327,11 @@ module TOP # (
 	wire                      	cpu_arb_128_wlast;
 	wire                      	cpu_arb_128_wvalid;
 	wire                      	cpu_arb_128_wready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_128_bid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_128_bid;
 	wire [`RESP_WIDTH    -1 :0] cpu_arb_128_bresp;
 	wire                      	cpu_arb_128_bvalid;
 	wire                      	cpu_arb_128_bready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_128_arid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_128_arid;
 	wire [`ADDR_WIDTH    -1 :0] cpu_arb_128_araddr;
 	wire [`LEN_WIDTH     -1 :0] cpu_arb_128_arlen;
 	wire [`SIZE_WIDTH    -1 :0] cpu_arb_128_arsize;
@@ -341,14 +341,14 @@ module TOP # (
 	wire [`PROT_WIDTH    -1 :0] cpu_arb_128_arprot;
 	wire                      	cpu_arb_128_arvalid;
 	wire                      	cpu_arb_128_arready;
-	wire [`ID_WIDTH      -1 :0] cpu_arb_128_rid;
+	wire [`PERIPH_ID_WIDTH-1:0] cpu_arb_128_rid;
 	wire [`DDR_DATA_WIDTH-1 :0] cpu_arb_128_rdata;
 	wire [`RESP_WIDTH    -1 :0] cpu_arb_128_rresp;
 	wire                      	cpu_arb_128_rlast;
 	wire                      	cpu_arb_128_rvalid;
 	wire                      	cpu_arb_128_rready;
 
-	wire [`ID_WIDTH      -1 :0] arb_ctr_awid;
+	wire [`DDR_ARB_ID_WIDTH-1:0]arb_ctr_awid;
 	wire [`ADDR_WIDTH    -1 :0] arb_ctr_awaddr;
 	wire [7:0]               	arb_ctr_awlen;
 	wire [2:0]               	arb_ctr_awsize;
@@ -542,7 +542,7 @@ module TOP # (
 
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
-		.AXI_ID_W			(`ID_WIDTH				),
+		.AXI_ID_W			(`PERIPH_ID_WIDTH		),
 		.AXI_DATA_W			(`CPU_DATA_WIDTH		),
 		
 		.MST0_CDC			(1						),
@@ -576,7 +576,7 @@ module TOP # (
 		.slv0_awlock		(cpu_awlock				),
 		.slv0_awcache		(cpu_awcache			),
 		.slv0_awprot		(cpu_awprot				),
-		.slv0_awid			(cpu_awid				),
+		.slv0_awid			({4'd1,cpu_awid}		),
 		.slv0_wvalid		(cpu_wvalid				),
 		.slv0_wready		(cpu_wready				),
 		.slv0_wlast			(cpu_wlast				),
@@ -595,7 +595,7 @@ module TOP # (
 		.slv0_arlock		(cpu_arlock				),
 		.slv0_arcache		(cpu_arcache			),
 		.slv0_arprot		(cpu_arprot				),
-		.slv0_arid			(cpu_arid				),
+		.slv0_arid			({4'd1,cpu_arid}		),
 		.slv0_rvalid		(cpu_rvalid				),
 		.slv0_rready		(cpu_rready				),
 		.slv0_rid			(cpu_rid				),
@@ -689,7 +689,11 @@ module TOP # (
 	/*
 	 * AXI SLAVE 0
 	 */
-	axi2apb_bridge apb (
+	axi2apb_bridge #(
+		.ID_WIDTH			(`PERIPH_ID_WIDTH		),
+		.ADDR_WIDTH			(`ADDR_WIDTH			),
+		.DATA_WIDTH			(`APB_DATA_WIDTH		)
+	) apb (
 		.clk				(clk_100M				),
 		.rst_n				(locked&sys_resetn		),
 		.axi_s_awid			(axi2apb_awid			),
@@ -1011,7 +1015,7 @@ module TOP # (
 	// 	.slv0_awlock		(cpu_arb_128_awlock		),
 	// 	.slv0_awcache		(cpu_arb_128_awcache	),
 	// 	.slv0_awprot		(cpu_arb_128_awprot		),
-	// 	.slv0_awid			({'d1,cpu_arb_128_awid}	),
+	// 	.slv0_awid			({4'd1,cpu_arb_128_awid}	),
 	// 	.slv0_wvalid		(cpu_arb_128_wvalid		),
 	// 	.slv0_wready		(cpu_arb_128_wready		),
 	// 	.slv0_wlast			(cpu_arb_128_wlast		),
@@ -1030,7 +1034,7 @@ module TOP # (
 	// 	.slv0_arlock		(cpu_arb_128_arlock		),
 	// 	.slv0_arcache		(cpu_arb_128_arcache	),
 	// 	.slv0_arprot		(cpu_arb_128_arprot		),
-	// 	.slv0_arid			({'d1,cpu_arb_128_arid}	),
+	// 	.slv0_arid			({4'd1,cpu_arb_128_arid}	),
 	// 	.slv0_rvalid		(cpu_arb_128_rvalid		),
 	// 	.slv0_rready		(cpu_arb_128_rready		),
 	// 	.slv0_rid			(cpu_arb_128_rid		),

@@ -7,13 +7,15 @@ NOTES:
     attibute of axi_araddr/axi_awaddr. Axi2apb_bidge doesn't ganrantee word alignment.    
 */
 
-`include "../config.v"
-
-module axi2apb_bridge (
+module axi2apb_bridge # (
+	parameter ID_WIDTH = 8,
+	parameter ADDR_WIDTH = 32,
+	parameter DATA_WIDTH = 32
+)(
 	input                   	clk,
 	input                   	rst_n,
-	input [`ID_WIDTH-1:0]       axi_s_awid,
-	input [`ADDR_WIDTH-1:0]    	axi_s_awaddr,
+	input [ID_WIDTH-1:0]       axi_s_awid,
+	input [ADDR_WIDTH-1:0]    	axi_s_awaddr,
 	input [3:0]             	axi_s_awlen,
 	input [2:0]             	axi_s_awsize,
 	input [1:0]             	axi_s_awburst,
@@ -23,20 +25,20 @@ module axi2apb_bridge (
 	input                   	axi_s_awvalid,
 	output                  	axi_s_awready,
 
-	input [`ID_WIDTH-1:0]       axi_s_wid,
+	input [ID_WIDTH-1:0]       axi_s_wid,
 	input [31:0]            	axi_s_wdata,
 	input [3:0]             	axi_s_wstrb,
 	input                   	axi_s_wlast,
 	input                   	axi_s_wvalid,
 	output reg              	axi_s_wready,
 
-	output[`ID_WIDTH-1:0]       axi_s_bid,
+	output[ID_WIDTH-1:0]       axi_s_bid,
 	output[1:0]             	axi_s_bresp,
 	output                  	axi_s_bvalid,
 	input                   	axi_s_bready,
 
-	input [`ID_WIDTH-1:0]       axi_s_arid,
-	input [`ADDR_WIDTH-1:0]    	axi_s_araddr,
+	input [ID_WIDTH-1:0]       axi_s_arid,
+	input [ADDR_WIDTH-1:0]    	axi_s_araddr,
 	input [3:0]             	axi_s_arlen,
 	input [2:0]             	axi_s_arsize,
 	input [1:0]             	axi_s_arburst,
@@ -46,7 +48,7 @@ module axi2apb_bridge (
 	input                   	axi_s_arvalid,
 	output                  	axi_s_arready,
 
-	output[`ID_WIDTH-1:0]        axi_s_rid,
+	output[ID_WIDTH-1:0]        axi_s_rid,
 	output[31:0]            	axi_s_rdata,
 	output[1:0]             	axi_s_rresp,
 	output                  	axi_s_rlast,
@@ -58,24 +60,24 @@ module axi2apb_bridge (
 	output reg              	reg_psel,
 	output reg              	reg_enable,
 	output                  	reg_rw,
-	output[`ADDR_WIDTH-1:0]   	reg_addr,
+	output[ADDR_WIDTH-1:0]   	reg_addr,
 
-	output[`APB_DATA_WIDTH-1:0] reg_datai,
-	input [`APB_DATA_WIDTH-1:0] reg_datao,
+	output[DATA_WIDTH-1:0] 		reg_datai,
+	input [DATA_WIDTH-1:0] 		reg_datao,
 	input                   	reg_ready_1
 );
 
 	reg busy;
 	reg W_R;
-	reg [`ADDR_WIDTH-1:0] addr;
+	reg [ADDR_WIDTH-1:0] addr;
 	reg [2:0] size;
-	reg [`ID_WIDTH-1:0] id;
+	reg [ID_WIDTH-1:0] id;
 	wire [1:0] waddr;
 	reg [1:0] waddr_r;
 	assign apb_clk = clk;
 	assign apb_reset_n = rst_n;
 	assign reg_rw = W_R;
-	assign reg_addr = reg_rw ? {addr[`ADDR_WIDTH-1:2],waddr_r}:addr[`ADDR_WIDTH-1:0]; 
+	assign reg_addr = reg_rw ? {addr[ADDR_WIDTH-1:2],waddr_r}:addr[ADDR_WIDTH-1:0]; 
 
 	assign axi_s_awready = ~busy & (~W_R | ~axi_s_arvalid);
 	assign axi_s_arready = ~busy & ( W_R | ~axi_s_awvalid); 
