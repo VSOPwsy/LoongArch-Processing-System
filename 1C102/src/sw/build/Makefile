@@ -49,6 +49,7 @@ IMAGE_MAP = $(IMAGENAME).map
 # **********************************************
 # Compiler and linker options
 # **********************************************
+GCC_ROOT=$(abspath $(dir $(CROSS_COMPILE))/..)
 INCLUDE	+= -I$(ROOT_DIR)/include -I$(ROOT_DIR)/public -I$(PRIVATE) -I$(TARGET) -I$(DRIVER) -I$(TOOL)
 
 FLAGS   = -std=gnu99 -O0 -ffunction-sections -fdata-sections -msoft-float -fsched-pressure -fno-builtin -D $(BOARDNAME) 
@@ -57,7 +58,7 @@ CC_OPTS	 = $(DEBUG) $(FLAGS) $(INCLUDE)
 CC_COPTS = $(DEBUG) $(FLAGS) $(INCLUDE) 
 
 LD_SCRIPT = ld.script
-LD_OPTS   = -G 0 -static -T $(LD_SCRIPT) -Map $(IMAGE_MAP) --gc-sections
+LD_OPTS   = -G 0 -static -T $(LD_SCRIPT) -Map $(IMAGE_MAP) --gc-sections --sysroot=$(GCC_ROOT)/loongarch32-newlib-elf
 
 # **********************************************
 # Files to be compiled
@@ -79,7 +80,7 @@ LS1C1X_OBJ = $(OBJ_S) $(OBJ_C)
 .PHONY : all
 all : $(IMAGE_BIN) 
 $(IMAGE_BIN):$(LS1C1X_OBJ) 
-	$(LD) $(LD_OPTS) -o $(IMAGE_ELF) $^ -Map $(IMAGE_MAP)
+	$(LD) $(LD_OPTS) -o $(IMAGE_ELF) $^ -Map $(IMAGE_MAP) -L$(GCC_ROOT)/loongarch32-newlib-elf/lib/ -L$(GCC_ROOT)/lib/gcc/loongarch32-newlib-elf/8.3.0 --start-group -lm -lgcc -lc --end-group
 	$(OBJCOPY) -O binary $(IMAGE_ELF) $(IMAGE_BIN)
 	$(SIZE) $(IMAGE_ELF)
 	$(OBJDUMP) -alD $(IMAGE_ELF) > $(IMAGENAME).s

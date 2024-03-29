@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "soc_uart.h": "c",
+        "ls1c102_interrupt.h": "c",
+        "ls1c102_touch.h": "c",
+        "config.h": "c",
+        "ls1c102_i2c.h": "c",
+        "ls1c102_ptimer.h": "c",
+        "soc_ls1c102.h": "c"
+    }
+}
