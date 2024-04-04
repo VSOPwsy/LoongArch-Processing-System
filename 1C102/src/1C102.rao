@@ -2,29 +2,111 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="16384" window_num="1" capture_amount="16384" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">UART0/uart_wr</Signal>
-            <Bus capture_enable="true" name="UART0/uFIFO_TX/w_ptr_reg[3:0]">
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[3]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[2]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[1]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[0]</Signal>
+            <Signal capture_enable="true">arb_ctr_bvalid</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/mst0_bvalid</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/mst0_if/o_bvalid</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/mst0_if/i_bvalid</Signal>
+            <Bus capture_enable="true" name="AXI_Arbiter/o_bvalid[3:0]">
+                <Signal>AXI_Arbiter/o_bvalid[3]</Signal>
+                <Signal>AXI_Arbiter/o_bvalid[2]</Signal>
+                <Signal>AXI_Arbiter/o_bvalid[1]</Signal>
+                <Signal>AXI_Arbiter/o_bvalid[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="UART0/uFIFO_TX/r_ptr_reg[3:0]">
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[3]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[2]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[1]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[0]</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].bch_mst_pipe/i_valid</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].bch_mst_pipe/o_valid</Signal>
+            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/mst0_bch_targeted</Signal>
+            <Bus capture_enable="true" name="AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[3:0]">
+                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[3]</Signal>
+                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[2]</Signal>
+                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[1]</Signal>
+                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">UART0/uFIFO_TX/rd</Signal>
-            <Signal capture_enable="true">UART0/uFIFO_TX/wr</Signal>
-            <Signal capture_enable="true">UART0/uFIFO_TX/empty</Signal>
+            <Bus capture_enable="true" name="AXI_Arbiter/switchs/mst_bvalid[15:0]">
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[15]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[14]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[13]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[12]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[11]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[10]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[9]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[8]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[7]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[6]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[5]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[4]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[3]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[2]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[1]</Signal>
+                <Signal>AXI_Arbiter/switchs/mst_bvalid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_Arbiter/i_bvalid[3:0]">
+                <Signal>AXI_Arbiter/i_bvalid[3]</Signal>
+                <Signal>AXI_Arbiter/i_bvalid[2]</Signal>
+                <Signal>AXI_Arbiter/i_bvalid[1]</Signal>
+                <Signal>AXI_Arbiter/i_bvalid[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">AXI_Arbiter/slv0_bvalid</Signal>
+            <Signal capture_enable="true">cpu_arb_128_bvalid</Signal>
+            <Signal capture_enable="true">cpu_arb_32_bvalid</Signal>
+            <Signal capture_enable="true">axi2apb_bvalid</Signal>
+            <Signal capture_enable="true">cpu_bvalid</Signal>
+            <Signal capture_enable="true">cpu_bready</Signal>
+            <Bus capture_enable="true" name="AXI_Crossbar/i_bready[3:0]">
+                <Signal>AXI_Crossbar/i_bready[3]</Signal>
+                <Signal>AXI_Crossbar/i_bready[2]</Signal>
+                <Signal>AXI_Crossbar/i_bready[1]</Signal>
+                <Signal>AXI_Crossbar/i_bready[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[3:0]">
+                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[3]</Signal>
+                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[2]</Signal>
+                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[1]</Signal>
+                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_Crossbar/o_bready[3:0]">
+                <Signal>AXI_Crossbar/o_bready[3]</Signal>
+                <Signal>AXI_Crossbar/o_bready[2]</Signal>
+                <Signal>AXI_Crossbar/o_bready[1]</Signal>
+                <Signal>AXI_Crossbar/o_bready[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cpu_arb_32_bready</Signal>
+            <Signal capture_enable="true">arb_ctr_bready</Signal>
+            <Signal capture_enable="true">cpu_arb_128_bready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_awid[11:0]">
+                <Signal>ddr_ctr/s_axi_awid[11]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[10]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[9]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[8]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_bid[11:0]">
+                <Signal>ddr_ctr/s_axi_bid[11]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[10]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[9]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[8]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[0]</Signal>
+            </Bus>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>UART0/uart_wr</Signal>
+                    <Signal>init_calib_complete</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -65,5 +147,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1011011100001110</GAO_ID>
+    <GAO_ID>0101111111100011</GAO_ID>
 </GAO_CONFIG>
