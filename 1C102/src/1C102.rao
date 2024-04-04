@@ -2,29 +2,15 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="16384" window_num="1" capture_amount="16384" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="128" window_num="1" capture_amount="128" implementation="0" trigger_pos="6" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">UART0/uart_wr</Signal>
-            <Bus capture_enable="true" name="UART0/uFIFO_TX/w_ptr_reg[3:0]">
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[3]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[2]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[1]</Signal>
-                <Signal>UART0/uFIFO_TX/w_ptr_reg[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="UART0/uFIFO_TX/r_ptr_reg[3:0]">
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[3]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[2]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[1]</Signal>
-                <Signal>UART0/uFIFO_TX/r_ptr_reg[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">UART0/uFIFO_TX/rd</Signal>
-            <Signal capture_enable="true">UART0/uFIFO_TX/wr</Signal>
-            <Signal capture_enable="true">UART0/uFIFO_TX/empty</Signal>
+            <Signal capture_enable="true">cpu_wvalid</Signal>
+            <Signal capture_enable="true">cpu_wlast</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>UART0/uart_wr</Signal>
+                    <Signal>cpu_wvalid</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -65,5 +51,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1011011100001110</GAO_ID>
+    <GAO_ID>1100000101110100</GAO_ID>
 </GAO_CONFIG>

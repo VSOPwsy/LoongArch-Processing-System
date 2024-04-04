@@ -41,11 +41,11 @@ module TOP # (
     wire clk_8M;		/* synthesis syn_keep=1 */
 	wire clk_50M;		/* synthesis syn_keep=1 */
 	wire clk_100M;		/* synthesis syn_keep=1 */
-	wire clk_400M;		/* synthesis syn_keep=1 */
+	// wire clk_400M;		/* synthesis syn_keep=1 */
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
-	wire ddr_ui_clk;
+	// wire ddr_ui_clk;	/* synthesis syn_keep=1 */
 
     /*
      * For GW5A
@@ -173,7 +173,7 @@ module TOP # (
 	wire                      	axi2apb_wlast;
 	wire                      	axi2apb_wvalid;
 	wire                      	axi2apb_wready;
-	wire [`PERIPH_ID_WIDTH-1:0]axi2apb_bid;
+	wire [`PERIPH_ID_WIDTH-1:0] axi2apb_bid;
 	wire [`RESP_WIDTH    -1 :0] axi2apb_bresp;
 	wire                      	axi2apb_bvalid;
 	wire                      	axi2apb_bready;

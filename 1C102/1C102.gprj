@@ -44,6 +44,11 @@
         <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_ctr_fifo_ar/ddr_ctr_fifo_ar.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_ctr_fifo_aw/ddr_ctr_fifo_aw.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_ctr_fifo_b/ddr_ctr_fifo_b.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_ctr_fifo_r/ddr_ctr_fifo_r.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_ctr_fifo_w/ddr_ctr_fifo_w.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_rpll_100M/gowin_rpll_100M.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_rpll_400M/gowin_rpll_400M.v" type="file.verilog" enable="1"/>
@@ -56,6 +61,7 @@
         <File path="src/hw/model_loader/sd_read.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_read_model.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_read_para_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/sync_fifo/sync_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/uart/baudgen.v" type="file.verilog" enable="1"/>
         <File path="src/hw/uart/uart_rfifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/uart/uart_rx.v" type="file.verilog" enable="1"/>
@@ -64,6 +70,6 @@
         <File path="src/hw/uart/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>
