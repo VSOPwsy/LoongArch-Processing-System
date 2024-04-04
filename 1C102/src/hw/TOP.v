@@ -576,6 +576,7 @@ module TOP # (
 		.AXI_SIGNALING		(1						),
 
 		.MST0_CDC			(1						),
+		.MST0_ID_MASK		('h10					),
 		.MST0_OSTDREQ_NUM	(0						),
 		.MST0_PRIORITY		(0						),
 
@@ -939,7 +940,7 @@ module TOP # (
     	.s_axi_awready		(cpu_arb_32_awready		),
     	.s_axi_wdata		(cpu_arb_32_wdata		),
     	.s_axi_wstrb		(cpu_arb_32_wstrb		),
-    	.s_axi_wlast		(cpu_arb_32_wlast		),
+    	.s_axi_wlast		(1						),//cpu_arb_32_wlast
     	.s_axi_wvalid		(cpu_arb_32_wvalid		),
     	.s_axi_wready		(cpu_arb_32_wready		),
     	.s_axi_bid			(cpu_arb_32_bid			),
@@ -1005,7 +1006,9 @@ module TOP # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
 		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
+
 		.AXI_SIGNALING		(1						),
+
 		.MST0_CDC			(0						),
 		.MST0_ID_MASK		('h100					),
 		.MST0_OSTDREQ_NUM	(0						),
@@ -1042,7 +1045,7 @@ module TOP # (
 		.slv0_awlock		(cpu_arb_128_awlock		),
 		.slv0_awcache		(cpu_arb_128_awcache	),
 		.slv0_awprot		(cpu_arb_128_awprot		),
-		.slv0_awid			({4'd1,cpu_arb_128_awid}	),
+		.slv0_awid			({4'd1,cpu_arb_128_awid}),
 		.slv0_wvalid		(cpu_arb_128_wvalid		),
 		.slv0_wready		(cpu_arb_128_wready		),
 		.slv0_wlast			(cpu_arb_128_wlast		),

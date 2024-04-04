@@ -2,105 +2,175 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">arb_ctr_bvalid</Signal>
-            <Signal capture_enable="true">AXI_Arbiter/mst0_bvalid</Signal>
-            <Signal capture_enable="true">AXI_Arbiter/mst0_if/o_bvalid</Signal>
-            <Signal capture_enable="true">AXI_Arbiter/mst0_if/i_bvalid</Signal>
-            <Bus capture_enable="true" name="AXI_Arbiter/o_bvalid[3:0]">
-                <Signal>AXI_Arbiter/o_bvalid[3]</Signal>
-                <Signal>AXI_Arbiter/o_bvalid[2]</Signal>
-                <Signal>AXI_Arbiter/o_bvalid[1]</Signal>
-                <Signal>AXI_Arbiter/o_bvalid[0]</Signal>
+            <Signal capture_enable="true">arb_ctr_rvalid</Signal>
+            <Bus capture_enable="true" name="arb_ctr_rdata[127:0]">
+                <Signal>arb_ctr_rdata[127]</Signal>
+                <Signal>arb_ctr_rdata[126]</Signal>
+                <Signal>arb_ctr_rdata[125]</Signal>
+                <Signal>arb_ctr_rdata[124]</Signal>
+                <Signal>arb_ctr_rdata[123]</Signal>
+                <Signal>arb_ctr_rdata[122]</Signal>
+                <Signal>arb_ctr_rdata[121]</Signal>
+                <Signal>arb_ctr_rdata[120]</Signal>
+                <Signal>arb_ctr_rdata[119]</Signal>
+                <Signal>arb_ctr_rdata[118]</Signal>
+                <Signal>arb_ctr_rdata[117]</Signal>
+                <Signal>arb_ctr_rdata[116]</Signal>
+                <Signal>arb_ctr_rdata[115]</Signal>
+                <Signal>arb_ctr_rdata[114]</Signal>
+                <Signal>arb_ctr_rdata[113]</Signal>
+                <Signal>arb_ctr_rdata[112]</Signal>
+                <Signal>arb_ctr_rdata[111]</Signal>
+                <Signal>arb_ctr_rdata[110]</Signal>
+                <Signal>arb_ctr_rdata[109]</Signal>
+                <Signal>arb_ctr_rdata[108]</Signal>
+                <Signal>arb_ctr_rdata[107]</Signal>
+                <Signal>arb_ctr_rdata[106]</Signal>
+                <Signal>arb_ctr_rdata[105]</Signal>
+                <Signal>arb_ctr_rdata[104]</Signal>
+                <Signal>arb_ctr_rdata[103]</Signal>
+                <Signal>arb_ctr_rdata[102]</Signal>
+                <Signal>arb_ctr_rdata[101]</Signal>
+                <Signal>arb_ctr_rdata[100]</Signal>
+                <Signal>arb_ctr_rdata[99]</Signal>
+                <Signal>arb_ctr_rdata[98]</Signal>
+                <Signal>arb_ctr_rdata[97]</Signal>
+                <Signal>arb_ctr_rdata[96]</Signal>
+                <Signal>arb_ctr_rdata[95]</Signal>
+                <Signal>arb_ctr_rdata[94]</Signal>
+                <Signal>arb_ctr_rdata[93]</Signal>
+                <Signal>arb_ctr_rdata[92]</Signal>
+                <Signal>arb_ctr_rdata[91]</Signal>
+                <Signal>arb_ctr_rdata[90]</Signal>
+                <Signal>arb_ctr_rdata[89]</Signal>
+                <Signal>arb_ctr_rdata[88]</Signal>
+                <Signal>arb_ctr_rdata[87]</Signal>
+                <Signal>arb_ctr_rdata[86]</Signal>
+                <Signal>arb_ctr_rdata[85]</Signal>
+                <Signal>arb_ctr_rdata[84]</Signal>
+                <Signal>arb_ctr_rdata[83]</Signal>
+                <Signal>arb_ctr_rdata[82]</Signal>
+                <Signal>arb_ctr_rdata[81]</Signal>
+                <Signal>arb_ctr_rdata[80]</Signal>
+                <Signal>arb_ctr_rdata[79]</Signal>
+                <Signal>arb_ctr_rdata[78]</Signal>
+                <Signal>arb_ctr_rdata[77]</Signal>
+                <Signal>arb_ctr_rdata[76]</Signal>
+                <Signal>arb_ctr_rdata[75]</Signal>
+                <Signal>arb_ctr_rdata[74]</Signal>
+                <Signal>arb_ctr_rdata[73]</Signal>
+                <Signal>arb_ctr_rdata[72]</Signal>
+                <Signal>arb_ctr_rdata[71]</Signal>
+                <Signal>arb_ctr_rdata[70]</Signal>
+                <Signal>arb_ctr_rdata[69]</Signal>
+                <Signal>arb_ctr_rdata[68]</Signal>
+                <Signal>arb_ctr_rdata[67]</Signal>
+                <Signal>arb_ctr_rdata[66]</Signal>
+                <Signal>arb_ctr_rdata[65]</Signal>
+                <Signal>arb_ctr_rdata[64]</Signal>
+                <Signal>arb_ctr_rdata[63]</Signal>
+                <Signal>arb_ctr_rdata[62]</Signal>
+                <Signal>arb_ctr_rdata[61]</Signal>
+                <Signal>arb_ctr_rdata[60]</Signal>
+                <Signal>arb_ctr_rdata[59]</Signal>
+                <Signal>arb_ctr_rdata[58]</Signal>
+                <Signal>arb_ctr_rdata[57]</Signal>
+                <Signal>arb_ctr_rdata[56]</Signal>
+                <Signal>arb_ctr_rdata[55]</Signal>
+                <Signal>arb_ctr_rdata[54]</Signal>
+                <Signal>arb_ctr_rdata[53]</Signal>
+                <Signal>arb_ctr_rdata[52]</Signal>
+                <Signal>arb_ctr_rdata[51]</Signal>
+                <Signal>arb_ctr_rdata[50]</Signal>
+                <Signal>arb_ctr_rdata[49]</Signal>
+                <Signal>arb_ctr_rdata[48]</Signal>
+                <Signal>arb_ctr_rdata[47]</Signal>
+                <Signal>arb_ctr_rdata[46]</Signal>
+                <Signal>arb_ctr_rdata[45]</Signal>
+                <Signal>arb_ctr_rdata[44]</Signal>
+                <Signal>arb_ctr_rdata[43]</Signal>
+                <Signal>arb_ctr_rdata[42]</Signal>
+                <Signal>arb_ctr_rdata[41]</Signal>
+                <Signal>arb_ctr_rdata[40]</Signal>
+                <Signal>arb_ctr_rdata[39]</Signal>
+                <Signal>arb_ctr_rdata[38]</Signal>
+                <Signal>arb_ctr_rdata[37]</Signal>
+                <Signal>arb_ctr_rdata[36]</Signal>
+                <Signal>arb_ctr_rdata[35]</Signal>
+                <Signal>arb_ctr_rdata[34]</Signal>
+                <Signal>arb_ctr_rdata[33]</Signal>
+                <Signal>arb_ctr_rdata[32]</Signal>
+                <Signal>arb_ctr_rdata[31]</Signal>
+                <Signal>arb_ctr_rdata[30]</Signal>
+                <Signal>arb_ctr_rdata[29]</Signal>
+                <Signal>arb_ctr_rdata[28]</Signal>
+                <Signal>arb_ctr_rdata[27]</Signal>
+                <Signal>arb_ctr_rdata[26]</Signal>
+                <Signal>arb_ctr_rdata[25]</Signal>
+                <Signal>arb_ctr_rdata[24]</Signal>
+                <Signal>arb_ctr_rdata[23]</Signal>
+                <Signal>arb_ctr_rdata[22]</Signal>
+                <Signal>arb_ctr_rdata[21]</Signal>
+                <Signal>arb_ctr_rdata[20]</Signal>
+                <Signal>arb_ctr_rdata[19]</Signal>
+                <Signal>arb_ctr_rdata[18]</Signal>
+                <Signal>arb_ctr_rdata[17]</Signal>
+                <Signal>arb_ctr_rdata[16]</Signal>
+                <Signal>arb_ctr_rdata[15]</Signal>
+                <Signal>arb_ctr_rdata[14]</Signal>
+                <Signal>arb_ctr_rdata[13]</Signal>
+                <Signal>arb_ctr_rdata[12]</Signal>
+                <Signal>arb_ctr_rdata[11]</Signal>
+                <Signal>arb_ctr_rdata[10]</Signal>
+                <Signal>arb_ctr_rdata[9]</Signal>
+                <Signal>arb_ctr_rdata[8]</Signal>
+                <Signal>arb_ctr_rdata[7]</Signal>
+                <Signal>arb_ctr_rdata[6]</Signal>
+                <Signal>arb_ctr_rdata[5]</Signal>
+                <Signal>arb_ctr_rdata[4]</Signal>
+                <Signal>arb_ctr_rdata[3]</Signal>
+                <Signal>arb_ctr_rdata[2]</Signal>
+                <Signal>arb_ctr_rdata[1]</Signal>
+                <Signal>arb_ctr_rdata[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].bch_mst_pipe/i_valid</Signal>
-            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].bch_mst_pipe/o_valid</Signal>
-            <Signal capture_enable="true">AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/mst0_bch_targeted</Signal>
-            <Bus capture_enable="true" name="AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[3:0]">
-                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[3]</Signal>
-                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[2]</Signal>
-                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[1]</Signal>
-                <Signal>AXI_Arbiter/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bvalid[0]</Signal>
+            <Signal capture_enable="true">ddr_ctr/app_cmd_en</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/app_cmd[2:0]">
+                <Signal>ddr_ctr/app_cmd[2]</Signal>
+                <Signal>ddr_ctr/app_cmd[1]</Signal>
+                <Signal>ddr_ctr/app_cmd[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="AXI_Arbiter/switchs/mst_bvalid[15:0]">
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[15]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[14]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[13]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[12]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[11]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[10]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[9]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[8]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[7]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[6]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[5]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[4]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[3]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[2]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[1]</Signal>
-                <Signal>AXI_Arbiter/switchs/mst_bvalid[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="AXI_Arbiter/i_bvalid[3:0]">
-                <Signal>AXI_Arbiter/i_bvalid[3]</Signal>
-                <Signal>AXI_Arbiter/i_bvalid[2]</Signal>
-                <Signal>AXI_Arbiter/i_bvalid[1]</Signal>
-                <Signal>AXI_Arbiter/i_bvalid[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">AXI_Arbiter/slv0_bvalid</Signal>
-            <Signal capture_enable="true">cpu_arb_128_bvalid</Signal>
-            <Signal capture_enable="true">cpu_arb_32_bvalid</Signal>
-            <Signal capture_enable="true">axi2apb_bvalid</Signal>
-            <Signal capture_enable="true">cpu_bvalid</Signal>
-            <Signal capture_enable="true">cpu_bready</Signal>
-            <Bus capture_enable="true" name="AXI_Crossbar/i_bready[3:0]">
-                <Signal>AXI_Crossbar/i_bready[3]</Signal>
-                <Signal>AXI_Crossbar/i_bready[2]</Signal>
-                <Signal>AXI_Crossbar/i_bready[1]</Signal>
-                <Signal>AXI_Crossbar/i_bready[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[3:0]">
-                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[3]</Signal>
-                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[2]</Signal>
-                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[1]</Signal>
-                <Signal>AXI_Crossbar/switchs/MST_SWITCHS_GEN[0].mst_switch/i_bready[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="AXI_Crossbar/o_bready[3:0]">
-                <Signal>AXI_Crossbar/o_bready[3]</Signal>
-                <Signal>AXI_Crossbar/o_bready[2]</Signal>
-                <Signal>AXI_Crossbar/o_bready[1]</Signal>
-                <Signal>AXI_Crossbar/o_bready[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">cpu_arb_32_bready</Signal>
-            <Signal capture_enable="true">arb_ctr_bready</Signal>
-            <Signal capture_enable="true">cpu_arb_128_bready</Signal>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_awid[11:0]">
-                <Signal>ddr_ctr/s_axi_awid[11]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[10]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[9]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[8]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_bid[11:0]">
-                <Signal>ddr_ctr/s_axi_bid[11]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[10]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[9]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[8]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[0]</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/app_addr[28:0]">
+                <Signal>ddr_ctr/app_addr[28]</Signal>
+                <Signal>ddr_ctr/app_addr[27]</Signal>
+                <Signal>ddr_ctr/app_addr[26]</Signal>
+                <Signal>ddr_ctr/app_addr[25]</Signal>
+                <Signal>ddr_ctr/app_addr[24]</Signal>
+                <Signal>ddr_ctr/app_addr[23]</Signal>
+                <Signal>ddr_ctr/app_addr[22]</Signal>
+                <Signal>ddr_ctr/app_addr[21]</Signal>
+                <Signal>ddr_ctr/app_addr[20]</Signal>
+                <Signal>ddr_ctr/app_addr[19]</Signal>
+                <Signal>ddr_ctr/app_addr[18]</Signal>
+                <Signal>ddr_ctr/app_addr[17]</Signal>
+                <Signal>ddr_ctr/app_addr[16]</Signal>
+                <Signal>ddr_ctr/app_addr[15]</Signal>
+                <Signal>ddr_ctr/app_addr[14]</Signal>
+                <Signal>ddr_ctr/app_addr[13]</Signal>
+                <Signal>ddr_ctr/app_addr[12]</Signal>
+                <Signal>ddr_ctr/app_addr[11]</Signal>
+                <Signal>ddr_ctr/app_addr[10]</Signal>
+                <Signal>ddr_ctr/app_addr[9]</Signal>
+                <Signal>ddr_ctr/app_addr[8]</Signal>
+                <Signal>ddr_ctr/app_addr[7]</Signal>
+                <Signal>ddr_ctr/app_addr[6]</Signal>
+                <Signal>ddr_ctr/app_addr[5]</Signal>
+                <Signal>ddr_ctr/app_addr[4]</Signal>
+                <Signal>ddr_ctr/app_addr[3]</Signal>
+                <Signal>ddr_ctr/app_addr[2]</Signal>
+                <Signal>ddr_ctr/app_addr[1]</Signal>
+                <Signal>ddr_ctr/app_addr[0]</Signal>
             </Bus>
         </SignalList>
         <Triggers>
@@ -147,5 +217,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0101111111100011</GAO_ID>
+    <GAO_ID>1001011000000010</GAO_ID>
 </GAO_CONFIG>
