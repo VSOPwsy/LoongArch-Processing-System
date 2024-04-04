@@ -7,10 +7,12 @@ module ddr_ctr_wr_rd_test (
     output wire [7:0] awlen,
     input awready,
 
-    output wire [127:0] wdata,
+    output wire [31:0] wdata,
     output wire [15:0] wstrb,
     output reg wvalid,
     input wire wready,
+
+    output wire bready,
 
     output wire [31:0] araddr,
     output reg arvalid,
@@ -19,18 +21,23 @@ module ddr_ctr_wr_rd_test (
 
     output wire rready,
 
+    input wire  [31:0] rdata,
+    input wire  rvalid,
+    output reg led,   
+
     input ddr_ready
 );
 
-assign awaddr = 32'h00000000;
-assign wdata = 128'h00000000_00000000_00000000_02030000;
+assign awaddr = 32'h81000000;
+assign wdata = 32'h1212_1212;
 assign wstrb = 16'h000C;
 assign awlen = 0;
 
-assign araddr = 32'h00000000;
+assign araddr = 32'h81000000;
 assign arlen = 0;
 
 assign rready = 1'b1;
+assign bready = 1'b1;
 
 reg wrflag = 0;
 always @(posedge clk) begin
@@ -77,6 +84,16 @@ always @(posedge clk) begin
                 arvalid <= 0;
             end
         end
+    end
+end
+
+always @(posedge clk ) begin
+    if (~rstn) begin
+        led <= 0;
+    end
+    else begin
+        if ((rvalid) & (rdata == wdata)) led <= 1;
+        else led <= 0;
     end
 end
 

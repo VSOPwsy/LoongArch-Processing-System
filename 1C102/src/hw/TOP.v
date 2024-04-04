@@ -45,7 +45,7 @@ module TOP # (
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
-	// wire ddr_ui_clk;	/* synthesis syn_keep=1 */
+	wire ddr_ui_clk; /* synthesis syn_keep=1 */
 
     /*
      * For GW5A
@@ -397,155 +397,186 @@ module TOP # (
 
 	wire						init_model_complete;
 
-    la132_top CPU (
-		.boot_pc			(32'h1c000000			),
-		.clk				(clk_8M					),
-		.clk_count			(clk_8M					),
-		.hard_resetn		(locked&sys_resetn		),
-		.soft_resetn		(locked&sys_resetn		),
+    // la132_top CPU (
+	// 	.boot_pc			(32'h1c000000			),
+	// 	.clk				(clk_8M					),
+	// 	.clk_count			(clk_8M					),
+	// 	.hard_resetn		(locked&sys_resetn		),
+	// 	.soft_resetn		(locked&sys_resetn		),
 
-		.sleeping			(sleeping_o				),
-        .can_high_freq		(can_high_freq			),
-		.cpu_fetch_pc		(fetch_pc				),
-		.wb_pc				(debug_pc				),
-		.mode_lisa			(1'b1					), 
-		.inst_xor			(32'b0					),
+	// 	.sleeping			(sleeping_o				),
+    //     .can_high_freq		(can_high_freq			),
+	// 	.cpu_fetch_pc		(fetch_pc				),
+	// 	.wb_pc				(debug_pc				),
+	// 	.mode_lisa			(1'b1					), 
+	// 	.inst_xor			(32'b0					),
 
-		.nmi				(1'b0					),
-		.ext_int			(interrupt				),
+	// 	.nmi				(1'b0					),
+	// 	.ext_int			(interrupt				),
 
-		.arid				(cpu_arid[3:0]			),
-		.araddr				(cpu_araddr				),
-		.arlen				(cpu_arlen				),
-		.arsize				(cpu_arsize				),
-		.arburst			(cpu_arburst			),
-		.arlock				(cpu_arlock				),
-		.arcache			(cpu_arcache			),
-		.arprot				(cpu_arprot				),
-		.arvalid			(cpu_arvalid			),
-		.arready			(cpu_arready			),
+	// 	.arid				(cpu_arid[3:0]			),
+	// 	.araddr				(cpu_araddr				),
+	// 	.arlen				(cpu_arlen				),
+	// 	.arsize				(cpu_arsize				),
+	// 	.arburst			(cpu_arburst			),
+	// 	.arlock				(cpu_arlock				),
+	// 	.arcache			(cpu_arcache			),
+	// 	.arprot				(cpu_arprot				),
+	// 	.arvalid			(cpu_arvalid			),
+	// 	.arready			(cpu_arready			),
 
-		.rid				(cpu_rid[3:0]			),
-		.rdata				(cpu_rdata				),
-		.rresp				(cpu_rresp				),
-		.rlast				(cpu_rlast				),
-		.rvalid				(cpu_rvalid				),
-		.rready				(cpu_rready				),
+	// 	.rid				(cpu_rid[3:0]			),
+	// 	.rdata				(cpu_rdata				),
+	// 	.rresp				(cpu_rresp				),
+	// 	.rlast				(cpu_rlast				),
+	// 	.rvalid				(cpu_rvalid				),
+	// 	.rready				(cpu_rready				),
 
-		.awid				(cpu_awid[3:0]			),
-		.awaddr				(cpu_awaddr				),
-		.awlen				(cpu_awlen				),
-		.awsize				(cpu_awsize				),
-		.awburst			(cpu_awburst			),
-		.awlock				(cpu_awlock				),
-		.awcache			(cpu_awcache			),
-		.awprot				(cpu_awprot				),
-		.awvalid			(cpu_awvalid			),
-		.awready			(cpu_awready			),
+	// 	.awid				(cpu_awid[3:0]			),
+	// 	.awaddr				(cpu_awaddr				),
+	// 	.awlen				(cpu_awlen				),
+	// 	.awsize				(cpu_awsize				),
+	// 	.awburst			(cpu_awburst			),
+	// 	.awlock				(cpu_awlock				),
+	// 	.awcache			(cpu_awcache			),
+	// 	.awprot				(cpu_awprot				),
+	// 	.awvalid			(cpu_awvalid			),
+	// 	.awready			(cpu_awready			),
 
-		.wid				(cpu_wid[3:0]			),
-		.wdata				(cpu_wdata				),
-		.wstrb				(cpu_wstrb				),
-		.wlast				(cpu_wlast				),
-		.wvalid				(cpu_wvalid				),
-		.wready				(cpu_wready				),
+	// 	.wid				(cpu_wid[3:0]			),
+	// 	.wdata				(cpu_wdata				),
+	// 	.wstrb				(cpu_wstrb				),
+	// 	.wlast				(cpu_wlast				),
+	// 	.wvalid				(cpu_wvalid				),
+	// 	.wready				(cpu_wready				),
 
-		.bid				(cpu_bid[3:0]			),
-		.bresp				(cpu_bresp				),
-		.bvalid				(cpu_bvalid				),
-		.bready				(cpu_bready				),
+	// 	.bid				(cpu_bid[3:0]			),
+	// 	.bresp				(cpu_bresp				),
+	// 	.bvalid				(cpu_bvalid				),
+	// 	.bready				(cpu_bready				),
 
-		.inst_sram_en		(inst_sram_en			),
-		.inst_sram_wr		(inst_sram_wr			),
-		.inst_sram_fetch	(inst_sram_fetch		),
-		.inst_sram_strb		(inst_sram_strb			),
-		.inst_sram_addr		(inst_sram_addr			),
-		.inst_sram_wdata	(inst_sram_wdata		),
-		.inst_sram_rdata	(inst_sram_rdata		),
-		.inst_sram_ack		(inst_sram_ack			),
-		.inst_sram_rrdy		(inst_sram_rrdy			),
-		.inst_sram_resp		(inst_sram_resp			),
+	// 	.inst_sram_en		(inst_sram_en			),
+	// 	.inst_sram_wr		(inst_sram_wr			),
+	// 	.inst_sram_fetch	(inst_sram_fetch		),
+	// 	.inst_sram_strb		(inst_sram_strb			),
+	// 	.inst_sram_addr		(inst_sram_addr			),
+	// 	.inst_sram_wdata	(inst_sram_wdata		),
+	// 	.inst_sram_rdata	(inst_sram_rdata		),
+	// 	.inst_sram_ack		(inst_sram_ack			),
+	// 	.inst_sram_rrdy		(inst_sram_rrdy			),
+	// 	.inst_sram_resp		(inst_sram_resp			),
 
-		.data_sram_en		(data_sram_en			),
-		.data_sram_wr		(data_sram_wr			),
-		.data_sram_fetch	(data_sram_fetch		),
-		.data_sram_strb		(data_sram_strb			),
-		.data_sram_addr		(data_sram_addr			),
-		.data_sram_wdata	(data_sram_wdata		),
-		.data_sram_rdata	(data_sram_rdata		),
-		.data_sram_ack		(data_sram_ack			),
-		.data_sram_rrdy		(data_sram_rrdy			),
-		.data_sram_resp		(data_sram_resp			),
+	// 	.data_sram_en		(data_sram_en			),
+	// 	.data_sram_wr		(data_sram_wr			),
+	// 	.data_sram_fetch	(data_sram_fetch		),
+	// 	.data_sram_strb		(data_sram_strb			),
+	// 	.data_sram_addr		(data_sram_addr			),
+	// 	.data_sram_wdata	(data_sram_wdata		),
+	// 	.data_sram_rdata	(data_sram_rdata		),
+	// 	.data_sram_ack		(data_sram_ack			),
+	// 	.data_sram_rrdy		(data_sram_rrdy			),
+	// 	.data_sram_resp		(data_sram_resp			),
 
-		.trstn				(ljtag_trst_i			),
-		.tck				(ljtag_tck_i			),
-		.tdi				(ljtag_tdi_i			),
-		.tms				(ljtag_tms_i			),
-		.tdo				(ljtag_tdo_o			),
-		.ljtag_prrst		(ljtag_prrst_src		),
-		.ljtag_lock			(1'b0					),
+	// 	.trstn				(ljtag_trst_i			),
+	// 	.tck				(ljtag_tck_i			),
+	// 	.tdi				(ljtag_tdi_i			),
+	// 	.tms				(ljtag_tms_i			),
+	// 	.tdo				(ljtag_tdo_o			),
+	// 	.ljtag_prrst		(ljtag_prrst_src		),
+	// 	.ljtag_lock			(1'b0					),
 
-		.prid_revision		(4'd0					),
-		.cpunum				(10'b0					),
+	// 	.prid_revision		(4'd0					),
+	// 	.cpunum				(10'b0					),
 
-		.ibus0_valid		(1'b1					),
-		.ibus0_base			(32'h1c00_0000			), // va: 1c00_0000 & bfc0_0000
-		.ibus0_mask			(32'h1f00_0000			), // flash 128K, + 4 special page
-		.ibus1_valid		(1'b1					),
-		.ibus1_base			(32'h9f00_0000			), // va: 9fR0_0000 & bf00_0000
-		.ibus1_mask			(32'hdff0_0000			),
-		.ibus2_valid		(1'b0					), // flash_en
-		.ibus2_base			(32'h9fe6_0000			), // va: 9fe6_0000 & bfe6_0000
-		.ibus2_mask			(32'hdfff_ff00			),
-		.ibus3_valid		(1'b0					), // compact_mem&flash_en),
-		.ibus3_base			(32'h8000_3000			), // for va: 8000_30xx & 0000_00xx -> pa: 0000_30xx & 4000_00xx
-		.ibus3_mask			(32'h7fff_ff00			),
-		.dbus0_valid		(1'b1					),
-		.dbus0_base			(32'h8000_0000			),
-		.dbus0_mask			(32'hdfff_e000			), // 8K byte, for va: 8000_0000 & a000_0000 -> pa: 0000_0000
-		.dbus1_valid		(1'b1					),
-		.dbus1_base			(32'h0000_0000			),
-		.dbus1_mask			(32'hffff_e000			), // 8K byte, for va: 0000_0000             -> pa: 0000_0000
-		.dbus2_valid		(1'b0					), // unused
-		.dbus2_base			(32'h0000_0000			),
-		.dbus2_mask			(32'h0000_0000			),
-		.dbus3_valid		(1'b0					), // unused
-		.dbus3_base			(32'h0000_0000			),
-		.dbus3_mask			(32'h0000_0000			),
+	// 	.ibus0_valid		(1'b1					),
+	// 	.ibus0_base			(32'h1c00_0000			), // va: 1c00_0000 & bfc0_0000
+	// 	.ibus0_mask			(32'h1f00_0000			), // flash 128K, + 4 special page
+	// 	.ibus1_valid		(1'b1					),
+	// 	.ibus1_base			(32'h9f00_0000			), // va: 9fR0_0000 & bf00_0000
+	// 	.ibus1_mask			(32'hdff0_0000			),
+	// 	.ibus2_valid		(1'b0					), // flash_en
+	// 	.ibus2_base			(32'h9fe6_0000			), // va: 9fe6_0000 & bfe6_0000
+	// 	.ibus2_mask			(32'hdfff_ff00			),
+	// 	.ibus3_valid		(1'b0					), // compact_mem&flash_en),
+	// 	.ibus3_base			(32'h8000_3000			), // for va: 8000_30xx & 0000_00xx -> pa: 0000_30xx & 4000_00xx
+	// 	.ibus3_mask			(32'h7fff_ff00			),
+	// 	.dbus0_valid		(1'b1					),
+	// 	.dbus0_base			(32'h8000_0000			),
+	// 	.dbus0_mask			(32'hdfff_e000			), // 8K byte, for va: 8000_0000 & a000_0000 -> pa: 0000_0000
+	// 	.dbus1_valid		(1'b1					),
+	// 	.dbus1_base			(32'h0000_0000			),
+	// 	.dbus1_mask			(32'hffff_e000			), // 8K byte, for va: 0000_0000             -> pa: 0000_0000
+	// 	.dbus2_valid		(1'b0					), // unused
+	// 	.dbus2_base			(32'h0000_0000			),
+	// 	.dbus2_mask			(32'h0000_0000			),
+	// 	.dbus3_valid		(1'b0					), // unused
+	// 	.dbus3_base			(32'h0000_0000			),
+	// 	.dbus3_mask			(32'h0000_0000			),
 
-		.test_mode			(1'b0					)
-	);
+	// 	.test_mode			(1'b0					)
+	// );
 
-    Gowin_SP_Instr IRAM (
-        .dout				(inst_sram_rdata		), //output [31:0] dout
-        .clk				(clk_8M					), //input clk
-        .oce				(inst_sram_en			), //input oce
-        .ce					(inst_sram_en			), //input ce
-        .reset				(~(locked&sys_resetn)	), //input reset
-        .wre				(inst_sram_wr			), //input wre
-        .ad					(inst_sram_addr[31:2]	), //input [11:0] ad
-        .din				(inst_sram_wdata		) //input [31:0] din
-    );
+    // Gowin_SP_Instr IRAM (
+    //     .dout				(inst_sram_rdata		), //output [31:0] dout
+    //     .clk				(clk_8M					), //input clk
+    //     .oce				(inst_sram_en			), //input oce
+    //     .ce					(inst_sram_en			), //input ce
+    //     .reset				(~(locked&sys_resetn)	), //input reset
+    //     .wre				(inst_sram_wr			), //input wre
+    //     .ad					(inst_sram_addr[31:2]	), //input [11:0] ad
+    //     .din				(inst_sram_wdata		) //input [31:0] din
+    // );
 
 
-    Gowin_SP_Data DRAM (
-        .dout				(data_sram_rdata		), //output [31:0] dout
-        .clk				(clk_8M					), //input clk
-        .oce				(data_sram_en			), //input oce
-        .ce					(data_sram_en			), //input ce
-        .reset				(~(locked&sys_resetn)	), //input reset
-        .wre				(data_sram_wr			), //input wre
-        .ad					(data_sram_addr[31:2]	), //input [11:0] ad
-        .din				(data_sram_wdata		) //input [31:0] din
-    );
+    // Gowin_SP_Data DRAM (
+    //     .dout				(data_sram_rdata		), //output [31:0] dout
+    //     .clk				(clk_8M					), //input clk
+    //     .oce				(data_sram_en			), //input oce
+    //     .ce					(data_sram_en			), //input ce
+    //     .reset				(~(locked&sys_resetn)	), //input reset
+    //     .wre				(data_sram_wr			), //input wre
+    //     .ad					(data_sram_addr[31:2]	), //input [11:0] ad
+    //     .din				(data_sram_wdata		) //input [31:0] din
+    // );
+
+    ddr_ctr_wr_rd_test test (
+	.clk					(clk_8M					),
+	.rstn					(locked&sys_resetn		),
+
+	.awaddr					(cpu_awaddr				),
+    .awvalid				(cpu_awvalid			),
+    .awlen					(cpu_awlen				),
+	.awready				(cpu_awready			),
+
+    .wdata					(cpu_wdata				),
+    .wstrb					(cpu_wstrb				),
+    .wvalid					(cpu_wvalid				),
+	.wready					(cpu_wready				),
+
+	.bready					(cpu_bready				),
     
+	.araddr					(cpu_araddr				), 
+    .arvalid				(cpu_arvalid			),
+    .arlen					(cpu_arlen				),//[7:0]
+    .arready				(cpu_arready			),
+
+    .rready					(cpu_rready				),
+
+	.rdata					(cpu_rdata				),
+	.rvalid 				(cpu_rvalid				),
+	.led					(led[0]					),
+
+	.ddr_ready				(init_calib_complete	)
+);
 
 	axicb_crossbar_top # (
 		.AXI_ADDR_W			(`ADDR_WIDTH			),
 		.AXI_ID_W			(`PERIPH_ID_WIDTH		),
 		.AXI_DATA_W			(`CPU_DATA_WIDTH		),
-		
+		.AXI_SIGNALING		(1						),
+
 		.MST0_CDC			(1						),
+		.MST0_ID_MASK		('h10					),
 		.MST0_OSTDREQ_NUM	(0						),
 		.MST0_PRIORITY		(0						),
 
@@ -689,495 +720,494 @@ module TOP # (
 	/*
 	 * AXI SLAVE 0
 	 */
-	axi2apb_bridge #(
-		.ID_WIDTH			(`PERIPH_ID_WIDTH		),
-		.ADDR_WIDTH			(`ADDR_WIDTH			),
-		.DATA_WIDTH			(`APB_DATA_WIDTH		)
-	) apb (
-		.clk				(clk_100M				),
-		.rst_n				(locked&sys_resetn		),
-		.axi_s_awid			(axi2apb_awid			),
-		.axi_s_awaddr		(axi2apb_awaddr			),
-		.axi_s_awlen		(axi2apb_awlen			),
-		.axi_s_awsize		(axi2apb_awsize			),
-		.axi_s_awburst		(axi2apb_awburst		),
-		.axi_s_awlock		(axi2apb_awlock			),
-		.axi_s_awcache		(axi2apb_awcache		),
-		.axi_s_awprot		(axi2apb_awprot			),
-		.axi_s_awvalid		(axi2apb_awvalid		),
-		.axi_s_awready		(axi2apb_awready		),
-
-		.axi_s_wid			(axi2apb_wid			),
-		.axi_s_wdata		(axi2apb_wdata			),
-		.axi_s_wstrb		(axi2apb_wstrb			),
-		.axi_s_wlast		(axi2apb_wlast			),
-		.axi_s_wvalid		(axi2apb_wvalid			),
-		.axi_s_wready		(axi2apb_wready			),
-
-		.axi_s_bid			(axi2apb_bid			),
-		.axi_s_bresp		(axi2apb_bresp			),
-		.axi_s_bvalid		(axi2apb_bvalid			),
-		.axi_s_bready		(axi2apb_bready			),
-
-		.axi_s_arid			(axi2apb_arid			),
-		.axi_s_araddr		(axi2apb_araddr			),
-		.axi_s_arlen		(axi2apb_arlen			),
-		.axi_s_arsize		(axi2apb_arsize			),
-		.axi_s_arburst		(axi2apb_arburst		),
-		.axi_s_arlock		(axi2apb_arlock			),
-		.axi_s_arcache		(axi2apb_arcache		),
-		.axi_s_arprot		(axi2apb_arprot			),
-		.axi_s_arvalid		(axi2apb_arvalid		),
-		.axi_s_arready		(axi2apb_arready		),
-
-		.axi_s_rid			(axi2apb_rid			),
-		.axi_s_rdata		(axi2apb_rdata			),
-		.axi_s_rresp		(axi2apb_rresp			),
-		.axi_s_rlast		(axi2apb_rlast			),
-		.axi_s_rvalid		(axi2apb_rvalid			),
-		.axi_s_rready		(axi2apb_rready			),
-
-		.apb_clk			(apb_clk				),
-		.apb_reset_n		(apb_reset_n			),
-		.reg_psel			(apb_psel				),
-		.reg_rw				(apb_rw					),
-		.reg_addr			(apb_addr				),
-		.reg_enable			(apb_enable				),
-		.reg_datai			(apb_datai				),
-		.reg_datao			(apb_datao				),
-		.reg_ready_1		(apb_ready				)
-	);
-
-
-	apb_mux9 apb_mux (
-		.apb_psel_cpu		(apb_psel				),
-		.apb_rw_cpu			(apb_rw					),
-		.apb_addr_cpu		(apb_addr				),
-		.apb_enab_cpu		(apb_enable				),
-		.apb_datai_cpu		(apb_datai				),
-		.apb_datao_cpu		(apb_datao				),
-		.apb_ack_cpu		(apb_ready				),
-
-		.apb0_psel			(apb0_psel				),
-		.apb0_rw			(apb0_rw				),
-		.apb0_addr			(apb0_addr				),
-		.apb0_enab			(apb0_enab				),
-		.apb0_datai			(apb0_datai				),
-		.apb0_datao			(apb0_datao				),
-		.apb0_ack			(apb0_ack				),
-
-		.apb1_psel			(apb1_psel				),
-		.apb1_rw			(apb1_rw				),
-		.apb1_addr			(apb1_addr				),
-		.apb1_enab			(apb1_enab				),
-		.apb1_datai			(apb1_datai				),
-		.apb1_datao			(apb1_datao				),
-		.apb1_ack			(apb1_ack				),
-		
-		.apb2_psel			(apb2_psel				),
-		.apb2_rw			(apb2_rw				),
-		.apb2_addr			(apb2_addr				),
-		.apb2_enab			(apb2_enab				),
-		.apb2_datai			(apb2_datai				),
-		.apb2_datao			(apb2_datao				),
-		.apb2_ack			(apb2_ack				),
-		
-		.apb3_psel			(apb3_psel				),
-		.apb3_rw			(apb3_rw				),
-		.apb3_addr			(apb3_addr				),
-		.apb3_enab			(apb3_enab				),
-		.apb3_datai			(apb3_datai				),
-		.apb3_datao			(apb3_datao				),
-		.apb3_ack			(apb3_ack				),
-		
-		.apb4_psel			(apb4_psel				),
-		.apb4_rw			(apb4_rw				),
-		.apb4_addr			(apb4_addr				),
-		.apb4_enab			(apb4_enab				),
-		.apb4_datai			(apb4_datai				),
-		.apb4_datao			(apb4_datao				),
-		.apb4_ack			(apb4_ack				),
-		
-		.apb5_psel			(apb5_psel				),
-		.apb5_rw			(apb5_rw				),
-		.apb5_addr			(apb5_addr				),
-		.apb5_enab			(apb5_enab				),
-		.apb5_datai			(apb5_datai				),
-		.apb5_datao			(apb5_datao				),
-		.apb5_ack			(apb5_ack				),
-		
-		.apb6_psel			(apb6_psel				),
-		.apb6_rw			(apb6_rw				),
-		.apb6_addr			(apb6_addr				),
-		.apb6_enab			(apb6_enab				),
-		.apb6_datai			(apb6_datai				),
-		.apb6_datao			(apb6_datao				),
-		.apb6_ack			(apb6_ack				),
-		
-		.apb7_psel			(apb7_psel				),
-		.apb7_rw			(apb7_rw				),
-		.apb7_addr			(apb7_addr				),
-		.apb7_enab			(apb7_enab				),
-		.apb7_datai			(apb7_datai				),
-		.apb7_datao			(apb7_datao				),
-		.apb7_ack			(apb7_ack				),
-		
-		.apb8_psel			(apb8_psel				),
-		.apb8_rw			(apb8_rw				),
-		.apb8_addr			(apb8_addr				),
-		.apb8_enab			(apb8_enab				),
-		.apb8_datai			(apb8_datai				),
-		.apb8_datao			(apb8_datao				),
-		.apb8_ack			(apb8_ack				)
-	);
-	
-	CONFREG IntController(
-		.apb_pclk			(apb_clk				),
-		.apb_prstn			(apb_reset_n			),
-		
-		.apb_psel			(apb0_psel				),
-		.apb_pwrite			(apb0_rw				),
-		.apb_paddr			(apb0_addr				),
-		.apb_penable		(apb0_enab				),
-		.apb_pwdata			(apb0_datai				),
-		.apb_prdata			(apb0_datao				),
-		.apb_ack			(apb0_ack				),
-
-		.timer_int			(timer_int				),
-		.i2c_int			(i2c_int				),
-		.uart1_int			(uart1_int				),
-		.uart0_int			(uart0_int				),
-		.flash_int			(flash_int				),
-		.spi_int			(spi_int				),
-		.vpwm_int			(vpwm_int				),
-		.dma_int			(dma_int				),
-
-		.int_o				(interrupt[4]			)
-	);
-	
-	UART_TOP # (
-		.CLK_FREQ			(CLK_FREQ*2				)
-	) UART1 (
-		.apb_pclk			(apb_clk				),
-		.apb_prstn			(apb_reset_n			),
-
-		.apb_psel			(apb1_psel				),
-		.apb_pwrite			(apb1_rw				),
-		.apb_paddr			(apb1_addr				),
-		.apb_penable		(apb1_enab				),
-		.apb_pwdata			(apb1_datai				),
-		.apb_prdata			(apb1_datao				),
-		.uart_ready			(apb1_ack				),
-
-		.RsRx				(RsRx					),
-		.RsTx				(RsTx					),
-		.uart_irq			(uart1_int				)
-	);
-
-	
-
-	LED_driver LED (
-		.clk				(apb_clk				),
-		.resetn				(apb_reset_n			),
-		.apb_psel			(apb8_psel				),
-		.apb_rw				(apb8_rw				),
-		.apb_addr			(apb8_addr				),
-		.apb_enab			(apb8_enab				),
-		.apb_datai			(apb8_datai				),
-		.apb_datao			(apb8_datao				),
-		.apb_ack			(apb8_ack				),
-
-		.led				(led[1:0]				)
-	);
-
-	
-
-	// axi_adapter # (
+	// axi2apb_bridge #(
+	// 	.ID_WIDTH			(`PERIPH_ID_WIDTH		),
 	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
-	// 	.S_DATA_WIDTH		(`CPU_DATA_WIDTH		),
-	// 	.M_DATA_WIDTH		(`DDR_DATA_WIDTH		)
-	// ) axi_adapter_32_to_128 (
-    // 	.clk				(clk_100M				),
-    // 	.rst				(~(locked&sys_resetn)	),
-
-    // 	.s_axi_awid			(cpu_arb_32_awid		),
-    // 	.s_axi_awaddr		(cpu_arb_32_awaddr		),
-    // 	.s_axi_awlen		(cpu_arb_32_awlen		),
-    // 	.s_axi_awsize		(cpu_arb_32_awsize		),
-    // 	.s_axi_awburst		(cpu_arb_32_awburst		),
-    // 	.s_axi_awlock		(cpu_arb_32_awlock		),
-    // 	.s_axi_awcache		(cpu_arb_32_awcache		),
-    // 	.s_axi_awprot		(cpu_arb_32_awprot		),
-    // 	.s_axi_awvalid		(cpu_arb_32_awvalid		),
-    // 	.s_axi_awready		(cpu_arb_32_awready		),
-    // 	.s_axi_wdata		(cpu_arb_32_wdata		),
-    // 	.s_axi_wstrb		(cpu_arb_32_wstrb		),
-    // 	.s_axi_wlast		(cpu_arb_32_wlast		),
-    // 	.s_axi_wvalid		(cpu_arb_32_wvalid		),
-    // 	.s_axi_wready		(cpu_arb_32_wready		),
-    // 	.s_axi_bid			(cpu_arb_32_bid			),
-    // 	.s_axi_bresp		(cpu_arb_32_bresp		),
-    // 	.s_axi_bvalid		(cpu_arb_32_bvalid		),
-    // 	.s_axi_bready		(cpu_arb_32_bready		),
-    // 	.s_axi_arid			(cpu_arb_32_arid		),
-    // 	.s_axi_araddr		(cpu_arb_32_araddr		),
-    // 	.s_axi_arlen		(cpu_arb_32_arlen		),
-    // 	.s_axi_arsize		(cpu_arb_32_arsize		),
-    // 	.s_axi_arburst		(cpu_arb_32_arburst		),
-    // 	.s_axi_arlock		(cpu_arb_32_arlock		),
-    // 	.s_axi_arcache		(cpu_arb_32_arcache		),
-    // 	.s_axi_arprot		(cpu_arb_32_arprot		),
-    // 	.s_axi_arvalid		(cpu_arb_32_arvalid		),
-    // 	.s_axi_arready		(cpu_arb_32_arready		),
-    // 	.s_axi_rid			(cpu_arb_32_rid			),
-    // 	.s_axi_rdata		(cpu_arb_32_rdata		),
-    // 	.s_axi_rresp		(cpu_arb_32_rresp		),
-    // 	.s_axi_rlast		(cpu_arb_32_rlast		),
-    // 	.s_axi_rvalid		(cpu_arb_32_rvalid		),
-    // 	.s_axi_rready		(cpu_arb_32_rready		),
-    
-    // 	.m_axi_awid			(cpu_arb_128_awid		),
-    // 	.m_axi_awaddr		(cpu_arb_128_awaddr		),
-    // 	.m_axi_awlen		(cpu_arb_128_awlen		),
-    // 	.m_axi_awsize		(cpu_arb_128_awsize		),
-    // 	.m_axi_awburst		(cpu_arb_128_awburst	),
-    // 	.m_axi_awlock		(cpu_arb_128_awlock		),
-    // 	.m_axi_awcache		(cpu_arb_128_awcache	),
-    // 	.m_axi_awprot		(cpu_arb_128_awprot		),
-    // 	.m_axi_awvalid		(cpu_arb_128_awvalid	),
-    // 	.m_axi_awready		(cpu_arb_128_awready	),
-    // 	.m_axi_wdata		(cpu_arb_128_wdata		),
-    // 	.m_axi_wstrb		(cpu_arb_128_wstrb		),
-    // 	.m_axi_wlast		(cpu_arb_128_wlast		),
-    // 	.m_axi_wvalid		(cpu_arb_128_wvalid		),
-    // 	.m_axi_wready		(cpu_arb_128_wready		),
-    // 	.m_axi_bid			(cpu_arb_128_bid		),
-    // 	.m_axi_bresp		(cpu_arb_128_bresp		),
-    // 	.m_axi_bvalid		(cpu_arb_128_bvalid		),
-    // 	.m_axi_bready		(cpu_arb_128_bready		),
-    // 	.m_axi_arid			(cpu_arb_128_arid		),
-    // 	.m_axi_araddr		(cpu_arb_128_araddr		),
-    // 	.m_axi_arlen		(cpu_arb_128_arlen		),
-    // 	.m_axi_arsize		(cpu_arb_128_arsize		),
-    // 	.m_axi_arburst		(cpu_arb_128_arburst	),
-    // 	.m_axi_arlock		(cpu_arb_128_arlock		),
-    // 	.m_axi_arcache		(cpu_arb_128_arcache	),
-    // 	.m_axi_arprot		(cpu_arb_128_arprot		),
-    // 	.m_axi_arvalid		(cpu_arb_128_arvalid	),
-    // 	.m_axi_arready		(cpu_arb_128_arready	),
-    // 	.m_axi_rid			(cpu_arb_128_rid		),
-    // 	.m_axi_rdata		(cpu_arb_128_rdata		),
-    // 	.m_axi_rresp		(cpu_arb_128_rresp		),
-    // 	.m_axi_rlast		(cpu_arb_128_rlast		),
-    // 	.m_axi_rvalid		(cpu_arb_128_rvalid		),
-    // 	.m_axi_rready		(cpu_arb_128_rready		)
-	// );
-
-
-	// axicb_crossbar_top # (
-	// 	.AXI_ADDR_W			(`ADDR_WIDTH			),
-	// 	.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
-	// 	.AXI_DATA_W			(`DDR_DATA_WIDTH		),
-		
-	// 	.MST0_CDC			(0						),
-	// 	.MST0_ID_MASK		('h10					),
-	// 	.MST0_OSTDREQ_NUM	(0						),
-	// 	.MST0_PRIORITY		(0						),
-
-	// 	.MST1_CDC			(0						),
-	// 	.MST1_ID_MASK		('h20					),
-	// 	.MST1_OSTDREQ_NUM	(0						),
-	// 	.MST1_PRIORITY		(0						),
-		
-	// 	.MST2_CDC			(0						),
-	// 	.MST2_ID_MASK		('h30					),
-	// 	.MST2_OSTDREQ_NUM	(0						),
-	// 	.MST2_PRIORITY		(0						),
-
-	// 	.SLV0_CDC			(0						),
-	// 	.SLV0_START_ADDR	(`DDR_ADDR_BASE			),
-	// 	.SLV0_END_ADDR		(`DDR_ADDR_END			),
-	// 	.SLV0_OSTDREQ_NUM	(0						),
-	// 	.SLV0_KEEP_BASE_ADDR(0						)
-	// ) AXI_Arbiter (
-	// 	.aclk				(clk_100M				),
-	// 	.aresetn			(locked&sys_resetn		),
-	// 	.srst				(~(locked&sys_resetn)	),
-	// 	.slv0_aclk			(clk_100M				),
-	// 	.slv0_aresetn		(locked&sys_resetn		),
-	// 	.slv0_srst			(~(locked&sys_resetn)	),
-	// 	.slv0_awvalid		(cpu_arb_128_awvalid	),
-	// 	.slv0_awready		(cpu_arb_128_awready	),
-	// 	.slv0_awaddr		(cpu_arb_128_awaddr		),
-	// 	.slv0_awlen			(cpu_arb_128_awlen		),
-	// 	.slv0_awsize		(cpu_arb_128_awsize		),
-	// 	.slv0_awburst		(cpu_arb_128_awburst	),
-	// 	.slv0_awlock		(cpu_arb_128_awlock		),
-	// 	.slv0_awcache		(cpu_arb_128_awcache	),
-	// 	.slv0_awprot		(cpu_arb_128_awprot		),
-	// 	.slv0_awid			({4'd1,cpu_arb_128_awid}	),
-	// 	.slv0_wvalid		(cpu_arb_128_wvalid		),
-	// 	.slv0_wready		(cpu_arb_128_wready		),
-	// 	.slv0_wlast			(cpu_arb_128_wlast		),
-	// 	.slv0_wdata			(cpu_arb_128_wdata		),
-	// 	.slv0_wstrb			(cpu_arb_128_wstrb		),
-	// 	.slv0_bvalid		(cpu_arb_128_bvalid		),
-	// 	.slv0_bready		(cpu_arb_128_bready		),
-	// 	.slv0_bid			(cpu_arb_128_bid		),
-	// 	.slv0_bresp			(cpu_arb_128_bresp		),
-	// 	.slv0_arvalid		(cpu_arb_128_arvalid	),
-	// 	.slv0_arready		(cpu_arb_128_arready	),
-	// 	.slv0_araddr		(cpu_arb_128_araddr		),
-	// 	.slv0_arlen			(cpu_arb_128_arlen		),
-	// 	.slv0_arsize		(cpu_arb_128_arsize		),
-	// 	.slv0_arburst		(cpu_arb_128_arburst	),
-	// 	.slv0_arlock		(cpu_arb_128_arlock		),
-	// 	.slv0_arcache		(cpu_arb_128_arcache	),
-	// 	.slv0_arprot		(cpu_arb_128_arprot		),
-	// 	.slv0_arid			({4'd1,cpu_arb_128_arid}	),
-	// 	.slv0_rvalid		(cpu_arb_128_rvalid		),
-	// 	.slv0_rready		(cpu_arb_128_rready		),
-	// 	.slv0_rid			(cpu_arb_128_rid		),
-	// 	.slv0_rresp			(cpu_arb_128_rresp		),
-	// 	.slv0_rdata			(cpu_arb_128_rdata		),
-	// 	.slv0_rlast			(cpu_arb_128_rlast		),
-
-		
-	// 	.mst0_aclk			(clk_100M				),
-	// 	.mst0_aresetn		(locked&sys_resetn		),
-	// 	.mst0_srst			(~(locked&sys_resetn)	),
-	// 	.mst0_awvalid		(arb_ctr_awvalid		),
-	// 	.mst0_awready		(arb_ctr_awready		),
-	// 	.mst0_awaddr		(arb_ctr_awaddr			),
-	// 	.mst0_awlen			(arb_ctr_awlen			),
-	// 	.mst0_awsize		(arb_ctr_awsize			),
-	// 	.mst0_awburst		(arb_ctr_awburst		),
-	// 	.mst0_awlock		(arb_ctr_awlock			),
-	// 	.mst0_awcache		(arb_ctr_awcache		),
-	// 	.mst0_awprot		(arb_ctr_awprot			),
-	// 	.mst0_awid			(arb_ctr_awid			),
-	// 	.mst0_wvalid		(arb_ctr_wvalid			),
-	// 	.mst0_wready		(arb_ctr_wready			),
-	// 	.mst0_wlast			(arb_ctr_wlast			),
-	// 	.mst0_wdata			(arb_ctr_wdata			),
-	// 	.mst0_wstrb			(arb_ctr_wstrb			),
-	// 	.mst0_bvalid		(arb_ctr_bvalid			),
-	// 	.mst0_bready		(arb_ctr_bready			),
-	// 	.mst0_bid			(arb_ctr_bid			),
-	// 	.mst0_bresp			(arb_ctr_bresp			),
-	// 	.mst0_arvalid		(arb_ctr_arvalid		),
-	// 	.mst0_arready		(arb_ctr_arready		),
-	// 	.mst0_araddr		(arb_ctr_araddr			),
-	// 	.mst0_arlen			(arb_ctr_arlen			),
-	// 	.mst0_arsize		(arb_ctr_arsize			),
-	// 	.mst0_arburst		(arb_ctr_arburst		),
-	// 	.mst0_arlock		(arb_ctr_arlock			),
-	// 	.mst0_arcache		(arb_ctr_arcache		),
-	// 	.mst0_arprot		(arb_ctr_arprot			),
-	// 	.mst0_arid			(arb_ctr_arid			),
-	// 	.mst0_rvalid		(arb_ctr_rvalid			),
-	// 	.mst0_rready		(arb_ctr_rready			),
-	// 	.mst0_rid			(arb_ctr_rid			),
-	// 	.mst0_rresp			(arb_ctr_rresp			),
-	// 	.mst0_rdata			(arb_ctr_rdata			),
-	// 	.mst0_rlast			(arb_ctr_rlast			)
-	// );
-
-
-	// DDR_Controller # (
-	// 	.DATA_WIDTH			(`DDR_DATA_WIDTH		),
-	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
-	// 	.ID_WIDTH			(`DDR_ARB_ID_WIDTH		)
-	// ) ddr_ctr (
+	// 	.DATA_WIDTH			(`APB_DATA_WIDTH		)
+	// ) apb (
 	// 	.clk				(clk_100M				),
-	// 	.memory_clk			(clk_400M				),
-	// 	.pll_lock			(locked2				),
-	// 	.resetn				(locked&sys_resetn		),
-	// 	.ui_clk				(ddr_ui_clk				),
-	// 	.s_axi_awid			(arb_ctr_awid			),
-	// 	.s_axi_awaddr		(arb_ctr_awaddr			),
-	// 	.s_axi_awlen		(arb_ctr_awlen			),
-	// 	.s_axi_awsize		(arb_ctr_awsize			),
-	// 	.s_axi_awburst		(arb_ctr_awburst		),
-	// 	.s_axi_awlock		(arb_ctr_awlock			),
-	// 	.s_axi_awcache		(arb_ctr_awcache		),
-	// 	.s_axi_awprot		(arb_ctr_awprot			),
-	// 	.s_axi_awvalid		(arb_ctr_awvalid		),
-	// 	.s_axi_awready		(arb_ctr_awready		),
-	// 	.s_axi_wdata		(arb_ctr_wdata			),
-	// 	.s_axi_wstrb		(arb_ctr_wstrb			),
-	// 	.s_axi_wlast		(arb_ctr_wlast			),
-	// 	.s_axi_wvalid		(arb_ctr_wvalid			),
-	// 	.s_axi_wready		(arb_ctr_wready			),
-	// 	.s_axi_bid			(arb_ctr_bid			),
-	// 	.s_axi_bresp		(arb_ctr_bresp			),
-	// 	.s_axi_bvalid		(arb_ctr_bvalid			),
-	// 	.s_axi_bready		(arb_ctr_bready			),
-	// 	.s_axi_arid			(arb_ctr_arid			),
-	// 	.s_axi_araddr		(arb_ctr_araddr			),
-	// 	.s_axi_arlen		(arb_ctr_arlen			),
-	// 	.s_axi_arsize		(arb_ctr_arsize			),
-	// 	.s_axi_arburst		(arb_ctr_arburst		),
-	// 	.s_axi_arlock		(arb_ctr_arlock			),
-	// 	.s_axi_arcache		(arb_ctr_arcache		),
-	// 	.s_axi_arprot		(arb_ctr_arprot			),
-	// 	.s_axi_arvalid		(arb_ctr_arvalid		),
-	// 	.s_axi_arready		(arb_ctr_arready		),
-	// 	.s_axi_rid			(arb_ctr_rid			),
-	// 	.s_axi_rdata		(arb_ctr_rdata			),
-	// 	.s_axi_rresp		(arb_ctr_rresp			),
-	// 	.s_axi_rlast		(arb_ctr_rlast			),
-	// 	.s_axi_ruser		(arb_ctr_ruser			),
-	// 	.s_axi_rvalid		(arb_ctr_rvalid			),
-	// 	.s_axi_rready		(arb_ctr_rready			),
+	// 	.rst_n				(locked&sys_resetn		),
+	// 	.axi_s_awid			(axi2apb_awid			),
+	// 	.axi_s_awaddr		(axi2apb_awaddr			),
+	// 	.axi_s_awlen		(axi2apb_awlen			),
+	// 	.axi_s_awsize		(axi2apb_awsize			),
+	// 	.axi_s_awburst		(axi2apb_awburst		),
+	// 	.axi_s_awlock		(axi2apb_awlock			),
+	// 	.axi_s_awcache		(axi2apb_awcache		),
+	// 	.axi_s_awprot		(axi2apb_awprot			),
+	// 	.axi_s_awvalid		(axi2apb_awvalid		),
+	// 	.axi_s_awready		(axi2apb_awready		),
 
-	// 	.ml_app_rdy			(ml_app_rdy				),
-	// 	.ml_app_cmd_en		(ml_app_cmd_en			),
-	// 	.ml_app_addr		(ml_app_addr			),
-	// 	.ml_app_wdf_rdy		(ml_app_wdf_rdy			),
-	// 	.ml_app_wdf_data	(ml_app_wdf_data		),
-	// 	.ml_app_wdf_mask	(ml_app_wdf_mask		),
-	// 	.ml_app_wdf_wren	(ml_app_wdf_wren		),
-	// 	.init_model_complete(init_model_complete	),
+	// 	.axi_s_wid			(axi2apb_wid			),
+	// 	.axi_s_wdata		(axi2apb_wdata			),
+	// 	.axi_s_wstrb		(axi2apb_wstrb			),
+	// 	.axi_s_wlast		(axi2apb_wlast			),
+	// 	.axi_s_wvalid		(axi2apb_wvalid			),
+	// 	.axi_s_wready		(axi2apb_wready			),
 
-	// 	.init_calib_complete(init_calib_complete	),
-	// 	.ddr_dq				(ddr_dq					),
-	// 	.ddr_dqs			(ddr_dqs				),
-	// 	.ddr_dqs_n			(ddr_dqs_n				),
-	// 	.ddr_addr			(ddr_addr				),
-	// 	.ddr_bank			(ddr_bank				),
-	// 	.ddr_cs				(ddr_cs					),
-	// 	.ddr_ras			(ddr_ras				),
-	// 	.ddr_cas			(ddr_cas				),
-	// 	.ddr_we				(ddr_we					),
-	// 	.ddr_ck				(ddr_ck					),
-	// 	.ddr_ck_n			(ddr_ck_n				),
-	// 	.ddr_cke			(ddr_cke				),
-	// 	.ddr_odt			(ddr_odt				),
-	// 	.ddr_reset_n		(ddr_reset_n			),
-	// 	.ddr_dm				(ddr_dm					)
+	// 	.axi_s_bid			(axi2apb_bid			),
+	// 	.axi_s_bresp		(axi2apb_bresp			),
+	// 	.axi_s_bvalid		(axi2apb_bvalid			),
+	// 	.axi_s_bready		(axi2apb_bready			),
+
+	// 	.axi_s_arid			(axi2apb_arid			),
+	// 	.axi_s_araddr		(axi2apb_araddr			),
+	// 	.axi_s_arlen		(axi2apb_arlen			),
+	// 	.axi_s_arsize		(axi2apb_arsize			),
+	// 	.axi_s_arburst		(axi2apb_arburst		),
+	// 	.axi_s_arlock		(axi2apb_arlock			),
+	// 	.axi_s_arcache		(axi2apb_arcache		),
+	// 	.axi_s_arprot		(axi2apb_arprot			),
+	// 	.axi_s_arvalid		(axi2apb_arvalid		),
+	// 	.axi_s_arready		(axi2apb_arready		),
+
+	// 	.axi_s_rid			(axi2apb_rid			),
+	// 	.axi_s_rdata		(axi2apb_rdata			),
+	// 	.axi_s_rresp		(axi2apb_rresp			),
+	// 	.axi_s_rlast		(axi2apb_rlast			),
+	// 	.axi_s_rvalid		(axi2apb_rvalid			),
+	// 	.axi_s_rready		(axi2apb_rready			),
+
+	// 	.apb_clk			(apb_clk				),
+	// 	.apb_reset_n		(apb_reset_n			),
+	// 	.reg_psel			(apb_psel				),
+	// 	.reg_rw				(apb_rw					),
+	// 	.reg_addr			(apb_addr				),
+	// 	.reg_enable			(apb_enable				),
+	// 	.reg_datai			(apb_datai				),
+	// 	.reg_datao			(apb_datao				),
+	// 	.reg_ready_1		(apb_ready				)
 	// );
-	// // assign led[2:0] = 0;
-	// assign led[3] = init_model_complete;
 
-	// //assign init_model_complete = 1'b1;
-	// sd_read_para_top ModelLoader (    
-	// 	.sys_clk			(clk_osc				),
-	// 	.sys_rst_n			(locked&sys_resetn		),
-	// 	.sd_miso			(sd_miso				),
-	// 	.sd_clk				(sd_clk					),
-	// 	.sd_cs				(sd_cs					),
-	// 	.sd_mosi			(sd_mosi				),
-	// 	.ui_clk				(ddr_ui_clk				),
-	// 	.init_calib_complete(init_calib_complete	),
-	// 	.app_rdy			(ml_app_rdy				),
-	// 	.app_cmd_en			(ml_app_cmd_en			),
-	// 	.app_addr			(ml_app_addr			),
-	// 	.app_wdf_rdy		(ml_app_wdf_rdy			),
-	// 	.app_wdf_data		(ml_app_wdf_data		),
-	// 	.app_wdf_mask		(ml_app_wdf_mask		),
-	// 	.app_wdf_wren		(ml_app_wdf_wren		),
-	// 	.init_model_complete(init_model_complete	)
+
+	// apb_mux9 apb_mux (
+	// 	.apb_psel_cpu		(apb_psel				),
+	// 	.apb_rw_cpu			(apb_rw					),
+	// 	.apb_addr_cpu		(apb_addr				),
+	// 	.apb_enab_cpu		(apb_enable				),
+	// 	.apb_datai_cpu		(apb_datai				),
+	// 	.apb_datao_cpu		(apb_datao				),
+	// 	.apb_ack_cpu		(apb_ready				),
+
+	// 	.apb0_psel			(apb0_psel				),
+	// 	.apb0_rw			(apb0_rw				),
+	// 	.apb0_addr			(apb0_addr				),
+	// 	.apb0_enab			(apb0_enab				),
+	// 	.apb0_datai			(apb0_datai				),
+	// 	.apb0_datao			(apb0_datao				),
+	// 	.apb0_ack			(apb0_ack				),
+
+	// 	.apb1_psel			(apb1_psel				),
+	// 	.apb1_rw			(apb1_rw				),
+	// 	.apb1_addr			(apb1_addr				),
+	// 	.apb1_enab			(apb1_enab				),
+	// 	.apb1_datai			(apb1_datai				),
+	// 	.apb1_datao			(apb1_datao				),
+	// 	.apb1_ack			(apb1_ack				),
+		
+	// 	.apb2_psel			(apb2_psel				),
+	// 	.apb2_rw			(apb2_rw				),
+	// 	.apb2_addr			(apb2_addr				),
+	// 	.apb2_enab			(apb2_enab				),
+	// 	.apb2_datai			(apb2_datai				),
+	// 	.apb2_datao			(apb2_datao				),
+	// 	.apb2_ack			(apb2_ack				),
+		
+	// 	.apb3_psel			(apb3_psel				),
+	// 	.apb3_rw			(apb3_rw				),
+	// 	.apb3_addr			(apb3_addr				),
+	// 	.apb3_enab			(apb3_enab				),
+	// 	.apb3_datai			(apb3_datai				),
+	// 	.apb3_datao			(apb3_datao				),
+	// 	.apb3_ack			(apb3_ack				),
+		
+	// 	.apb4_psel			(apb4_psel				),
+	// 	.apb4_rw			(apb4_rw				),
+	// 	.apb4_addr			(apb4_addr				),
+	// 	.apb4_enab			(apb4_enab				),
+	// 	.apb4_datai			(apb4_datai				),
+	// 	.apb4_datao			(apb4_datao				),
+	// 	.apb4_ack			(apb4_ack				),
+		
+	// 	.apb5_psel			(apb5_psel				),
+	// 	.apb5_rw			(apb5_rw				),
+	// 	.apb5_addr			(apb5_addr				),
+	// 	.apb5_enab			(apb5_enab				),
+	// 	.apb5_datai			(apb5_datai				),
+	// 	.apb5_datao			(apb5_datao				),
+	// 	.apb5_ack			(apb5_ack				),
+		
+	// 	.apb6_psel			(apb6_psel				),
+	// 	.apb6_rw			(apb6_rw				),
+	// 	.apb6_addr			(apb6_addr				),
+	// 	.apb6_enab			(apb6_enab				),
+	// 	.apb6_datai			(apb6_datai				),
+	// 	.apb6_datao			(apb6_datao				),
+	// 	.apb6_ack			(apb6_ack				),
+		
+	// 	.apb7_psel			(apb7_psel				),
+	// 	.apb7_rw			(apb7_rw				),
+	// 	.apb7_addr			(apb7_addr				),
+	// 	.apb7_enab			(apb7_enab				),
+	// 	.apb7_datai			(apb7_datai				),
+	// 	.apb7_datao			(apb7_datao				),
+	// 	.apb7_ack			(apb7_ack				),
+		
+	// 	.apb8_psel			(apb8_psel				),
+	// 	.apb8_rw			(apb8_rw				),
+	// 	.apb8_addr			(apb8_addr				),
+	// 	.apb8_enab			(apb8_enab				),
+	// 	.apb8_datai			(apb8_datai				),
+	// 	.apb8_datao			(apb8_datao				),
+	// 	.apb8_ack			(apb8_ack				)
 	// );
+	
+	// CONFREG IntController(
+	// 	.apb_pclk			(apb_clk				),
+	// 	.apb_prstn			(apb_reset_n			),
+		
+	// 	.apb_psel			(apb0_psel				),
+	// 	.apb_pwrite			(apb0_rw				),
+	// 	.apb_paddr			(apb0_addr				),
+	// 	.apb_penable		(apb0_enab				),
+	// 	.apb_pwdata			(apb0_datai				),
+	// 	.apb_prdata			(apb0_datao				),
+	// 	.apb_ack			(apb0_ack				),
+
+	// 	.timer_int			(timer_int				),
+	// 	.i2c_int			(i2c_int				),
+	// 	.uart1_int			(uart1_int				),
+	// 	.uart0_int			(uart0_int				),
+	// 	.flash_int			(flash_int				),
+	// 	.spi_int			(spi_int				),
+	// 	.vpwm_int			(vpwm_int				),
+	// 	.dma_int			(dma_int				),
+
+	// 	.int_o				(interrupt[4]			)
+	// );
+	
+	// UART_TOP # (
+	// 	.CLK_FREQ			(CLK_FREQ*2				)
+	// ) UART1 (
+	// 	.apb_pclk			(clk_100M				),
+	// 	.apb_prstn			(apb_reset_n			),
+
+	// 	.apb_psel			(apb1_psel				),
+	// 	.apb_pwrite			(apb1_rw				),
+	// 	.apb_paddr			(apb1_addr				),
+	// 	.apb_penable		(apb1_enab				),
+	// 	.apb_pwdata			(apb1_datai				),
+	// 	.apb_prdata			(apb1_datao				),
+	// 	.uart_ready			(apb1_ack				),
+
+	// 	.RsRx				(RsRx					),
+	// 	.RsTx				(RsTx					),
+	// 	.uart_irq			(uart1_int				)
+	// );
+
+	
+	// LED_driver LED (
+	// 	.clk				(apb_clk				),
+	// 	.resetn				(apb_reset_n			),
+	// 	.apb_psel			(apb8_psel				),
+	// 	.apb_rw				(apb8_rw				),
+	// 	.apb_addr			(apb8_addr				),
+	// 	.apb_enab			(apb8_enab				),
+	// 	.apb_datai			(apb8_datai				),
+	// 	.apb_datao			(apb8_datao				),
+	// 	.apb_ack			(apb8_ack				),
+
+	// 	.led				(led[1:0]				)
+	// );
+
+	axi_adapter # (
+		.ADDR_WIDTH			(`ADDR_WIDTH			),
+		.S_DATA_WIDTH		(`CPU_DATA_WIDTH		),
+		.M_DATA_WIDTH		(`DDR_DATA_WIDTH		)
+	) axi_adapter_32_to_128 (
+    	.clk				(clk_100M				),
+    	.rst				(~(locked&sys_resetn)	),
+
+    	.s_axi_awid			(cpu_arb_32_awid		),
+    	.s_axi_awaddr		(cpu_arb_32_awaddr		),
+    	.s_axi_awlen		(cpu_arb_32_awlen		),
+    	.s_axi_awsize		(cpu_arb_32_awsize		),
+    	.s_axi_awburst		(cpu_arb_32_awburst		),
+    	.s_axi_awlock		(cpu_arb_32_awlock		),
+    	.s_axi_awcache		(cpu_arb_32_awcache		),
+    	.s_axi_awprot		(cpu_arb_32_awprot		),
+    	.s_axi_awvalid		(cpu_arb_32_awvalid		),
+    	.s_axi_awready		(cpu_arb_32_awready		),
+    	.s_axi_wdata		(cpu_arb_32_wdata		),
+    	.s_axi_wstrb		(cpu_arb_32_wstrb		),
+    	.s_axi_wlast		(1						),//cpu_arb_32_wlast
+    	.s_axi_wvalid		(cpu_arb_32_wvalid		),
+    	.s_axi_wready		(cpu_arb_32_wready		),
+    	.s_axi_bid			(cpu_arb_32_bid			),
+    	.s_axi_bresp		(cpu_arb_32_bresp		),
+    	.s_axi_bvalid		(cpu_arb_32_bvalid		),
+    	.s_axi_bready		(cpu_arb_32_bready		),
+    	.s_axi_arid			(cpu_arb_32_arid		),
+    	.s_axi_araddr		(cpu_arb_32_araddr		),
+    	.s_axi_arlen		(cpu_arb_32_arlen		),
+    	.s_axi_arsize		(cpu_arb_32_arsize		),
+    	.s_axi_arburst		(cpu_arb_32_arburst		),
+    	.s_axi_arlock		(cpu_arb_32_arlock		),
+    	.s_axi_arcache		(cpu_arb_32_arcache		),
+    	.s_axi_arprot		(cpu_arb_32_arprot		),
+    	.s_axi_arvalid		(cpu_arb_32_arvalid		),
+    	.s_axi_arready		(cpu_arb_32_arready		),
+    	.s_axi_rid			(cpu_arb_32_rid			),
+    	.s_axi_rdata		(cpu_arb_32_rdata		),
+    	.s_axi_rresp		(cpu_arb_32_rresp		),
+    	.s_axi_rlast		(cpu_arb_32_rlast		),
+    	.s_axi_rvalid		(cpu_arb_32_rvalid		),
+    	.s_axi_rready		(cpu_arb_32_rready		),
+    
+    	.m_axi_awid			(cpu_arb_128_awid		),
+    	.m_axi_awaddr		(cpu_arb_128_awaddr		),
+    	.m_axi_awlen		(cpu_arb_128_awlen		),
+    	.m_axi_awsize		(cpu_arb_128_awsize		),
+    	.m_axi_awburst		(cpu_arb_128_awburst	),
+    	.m_axi_awlock		(cpu_arb_128_awlock		),
+    	.m_axi_awcache		(cpu_arb_128_awcache	),
+    	.m_axi_awprot		(cpu_arb_128_awprot		),
+    	.m_axi_awvalid		(cpu_arb_128_awvalid	),
+    	.m_axi_awready		(cpu_arb_128_awready	),
+    	.m_axi_wdata		(cpu_arb_128_wdata		),
+    	.m_axi_wstrb		(cpu_arb_128_wstrb		),
+    	.m_axi_wlast		(cpu_arb_128_wlast		),
+    	.m_axi_wvalid		(cpu_arb_128_wvalid		),
+    	.m_axi_wready		(cpu_arb_128_wready		),
+    	.m_axi_bid			(cpu_arb_128_bid		),
+    	.m_axi_bresp		(cpu_arb_128_bresp		),
+    	.m_axi_bvalid		(cpu_arb_128_bvalid		),
+    	.m_axi_bready		(cpu_arb_128_bready		),
+    	.m_axi_arid			(cpu_arb_128_arid		),
+    	.m_axi_araddr		(cpu_arb_128_araddr		),
+    	.m_axi_arlen		(cpu_arb_128_arlen		),
+    	.m_axi_arsize		(cpu_arb_128_arsize		),
+    	.m_axi_arburst		(cpu_arb_128_arburst	),
+    	.m_axi_arlock		(cpu_arb_128_arlock		),
+    	.m_axi_arcache		(cpu_arb_128_arcache	),
+    	.m_axi_arprot		(cpu_arb_128_arprot		),
+    	.m_axi_arvalid		(cpu_arb_128_arvalid	),
+    	.m_axi_arready		(cpu_arb_128_arready	),
+    	.m_axi_rid			(cpu_arb_128_rid		),
+    	.m_axi_rdata		(cpu_arb_128_rdata		),
+    	.m_axi_rresp		(cpu_arb_128_rresp		),
+    	.m_axi_rlast		(cpu_arb_128_rlast		),
+    	.m_axi_rvalid		(cpu_arb_128_rvalid		),
+    	.m_axi_rready		(cpu_arb_128_rready		)
+	);
+
+
+	axicb_crossbar_top # (
+		.AXI_ADDR_W			(`ADDR_WIDTH			),
+		.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
+		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
+
+		.AXI_SIGNALING		(1						),
+
+		.MST0_CDC			(0						),
+		.MST0_ID_MASK		('h100					),
+		.MST0_OSTDREQ_NUM	(0						),
+		.MST0_PRIORITY		(0						),
+
+		.MST1_CDC			(0						),
+		.MST1_ID_MASK		('h200					),
+		.MST1_OSTDREQ_NUM	(0						),
+		.MST1_PRIORITY		(0						),
+		
+		.MST2_CDC			(0						),
+		.MST2_ID_MASK		('h300					),
+		.MST2_OSTDREQ_NUM	(0						),
+		.MST2_PRIORITY		(0						),
+
+		.SLV0_CDC			(0						),
+		.SLV0_START_ADDR	(`DDR_ADDR_BASE			),
+		.SLV0_END_ADDR		(`DDR_ADDR_END			),
+		.SLV0_OSTDREQ_NUM	(0						),
+		.SLV0_KEEP_BASE_ADDR(0						)
+	) AXI_Arbiter (
+		.aclk				(clk_100M				),
+		.aresetn			(locked&sys_resetn		),
+		.srst				(~(locked&sys_resetn)	),
+		.slv0_aclk			(clk_100M				),
+		.slv0_aresetn		(locked&sys_resetn		),
+		.slv0_srst			(~(locked&sys_resetn)	),
+		.slv0_awvalid		(cpu_arb_128_awvalid	),
+		.slv0_awready		(cpu_arb_128_awready	),
+		.slv0_awaddr		(cpu_arb_128_awaddr		),
+		.slv0_awlen			(cpu_arb_128_awlen		),
+		.slv0_awsize		(cpu_arb_128_awsize		),
+		.slv0_awburst		(cpu_arb_128_awburst	),
+		.slv0_awlock		(cpu_arb_128_awlock		),
+		.slv0_awcache		(cpu_arb_128_awcache	),
+		.slv0_awprot		(cpu_arb_128_awprot		),
+		.slv0_awid			({4'd1,cpu_arb_128_awid}),
+		.slv0_wvalid		(cpu_arb_128_wvalid		),
+		.slv0_wready		(cpu_arb_128_wready		),
+		.slv0_wlast			(cpu_arb_128_wlast		),
+		.slv0_wdata			(cpu_arb_128_wdata		),
+		.slv0_wstrb			(cpu_arb_128_wstrb		),
+		.slv0_bvalid		(cpu_arb_128_bvalid		),
+		.slv0_bready		(cpu_arb_128_bready		),
+		.slv0_bid			(cpu_arb_128_bid		),
+		.slv0_bresp			(cpu_arb_128_bresp		),
+		.slv0_arvalid		(cpu_arb_128_arvalid	),
+		.slv0_arready		(cpu_arb_128_arready	),
+		.slv0_araddr		(cpu_arb_128_araddr		),
+		.slv0_arlen			(cpu_arb_128_arlen		),
+		.slv0_arsize		(cpu_arb_128_arsize		),
+		.slv0_arburst		(cpu_arb_128_arburst	),
+		.slv0_arlock		(cpu_arb_128_arlock		),
+		.slv0_arcache		(cpu_arb_128_arcache	),
+		.slv0_arprot		(cpu_arb_128_arprot		),
+		.slv0_arid			({4'd1,cpu_arb_128_arid}	),
+		.slv0_rvalid		(cpu_arb_128_rvalid		),
+		.slv0_rready		(cpu_arb_128_rready		),
+		.slv0_rid			(cpu_arb_128_rid		),
+		.slv0_rresp			(cpu_arb_128_rresp		),
+		.slv0_rdata			(cpu_arb_128_rdata		),
+		.slv0_rlast			(cpu_arb_128_rlast		),
+
+		
+		.mst0_aclk			(clk_100M				),
+		.mst0_aresetn		(locked&sys_resetn		),
+		.mst0_srst			(~(locked&sys_resetn)	),
+		.mst0_awvalid		(arb_ctr_awvalid		),
+		.mst0_awready		(arb_ctr_awready		),
+		.mst0_awaddr		(arb_ctr_awaddr			),
+		.mst0_awlen			(arb_ctr_awlen			),
+		.mst0_awsize		(arb_ctr_awsize			),
+		.mst0_awburst		(arb_ctr_awburst		),
+		.mst0_awlock		(arb_ctr_awlock			),
+		.mst0_awcache		(arb_ctr_awcache		),
+		.mst0_awprot		(arb_ctr_awprot			),
+		.mst0_awid			(arb_ctr_awid			),
+		.mst0_wvalid		(arb_ctr_wvalid			),
+		.mst0_wready		(arb_ctr_wready			),
+		.mst0_wlast			(arb_ctr_wlast			),
+		.mst0_wdata			(arb_ctr_wdata			),
+		.mst0_wstrb			(arb_ctr_wstrb			),
+		.mst0_bvalid		(arb_ctr_bvalid			),
+		.mst0_bready		(arb_ctr_bready			),
+		.mst0_bid			(arb_ctr_bid			),
+		.mst0_bresp			(arb_ctr_bresp			),
+		.mst0_arvalid		(arb_ctr_arvalid		),
+		.mst0_arready		(arb_ctr_arready		),
+		.mst0_araddr		(arb_ctr_araddr			),
+		.mst0_arlen			(arb_ctr_arlen			),
+		.mst0_arsize		(arb_ctr_arsize			),
+		.mst0_arburst		(arb_ctr_arburst		),
+		.mst0_arlock		(arb_ctr_arlock			),
+		.mst0_arcache		(arb_ctr_arcache		),
+		.mst0_arprot		(arb_ctr_arprot			),
+		.mst0_arid			(arb_ctr_arid			),
+		.mst0_rvalid		(arb_ctr_rvalid			),
+		.mst0_rready		(arb_ctr_rready			),
+		.mst0_rid			(arb_ctr_rid			),
+		.mst0_rresp			(arb_ctr_rresp			),
+		.mst0_rdata			(arb_ctr_rdata			),
+		.mst0_rlast			(arb_ctr_rlast			)
+	);
+
+
+	DDR_Controller # (
+		.DATA_WIDTH			(`DDR_DATA_WIDTH		),
+		.ADDR_WIDTH			(`ADDR_WIDTH			),
+		.ID_WIDTH			(`DDR_ARB_ID_WIDTH		)
+	) ddr_ctr (
+		.clk				(clk_100M				),
+		.memory_clk			(clk_400M				),
+		.pll_lock			(locked2				),
+		.resetn				(locked&sys_resetn		),
+		.ui_clk				(ddr_ui_clk				),
+		.s_axi_awid			(arb_ctr_awid			),
+		.s_axi_awaddr		(arb_ctr_awaddr			),
+		.s_axi_awlen		(arb_ctr_awlen			),
+		.s_axi_awsize		(arb_ctr_awsize			),
+		.s_axi_awburst		(arb_ctr_awburst		),
+		.s_axi_awlock		(arb_ctr_awlock			),
+		.s_axi_awcache		(arb_ctr_awcache		),
+		.s_axi_awprot		(arb_ctr_awprot			),
+		.s_axi_awvalid		(arb_ctr_awvalid		),
+		.s_axi_awready		(arb_ctr_awready		),
+		.s_axi_wdata		(arb_ctr_wdata			),
+		.s_axi_wstrb		(arb_ctr_wstrb			),
+		.s_axi_wlast		(arb_ctr_wlast			),
+		.s_axi_wvalid		(arb_ctr_wvalid			),
+		.s_axi_wready		(arb_ctr_wready			),
+		.s_axi_bid			(arb_ctr_bid			),
+		.s_axi_bresp		(arb_ctr_bresp			),
+		.s_axi_bvalid		(arb_ctr_bvalid			),
+		.s_axi_bready		(arb_ctr_bready			),
+		.s_axi_arid			(arb_ctr_arid			),
+		.s_axi_araddr		(arb_ctr_araddr			),
+		.s_axi_arlen		(arb_ctr_arlen			),
+		.s_axi_arsize		(arb_ctr_arsize			),
+		.s_axi_arburst		(arb_ctr_arburst		),
+		.s_axi_arlock		(arb_ctr_arlock			),
+		.s_axi_arcache		(arb_ctr_arcache		),
+		.s_axi_arprot		(arb_ctr_arprot			),
+		.s_axi_arvalid		(arb_ctr_arvalid		),
+		.s_axi_arready		(arb_ctr_arready		),
+		.s_axi_rid			(arb_ctr_rid			),
+		.s_axi_rdata		(arb_ctr_rdata			),
+		.s_axi_rresp		(arb_ctr_rresp			),
+		.s_axi_rlast		(arb_ctr_rlast			),
+		.s_axi_ruser		(arb_ctr_ruser			),
+		.s_axi_rvalid		(arb_ctr_rvalid			),
+		.s_axi_rready		(arb_ctr_rready			),
+
+		.ml_app_rdy			(ml_app_rdy				),
+		.ml_app_cmd_en		(ml_app_cmd_en			),
+		.ml_app_addr		(ml_app_addr			),
+		.ml_app_wdf_rdy		(ml_app_wdf_rdy			),
+		.ml_app_wdf_data	(ml_app_wdf_data		),
+		.ml_app_wdf_mask	(ml_app_wdf_mask		),
+		.ml_app_wdf_wren	(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	),
+
+		.init_calib_complete(init_calib_complete	),
+		.ddr_dq				(ddr_dq					),
+		.ddr_dqs			(ddr_dqs				),
+		.ddr_dqs_n			(ddr_dqs_n				),
+		.ddr_addr			(ddr_addr				),
+		.ddr_bank			(ddr_bank				),
+		.ddr_cs				(ddr_cs					),
+		.ddr_ras			(ddr_ras				),
+		.ddr_cas			(ddr_cas				),
+		.ddr_we				(ddr_we					),
+		.ddr_ck				(ddr_ck					),
+		.ddr_ck_n			(ddr_ck_n				),
+		.ddr_cke			(ddr_cke				),
+		.ddr_odt			(ddr_odt				),
+		.ddr_reset_n		(ddr_reset_n			),
+		.ddr_dm				(ddr_dm					)
+	);
+	// assign led[2:0] = 0;
+	assign led[3] = init_calib_complete;
+
+	//assign init_model_complete = 1'b1;
+	sd_read_para_top ModelLoader (    
+		.sys_clk			(clk_osc				),
+		.sys_rst_n			(locked&sys_resetn		),
+		.sd_miso			(sd_miso				),
+		.sd_clk				(sd_clk					),
+		.sd_cs				(sd_cs					),
+		.sd_mosi			(sd_mosi				),
+		.ui_clk				(ddr_ui_clk				),
+		.init_calib_complete(init_calib_complete	),
+		.app_rdy			(ml_app_rdy				),
+		.app_cmd_en			(ml_app_cmd_en			),
+		.app_addr			(ml_app_addr			),
+		.app_wdf_rdy		(ml_app_wdf_rdy			),
+		.app_wdf_data		(ml_app_wdf_data		),
+		.app_wdf_mask		(ml_app_wdf_mask		),
+		.app_wdf_wren		(ml_app_wdf_wren		),
+		.init_model_complete(init_model_complete	)
+	);
 
 endmodule
