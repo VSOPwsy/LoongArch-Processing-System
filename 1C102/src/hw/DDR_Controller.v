@@ -956,5 +956,7 @@ module DDR_Controller #
         .IO_ddr_dqs_n    (ddr_dqs_n)
     );
 
+    assign ml_app_wdf_rdy = app_cmd_wr_ready;
+    assign ml_app_rdy = app_cmd_ready;
 
 endmodule
