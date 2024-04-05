@@ -54,6 +54,9 @@
         <File path="src/hw/ip_repo/gowin_rpll_400M/gowin_rpll_400M.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/scfifo_app/scfifo_app.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/scfifo_rd_data/scfifo_rd_data.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/scfifo_rd_resp/scfifo_rd_resp.v" type="file.verilog" enable="1"/>
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/ddr3_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_ctrl_top.v" type="file.verilog" enable="1"/>
@@ -70,6 +73,6 @@
         <File path="src/hw/uart/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>

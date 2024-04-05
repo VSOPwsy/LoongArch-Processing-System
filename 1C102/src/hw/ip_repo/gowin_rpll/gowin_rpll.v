@@ -1,11 +1,11 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//GOWIN Version: V1.9.9 Beta-4 Education
+//Tool Version: V1.9.9.01 (64-bit)
 //Part Number: GW2A-LV18PG256C8/I7
 //Device: GW2A-18
 //Device Version: C
-//Created Time: Tue Mar 19 21:57:30 2024
+//Created Time: Thu Apr  4 22:54:19 2024
 
 module Gowin_rPLL (clkout, lock, reset, clkin);
 

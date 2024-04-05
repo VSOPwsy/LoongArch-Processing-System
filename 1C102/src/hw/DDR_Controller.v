@@ -1,4 +1,3 @@
-
 module DDR_Controller #
 (
     parameter DATA_WIDTH = 128,
@@ -29,7 +28,7 @@ module DDR_Controller #
     input  wire                     pll_lock,
     input  wire                     resetn,
 
-    output wire                     ui_clk,
+    output wire                     ui_clk,  /* synthesis syn_keep=1 */
 
     /*
      * AXI slave interface
@@ -170,23 +169,50 @@ module DDR_Controller #
     wire                     ram_cmd_wr_en;
     wire                     ram_cmd_rd_en;
     wire                     ram_cmd_last;
+    wire                     ram_cmd;
     wire                     ram_cmd_ready;
-    reg  [ID_WIDTH-1:0]      ram_rd_resp_id;
-    reg  [DATA_WIDTH-1:0]    ram_rd_resp_data;
-    reg                      ram_rd_resp_last;
+
+    wire [ID_WIDTH-1:0]      ram_rd_resp_id;
+    wire [DATA_WIDTH-1:0]    ram_rd_resp_data;
+    wire                     ram_rd_resp_last;
     reg                      ram_rd_resp_valid;
     wire                     ram_rd_resp_ready;
+
+
+
     
-    wire                     scfifo_app_ar_full;
-    wire [ID_WIDTH-1:0]      scfifo_app_ar_idout;
-    wire                     scfifo_app_ar_lastout;
+    wire [ID_WIDTH+ADDR_WIDTH+DATA_WIDTH+STRB_WIDTH+1+1 -1:0]scfifo_app_datain;
+    wire [ID_WIDTH+ADDR_WIDTH+DATA_WIDTH+STRB_WIDTH+1+1 -1:0]scfifo_app_dataout;
+    wire                     scfifo_app_wren;
+    wire                     scfifo_app_full;
+    wire [ID_WIDTH-1:0]      scfifo_app_idout;
+    wire                     scfifo_app_lastout;
+    wire                     scfifo_app_empty;
+    reg                      scfifo_app_rden;
 
-    wire                     scfifo_app_r_full;
-    wire                     scfifo_app_r_empty;
-
+    wire                     app_cmd_last;
+    wire                     app_cmd;
+    reg                      app_cmd_en;
+    wire [ID_WIDTH-1:0]      app_cmd_id;
+    wire [ADDR_WIDTH-1:0]    app_cmd_addr;
+    reg                      app_cmd_wr_en;
+    wire [DATA_WIDTH-1:0]    app_cmd_wr_data;
+    wire [STRB_WIDTH-1:0]    app_cmd_wr_strb;
+    wire [DATA_WIDTH-1:0]    app_rd_resp_data;
+    wire                     app_rd_resp_valid;
     wire                     app_cmd_ready;
-    wire                     app_wdf_rdy;
-    wire                     app_wdf_end;
+    wire                     app_cmd_wr_ready;
+
+    wire                     scfifo_rd_resp_full;
+    reg                      scfifo_rd_resp_wren;
+    reg                      scfifo_rd_resp_rden;
+    wire                     scfifo_rd_resp_empty;
+    
+    wire                     scfifo_rd_data_full;
+    wire                     scfifo_rd_data_wren;
+    wire                     scfifo_rd_data_rden;
+    wire                     scfifo_rd_data_empty;
+
     
     axi_ram_wr_rd_if #(
         .DATA_WIDTH(DATA_WIDTH),
@@ -447,7 +473,7 @@ module DDR_Controller #
         end
     end
 
-    assign {ram_if_wlast, ram_if_wdata} = ram_if_wch;
+    assign {ram_if_wlast, ram_if_wstrb, ram_if_wdata} = ram_if_wch;
 
 
 
@@ -555,7 +581,7 @@ module DDR_Controller #
 		.Full(ar_full) //output Full
 	);
 
-    assign arch = {
+    assign s_axi_arch = {
         s_axi_arburst,
         s_axi_arsize,
         s_axi_arlen,
@@ -704,43 +730,184 @@ module DDR_Controller #
 
     assign {s_axi_rdata, s_axi_rresp, s_axi_rid} = s_axi_rch;
 
-
-
-
-    wire ram_cmd_en = ram_cmd_wr_en | ram_cmd_rd_en;
-    assign ram_cmd_ready = app_cmd_ready & (ram_cmd_wr_en ? app_wdf_rdy : ~scfifo_app_ar_full & ~scfifo_app_r_full);
-
-	sync_fifo #(
-        .PASS_THRU(1),
-        .ADDR_WIDTH(3),
-        .DATA_WIDTH(1 + 12)
-    ) scfifo_app_ar(
-		.aclk(ui_clk),
-        .aresetn(~resetn | ddr_rst),
-        .data_in({ram_cmd_last, ram_cmd_id}),
-        .push(ram_cmd_rd_en),
-        .full(scfifo_app_ar_full),
-        .data_out({scfifo_app_ar_lastout, scfifo_app_ar_idout}),
-        .pull(app_rd_data_end),
-        .empty()
+    scfifo_app scfifo_app (
+		.Data(scfifo_app_datain), //input [189:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(scfifo_app_wren), //input WrEn
+		.RdEn(scfifo_app_rden), //input RdEn
+		.Reset(~resetn | ddr_rst), //input Reset
+		.Q(scfifo_app_dataout), //output [189:0] Q
+		.Empty(scfifo_app_empty), //output Empty
+		.Full(scfifo_app_full) //output Full
 	);
 
-	sync_fifo #(
-        .PASS_THRU(0),
-        .ADDR_WIDTH(3),
-        .DATA_WIDTH(1 + 12 + 128)
-    ) scfifo_app_r(
-		.aclk(ui_clk),
-        .aresetn(~resetn | ddr_rst),
-        .data_in({scfifo_app_ar_lastout & app_rd_data_end, scfifo_app_ar_idout, app_rd_resp_data}),
-        .push(app_rd_resp_valid),
-        .full(scfifo_app_r_full),
-        .data_out({ram_rd_resp_last, ram_rd_resp_id, ram_rd_resp_data}),
-        .pull(ram_rd_resp_ready & ram_rd_resp_valid),
-        .empty(scfifo_app_r_empty)
+    assign ram_cmd_ready = ~scfifo_app_full;
+
+    assign scfifo_app_wren = ram_cmd_rd_en | ram_cmd_wr_en;
+
+    assign scfifo_app_datain = {   ram_cmd_last,
+                                   ram_cmd,
+                                   ~ram_cmd_wr_strb,
+                                   ram_cmd_wr_data,
+                                   ram_cmd_addr,
+                                   ram_cmd_id       };
+
+    assign scfifo_app_dataout = {  app_cmd_last,
+                                   app_cmd,
+                                   app_cmd_wr_strb,
+                                   app_cmd_wr_data,
+                                   app_cmd_addr,
+                                   app_cmd_id       };
+
+
+    scfifo_rd_resp scfifo_rd_resp(
+		.Data({app_cmd_last, app_cmd_id}), //input [12:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(scfifo_rd_resp_wren), //input WrEn
+		.RdEn(scfifo_rd_resp_rden), //input RdEn
+		.Reset(~resetn | ddr_rst), //input Reset
+		.Q({ram_rd_resp_last, ram_rd_resp_id}), //output [12:0] Q
+		.Empty(scfifo_rd_resp_empty), //output Empty
+		.Full(scfifo_rd_resp_full) //output Full
 	);
 
-    assign ram_rd_resp_valid = ~scfifo_app_r_empty;
+
+    scfifo_rd_data scfifo_rd_data(
+		.Data(app_rd_resp_data), //input [127:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(scfifo_rd_data_wren), //input WrEn
+		.RdEn(scfifo_rd_data_rden), //input RdEn
+		.Reset(~resetn | ddr_rst), //input Reset
+		.Q(ram_rd_resp_data), //output [127:0] Q
+		.Empty(scfifo_rd_data_empty), //output Empty
+		.Full(scfifo_rd_data_full) //output Full
+	);
+
+    assign scfifo_rd_data_wren = app_rd_resp_valid;
+
+    /* 
+     * FETCH FSM
+     */
+    localparam FETCH_IDLE = 1'b0;
+    localparam FETCH_BUSY = 1'b1;
+    reg fetch_state_current, fetch_state_next;
+    always @(posedge ui_clk) begin
+        if (resetn | ~ddr_rst) begin
+            fetch_state_current <= FETCH_IDLE;
+        end
+        else begin
+            fetch_state_current <= fetch_state_next;
+        end
+    end
+
+    always @(*) begin
+        fetch_state_next = fetch_state_current;
+        scfifo_app_rden = 1'b0;
+        app_cmd_en = 1'b0;
+        app_cmd_wr_en = 1'b0;
+        scfifo_rd_resp_wren = 1'b0;
+        case (fetch_state_current)
+            FETCH_IDLE: begin
+                if (~scfifo_app_empty) begin
+                    fetch_state_next = FETCH_BUSY;
+                    scfifo_app_rden = 1'b1;
+                end
+            end
+
+            FETCH_BUSY: begin
+                if (app_cmd) begin // Read
+                    if (app_cmd_ready) begin
+                        app_cmd_en = 1'b1;
+                        scfifo_rd_resp_wren = 1'b1;
+                        if (scfifo_app_empty) begin
+                            fetch_state_next = FETCH_IDLE;
+                        end
+                        else begin
+                            scfifo_app_rden = 1'b1;
+                        end
+                    end
+                end
+                else begin
+                    if (app_cmd_ready & app_cmd_wr_ready) begin
+                        app_cmd_en = 1'b1;
+                        app_cmd_wr_en = 1'b1;
+                        if (scfifo_app_empty) begin
+                            fetch_state_next = FETCH_IDLE;
+                        end
+                        else begin
+                            scfifo_app_rden = 1'b1;
+                        end
+                    end
+                end
+            end
+        endcase
+    end
+
+
+    /*
+     * RESP FSM
+     */
+    localparam RESP_IDLE = 1'b0;
+    localparam RESP_BUSY = 1'b1;
+    reg resp_state_current, resp_state_next;
+    always @(posedge ui_clk) begin
+        if (~resetn | ddr_rst) begin
+            resp_state_current <= RESP_IDLE;
+        end
+        else begin
+            resp_state_current <= resp_state_next;
+        end
+    end
+
+    always @(*) begin
+        resp_state_next = resp_state_current;
+        scfifo_rd_resp_rden = 1'b0;
+        case (resp_state_current)
+            RESP_IDLE: begin
+                if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
+                    resp_state_next = RESP_BUSY;
+                    scfifo_rd_resp_rden = 1'b1;
+                end
+            end
+
+            RESP_BUSY: begin
+                if (ram_rd_resp_valid & ram_rd_resp_ready) begin
+                    if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
+                        scfifo_rd_resp_rden = 1'b1;
+                    end
+                    else begin
+                        resp_state_next = RESP_IDLE;
+                    end
+                end
+            end
+        endcase
+    end
+
+    always @(posedge ui_clk) begin
+        if (~resetn | ddr_rst) begin
+            ram_rd_resp_valid <= 1'b0;
+        end
+        else begin
+            case (resp_state_current)
+                RESP_IDLE: begin
+                    if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
+                        ram_rd_resp_valid <= 1'b1;
+                    end
+                end
+
+                RESP_BUSY: begin
+                    if (ram_rd_resp_valid & ram_rd_resp_ready) begin
+                        if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
+                            ram_rd_resp_valid <= 1'b1;
+                        end
+                        else begin
+                            ram_rd_resp_valid <= 1'b0;
+                        end
+                    end
+                end
+            endcase
+        end
+    end
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (clk_bus),
@@ -748,17 +915,17 @@ module DDR_Controller #
         .pll_lock        (pll_lock),
         .rst_n           (resetn),
         .cmd_ready       (app_cmd_ready),
-        .cmd             (init_model_complete ? {2'b0,ram_cmd_rd_en}: 3'b000),
-        .cmd_en          (init_model_complete ? ram_cmd_en          : ml_app_cmd_en),
-        .addr            (init_model_complete ? ram_cmd_addr        : ml_app_addr),
-        .wr_data_rdy     (app_wdf_rdy),
-        .wr_data         (init_model_complete ? ram_cmd_wr_data     : ml_app_wdf_data),
-        .wr_data_en      (init_model_complete ? ram_cmd_wr_en       : ml_app_wdf_wren),
+        .cmd             (init_model_complete ? {2'b0, app_cmd}     : 3'b000),
+        .cmd_en          (init_model_complete ? app_cmd_en          : ml_app_cmd_en),
+        .addr            (init_model_complete ? app_cmd_addr        : ml_app_addr),
+        .wr_data_rdy     (app_cmd_wr_ready),
+        .wr_data         (init_model_complete ? app_cmd_wr_data     : ml_app_wdf_data),
+        .wr_data_en      (init_model_complete ? app_cmd_wr_en       : ml_app_wdf_wren),
         .wr_data_end     (1'b1), // 1:4 mode
-        .wr_data_mask    (init_model_complete ? ~ram_cmd_wr_strb    : ml_app_wdf_mask),
+        .wr_data_mask    (init_model_complete ? app_cmd_wr_strb     : ml_app_wdf_mask),
         .rd_data         (app_rd_resp_data),
         .rd_data_valid   (app_rd_resp_valid),
-        .rd_data_end     (app_rd_data_end),
+        .rd_data_end     (),
         .sr_req          (1'b0),
         .ref_req         (1'b0),
         .sr_ack          (sr_ack),

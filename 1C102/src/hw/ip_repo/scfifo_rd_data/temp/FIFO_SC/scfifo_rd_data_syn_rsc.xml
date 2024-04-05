@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="scfifo_rd_data" Register="10" Alu="3" Lut="16" Bsram="4" T_Register="10(10)" T_Alu="3(3)" T_Lut="16(16)" T_Bsram="4(4)"/>

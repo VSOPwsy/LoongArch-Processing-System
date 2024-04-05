@@ -45,7 +45,7 @@ module TOP # (
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
-	wire ddr_ui_clk; /* synthesis syn_keep=1 */
+	wire ddr_ui_clk;
 
     /*
      * For GW5A
@@ -1191,23 +1191,23 @@ module TOP # (
 	assign led[3] = init_calib_complete;
 
 	//assign init_model_complete = 1'b1;
-	sd_read_para_top ModelLoader (    
-		.sys_clk			(clk_osc				),
-		.sys_rst_n			(locked&sys_resetn		),
-		.sd_miso			(sd_miso				),
-		.sd_clk				(sd_clk					),
-		.sd_cs				(sd_cs					),
-		.sd_mosi			(sd_mosi				),
-		.ui_clk				(ddr_ui_clk				),
-		.init_calib_complete(init_calib_complete	),
-		.app_rdy			(ml_app_rdy				),
-		.app_cmd_en			(ml_app_cmd_en			),
-		.app_addr			(ml_app_addr			),
-		.app_wdf_rdy		(ml_app_wdf_rdy			),
-		.app_wdf_data		(ml_app_wdf_data		),
-		.app_wdf_mask		(ml_app_wdf_mask		),
-		.app_wdf_wren		(ml_app_wdf_wren		),
-		.init_model_complete(init_model_complete	)
-	);
+	// sd_read_para_top ModelLoader (    
+	// 	.sys_clk			(clk_osc				),
+	// 	.sys_rst_n			(locked&sys_resetn		),
+	// 	.sd_miso			(sd_miso				),
+	// 	.sd_clk				(sd_clk					),
+	// 	.sd_cs				(sd_cs					),
+	// 	.sd_mosi			(sd_mosi				),
+	// 	.ui_clk				(ddr_ui_clk				),
+	// 	.init_calib_complete(init_calib_complete	),
+	// 	.app_rdy			(ml_app_rdy				),
+	// 	.app_cmd_en			(ml_app_cmd_en			),
+	// 	.app_addr			(ml_app_addr			),
+	// 	.app_wdf_rdy		(ml_app_wdf_rdy			),
+	// 	.app_wdf_data		(ml_app_wdf_data		),
+	// 	.app_wdf_mask		(ml_app_wdf_mask		),
+	// 	.app_wdf_wren		(ml_app_wdf_wren		),
+	// 	.init_model_complete(init_model_complete	)
+	// );
 
 endmodule

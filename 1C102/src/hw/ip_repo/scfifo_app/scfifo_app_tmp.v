@@ -5,16 +5,20 @@
 //Part Number: GW2A-LV18PG256C8/I7
 //Device: GW2A-18
 //Device Version: C
-//Created Time: Thu Apr  4 22:54:19 2024
+//Created Time: Thu Apr  4 23:05:18 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
 
-    Gowin_rPLL your_instance_name(
-        .clkout(clkout_o), //output clkout
-        .lock(lock_o), //output lock
-        .reset(reset_i), //input reset
-        .clkin(clkin_i) //input clkin
-    );
+	scfifo_app your_instance_name(
+		.Data(Data_i), //input [189:0] Data
+		.Clk(Clk_i), //input Clk
+		.WrEn(WrEn_i), //input WrEn
+		.RdEn(RdEn_i), //input RdEn
+		.Reset(Reset_i), //input Reset
+		.Q(Q_o), //output [189:0] Q
+		.Empty(Empty_o), //output Empty
+		.Full(Full_o) //output Full
+	);
 
 //--------Copy end-------------------
