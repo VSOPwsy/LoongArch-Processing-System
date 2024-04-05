@@ -28,7 +28,7 @@ module DDR_Controller #
     input  wire                     pll_lock,
     input  wire                     resetn,
 
-    output wire                     ui_clk,  /* synthesis syn_keep=1 */
+    output wire                     ui_clk,
 
     /*
      * AXI slave interface
@@ -169,7 +169,6 @@ module DDR_Controller #
     wire                     ram_cmd_wr_en;
     wire                     ram_cmd_rd_en;
     wire                     ram_cmd_last;
-    wire                     ram_cmd;
     wire                     ram_cmd_ready;
 
     wire [ID_WIDTH-1:0]      ram_rd_resp_id;
@@ -210,7 +209,7 @@ module DDR_Controller #
     
     wire                     scfifo_rd_data_full;
     wire                     scfifo_rd_data_wren;
-    wire                     scfifo_rd_data_rden;
+    reg                      scfifo_rd_data_rden;
     wire                     scfifo_rd_data_empty;
 
     
@@ -746,18 +745,18 @@ module DDR_Controller #
     assign scfifo_app_wren = ram_cmd_rd_en | ram_cmd_wr_en;
 
     assign scfifo_app_datain = {   ram_cmd_last,
-                                   ram_cmd,
-                                   ~ram_cmd_wr_strb,
+                                   ram_cmd_rd_en,
+                                   ~ram_cmd_wr_strb, 
                                    ram_cmd_wr_data,
                                    ram_cmd_addr,
                                    ram_cmd_id       };
 
-    assign scfifo_app_dataout = {  app_cmd_last,
-                                   app_cmd,
-                                   app_cmd_wr_strb,
-                                   app_cmd_wr_data,
-                                   app_cmd_addr,
-                                   app_cmd_id       };
+    assign   {  app_cmd_last,
+                app_cmd,
+                app_cmd_wr_strb,
+                app_cmd_wr_data,
+                app_cmd_addr,
+                app_cmd_id       } = scfifo_app_dataout;
 
 
     scfifo_rd_resp scfifo_rd_resp(
@@ -792,7 +791,7 @@ module DDR_Controller #
     localparam FETCH_BUSY = 1'b1;
     reg fetch_state_current, fetch_state_next;
     always @(posedge ui_clk) begin
-        if (resetn | ~ddr_rst) begin
+        if (~resetn | ddr_rst) begin
             fetch_state_current <= FETCH_IDLE;
         end
         else begin
@@ -862,11 +861,13 @@ module DDR_Controller #
     always @(*) begin
         resp_state_next = resp_state_current;
         scfifo_rd_resp_rden = 1'b0;
+        scfifo_rd_data_rden = 1'b0;
         case (resp_state_current)
             RESP_IDLE: begin
                 if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
                     resp_state_next = RESP_BUSY;
                     scfifo_rd_resp_rden = 1'b1;
+                    scfifo_rd_data_rden = 1'b1;
                 end
             end
 
@@ -874,6 +875,7 @@ module DDR_Controller #
                 if (ram_rd_resp_valid & ram_rd_resp_ready) begin
                     if (~scfifo_rd_data_empty & ~scfifo_rd_resp_empty) begin
                         scfifo_rd_resp_rden = 1'b1;
+                        scfifo_rd_data_rden = 1'b1;
                     end
                     else begin
                         resp_state_next = RESP_IDLE;

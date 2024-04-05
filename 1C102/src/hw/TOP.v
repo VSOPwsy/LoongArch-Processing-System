@@ -45,7 +45,7 @@ module TOP # (
     assign locked = locked0 & locked1 & locked2;
 	assign clk_50M = clk_osc;
 
-	wire ddr_ui_clk;
+	wire ddr_ui_clk; /* synthesis syn_keep=1 */
 
     /*
      * For GW5A
@@ -1168,7 +1168,7 @@ module TOP # (
 		.ml_app_wdf_data	(ml_app_wdf_data		),
 		.ml_app_wdf_mask	(ml_app_wdf_mask		),
 		.ml_app_wdf_wren	(ml_app_wdf_wren		),
-		.init_model_complete(init_model_complete	),
+		.init_model_complete(1						),
 
 		.init_calib_complete(init_calib_complete	),
 		.ddr_dq				(ddr_dq					),

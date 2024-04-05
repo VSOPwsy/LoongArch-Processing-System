@@ -2,192 +2,282 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-<<<<<<< HEAD
-    <AoCore index="0" sample_clock="clk_8M" trig_type="0" storage_depth="128" window_num="1" capture_amount="128" implementation="0" trigger_pos="6" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="512" window_num="1" capture_amount="512" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">cpu_wvalid</Signal>
-            <Signal capture_enable="true">cpu_wlast</Signal>
-=======
-    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
-        <SignalList>
-            <Signal capture_enable="true">arb_ctr_rvalid</Signal>
-            <Bus capture_enable="true" name="arb_ctr_rdata[127:0]">
-                <Signal>arb_ctr_rdata[127]</Signal>
-                <Signal>arb_ctr_rdata[126]</Signal>
-                <Signal>arb_ctr_rdata[125]</Signal>
-                <Signal>arb_ctr_rdata[124]</Signal>
-                <Signal>arb_ctr_rdata[123]</Signal>
-                <Signal>arb_ctr_rdata[122]</Signal>
-                <Signal>arb_ctr_rdata[121]</Signal>
-                <Signal>arb_ctr_rdata[120]</Signal>
-                <Signal>arb_ctr_rdata[119]</Signal>
-                <Signal>arb_ctr_rdata[118]</Signal>
-                <Signal>arb_ctr_rdata[117]</Signal>
-                <Signal>arb_ctr_rdata[116]</Signal>
-                <Signal>arb_ctr_rdata[115]</Signal>
-                <Signal>arb_ctr_rdata[114]</Signal>
-                <Signal>arb_ctr_rdata[113]</Signal>
-                <Signal>arb_ctr_rdata[112]</Signal>
-                <Signal>arb_ctr_rdata[111]</Signal>
-                <Signal>arb_ctr_rdata[110]</Signal>
-                <Signal>arb_ctr_rdata[109]</Signal>
-                <Signal>arb_ctr_rdata[108]</Signal>
-                <Signal>arb_ctr_rdata[107]</Signal>
-                <Signal>arb_ctr_rdata[106]</Signal>
-                <Signal>arb_ctr_rdata[105]</Signal>
-                <Signal>arb_ctr_rdata[104]</Signal>
-                <Signal>arb_ctr_rdata[103]</Signal>
-                <Signal>arb_ctr_rdata[102]</Signal>
-                <Signal>arb_ctr_rdata[101]</Signal>
-                <Signal>arb_ctr_rdata[100]</Signal>
-                <Signal>arb_ctr_rdata[99]</Signal>
-                <Signal>arb_ctr_rdata[98]</Signal>
-                <Signal>arb_ctr_rdata[97]</Signal>
-                <Signal>arb_ctr_rdata[96]</Signal>
-                <Signal>arb_ctr_rdata[95]</Signal>
-                <Signal>arb_ctr_rdata[94]</Signal>
-                <Signal>arb_ctr_rdata[93]</Signal>
-                <Signal>arb_ctr_rdata[92]</Signal>
-                <Signal>arb_ctr_rdata[91]</Signal>
-                <Signal>arb_ctr_rdata[90]</Signal>
-                <Signal>arb_ctr_rdata[89]</Signal>
-                <Signal>arb_ctr_rdata[88]</Signal>
-                <Signal>arb_ctr_rdata[87]</Signal>
-                <Signal>arb_ctr_rdata[86]</Signal>
-                <Signal>arb_ctr_rdata[85]</Signal>
-                <Signal>arb_ctr_rdata[84]</Signal>
-                <Signal>arb_ctr_rdata[83]</Signal>
-                <Signal>arb_ctr_rdata[82]</Signal>
-                <Signal>arb_ctr_rdata[81]</Signal>
-                <Signal>arb_ctr_rdata[80]</Signal>
-                <Signal>arb_ctr_rdata[79]</Signal>
-                <Signal>arb_ctr_rdata[78]</Signal>
-                <Signal>arb_ctr_rdata[77]</Signal>
-                <Signal>arb_ctr_rdata[76]</Signal>
-                <Signal>arb_ctr_rdata[75]</Signal>
-                <Signal>arb_ctr_rdata[74]</Signal>
-                <Signal>arb_ctr_rdata[73]</Signal>
-                <Signal>arb_ctr_rdata[72]</Signal>
-                <Signal>arb_ctr_rdata[71]</Signal>
-                <Signal>arb_ctr_rdata[70]</Signal>
-                <Signal>arb_ctr_rdata[69]</Signal>
-                <Signal>arb_ctr_rdata[68]</Signal>
-                <Signal>arb_ctr_rdata[67]</Signal>
-                <Signal>arb_ctr_rdata[66]</Signal>
-                <Signal>arb_ctr_rdata[65]</Signal>
-                <Signal>arb_ctr_rdata[64]</Signal>
-                <Signal>arb_ctr_rdata[63]</Signal>
-                <Signal>arb_ctr_rdata[62]</Signal>
-                <Signal>arb_ctr_rdata[61]</Signal>
-                <Signal>arb_ctr_rdata[60]</Signal>
-                <Signal>arb_ctr_rdata[59]</Signal>
-                <Signal>arb_ctr_rdata[58]</Signal>
-                <Signal>arb_ctr_rdata[57]</Signal>
-                <Signal>arb_ctr_rdata[56]</Signal>
-                <Signal>arb_ctr_rdata[55]</Signal>
-                <Signal>arb_ctr_rdata[54]</Signal>
-                <Signal>arb_ctr_rdata[53]</Signal>
-                <Signal>arb_ctr_rdata[52]</Signal>
-                <Signal>arb_ctr_rdata[51]</Signal>
-                <Signal>arb_ctr_rdata[50]</Signal>
-                <Signal>arb_ctr_rdata[49]</Signal>
-                <Signal>arb_ctr_rdata[48]</Signal>
-                <Signal>arb_ctr_rdata[47]</Signal>
-                <Signal>arb_ctr_rdata[46]</Signal>
-                <Signal>arb_ctr_rdata[45]</Signal>
-                <Signal>arb_ctr_rdata[44]</Signal>
-                <Signal>arb_ctr_rdata[43]</Signal>
-                <Signal>arb_ctr_rdata[42]</Signal>
-                <Signal>arb_ctr_rdata[41]</Signal>
-                <Signal>arb_ctr_rdata[40]</Signal>
-                <Signal>arb_ctr_rdata[39]</Signal>
-                <Signal>arb_ctr_rdata[38]</Signal>
-                <Signal>arb_ctr_rdata[37]</Signal>
-                <Signal>arb_ctr_rdata[36]</Signal>
-                <Signal>arb_ctr_rdata[35]</Signal>
-                <Signal>arb_ctr_rdata[34]</Signal>
-                <Signal>arb_ctr_rdata[33]</Signal>
-                <Signal>arb_ctr_rdata[32]</Signal>
-                <Signal>arb_ctr_rdata[31]</Signal>
-                <Signal>arb_ctr_rdata[30]</Signal>
-                <Signal>arb_ctr_rdata[29]</Signal>
-                <Signal>arb_ctr_rdata[28]</Signal>
-                <Signal>arb_ctr_rdata[27]</Signal>
-                <Signal>arb_ctr_rdata[26]</Signal>
-                <Signal>arb_ctr_rdata[25]</Signal>
-                <Signal>arb_ctr_rdata[24]</Signal>
-                <Signal>arb_ctr_rdata[23]</Signal>
-                <Signal>arb_ctr_rdata[22]</Signal>
-                <Signal>arb_ctr_rdata[21]</Signal>
-                <Signal>arb_ctr_rdata[20]</Signal>
-                <Signal>arb_ctr_rdata[19]</Signal>
-                <Signal>arb_ctr_rdata[18]</Signal>
-                <Signal>arb_ctr_rdata[17]</Signal>
-                <Signal>arb_ctr_rdata[16]</Signal>
-                <Signal>arb_ctr_rdata[15]</Signal>
-                <Signal>arb_ctr_rdata[14]</Signal>
-                <Signal>arb_ctr_rdata[13]</Signal>
-                <Signal>arb_ctr_rdata[12]</Signal>
-                <Signal>arb_ctr_rdata[11]</Signal>
-                <Signal>arb_ctr_rdata[10]</Signal>
-                <Signal>arb_ctr_rdata[9]</Signal>
-                <Signal>arb_ctr_rdata[8]</Signal>
-                <Signal>arb_ctr_rdata[7]</Signal>
-                <Signal>arb_ctr_rdata[6]</Signal>
-                <Signal>arb_ctr_rdata[5]</Signal>
-                <Signal>arb_ctr_rdata[4]</Signal>
-                <Signal>arb_ctr_rdata[3]</Signal>
-                <Signal>arb_ctr_rdata[2]</Signal>
-                <Signal>arb_ctr_rdata[1]</Signal>
-                <Signal>arb_ctr_rdata[0]</Signal>
+            <Signal capture_enable="true">ddr_ctr/app_cmd_last</Signal>
+            <Signal capture_enable="true">ddr_ctr/app_cmd</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/app_cmd_wr_data[127:0]">
+                <Signal>ddr_ctr/app_cmd_wr_data[127]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[126]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[125]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[124]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[123]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[122]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[121]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[120]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[119]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[118]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[117]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[116]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[115]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[114]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[113]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[112]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[111]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[110]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[109]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[108]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[107]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[106]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[105]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[104]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[103]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[102]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[101]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[100]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[99]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[98]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[97]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[96]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[95]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[94]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[93]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[92]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[91]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[90]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[89]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[88]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[87]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[86]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[85]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[84]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[83]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[82]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[81]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[80]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[79]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[78]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[77]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[76]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[75]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[74]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[73]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[72]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[71]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[70]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[69]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[68]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[67]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[66]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[65]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[64]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[63]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[62]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[61]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[60]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[59]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[58]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[57]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[56]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[55]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[54]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[53]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[52]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[51]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[50]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[49]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[48]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[47]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[46]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[45]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[44]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[43]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[42]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[41]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[40]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[39]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[38]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[37]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[36]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[35]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[34]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[33]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[32]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[31]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[30]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[29]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[28]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[27]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[26]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[25]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[24]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[23]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[22]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[21]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[20]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[19]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[18]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[17]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[16]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[15]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[14]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[13]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[12]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[11]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[10]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[9]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[8]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[7]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[6]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[5]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[4]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[3]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[2]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[1]</Signal>
+                <Signal>ddr_ctr/app_cmd_wr_data[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">ddr_ctr/app_cmd_en</Signal>
-            <Bus capture_enable="true" name="ddr_ctr/app_cmd[2:0]">
-                <Signal>ddr_ctr/app_cmd[2]</Signal>
-                <Signal>ddr_ctr/app_cmd[1]</Signal>
-                <Signal>ddr_ctr/app_cmd[0]</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_arvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/ram_cmd_wr_en</Signal>
+            <Signal capture_enable="true">ddr_ctr/ram_cmd_rd_en</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_app_wren</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_app_rden</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_app_empty</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/app_rd_resp_data[127:0]">
+                <Signal>ddr_ctr/app_rd_resp_data[127]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[126]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[125]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[124]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[123]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[122]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[121]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[120]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[119]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[118]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[117]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[116]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[115]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[114]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[113]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[112]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[111]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[110]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[109]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[108]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[107]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[106]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[105]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[104]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[103]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[102]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[101]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[100]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[99]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[98]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[97]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[96]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[95]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[94]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[93]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[92]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[91]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[90]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[89]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[88]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[87]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[86]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[85]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[84]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[83]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[82]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[81]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[80]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[79]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[78]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[77]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[76]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[75]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[74]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[73]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[72]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[71]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[70]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[69]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[68]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[67]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[66]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[65]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[64]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[63]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[62]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[61]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[60]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[59]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[58]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[57]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[56]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[55]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[54]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[53]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[52]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[51]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[50]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[49]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[48]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[47]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[46]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[45]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[44]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[43]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[42]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[41]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[40]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[39]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[38]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[37]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[36]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[35]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[34]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[33]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[32]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[31]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[30]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[29]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[28]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[27]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[26]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[25]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[24]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[23]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[22]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[21]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[20]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[19]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[18]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[17]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[16]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[15]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[14]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[13]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[12]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[11]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[10]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[9]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[8]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[7]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[6]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[5]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[4]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[3]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[2]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[1]</Signal>
+                <Signal>ddr_ctr/app_rd_resp_data[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="ddr_ctr/app_addr[28:0]">
-                <Signal>ddr_ctr/app_addr[28]</Signal>
-                <Signal>ddr_ctr/app_addr[27]</Signal>
-                <Signal>ddr_ctr/app_addr[26]</Signal>
-                <Signal>ddr_ctr/app_addr[25]</Signal>
-                <Signal>ddr_ctr/app_addr[24]</Signal>
-                <Signal>ddr_ctr/app_addr[23]</Signal>
-                <Signal>ddr_ctr/app_addr[22]</Signal>
-                <Signal>ddr_ctr/app_addr[21]</Signal>
-                <Signal>ddr_ctr/app_addr[20]</Signal>
-                <Signal>ddr_ctr/app_addr[19]</Signal>
-                <Signal>ddr_ctr/app_addr[18]</Signal>
-                <Signal>ddr_ctr/app_addr[17]</Signal>
-                <Signal>ddr_ctr/app_addr[16]</Signal>
-                <Signal>ddr_ctr/app_addr[15]</Signal>
-                <Signal>ddr_ctr/app_addr[14]</Signal>
-                <Signal>ddr_ctr/app_addr[13]</Signal>
-                <Signal>ddr_ctr/app_addr[12]</Signal>
-                <Signal>ddr_ctr/app_addr[11]</Signal>
-                <Signal>ddr_ctr/app_addr[10]</Signal>
-                <Signal>ddr_ctr/app_addr[9]</Signal>
-                <Signal>ddr_ctr/app_addr[8]</Signal>
-                <Signal>ddr_ctr/app_addr[7]</Signal>
-                <Signal>ddr_ctr/app_addr[6]</Signal>
-                <Signal>ddr_ctr/app_addr[5]</Signal>
-                <Signal>ddr_ctr/app_addr[4]</Signal>
-                <Signal>ddr_ctr/app_addr[3]</Signal>
-                <Signal>ddr_ctr/app_addr[2]</Signal>
-                <Signal>ddr_ctr/app_addr[1]</Signal>
-                <Signal>ddr_ctr/app_addr[0]</Signal>
-            </Bus>
->>>>>>> 06396a3d4cfc24d288308bae43cd87a8b4557ba5
+            <Signal capture_enable="true">ddr_ctr/app_rd_resp_valid</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-<<<<<<< HEAD
-                    <Signal>cpu_wvalid</Signal>
-=======
                     <Signal>init_calib_complete</Signal>
->>>>>>> 06396a3d4cfc24d288308bae43cd87a8b4557ba5
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -208,13 +298,13 @@
         </Triggers>
         <MatchUnits>
             <MatchUnit index="0" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
-            <MatchUnit index="1" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
-            <MatchUnit index="2" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="1" countinuous="1" func="0" value0="000000000000000000000000000000R0" value1="00000000000000000000000000000000" trigger="2"/>
-            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="3"/>
-            <MatchUnit index="4" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="F" value1="0" trigger="4"/>
-            <MatchUnit index="5" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="5"/>
+            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
-            <MatchUnit index="7" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="7"/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -224,13 +314,9 @@
             <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
-        <Expressions type="Dynamic" ex_implementation="0">
+        <Expressions type="Static">
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-<<<<<<< HEAD
-    <GAO_ID>1100000101110100</GAO_ID>
-=======
-    <GAO_ID>1001011000000010</GAO_ID>
->>>>>>> 06396a3d4cfc24d288308bae43cd87a8b4557ba5
+    <GAO_ID>0110001011010110</GAO_ID>
 </GAO_CONFIG>
