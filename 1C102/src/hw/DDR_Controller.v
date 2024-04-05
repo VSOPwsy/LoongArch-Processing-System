@@ -473,7 +473,7 @@ module DDR_Controller #
         end
     end
 
-    assign {ram_if_wlast, ram_if_wstrb, ram_if_wdata} = ram_if_wch;
+    assign {ram_if_wstrb, ram_if_wdata} = ram_if_wch;
 
 
 
