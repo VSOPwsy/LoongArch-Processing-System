@@ -309,7 +309,7 @@ module DDR_Controller #
     wire [ADDR_WIDTH + ID_WIDTH + 8 + 3 + 2 - 1 : 0] s_axi_awch;    // 57
     wire [ADDR_WIDTH + ID_WIDTH + 8 + 3 + 2 - 1 : 0] ram_if_awch;
 
-    wire aw_rden;
+    reg aw_rden;
     wire aw_empty;
     wire aw_full;
 	ddr_ctr_fifo_aw async_fifo_aw(
@@ -346,20 +346,25 @@ module DDR_Controller #
         end
     end
 
-    assign aw_rden = (aw_state_current == IDLE) & ~aw_empty;
-
     always @(*) begin
         aw_state_next = aw_state_current;
+        aw_rden = 1'b0;
         case (aw_state_current)
             IDLE: begin
                 if (~aw_empty) begin
                     aw_state_next = BUSY;
+                    aw_rden = 1'b1;
                 end
             end
 
             BUSY: begin
                 if (ram_if_awready) begin
-                    aw_state_next = IDLE;
+                    if (aw_empty) begin
+                        aw_state_next = IDLE;
+                    end
+                    else begin
+                        aw_rden = 1'b1;
+                    end
                 end
             end
         endcase
@@ -379,7 +384,9 @@ module DDR_Controller #
 
                 BUSY: begin
                     if (ram_if_awready) begin
-                        ram_if_awvalid <= 1'b0;
+                        if (aw_empty) begin
+                            ram_if_awvalid <= 1'b0;
+                        end
                     end
                 end
             endcase
@@ -401,7 +408,7 @@ module DDR_Controller #
     wire [DATA_WIDTH + STRB_WIDTH - 1 : 0] s_axi_wch;    // 144
     wire [DATA_WIDTH + STRB_WIDTH - 1 : 0] ram_if_wch;
 
-    wire w_rden;
+    reg w_rden;
     wire w_empty;
     wire w_full;
 	ddr_ctr_fifo_w async_fifo_w(
@@ -432,20 +439,25 @@ module DDR_Controller #
         end
     end
 
-    assign w_rden = (w_state_current == IDLE) & ~w_empty;
-
     always @(*) begin
         w_state_next = w_state_current;
+        w_rden = 1'b0;
         case (w_state_current)
             IDLE: begin
                 if (~w_empty) begin
                     w_state_next = BUSY;
+                    w_rden = 1'b1;
                 end
             end
 
             BUSY: begin
                 if (ram_if_wready) begin
-                    w_state_next = IDLE;
+                    if (w_empty) begin
+                        w_state_next = IDLE;
+                    end
+                    else begin
+                        w_rden = 1'b1;
+                    end
                 end
             end
         endcase
@@ -465,7 +477,9 @@ module DDR_Controller #
 
                 BUSY: begin
                     if (ram_if_wready) begin
-                        ram_if_wvalid <= 1'b0;
+                        if (w_empty) begin
+                            ram_if_wvalid <= 1'b0;
+                        end
                     end
                 end
             endcase
@@ -483,7 +497,7 @@ module DDR_Controller #
     wire [ID_WIDTH + 2 - 1 : 0] s_axi_bch;    // 14
     wire [ID_WIDTH + 2 - 1 : 0] ram_if_bch;
 
-    wire b_rden;
+    reg b_rden;
     wire b_empty;
     wire b_full;
 	ddr_ctr_fifo_b async_fifo_b(
@@ -514,20 +528,25 @@ module DDR_Controller #
         end
     end
 
-    assign b_rden = (b_state_current == IDLE) & ~b_empty;
-
     always @(*) begin
         b_state_next = b_state_current;
+        b_rden = 1'b0;
         case (b_state_current)
             IDLE: begin
                 if (~b_empty) begin
                     b_state_next = BUSY;
+                    b_rden = 1'b1;
                 end
             end
 
             BUSY: begin
                 if (s_axi_bready) begin
-                    b_state_next = IDLE;
+                    if (b_empty) begin
+                        b_state_next = IDLE;
+                    end
+                    else begin
+                        b_rden = 1'b1;
+                    end
                 end
             end
         endcase
@@ -547,7 +566,9 @@ module DDR_Controller #
 
                 BUSY: begin
                     if (s_axi_bready) begin
-                        s_axi_bvalid <= 1'b0;
+                        if (b_empty) begin
+                            s_axi_bvalid <= 1'b0;
+                        end
                     end
                 end
             endcase
@@ -564,7 +585,7 @@ module DDR_Controller #
     wire [ADDR_WIDTH + ID_WIDTH + 8 + 3 + 2 - 1 : 0] s_axi_arch;    // 57
     wire [ADDR_WIDTH + ID_WIDTH + 8 + 3 + 2 - 1 : 0] ram_if_arch;
 
-    wire ar_rden;
+    reg ar_rden;
     wire ar_empty;
     wire ar_full;
 	ddr_ctr_fifo_ar async_fifo_ar(
@@ -601,20 +622,25 @@ module DDR_Controller #
         end
     end
 
-    assign ar_rden = (ar_state_current == IDLE) & ~ar_empty;
-
     always @(*) begin
         ar_state_next = ar_state_current;
+        ar_rden = 1'b0;
         case (ar_state_current)
             IDLE: begin
                 if (~ar_empty) begin
                     ar_state_next = BUSY;
+                    ar_rden = 1'b1;
                 end
             end
 
             BUSY: begin
                 if (ram_if_arready) begin
-                    ar_state_next = IDLE;
+                    if (ar_empty) begin
+                        ar_state_next = IDLE;
+                    end
+                    else begin
+                        ar_rden = 1'b1;
+                    end
                 end
             end
         endcase
@@ -634,7 +660,9 @@ module DDR_Controller #
 
                 BUSY: begin
                     if (ram_if_arready) begin
-                        ram_if_arvalid <= 1'b0;
+                        if (ar_empty) begin
+                            ram_if_arvalid <= 1'b0;
+                        end
                     end
                 end
             endcase
@@ -656,7 +684,7 @@ module DDR_Controller #
     wire [ID_WIDTH + 2 + DATA_WIDTH - 1 : 0] s_axi_rch;    // 142
     wire [ID_WIDTH + 2 + DATA_WIDTH - 1 : 0] ram_if_rch;
 
-    wire r_rden;
+    reg r_rden;
     wire r_empty;
     wire r_full;
 	ddr_ctr_fifo_r async_fifo_r(
@@ -687,20 +715,25 @@ module DDR_Controller #
         end
     end
 
-    assign r_rden = (r_state_current == IDLE) & ~r_empty;
-
     always @(*) begin
         r_state_next = r_state_current;
+        r_rden = 1'b0;
         case (r_state_current)
             IDLE: begin
                 if (~r_empty) begin
                     r_state_next = BUSY;
+                    r_rden = 1'b1;
                 end
             end
 
             BUSY: begin
                 if (s_axi_rready) begin
-                    r_state_next = IDLE;
+                    if (r_empty) begin
+                        r_state_next = IDLE;
+                    end
+                    else begin
+                        r_rden = 1'b1;
+                    end
                 end
             end
         endcase
@@ -720,7 +753,9 @@ module DDR_Controller #
 
                 BUSY: begin
                     if (s_axi_rready) begin
-                        s_axi_rvalid <= 1'b0;
+                        if (r_empty) begin
+                            s_axi_rvalid <= 1'b0;
+                        end
                     end
                 end
             endcase

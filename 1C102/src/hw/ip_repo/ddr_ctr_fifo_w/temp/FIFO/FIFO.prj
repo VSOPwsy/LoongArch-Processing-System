@@ -4,15 +4,15 @@
     <Version>beta</Version>
     <Device id="GW2A-18C" package="PBGA256" speed="8" partNumber="GW2A-LV18PG256C8/I7"/>
     <FileList>
-        <File path="D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO/fifo_define.v" type="verilog"/>
-        <File path="D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO/fifo_parameter.v" type="verilog"/>
+        <File path="D:/E/STUDY/competition/0403/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO/fifo_define.v" type="verilog"/>
+        <File path="D:/E/STUDY/competition/0403/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO/fifo_parameter.v" type="verilog"/>
         <File path="C:/Gowin/Gowin_V1.9.9.01_x64/IDE/ipcore/FIFO/data/edc.v" type="verilog"/>
         <File path="C:/Gowin/Gowin_V1.9.9.01_x64/IDE/ipcore/FIFO/data/fifo.v" type="verilog"/>
         <File path="C:/Gowin/Gowin_V1.9.9.01_x64/IDE/ipcore/FIFO/data/fifo_top.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="1"/>
-        <Option type="include_path" value="D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO"/>
+        <Option type="include_path" value="D:/E/STUDY/competition/0403/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_ctr_fifo_w/temp/FIFO"/>
         <Option type="output_file" value="ddr_ctr_fifo_w.vg"/>
         <Option type="output_template" value="ddr_ctr_fifo_w_tmp.v"/>
         <Option type="ram_balance" value="1"/>

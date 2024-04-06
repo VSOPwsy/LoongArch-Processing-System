@@ -2,7 +2,7 @@
 //All rights reserved.
 //File Title: Post-PnR Simulation Model file
 //Tool Version: V1.9.9.01 (64-bit)
-//Created Time: Thu Apr  4 09:06:15 2024
+//Created Time: Sat Apr  6 16:00:08 2024
 
 `timescale 100 ps/100 ps
 module ddr_ctr_fifo_r(
@@ -39,28 +39,37 @@ wire VCC;
 wire WrClk;
 wire WrEn;
 wire WrReset;
-wire \fifo_inst/n12_5 ;
-wire \fifo_inst/n16_3 ;
-wire \fifo_inst/rempty_val_6 ;
+wire \fifo_inst/n14_5 ;
+wire \fifo_inst/n18_3 ;
+wire \fifo_inst/wfull_val ;
+wire \fifo_inst/Equal.wgraynext_1_4 ;
+wire \fifo_inst/wfull_val_4 ;
+wire \fifo_inst/wfull_val_5 ;
 wire \fifo_inst/wfull_val_6 ;
-wire \fifo_inst/rempty_val_7 ;
-wire \fifo_inst/rempty_val_8 ;
 wire \fifo_inst/wfull_val_7 ;
-wire \fifo_inst/wfull_val_8 ;
+wire \fifo_inst/Equal.wbinnext_1_8 ;
 wire \fifo_inst/Equal.wbinnext_0_9 ;
+wire \fifo_inst/Equal.rgraynext_1_6 ;
 wire \fifo_inst/rbin_num_next_0_9 ;
-wire [1:1] \fifo_inst/Equal.wbinnext ;
-wire [0:0] \fifo_inst/Equal.wgraynext ;
-wire [1:1] \fifo_inst/rbin_num_next ;
-wire [0:0] \fifo_inst/Equal.rgraynext ;
-wire [0:0] \fifo_inst/rbin_num ;
-wire [1:0] \fifo_inst/Equal.wq1_rptr ;
-wire [1:0] \fifo_inst/Equal.wq2_rptr ;
-wire [1:0] \fifo_inst/Equal.rq1_wptr ;
-wire [1:0] \fifo_inst/Equal.rq2_wptr ;
-wire [1:0] \fifo_inst/Equal.rptr ;
-wire [1:0] \fifo_inst/Equal.wptr ;
-wire [0:0] \fifo_inst/Equal.wbin ;
+wire \fifo_inst/rempty_val ;
+wire \fifo_inst/n605_1_SUM ;
+wire \fifo_inst/n605_3 ;
+wire \fifo_inst/n606_1_SUM ;
+wire \fifo_inst/n606_3 ;
+wire \fifo_inst/n607_1_SUM ;
+wire \fifo_inst/n607_3 ;
+wire [2:0] \fifo_inst/Equal.rgraynext ;
+wire [2:0] \fifo_inst/Equal.wgraynext ;
+wire [3:1] \fifo_inst/rbin_num_next ;
+wire [3:1] \fifo_inst/Equal.wbinnext ;
+wire [2:0] \fifo_inst/rbin_num ;
+wire [3:0] \fifo_inst/Equal.wq1_rptr ;
+wire [3:0] \fifo_inst/Equal.wq2_rptr ;
+wire [3:0] \fifo_inst/Equal.rq1_wptr ;
+wire [3:0] \fifo_inst/Equal.rq2_wptr ;
+wire [3:0] \fifo_inst/Equal.rptr ;
+wire [3:0] \fifo_inst/Equal.wptr ;
+wire [2:0] \fifo_inst/Equal.wbin ;
 wire [35:35] \fifo_inst/DO ;
 VCC VCC_cZ (
   .V(VCC)
@@ -71,66 +80,132 @@ GND GND_cZ (
 GSR GSR (
 	.GSRI(VCC)
 );
-LUT2 \fifo_inst/n12_s1  (
+LUT2 \fifo_inst/n14_s1  (
 	.I0(Full),
 	.I1(WrEn),
-	.F(\fifo_inst/n12_5 )
+	.F(\fifo_inst/n14_5 )
 );
-defparam \fifo_inst/n12_s1 .INIT=4'h4;
-LUT2 \fifo_inst/n16_s0  (
+defparam \fifo_inst/n14_s1 .INIT=4'h4;
+LUT2 \fifo_inst/n18_s0  (
 	.I0(Empty),
 	.I1(RdEn),
-	.F(\fifo_inst/n16_3 )
+	.F(\fifo_inst/n18_3 )
 );
-defparam \fifo_inst/n16_s0 .INIT=4'h4;
-LUT4 \fifo_inst/rempty_val_s2  (
-	.I0(\fifo_inst/n16_3 ),
-	.I1(\fifo_inst/rbin_num [0]),
-	.I2(\fifo_inst/rempty_val_7 ),
-	.I3(\fifo_inst/rempty_val_8 ),
-	.F(\fifo_inst/rempty_val_6 )
+defparam \fifo_inst/n18_s0 .INIT=4'h4;
+LUT3 \fifo_inst/Equal.rgraynext_1_s0  (
+	.I0(\fifo_inst/Equal.rgraynext_1_6 ),
+	.I1(\fifo_inst/rbin_num_next [1]),
+	.I2(\fifo_inst/rbin_num [2]),
+	.F(\fifo_inst/Equal.rgraynext [1])
 );
-defparam \fifo_inst/rempty_val_s2 .INIT=16'h0816;
+defparam \fifo_inst/Equal.rgraynext_1_s0 .INIT=8'h96;
+LUT3 \fifo_inst/Equal.rgraynext_2_s0  (
+	.I0(\fifo_inst/Equal.rgraynext_1_6 ),
+	.I1(\fifo_inst/rbin_num [2]),
+	.I2(\fifo_inst/Equal.rptr [3]),
+	.F(\fifo_inst/Equal.rgraynext [2])
+);
+defparam \fifo_inst/Equal.rgraynext_2_s0 .INIT=8'h1E;
+LUT2 \fifo_inst/Equal.wgraynext_1_s0  (
+	.I0(\fifo_inst/Equal.wgraynext_1_4 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.F(\fifo_inst/Equal.wgraynext [1])
+);
+defparam \fifo_inst/Equal.wgraynext_1_s0 .INIT=4'h9;
+LUT4 \fifo_inst/wfull_val_s0  (
+	.I0(\fifo_inst/wfull_val_4 ),
+	.I1(\fifo_inst/wfull_val_5 ),
+	.I2(\fifo_inst/wfull_val_6 ),
+	.I3(\fifo_inst/wfull_val_7 ),
+	.F(\fifo_inst/wfull_val )
+);
+defparam \fifo_inst/wfull_val_s0 .INIT=16'h0080;
+LUT2 \fifo_inst/rbin_num_next_2_s3  (
+	.I0(\fifo_inst/Equal.rgraynext_1_6 ),
+	.I1(\fifo_inst/rbin_num [2]),
+	.F(\fifo_inst/rbin_num_next [2])
+);
+defparam \fifo_inst/rbin_num_next_2_s3 .INIT=4'h6;
+LUT3 \fifo_inst/rbin_num_next_3_s2  (
+	.I0(\fifo_inst/Equal.rgraynext_1_6 ),
+	.I1(\fifo_inst/rbin_num [2]),
+	.I2(\fifo_inst/Equal.rptr [3]),
+	.F(\fifo_inst/rbin_num_next [3])
+);
+defparam \fifo_inst/rbin_num_next_3_s2 .INIT=8'h78;
+LUT2 \fifo_inst/Equal.wbinnext_1_s3  (
+	.I0(\fifo_inst/Equal.wgraynext_1_4 ),
+	.I1(\fifo_inst/Equal.wbinnext_1_8 ),
+	.F(\fifo_inst/Equal.wbinnext [1])
+);
+defparam \fifo_inst/Equal.wbinnext_1_s3 .INIT=4'h1;
+LUT2 \fifo_inst/Equal.wbinnext_2_s3  (
+	.I0(\fifo_inst/Equal.wbinnext_1_8 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.F(\fifo_inst/Equal.wbinnext [2])
+);
+defparam \fifo_inst/Equal.wbinnext_2_s3 .INIT=4'h6;
+LUT3 \fifo_inst/Equal.wbinnext_3_s2  (
+	.I0(\fifo_inst/Equal.wbinnext_1_8 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.I2(\fifo_inst/Equal.wptr [3]),
+	.F(\fifo_inst/Equal.wbinnext [3])
+);
+defparam \fifo_inst/Equal.wbinnext_3_s2 .INIT=8'h78;
+LUT4 \fifo_inst/Equal.wgraynext_1_s1  (
+	.I0(Full),
+	.I1(\fifo_inst/Equal.wbin [0]),
+	.I2(WrEn),
+	.I3(\fifo_inst/Equal.wbin [1]),
+	.F(\fifo_inst/Equal.wgraynext_1_4 )
+);
+defparam \fifo_inst/Equal.wgraynext_1_s1 .INIT=16'h00BF;
+LUT3 \fifo_inst/wfull_val_s1  (
+	.I0(\fifo_inst/Equal.wgraynext_1_4 ),
+	.I1(\fifo_inst/Equal.wq2_rptr [1]),
+	.I2(\fifo_inst/Equal.wbin [2]),
+	.F(\fifo_inst/wfull_val_4 )
+);
+defparam \fifo_inst/wfull_val_s1 .INIT=8'h96;
 LUT4 \fifo_inst/wfull_val_s2  (
-	.I0(\fifo_inst/n12_5 ),
-	.I1(\fifo_inst/wfull_val_7 ),
-	.I2(\fifo_inst/Equal.wbin [0]),
-	.I3(\fifo_inst/wfull_val_8 ),
+	.I0(\fifo_inst/n14_5 ),
+	.I1(\fifo_inst/Equal.wbin [0]),
+	.I2(\fifo_inst/Equal.wq2_rptr [0]),
+	.I3(\fifo_inst/Equal.wbin [1]),
+	.F(\fifo_inst/wfull_val_5 )
+);
+defparam \fifo_inst/wfull_val_s2 .INIT=16'h1EE1;
+LUT4 \fifo_inst/wfull_val_s3  (
+	.I0(\fifo_inst/Equal.wbinnext_1_8 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.I2(\fifo_inst/Equal.wq2_rptr [3]),
+	.I3(\fifo_inst/Equal.wptr [3]),
 	.F(\fifo_inst/wfull_val_6 )
 );
-defparam \fifo_inst/wfull_val_s2 .INIT=16'h8049;
-LUT2 \fifo_inst/rempty_val_s3  (
-	.I0(\fifo_inst/Equal.rq2_wptr [0]),
-	.I1(\fifo_inst/Equal.rptr [1]),
-	.F(\fifo_inst/rempty_val_7 )
-);
-defparam \fifo_inst/rempty_val_s3 .INIT=4'h9;
-LUT2 \fifo_inst/rempty_val_s4  (
-	.I0(\fifo_inst/Equal.rq2_wptr [1]),
-	.I1(\fifo_inst/Equal.rptr [1]),
-	.F(\fifo_inst/rempty_val_8 )
-);
-defparam \fifo_inst/rempty_val_s4 .INIT=4'h6;
-LUT2 \fifo_inst/wfull_val_s3  (
-	.I0(\fifo_inst/Equal.wq2_rptr [0]),
-	.I1(\fifo_inst/Equal.wptr [1]),
+defparam \fifo_inst/wfull_val_s3 .INIT=16'h8778;
+LUT4 \fifo_inst/wfull_val_s4  (
+	.I0(\fifo_inst/Equal.wbinnext_1_8 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.I2(\fifo_inst/Equal.wq2_rptr [2]),
+	.I3(\fifo_inst/Equal.wptr [3]),
 	.F(\fifo_inst/wfull_val_7 )
 );
-defparam \fifo_inst/wfull_val_s3 .INIT=4'h9;
-LUT2 \fifo_inst/wfull_val_s4  (
-	.I0(\fifo_inst/Equal.wq2_rptr [1]),
-	.I1(\fifo_inst/Equal.wptr [1]),
-	.F(\fifo_inst/wfull_val_8 )
-);
-defparam \fifo_inst/wfull_val_s4 .INIT=4'h9;
-LUT4 \fifo_inst/Equal.wbinnext_1_s3  (
+defparam \fifo_inst/wfull_val_s4 .INIT=16'h1EE1;
+LUT4 \fifo_inst/Equal.wbinnext_1_s4  (
 	.I0(Full),
 	.I1(WrEn),
 	.I2(\fifo_inst/Equal.wbin [0]),
-	.I3(\fifo_inst/Equal.wptr [1]),
-	.F(\fifo_inst/Equal.wbinnext [1])
+	.I3(\fifo_inst/Equal.wbin [1]),
+	.F(\fifo_inst/Equal.wbinnext_1_8 )
 );
-defparam \fifo_inst/Equal.wbinnext_1_s3 .INIT=16'hBF40;
+defparam \fifo_inst/Equal.wbinnext_1_s4 .INIT=16'h4000;
+LUT3 \fifo_inst/Equal.wgraynext_2_s1  (
+	.I0(\fifo_inst/Equal.wbinnext_1_8 ),
+	.I1(\fifo_inst/Equal.wbin [2]),
+	.I2(\fifo_inst/Equal.wbinnext [3]),
+	.F(\fifo_inst/Equal.wgraynext [2])
+);
+defparam \fifo_inst/Equal.wgraynext_2_s1 .INIT=8'h96;
 LUT3 \fifo_inst/Equal.wbinnext_0_s4  (
 	.I0(Full),
 	.I1(WrEn),
@@ -142,18 +217,26 @@ LUT4 \fifo_inst/Equal.wgraynext_0_s1  (
 	.I0(Full),
 	.I1(WrEn),
 	.I2(\fifo_inst/Equal.wbin [0]),
-	.I3(\fifo_inst/Equal.wptr [1]),
+	.I3(\fifo_inst/Equal.wbin [1]),
 	.F(\fifo_inst/Equal.wgraynext [0])
 );
 defparam \fifo_inst/Equal.wgraynext_0_s1 .INIT=16'h0BF4;
-LUT4 \fifo_inst/rbin_num_next_1_s3  (
+LUT4 \fifo_inst/Equal.rgraynext_1_s2  (
 	.I0(Empty),
 	.I1(RdEn),
 	.I2(\fifo_inst/rbin_num [0]),
-	.I3(\fifo_inst/Equal.rptr [1]),
+	.I3(\fifo_inst/rbin_num [1]),
+	.F(\fifo_inst/Equal.rgraynext_1_6 )
+);
+defparam \fifo_inst/Equal.rgraynext_1_s2 .INIT=16'h4000;
+LUT4 \fifo_inst/rbin_num_next_1_s4  (
+	.I0(Empty),
+	.I1(RdEn),
+	.I2(\fifo_inst/rbin_num [0]),
+	.I3(\fifo_inst/rbin_num [1]),
 	.F(\fifo_inst/rbin_num_next [1])
 );
-defparam \fifo_inst/rbin_num_next_1_s3 .INIT=16'hBF40;
+defparam \fifo_inst/rbin_num_next_1_s4 .INIT=16'hBF40;
 LUT3 \fifo_inst/rbin_num_next_0_s4  (
 	.I0(Empty),
 	.I1(RdEn),
@@ -161,14 +244,35 @@ LUT3 \fifo_inst/rbin_num_next_0_s4  (
 	.F(\fifo_inst/rbin_num_next_0_9 )
 );
 defparam \fifo_inst/rbin_num_next_0_s4 .INIT=8'hB4;
+LUT3 \fifo_inst/rempty_val_s1  (
+	.I0(\fifo_inst/rbin_num_next [3]),
+	.I1(\fifo_inst/Equal.rq2_wptr [3]),
+	.I2(\fifo_inst/n607_3 ),
+	.F(\fifo_inst/rempty_val )
+);
+defparam \fifo_inst/rempty_val_s1 .INIT=8'h09;
 LUT4 \fifo_inst/Equal.rgraynext_0_s1  (
 	.I0(Empty),
 	.I1(RdEn),
 	.I2(\fifo_inst/rbin_num [0]),
-	.I3(\fifo_inst/Equal.rptr [1]),
+	.I3(\fifo_inst/rbin_num_next [1]),
 	.F(\fifo_inst/Equal.rgraynext [0])
 );
-defparam \fifo_inst/Equal.rgraynext_0_s1 .INIT=16'h0BF4;
+defparam \fifo_inst/Equal.rgraynext_0_s1 .INIT=16'h4BB4;
+DFFC \fifo_inst/rbin_num_2_s0  (
+	.D(\fifo_inst/rbin_num_next [2]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/rbin_num [2])
+);
+defparam \fifo_inst/rbin_num_2_s0 .INIT=1'b0;
+DFFC \fifo_inst/rbin_num_1_s0  (
+	.D(\fifo_inst/rbin_num_next [1]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/rbin_num [1])
+);
+defparam \fifo_inst/rbin_num_1_s0 .INIT=1'b0;
 DFFC \fifo_inst/rbin_num_0_s0  (
 	.D(\fifo_inst/rbin_num_next_0_9 ),
 	.CLK(RdClk),
@@ -176,6 +280,20 @@ DFFC \fifo_inst/rbin_num_0_s0  (
 	.Q(\fifo_inst/rbin_num [0])
 );
 defparam \fifo_inst/rbin_num_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wq1_rptr_3_s0  (
+	.D(\fifo_inst/Equal.rptr [3]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wq1_rptr [3])
+);
+defparam \fifo_inst/Equal.wq1_rptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wq1_rptr_2_s0  (
+	.D(\fifo_inst/Equal.rptr [2]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wq1_rptr [2])
+);
+defparam \fifo_inst/Equal.wq1_rptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.wq1_rptr_1_s0  (
 	.D(\fifo_inst/Equal.rptr [1]),
 	.CLK(WrClk),
@@ -190,6 +308,20 @@ DFFC \fifo_inst/Equal.wq1_rptr_0_s0  (
 	.Q(\fifo_inst/Equal.wq1_rptr [0])
 );
 defparam \fifo_inst/Equal.wq1_rptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wq2_rptr_3_s0  (
+	.D(\fifo_inst/Equal.wq1_rptr [3]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wq2_rptr [3])
+);
+defparam \fifo_inst/Equal.wq2_rptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wq2_rptr_2_s0  (
+	.D(\fifo_inst/Equal.wq1_rptr [2]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wq2_rptr [2])
+);
+defparam \fifo_inst/Equal.wq2_rptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.wq2_rptr_1_s0  (
 	.D(\fifo_inst/Equal.wq1_rptr [1]),
 	.CLK(WrClk),
@@ -204,6 +336,20 @@ DFFC \fifo_inst/Equal.wq2_rptr_0_s0  (
 	.Q(\fifo_inst/Equal.wq2_rptr [0])
 );
 defparam \fifo_inst/Equal.wq2_rptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rq1_wptr_3_s0  (
+	.D(\fifo_inst/Equal.wptr [3]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rq1_wptr [3])
+);
+defparam \fifo_inst/Equal.rq1_wptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rq1_wptr_2_s0  (
+	.D(\fifo_inst/Equal.wptr [2]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rq1_wptr [2])
+);
+defparam \fifo_inst/Equal.rq1_wptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.rq1_wptr_1_s0  (
 	.D(\fifo_inst/Equal.wptr [1]),
 	.CLK(RdClk),
@@ -218,6 +364,20 @@ DFFC \fifo_inst/Equal.rq1_wptr_0_s0  (
 	.Q(\fifo_inst/Equal.rq1_wptr [0])
 );
 defparam \fifo_inst/Equal.rq1_wptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rq2_wptr_3_s0  (
+	.D(\fifo_inst/Equal.rq1_wptr [3]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rq2_wptr [3])
+);
+defparam \fifo_inst/Equal.rq2_wptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rq2_wptr_2_s0  (
+	.D(\fifo_inst/Equal.rq1_wptr [2]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rq2_wptr [2])
+);
+defparam \fifo_inst/Equal.rq2_wptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.rq2_wptr_1_s0  (
 	.D(\fifo_inst/Equal.rq1_wptr [1]),
 	.CLK(RdClk),
@@ -232,8 +392,22 @@ DFFC \fifo_inst/Equal.rq2_wptr_0_s0  (
 	.Q(\fifo_inst/Equal.rq2_wptr [0])
 );
 defparam \fifo_inst/Equal.rq2_wptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rptr_3_s0  (
+	.D(\fifo_inst/rbin_num_next [3]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rptr [3])
+);
+defparam \fifo_inst/Equal.rptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.rptr_2_s0  (
+	.D(\fifo_inst/Equal.rgraynext [2]),
+	.CLK(RdClk),
+	.CLEAR(RdReset),
+	.Q(\fifo_inst/Equal.rptr [2])
+);
+defparam \fifo_inst/Equal.rptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.rptr_1_s0  (
-	.D(\fifo_inst/rbin_num_next [1]),
+	.D(\fifo_inst/Equal.rgraynext [1]),
 	.CLK(RdClk),
 	.CLEAR(RdReset),
 	.Q(\fifo_inst/Equal.rptr [1])
@@ -246,8 +420,22 @@ DFFC \fifo_inst/Equal.rptr_0_s0  (
 	.Q(\fifo_inst/Equal.rptr [0])
 );
 defparam \fifo_inst/Equal.rptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wptr_3_s0  (
+	.D(\fifo_inst/Equal.wbinnext [3]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wptr [3])
+);
+defparam \fifo_inst/Equal.wptr_3_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wptr_2_s0  (
+	.D(\fifo_inst/Equal.wgraynext [2]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wptr [2])
+);
+defparam \fifo_inst/Equal.wptr_2_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.wptr_1_s0  (
-	.D(\fifo_inst/Equal.wbinnext [1]),
+	.D(\fifo_inst/Equal.wgraynext [1]),
 	.CLK(WrClk),
 	.CLEAR(WrReset),
 	.Q(\fifo_inst/Equal.wptr [1])
@@ -260,6 +448,20 @@ DFFC \fifo_inst/Equal.wptr_0_s0  (
 	.Q(\fifo_inst/Equal.wptr [0])
 );
 defparam \fifo_inst/Equal.wptr_0_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wbin_2_s0  (
+	.D(\fifo_inst/Equal.wbinnext [2]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wbin [2])
+);
+defparam \fifo_inst/Equal.wbin_2_s0 .INIT=1'b0;
+DFFC \fifo_inst/Equal.wbin_1_s0  (
+	.D(\fifo_inst/Equal.wbinnext [1]),
+	.CLK(WrClk),
+	.CLEAR(WrReset),
+	.Q(\fifo_inst/Equal.wbin [1])
+);
+defparam \fifo_inst/Equal.wbin_1_s0 .INIT=1'b0;
 DFFC \fifo_inst/Equal.wbin_0_s0  (
 	.D(\fifo_inst/Equal.wbinnext_0_9 ),
 	.CLK(WrClk),
@@ -268,14 +470,14 @@ DFFC \fifo_inst/Equal.wbin_0_s0  (
 );
 defparam \fifo_inst/Equal.wbin_0_s0 .INIT=1'b0;
 DFFC \fifo_inst/Full_s0  (
-	.D(\fifo_inst/wfull_val_6 ),
+	.D(\fifo_inst/wfull_val ),
 	.CLK(WrClk),
 	.CLEAR(WrReset),
 	.Q(Full)
 );
 defparam \fifo_inst/Full_s0 .INIT=1'b0;
 DFFP \fifo_inst/Empty_s0  (
-	.D(\fifo_inst/rempty_val_6 ),
+	.D(\fifo_inst/rempty_val ),
 	.CLK(RdClk),
 	.PRESET(RdReset),
 	.Q(Empty)
@@ -283,17 +485,17 @@ DFFP \fifo_inst/Empty_s0  (
 defparam \fifo_inst/Empty_s0 .INIT=1'b1;
 SDPX9B \fifo_inst/Equal.mem_Equal.mem_0_0_s  (
 	.CLKA(WrClk),
-	.CEA(\fifo_inst/n12_5 ),
+	.CEA(\fifo_inst/n14_5 ),
 	.RESETA(GND),
 	.CLKB(RdClk),
-	.CEB(\fifo_inst/n16_3 ),
+	.CEB(\fifo_inst/n18_3 ),
 	.RESETB(RdReset),
 	.OCE(GND),
 	.BLKSELA({GND, GND, GND}),
 	.BLKSELB({GND, GND, GND}),
 	.DI({Data[35:0]}),
-	.ADA({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [0], GND, VCC, VCC, VCC, VCC}),
-	.ADB({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [0], GND, GND, GND, GND, GND}),
+	.ADA({GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [2:0], GND, VCC, VCC, VCC, VCC}),
+	.ADB({GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [2:0], GND, GND, GND, GND, GND}),
 	.DO({Q[35:0]})
 );
 defparam \fifo_inst/Equal.mem_Equal.mem_0_0_s .READ_MODE=1'b0;
@@ -304,17 +506,17 @@ defparam \fifo_inst/Equal.mem_Equal.mem_0_0_s .BLK_SEL_0=3'b000;
 defparam \fifo_inst/Equal.mem_Equal.mem_0_0_s .BLK_SEL_1=3'b000;
 SDPX9B \fifo_inst/Equal.mem_Equal.mem_0_1_s  (
 	.CLKA(WrClk),
-	.CEA(\fifo_inst/n12_5 ),
+	.CEA(\fifo_inst/n14_5 ),
 	.RESETA(GND),
 	.CLKB(RdClk),
-	.CEB(\fifo_inst/n16_3 ),
+	.CEB(\fifo_inst/n18_3 ),
 	.RESETB(RdReset),
 	.OCE(GND),
 	.BLKSELA({GND, GND, GND}),
 	.BLKSELB({GND, GND, GND}),
 	.DI({Data[71:36]}),
-	.ADA({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [0], GND, VCC, VCC, VCC, VCC}),
-	.ADB({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [0], GND, GND, GND, GND, GND}),
+	.ADA({GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [2:0], GND, VCC, VCC, VCC, VCC}),
+	.ADB({GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [2:0], GND, GND, GND, GND, GND}),
 	.DO({Q[71:36]})
 );
 defparam \fifo_inst/Equal.mem_Equal.mem_0_1_s .READ_MODE=1'b0;
@@ -325,17 +527,17 @@ defparam \fifo_inst/Equal.mem_Equal.mem_0_1_s .BLK_SEL_0=3'b000;
 defparam \fifo_inst/Equal.mem_Equal.mem_0_1_s .BLK_SEL_1=3'b000;
 SDPX9B \fifo_inst/Equal.mem_Equal.mem_0_2_s  (
 	.CLKA(WrClk),
-	.CEA(\fifo_inst/n12_5 ),
+	.CEA(\fifo_inst/n14_5 ),
 	.RESETA(GND),
 	.CLKB(RdClk),
-	.CEB(\fifo_inst/n16_3 ),
+	.CEB(\fifo_inst/n18_3 ),
 	.RESETB(RdReset),
 	.OCE(GND),
 	.BLKSELA({GND, GND, GND}),
 	.BLKSELB({GND, GND, GND}),
 	.DI({Data[107:72]}),
-	.ADA({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [0], GND, VCC, VCC, VCC, VCC}),
-	.ADB({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [0], GND, GND, GND, GND, GND}),
+	.ADA({GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [2:0], GND, VCC, VCC, VCC, VCC}),
+	.ADB({GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [2:0], GND, GND, GND, GND, GND}),
 	.DO({Q[107:72]})
 );
 defparam \fifo_inst/Equal.mem_Equal.mem_0_2_s .READ_MODE=1'b0;
@@ -346,17 +548,17 @@ defparam \fifo_inst/Equal.mem_Equal.mem_0_2_s .BLK_SEL_0=3'b000;
 defparam \fifo_inst/Equal.mem_Equal.mem_0_2_s .BLK_SEL_1=3'b000;
 SDPX9B \fifo_inst/Equal.mem_Equal.mem_0_3_s  (
 	.CLKA(WrClk),
-	.CEA(\fifo_inst/n12_5 ),
+	.CEA(\fifo_inst/n14_5 ),
 	.RESETA(GND),
 	.CLKB(RdClk),
-	.CEB(\fifo_inst/n16_3 ),
+	.CEB(\fifo_inst/n18_3 ),
 	.RESETB(RdReset),
 	.OCE(GND),
 	.BLKSELA({GND, GND, GND}),
 	.BLKSELB({GND, GND, GND}),
 	.DI({GND, Data[142:108]}),
-	.ADA({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [0], GND, VCC, VCC, VCC, VCC}),
-	.ADB({GND, GND, GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [0], GND, GND, GND, GND, GND}),
+	.ADA({GND, GND, GND, GND, GND, GND, \fifo_inst/Equal.wbin [2:0], GND, VCC, VCC, VCC, VCC}),
+	.ADB({GND, GND, GND, GND, GND, GND, \fifo_inst/rbin_num [2:0], GND, GND, GND, GND, GND}),
 	.DO({\fifo_inst/DO [35], Q[142:108]})
 );
 defparam \fifo_inst/Equal.mem_Equal.mem_0_3_s .READ_MODE=1'b0;
@@ -365,4 +567,31 @@ defparam \fifo_inst/Equal.mem_Equal.mem_0_3_s .BIT_WIDTH_1=36;
 defparam \fifo_inst/Equal.mem_Equal.mem_0_3_s .RESET_MODE="ASYNC";
 defparam \fifo_inst/Equal.mem_Equal.mem_0_3_s .BLK_SEL_0=3'b000;
 defparam \fifo_inst/Equal.mem_Equal.mem_0_3_s .BLK_SEL_1=3'b000;
+ALU \fifo_inst/n605_s0  (
+	.I0(\fifo_inst/Equal.rgraynext [0]),
+	.I1(\fifo_inst/Equal.rq2_wptr [0]),
+	.I3(GND),
+	.CIN(GND),
+	.COUT(\fifo_inst/n605_3 ),
+	.SUM(\fifo_inst/n605_1_SUM )
+);
+defparam \fifo_inst/n605_s0 .ALU_MODE=3;
+ALU \fifo_inst/n606_s0  (
+	.I0(\fifo_inst/Equal.rgraynext [1]),
+	.I1(\fifo_inst/Equal.rq2_wptr [1]),
+	.I3(GND),
+	.CIN(\fifo_inst/n605_3 ),
+	.COUT(\fifo_inst/n606_3 ),
+	.SUM(\fifo_inst/n606_1_SUM )
+);
+defparam \fifo_inst/n606_s0 .ALU_MODE=3;
+ALU \fifo_inst/n607_s0  (
+	.I0(\fifo_inst/Equal.rgraynext [2]),
+	.I1(\fifo_inst/Equal.rq2_wptr [2]),
+	.I3(GND),
+	.CIN(\fifo_inst/n606_3 ),
+	.COUT(\fifo_inst/n607_3 ),
+	.SUM(\fifo_inst/n607_1_SUM )
+);
+defparam \fifo_inst/n607_s0 .ALU_MODE=3;
 endmodule

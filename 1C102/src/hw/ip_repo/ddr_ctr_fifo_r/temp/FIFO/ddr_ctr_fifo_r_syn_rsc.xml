@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="ddr_ctr_fifo_r" Register="16" Lut="14" Bsram="4" T_Register="16(16)" T_Lut="14(14)" T_Bsram="4(4)"/>
+<Module name="ddr_ctr_fifo_r" Register="32" Alu="3" Lut="25" Bsram="4" T_Register="32(32)" T_Alu="3(3)" T_Lut="25(25)" T_Bsram="4(4)"/>
