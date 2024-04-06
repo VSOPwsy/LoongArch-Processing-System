@@ -850,7 +850,7 @@ module DDR_Controller #
 
             FETCH_BUSY: begin
                 if (app_cmd) begin // Read
-                    if (app_cmd_ready) begin
+                    if (app_cmd_ready & ~scfifo_rd_resp_full) begin
                         app_cmd_en = 1'b1;
                         scfifo_rd_resp_wren = 1'b1;
                         if (scfifo_app_empty) begin

@@ -1,3 +1,3 @@
-parameter DEPTH = 8;
+parameter DEPTH = 64;
 parameter DSIZE = 128;
-parameter ASIZE = 3;
+parameter ASIZE = 6;

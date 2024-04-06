@@ -2,139 +2,16 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="clk_100M" trig_type="0" storage_depth="512" window_num="1" capture_amount="512" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="ddr_ctr/ui_clk" trig_type="0" storage_depth="512" window_num="1" capture_amount="512" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Bus capture_enable="true" name="cpu_arb_128_rdata[127:0]">
-                <Signal>cpu_arb_128_rdata[127]</Signal>
-                <Signal>cpu_arb_128_rdata[126]</Signal>
-                <Signal>cpu_arb_128_rdata[125]</Signal>
-                <Signal>cpu_arb_128_rdata[124]</Signal>
-                <Signal>cpu_arb_128_rdata[123]</Signal>
-                <Signal>cpu_arb_128_rdata[122]</Signal>
-                <Signal>cpu_arb_128_rdata[121]</Signal>
-                <Signal>cpu_arb_128_rdata[120]</Signal>
-                <Signal>cpu_arb_128_rdata[119]</Signal>
-                <Signal>cpu_arb_128_rdata[118]</Signal>
-                <Signal>cpu_arb_128_rdata[117]</Signal>
-                <Signal>cpu_arb_128_rdata[116]</Signal>
-                <Signal>cpu_arb_128_rdata[115]</Signal>
-                <Signal>cpu_arb_128_rdata[114]</Signal>
-                <Signal>cpu_arb_128_rdata[113]</Signal>
-                <Signal>cpu_arb_128_rdata[112]</Signal>
-                <Signal>cpu_arb_128_rdata[111]</Signal>
-                <Signal>cpu_arb_128_rdata[110]</Signal>
-                <Signal>cpu_arb_128_rdata[109]</Signal>
-                <Signal>cpu_arb_128_rdata[108]</Signal>
-                <Signal>cpu_arb_128_rdata[107]</Signal>
-                <Signal>cpu_arb_128_rdata[106]</Signal>
-                <Signal>cpu_arb_128_rdata[105]</Signal>
-                <Signal>cpu_arb_128_rdata[104]</Signal>
-                <Signal>cpu_arb_128_rdata[103]</Signal>
-                <Signal>cpu_arb_128_rdata[102]</Signal>
-                <Signal>cpu_arb_128_rdata[101]</Signal>
-                <Signal>cpu_arb_128_rdata[100]</Signal>
-                <Signal>cpu_arb_128_rdata[99]</Signal>
-                <Signal>cpu_arb_128_rdata[98]</Signal>
-                <Signal>cpu_arb_128_rdata[97]</Signal>
-                <Signal>cpu_arb_128_rdata[96]</Signal>
-                <Signal>cpu_arb_128_rdata[95]</Signal>
-                <Signal>cpu_arb_128_rdata[94]</Signal>
-                <Signal>cpu_arb_128_rdata[93]</Signal>
-                <Signal>cpu_arb_128_rdata[92]</Signal>
-                <Signal>cpu_arb_128_rdata[91]</Signal>
-                <Signal>cpu_arb_128_rdata[90]</Signal>
-                <Signal>cpu_arb_128_rdata[89]</Signal>
-                <Signal>cpu_arb_128_rdata[88]</Signal>
-                <Signal>cpu_arb_128_rdata[87]</Signal>
-                <Signal>cpu_arb_128_rdata[86]</Signal>
-                <Signal>cpu_arb_128_rdata[85]</Signal>
-                <Signal>cpu_arb_128_rdata[84]</Signal>
-                <Signal>cpu_arb_128_rdata[83]</Signal>
-                <Signal>cpu_arb_128_rdata[82]</Signal>
-                <Signal>cpu_arb_128_rdata[81]</Signal>
-                <Signal>cpu_arb_128_rdata[80]</Signal>
-                <Signal>cpu_arb_128_rdata[79]</Signal>
-                <Signal>cpu_arb_128_rdata[78]</Signal>
-                <Signal>cpu_arb_128_rdata[77]</Signal>
-                <Signal>cpu_arb_128_rdata[76]</Signal>
-                <Signal>cpu_arb_128_rdata[75]</Signal>
-                <Signal>cpu_arb_128_rdata[74]</Signal>
-                <Signal>cpu_arb_128_rdata[73]</Signal>
-                <Signal>cpu_arb_128_rdata[72]</Signal>
-                <Signal>cpu_arb_128_rdata[71]</Signal>
-                <Signal>cpu_arb_128_rdata[70]</Signal>
-                <Signal>cpu_arb_128_rdata[69]</Signal>
-                <Signal>cpu_arb_128_rdata[68]</Signal>
-                <Signal>cpu_arb_128_rdata[67]</Signal>
-                <Signal>cpu_arb_128_rdata[66]</Signal>
-                <Signal>cpu_arb_128_rdata[65]</Signal>
-                <Signal>cpu_arb_128_rdata[64]</Signal>
-                <Signal>cpu_arb_128_rdata[63]</Signal>
-                <Signal>cpu_arb_128_rdata[62]</Signal>
-                <Signal>cpu_arb_128_rdata[61]</Signal>
-                <Signal>cpu_arb_128_rdata[60]</Signal>
-                <Signal>cpu_arb_128_rdata[59]</Signal>
-                <Signal>cpu_arb_128_rdata[58]</Signal>
-                <Signal>cpu_arb_128_rdata[57]</Signal>
-                <Signal>cpu_arb_128_rdata[56]</Signal>
-                <Signal>cpu_arb_128_rdata[55]</Signal>
-                <Signal>cpu_arb_128_rdata[54]</Signal>
-                <Signal>cpu_arb_128_rdata[53]</Signal>
-                <Signal>cpu_arb_128_rdata[52]</Signal>
-                <Signal>cpu_arb_128_rdata[51]</Signal>
-                <Signal>cpu_arb_128_rdata[50]</Signal>
-                <Signal>cpu_arb_128_rdata[49]</Signal>
-                <Signal>cpu_arb_128_rdata[48]</Signal>
-                <Signal>cpu_arb_128_rdata[47]</Signal>
-                <Signal>cpu_arb_128_rdata[46]</Signal>
-                <Signal>cpu_arb_128_rdata[45]</Signal>
-                <Signal>cpu_arb_128_rdata[44]</Signal>
-                <Signal>cpu_arb_128_rdata[43]</Signal>
-                <Signal>cpu_arb_128_rdata[42]</Signal>
-                <Signal>cpu_arb_128_rdata[41]</Signal>
-                <Signal>cpu_arb_128_rdata[40]</Signal>
-                <Signal>cpu_arb_128_rdata[39]</Signal>
-                <Signal>cpu_arb_128_rdata[38]</Signal>
-                <Signal>cpu_arb_128_rdata[37]</Signal>
-                <Signal>cpu_arb_128_rdata[36]</Signal>
-                <Signal>cpu_arb_128_rdata[35]</Signal>
-                <Signal>cpu_arb_128_rdata[34]</Signal>
-                <Signal>cpu_arb_128_rdata[33]</Signal>
-                <Signal>cpu_arb_128_rdata[32]</Signal>
-                <Signal>cpu_arb_128_rdata[31]</Signal>
-                <Signal>cpu_arb_128_rdata[30]</Signal>
-                <Signal>cpu_arb_128_rdata[29]</Signal>
-                <Signal>cpu_arb_128_rdata[28]</Signal>
-                <Signal>cpu_arb_128_rdata[27]</Signal>
-                <Signal>cpu_arb_128_rdata[26]</Signal>
-                <Signal>cpu_arb_128_rdata[25]</Signal>
-                <Signal>cpu_arb_128_rdata[24]</Signal>
-                <Signal>cpu_arb_128_rdata[23]</Signal>
-                <Signal>cpu_arb_128_rdata[22]</Signal>
-                <Signal>cpu_arb_128_rdata[21]</Signal>
-                <Signal>cpu_arb_128_rdata[20]</Signal>
-                <Signal>cpu_arb_128_rdata[19]</Signal>
-                <Signal>cpu_arb_128_rdata[18]</Signal>
-                <Signal>cpu_arb_128_rdata[17]</Signal>
-                <Signal>cpu_arb_128_rdata[16]</Signal>
-                <Signal>cpu_arb_128_rdata[15]</Signal>
-                <Signal>cpu_arb_128_rdata[14]</Signal>
-                <Signal>cpu_arb_128_rdata[13]</Signal>
-                <Signal>cpu_arb_128_rdata[12]</Signal>
-                <Signal>cpu_arb_128_rdata[11]</Signal>
-                <Signal>cpu_arb_128_rdata[10]</Signal>
-                <Signal>cpu_arb_128_rdata[9]</Signal>
-                <Signal>cpu_arb_128_rdata[8]</Signal>
-                <Signal>cpu_arb_128_rdata[7]</Signal>
-                <Signal>cpu_arb_128_rdata[6]</Signal>
-                <Signal>cpu_arb_128_rdata[5]</Signal>
-                <Signal>cpu_arb_128_rdata[4]</Signal>
-                <Signal>cpu_arb_128_rdata[3]</Signal>
-                <Signal>cpu_arb_128_rdata[2]</Signal>
-                <Signal>cpu_arb_128_rdata[1]</Signal>
-                <Signal>cpu_arb_128_rdata[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">cpu_arb_128_rlast</Signal>
+            <Signal capture_enable="true">ddr_ctr/ram_cmd_last</Signal>
+            <Signal capture_enable="true">ddr_ctr/app_cmd_last</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_wren</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_rden</Signal>
+            <Signal capture_enable="true">ddr_ctr/ram_rd_resp_last</Signal>
+            <Signal capture_enable="true">ddr_ctr/resp_state_current</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_rd_data_empty</Signal>
+            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_empty</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -184,5 +61,5 @@
             <Expression>M1</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0001001010010101</GAO_ID>
+    <GAO_ID>1011101110111101</GAO_ID>
 </GAO_CONFIG>

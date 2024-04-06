@@ -12,7 +12,7 @@ module ddr_ctr_rd_test (
 );
 
 assign araddr = 32'h8100_0000;
-assign arlen = 'd3;
+assign arlen = 'd15;
 assign arsize = 'd4;
 assign arburst =2'b01;
 assign rready = 1'b1;
