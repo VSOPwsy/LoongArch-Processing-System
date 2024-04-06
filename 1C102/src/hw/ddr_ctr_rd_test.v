@@ -9,7 +9,7 @@ module ddr_ctr_rd_test (
     input ddr_ready
 );
 
-assign araddr = 32'h8f000000;
+assign araddr = 32'h81000000;
 assign arlen = 0;
 assign rready = 1'b1;
 reg flag = 0;

@@ -29,8 +29,8 @@ wire         sd_rd_busy,sd_rd_val_en,sd_rd_start_en;
 wire [31:0]  sd_rd_sec_addr; 
 
 parameter ddr_min_addr = 32'd000000;
-parameter ddr_max_addr = 32'd384000;
-parameter sd_sec_num = 16'd1212;
+parameter ddr_max_addr = 32'h03a0_0000;
+parameter sd_sec_num = 17'd1212;//120000
 
 assign  sys_init_done = init_calib_complete & sd_init_done;	
 
