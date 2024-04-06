@@ -54,6 +54,7 @@
         <File path="src/hw/ip_repo/gowin_rpll_400M/gowin_rpll_400M.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ml_fifo/ml_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/scfifo_app/scfifo_app.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/scfifo_rd_data/scfifo_rd_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/scfifo_rd_resp/scfifo_rd_resp.v" type="file.verilog" enable="1"/>

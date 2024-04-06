@@ -748,7 +748,7 @@ module DDR_Controller #
                                    ram_cmd_rd_en,
                                    ~ram_cmd_wr_strb, 
                                    ram_cmd_wr_data,
-                                   ram_cmd_addr,
+                                   ram_cmd_addr >> 1,
                                    ram_cmd_id       };
 
     assign   {  app_cmd_last,

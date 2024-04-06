@@ -4,13 +4,17 @@ module ddr_ctr_rd_test (
     output wire [31:0] araddr,
     output reg arvalid,
     output wire [7:0] arlen,
+    output wire [2:0] arsize,
+    output wire [1:0] arburst,
     input arready,
     output rready,
     input ddr_ready
 );
 
-assign araddr = 32'h81000000;
-assign arlen = 0;
+assign araddr = 32'h8100_0000;
+assign arlen = 'd3;
+assign arsize = 'd4;
+assign arburst =2'b01;
 assign rready = 1'b1;
 reg flag = 0;
 always @(posedge clk) begin
