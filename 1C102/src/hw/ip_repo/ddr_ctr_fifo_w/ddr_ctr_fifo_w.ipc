@@ -2,7 +2,7 @@
 ipc_version=4
 file=ddr_ctr_fifo_w
 module=ddr_ctr_fifo_w
-target_device=gw2a18c-011
+target_device=gw5at138b-011
 type=fifo
 version=3.0
 
@@ -25,6 +25,6 @@ RDEN_CTRL=false
 RESET=true
 RESET_SYNC=false
 Read_Write_Check_on_RAM=false
-SIZE_W=145
+SIZE_W=289
 STANDARD_FIFO=true
 Synthesis_tool=GowinSynthesis

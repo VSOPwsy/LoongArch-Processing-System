@@ -2,7 +2,7 @@
 ipc_version=4
 file=scfifo_rd_data
 module=scfifo_rd_data
-target_device=gw2a18c-011
+target_device=gw5at138b-011
 type=fifo_sc
 version=3.0
 
@@ -22,4 +22,4 @@ OUTPUT_REG=false
 RDEN_CTRL=false
 STD=true
 Synthesis_tool=GowinSynthesis
-WIDTH_W=128
+WIDTH_W=256

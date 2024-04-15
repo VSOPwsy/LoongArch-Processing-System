@@ -3,12 +3,81 @@
 
 `timescale 1 ns / 1 ps
 
+/*
+module async_fifo
+    #(
+        parameter DSIZE = 8,
+        parameter ASIZE = 4,
+        parameter FALLTHROUGH = "TRUE" // First word fall-through without latency
+    )(
+        input  wire             wclk,
+        input  wire             wrst_n,
+        input  wire             winc,
+        input  wire [DSIZE-1:0] wdata,
+        output wire             wfull,
+        output wire             awfull,
+        input  wire             rclk,
+        input  wire             rrst_n,
+        input  wire             rinc,
+        output wire [DSIZE-1:0] rdata,
+        output reg              rempty,
+        output wire             arempty
+    );
+
+    wire rinc_origin;
+    wire rempty_origin;
+
+    async_fifo_origin #(
+        .DSIZE(DSIZE),
+        .ASIZE(ASIZE),
+        .FALLTHROUGH("FALSE")
+    ) async_fifo_origin (
+        .wclk(wclk),
+        .wrst_n(wrst_n),
+        .winc(winc),
+        .wdata(wdata),
+        .wfull(wfull),
+        .awfull(awfull),
+        .rclk(rclk),
+        .rrst_n(rrst_n),
+        .rinc(rinc_origin),
+        .rdata(rdata),
+        .rempty(rempty_origin),
+        .arempty(arempty)
+    );
+
+    generate
+        if (FALLTHROUGH == "TRUE") begin
+            assign rinc_origin = ~rempty_origin & (rempty | rinc);
+            always @(posedge rclk) begin
+                if (~rrst_n) begin
+                    rempty <= 1'b1;
+                end
+                else if (rinc_origin) begin
+                    rempty <= 1'b1;
+                end
+                else if (rinc) begin
+                    rempty <= 1'b0;
+                end
+            end
+        end
+        else begin
+            assign rinc_origin = rinc;
+            always @(*) rempty = rempty_origin;
+        end
+    endgenerate
+
+endmodule
+module async_fifo_origin
+*/
+
+
 module async_fifo
 
     #(
         parameter DSIZE = 8,
         parameter ASIZE = 4,
-        parameter FALLTHROUGH = "TRUE" // First word fall-through without latency
+        parameter FALLTHROUGH = "FALSE" // First word fall-through without latency
     )(
         input  wire             wclk,
         input  wire             wrst_n,
@@ -73,8 +142,7 @@ module async_fifo
     .wdata  (wdata),
     .waddr  (waddr),
     .raddr  (raddr),
-    .wclken (winc),
-    .wfull  (wfull),
+    .wclken (winc & ~wfull),
     .wclk   (wclk)
     );
 

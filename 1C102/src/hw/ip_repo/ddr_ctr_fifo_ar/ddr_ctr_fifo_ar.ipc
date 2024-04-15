@@ -2,13 +2,13 @@
 ipc_version=4
 file=ddr_ctr_fifo_ar
 module=ddr_ctr_fifo_ar
-target_device=gw2a18c-011
+target_device=gw5at138b-011
 type=fifo
 version=3.0
 
 [Config]
 ALEMPTY=0
-ALFULL=0
+ALFULL=1
 COUNT_R=false
 COUNT_W=false
 DEPTH_R=2

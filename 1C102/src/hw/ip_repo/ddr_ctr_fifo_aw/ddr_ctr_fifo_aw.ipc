@@ -2,7 +2,7 @@
 ipc_version=4
 file=ddr_ctr_fifo_aw
 module=ddr_ctr_fifo_aw
-target_device=gw2a18c-011
+target_device=gw5at138b-011
 type=fifo
 version=3.0
 
@@ -20,7 +20,7 @@ FWFT=false
 IMPL=0
 IO_INSERTION=false
 LANG=0
-OUTPUT_REG=true
+OUTPUT_REG=false
 RDEN_CTRL=false
 RESET=true
 RESET_SYNC=false

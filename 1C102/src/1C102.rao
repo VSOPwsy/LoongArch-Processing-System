@@ -2,26 +2,224 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="ddr_ctr/ui_clk" trig_type="0" storage_depth="512" window_num="1" capture_amount="512" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">ddr_ctr/ram_cmd_last</Signal>
-            <Signal capture_enable="true">ddr_ctr/app_cmd_last</Signal>
-            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_wren</Signal>
-            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_rden</Signal>
-            <Signal capture_enable="true">ddr_ctr/ram_rd_resp_last</Signal>
-            <Signal capture_enable="true">ddr_ctr/resp_state_current</Signal>
-            <Signal capture_enable="true">ddr_ctr/scfifo_rd_data_empty</Signal>
-            <Signal capture_enable="true">ddr_ctr/scfifo_rd_resp_empty</Signal>
+            <Signal capture_enable="true">locked</Signal>
+            <Signal capture_enable="true">sys_resetn</Signal>
+            <Signal capture_enable="true">sys_resetn_filtered</Signal>
+            <Signal capture_enable="true">core_resetn</Signal>
+            <Signal capture_enable="true">cpu_bus_resetn</Signal>
+            <Signal capture_enable="true">cpu_peri_resetn</Signal>
+            <Signal capture_enable="true">cpu_cpu_resetn</Signal>
+            <Signal capture_enable="true">ddr_ctr/ddr_rst</Signal>
+            <Signal capture_enable="true">init_calib_complete</Signal>
+            <Signal capture_enable="true">ddr_ui_resetn</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[31:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[31]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[30]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[29]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[28]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[27]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[26]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[25]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[24]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[23]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[22]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[21]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[20]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[19]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[18]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[17]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[16]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[15]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[14]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[13]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[12]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[11]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[10]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[9]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[8]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awaddr[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awlen[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awsize[2:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awsize[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awsize[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awsize[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awburst[1:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awburst[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_awburst[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[31:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[31]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[30]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[29]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[28]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[27]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[26]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[25]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[24]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[23]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[22]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[21]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[20]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[19]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[18]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[17]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[16]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[15]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[14]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[13]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[12]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[11]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[10]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[9]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[8]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_wstrb[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bresp[1:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bresp[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_wr_if_inst/s_axi_bresp[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[31:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[31]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[30]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[29]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[28]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[27]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[26]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[25]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[24]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[23]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[22]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[21]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[20]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[19]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[18]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[17]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[16]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[15]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[14]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[13]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[12]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[11]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[10]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[9]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[8]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_araddr[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arlen[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arsize[2:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arsize[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arsize[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arsize[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arburst[1:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arburst[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_arburst[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[7:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[7]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[6]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[5]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[4]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[3]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[2]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rresp[1:0]">
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rresp[1]</Signal>
+                <Signal>ddr_ctr/axi_ram_if/axi_ram_rd_if_inst/s_axi_rresp[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">test/rvalid</Signal>
+            <Signal capture_enable="true">test/rready</Signal>
         </SignalList>
         <Triggers>
-            <Trigger index="0">
-                <SignalList>
-                    <Signal>init_calib_complete</Signal>
-                </SignalList>
-            </Trigger>
+            <Trigger index="0"/>
             <Trigger index="1">
                 <SignalList>
-                    <Signal>init_model_complete</Signal>
+                    <Signal>sys_resetn</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="2"/>
@@ -40,7 +238,7 @@
             <Trigger index="15"/>
         </Triggers>
         <MatchUnits>
-            <MatchUnit index="0" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="0"/>
+            <MatchUnit index="0" enabled="0" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
             <MatchUnit index="1" enabled="1" match_type="5" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
             <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -61,5 +259,5 @@
             <Expression>M1</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1011101110111101</GAO_ID>
+    <GAO_ID>0110110001011111</GAO_ID>
 </GAO_CONFIG>

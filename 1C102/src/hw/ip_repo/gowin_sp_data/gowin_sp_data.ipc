@@ -2,7 +2,7 @@
 ipc_version=4
 file=gowin_sp_data
 module=Gowin_SP_Data
-target_device=gw2a18c-011
+target_device=gw5at138b-011
 type=ram_sp
 version=3.0
 

@@ -56,7 +56,7 @@ module axicb_crossbar_top
         parameter AXI_RUSER_W = 1,
 
         // Timeout configuration in clock cycles, applied to all channels
-        parameter TIMEOUT_VALUE = 10000,
+        parameter TIMEOUT_VALUE = 256,
         // Activate the timer to avoid deadlock
         parameter TIMEOUT_ENABLE = 1,
 
@@ -1246,9 +1246,9 @@ module axicb_crossbar_top
     )
     mst0_if
     (
-    .i_aclk       (slv0_aclk),
-    .i_aresetn    (slv0_aresetn),
-    .i_srst       (slv0_srst),
+    .i_aclk       (aclk),
+    .i_aresetn    (aresetn),
+    .i_srst       (srst),
     .i_awvalid    (o_awvalid[0]),
     .i_awready    (o_awready[0]),
     .i_awch       (o_awch[0*AWCH_W+:AWCH_W]),

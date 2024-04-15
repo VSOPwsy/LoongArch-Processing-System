@@ -2,7 +2,7 @@
 //All rights reserved.
 //File Title: Post-PnR Simulation Model file
 //Tool Version: V1.9.9.01 (64-bit)
-//Created Time: Sat Apr  6 16:41:12 2024
+//Created Time: Tue Apr  9 13:16:45 2024
 
 `timescale 100 ps/100 ps
 module scfifo_rd_resp(
@@ -278,114 +278,130 @@ LUT3 \fifo_sc_inst/rempty_val_s1  (
 	.F(\fifo_sc_inst/rempty_val )
 );
 defparam \fifo_sc_inst/rempty_val_s1 .INIT=8'h09;
-DFFC \fifo_sc_inst/rbin_6_s0  (
+DFFCE \fifo_sc_inst/rbin_6_s0  (
 	.D(\fifo_sc_inst/rbin_next [6]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [6])
 );
 defparam \fifo_sc_inst/rbin_6_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_5_s0  (
+DFFCE \fifo_sc_inst/rbin_5_s0  (
 	.D(\fifo_sc_inst/rbin_next [5]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [5])
 );
 defparam \fifo_sc_inst/rbin_5_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_4_s0  (
+DFFCE \fifo_sc_inst/rbin_4_s0  (
 	.D(\fifo_sc_inst/rbin_next [4]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [4])
 );
 defparam \fifo_sc_inst/rbin_4_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_3_s0  (
+DFFCE \fifo_sc_inst/rbin_3_s0  (
 	.D(\fifo_sc_inst/rbin_next [3]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [3])
 );
 defparam \fifo_sc_inst/rbin_3_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_2_s0  (
+DFFCE \fifo_sc_inst/rbin_2_s0  (
 	.D(\fifo_sc_inst/rbin_next [2]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [2])
 );
 defparam \fifo_sc_inst/rbin_2_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_1_s0  (
+DFFCE \fifo_sc_inst/rbin_1_s0  (
 	.D(\fifo_sc_inst/rbin_next [1]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [1])
 );
 defparam \fifo_sc_inst/rbin_1_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/rbin_0_s0  (
+DFFCE \fifo_sc_inst/rbin_0_s0  (
 	.D(\fifo_sc_inst/rbin_next_0_7 ),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/rbin [0])
 );
 defparam \fifo_sc_inst/rbin_0_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_6_s0  (
+DFFCE \fifo_sc_inst/wbin_6_s0  (
 	.D(\fifo_sc_inst/wbin_next [6]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [6])
 );
 defparam \fifo_sc_inst/wbin_6_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_5_s0  (
+DFFCE \fifo_sc_inst/wbin_5_s0  (
 	.D(\fifo_sc_inst/wbin_next [5]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [5])
 );
 defparam \fifo_sc_inst/wbin_5_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_4_s0  (
+DFFCE \fifo_sc_inst/wbin_4_s0  (
 	.D(\fifo_sc_inst/wbin_next [4]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [4])
 );
 defparam \fifo_sc_inst/wbin_4_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_3_s0  (
+DFFCE \fifo_sc_inst/wbin_3_s0  (
 	.D(\fifo_sc_inst/wbin_next [3]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [3])
 );
 defparam \fifo_sc_inst/wbin_3_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_2_s0  (
+DFFCE \fifo_sc_inst/wbin_2_s0  (
 	.D(\fifo_sc_inst/wbin_next [2]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [2])
 );
 defparam \fifo_sc_inst/wbin_2_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_1_s0  (
+DFFCE \fifo_sc_inst/wbin_1_s0  (
 	.D(\fifo_sc_inst/wbin_next [1]),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [1])
 );
 defparam \fifo_sc_inst/wbin_1_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/wbin_0_s0  (
+DFFCE \fifo_sc_inst/wbin_0_s0  (
 	.D(\fifo_sc_inst/wbin_next_0_7 ),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(\fifo_sc_inst/wbin [0])
 );
 defparam \fifo_sc_inst/wbin_0_s0 .INIT=1'b0;
-DFFC \fifo_sc_inst/Full_s0  (
+DFFCE \fifo_sc_inst/Full_s0  (
 	.D(\fifo_sc_inst/wfull_val ),
 	.CLK(Clk),
+	.CE(VCC),
 	.CLEAR(Reset),
 	.Q(Full)
 );
 defparam \fifo_sc_inst/Full_s0 .INIT=1'b0;
-DFFP \fifo_sc_inst/Empty_s0  (
+DFFPE \fifo_sc_inst/Empty_s0  (
 	.D(\fifo_sc_inst/rempty_val ),
 	.CLK(Clk),
+	.CE(VCC),
 	.PRESET(Reset),
 	.Q(Empty)
 );
@@ -393,11 +409,10 @@ defparam \fifo_sc_inst/Empty_s0 .INIT=1'b1;
 SDPB \fifo_sc_inst/mem_mem_0_0_s  (
 	.CLKA(Clk),
 	.CEA(\fifo_sc_inst/n7_5 ),
-	.RESETA(GND),
 	.CLKB(Clk),
 	.CEB(\fifo_sc_inst/n11_3 ),
-	.RESETB(Reset),
 	.OCE(GND),
+	.RESET(Reset),
 	.BLKSELA({GND, GND, GND}),
 	.BLKSELB({GND, GND, GND}),
 	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, Data[12:0]}),

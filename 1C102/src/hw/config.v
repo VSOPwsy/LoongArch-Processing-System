@@ -11,8 +11,8 @@
 `define APB_ADDR_LEN        32'h01ffffff
 `define APB_ADDR_END        (`APB_ADDR_BASE + `APB_ADDR_LEN)
 
-`define DDR_ADDR_BASE       32'h81000000
-`define DDR_ADDR_LEN        32'h0effffff
+`define DDR_ADDR_BASE       32'h80000000
+`define DDR_ADDR_LEN        32'h0fffffff
 `define DDR_ADDR_END        (`DDR_ADDR_BASE + `DDR_ADDR_LEN)
 
 //AXI0
@@ -33,8 +33,10 @@
 `define AXI_SLV4_ADDR_LEN    32'h00000000
 
 
-`define ID_WIDTH 4
+`define ID_WIDTH 8
 `define ADDR_WIDTH 32
+`define DATA_WIDTH  32
+`define STRB_WIDTH  (`DATA_WIDTH/8)
 `define LEN_WIDTH 4
 `define SIZE_WIDTH 3
 `define BURST_WIDTH 2
@@ -43,18 +45,16 @@
 `define PROT_WIDTH 3
 `define RESP_WIDTH 2
 
+`define DDR_DATA_WIDTH  256
+`define DDR_STRB_WIDTH  (`DDR_DATA_WIDTH/8)
+
 `define CPU_ID_WIDTH    4
 `define CPU_DATA_WIDTH  32
 `define CPU_STRB_WIDTH  (`CPU_DATA_WIDTH/8)
 
-`define PERIPH_ID_WIDTH 8
-
 `define APB_DATA_WIDTH  (`CPU_DATA_WIDTH)
+`define APB_STRB_WIDTH  (`CPU_STRB_WIDTH)
 
-`define DDR_DATA_WIDTH  128
-`define DDR_STRB_WIDTH  (`DDR_DATA_WIDTH/8)
-
-`define DDR_ARB_ID_WIDTH    12
 
 /*****************
 *   APB interface      9-way APB
