@@ -460,7 +460,7 @@ START:
 // ================================================================
 
 #define LED *(volatile int32_t*)0xbff00000
-
+#define DDR_TEST *(volatile int32_t*)0x40000000
 volatile int num = 0; 
 
 int main(void) {
@@ -510,9 +510,14 @@ int main(void) {
     // my_delay_ms(25);
 
 	// uart1_interrupt();
-
+	my_delay_ms(1000);
+	volatile uint32_t a = 0;
     while(1) {
-		LED ^= (int32_t)0x00000001;
+		DDR_TEST = a;
+		if (DDR_TEST == a)
+		{
+			LED ^= (int32_t)0x00000001;
+		}
 		my_delay_ms(1000);
     }
 

@@ -213,7 +213,7 @@ module axicb_slv_switch
     axicb_scfifo
     #(
     .PASS_THRU  (0),
-    .ADDR_WIDTH (8),
+    .ADDR_WIDTH (2),
     .DATA_WIDTH (SLV_NB)
     )
     wch_gnt_fifo

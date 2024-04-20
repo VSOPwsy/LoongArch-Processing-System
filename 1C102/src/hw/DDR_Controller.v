@@ -19,8 +19,6 @@ module DDR_Controller #
     parameter RUSER_WIDTH = 1,
     parameter AUSER_WIDTH = (ARUSER_ENABLE && (!AWUSER_ENABLE || ARUSER_WIDTH > AWUSER_WIDTH)) ? ARUSER_WIDTH : AWUSER_WIDTH,
     
-
-    parameter AXI_ID        = 8'h10,
     // Extra pipeline register on output
     parameter PIPELINE_OUTPUT = 0,
     // Interleave read and write burst cycles
@@ -123,8 +121,16 @@ module DDR_Controller #
     wire [ID_WIDTH-1:0]      ram_rd_resp_id;
     wire [DATA_WIDTH-1:0]    ram_rd_resp_data;
     wire                     ram_rd_resp_last;
-    reg                      ram_rd_resp_valid;
+    wire                     ram_rd_resp_valid;
     wire                     ram_rd_resp_ready;
+
+    wire [DATA_WIDTH-1:0]    app_rd_data;
+    wire                     app_rd_data_valid;
+
+    wire                     queue_fifo_empty;
+    wire                     queue_fifo_full;
+    wire                     data_fifo_empty;
+    wire                     data_fifo_full;
 
     axi_ram_wr_rd_if #(
         .DATA_WIDTH(DATA_WIDTH),
@@ -207,7 +213,8 @@ module DDR_Controller #
         .ram_cmd_wr_en(ram_cmd_wr_en),
         .ram_cmd_rd_en(ram_cmd_rd_en),
         .ram_cmd_last(ram_cmd_last),
-        .ram_cmd_ready(ram_cmd_ready),
+        .ram_cmd_ready(ram_cmd_ready & (ram_cmd_wr_en ? wr_data_ready : 
+                                        ram_cmd_rd_en ? ~queue_fifo_full : 1'b1)),
         .ram_rd_resp_id(ram_rd_resp_id),
         .ram_rd_resp_data(ram_rd_resp_data),
         .ram_rd_resp_last(ram_rd_resp_last),
@@ -215,8 +222,30 @@ module DDR_Controller #
         .ram_rd_resp_ready(ram_rd_resp_ready)
     );
 
-    assign ram_rd_resp_id = AXI_ID;//support only one ID now
-    assign ram_rd_resp_last = 1'b1; //support burst length 1 only
+    assign ram_rd_resp_valid = ~queue_fifo_empty & ~data_fifo_empty;
+
+	ddr_queue_fifo ddr_queue_fifo(
+		.Data({ram_cmd_last, ram_cmd_id}), //input [8:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(ram_cmd_rd_en & ram_cmd_ready), //input WrEn
+		.RdEn(ram_rd_resp_valid & ram_rd_resp_ready), //input RdEn
+		.Reset(~axi_aresetn), //input Reset
+		.Q({ram_rd_resp_last, ram_rd_resp_id}), //output [8:0] Q
+		.Empty(queue_fifo_empty), //output Empty
+		.Full(queue_fifo_full) //output Full
+	);
+
+    ddr_data_fifo ddr_data_fifo(
+		.Data(app_rd_data), //input [255:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(app_rd_data_valid), //input WrEn
+		.RdEn(ram_rd_resp_valid & ram_rd_resp_ready), //input RdEn
+		.Reset(~axi_aresetn), //input Reset
+		.Q(ram_rd_resp_data), //output [255:0] Q
+		.Empty(data_fifo_empty), //output Empty
+		.Full(data_fifo_full) ///////////////////////// Unused
+	);
+
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (ctr_clk),
         .memory_clk      (memory_clk),
@@ -230,10 +259,10 @@ module DDR_Controller #
         .cmd             ({2'b0, ram_cmd_rd_en}),
         .cmd_en          (ram_cmd_rd_en | (wr_data_ready & ram_cmd_wr_en)),
         .cmd_ready       (ram_cmd_ready),
-        .rd_data         (ram_rd_resp_data),
+        .rd_data         (app_rd_data),
         .rd_data_end     (),
-        .rd_data_valid   (ram_rd_resp_valid),
-        .burst           (1'b1),//use BL8 only
+        .rd_data_valid   (app_rd_data_valid),
+        .burst           (1'b0),
         .wr_data         (ram_cmd_wr_data),
         .wr_data_end     (1'b1), // DATA_WIDTH must be equal to 8 times of DQ_WIDTH
         .wr_data_mask    (~ram_cmd_wr_strb),

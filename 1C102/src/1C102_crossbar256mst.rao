@@ -4,10 +4,6 @@
     <Mode>Standard</Mode>
     <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">sys_resetn</Signal>
-            <Signal capture_enable="true">sys_resetn_debounced</Signal>
-            <Signal capture_enable="true">ddr_ui_resetn</Signal>
-            <Signal capture_enable="true">core_resetn</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/mst0_awvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/mst0_awready</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/mst0_wvalid</Signal>
@@ -18,16 +14,6 @@
             <Signal capture_enable="true">AXI_crossbar_256/mst0_arready</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/mst0_rvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/mst0_rready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_awvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_awready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_wvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_wready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_bvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_bready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_arvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_arready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_rvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_rready</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -73,5 +59,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1010110001100001</GAO_ID>
+    <GAO_ID>1000100100100010</GAO_ID>
 </GAO_CONFIG>

@@ -11,8 +11,8 @@
 `define APB_ADDR_LEN        32'h01ffffff
 `define APB_ADDR_END        (`APB_ADDR_BASE + `APB_ADDR_LEN)
 
-`define DDR_ADDR_BASE       32'h80000000
-`define DDR_ADDR_LEN        32'h0fffffff
+`define DDR_ADDR_BASE       32'h40000000
+`define DDR_ADDR_LEN        32'h3fffffff
 `define DDR_ADDR_END        (`DDR_ADDR_BASE + `DDR_ADDR_LEN)
 
 //AXI0

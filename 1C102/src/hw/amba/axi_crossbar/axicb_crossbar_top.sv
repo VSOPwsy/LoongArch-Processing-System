@@ -1344,9 +1344,9 @@ module axicb_crossbar_top
     )
     mst1_if
     (
-    .i_aclk       (slv1_aclk),
-    .i_aresetn    (slv1_aresetn),
-    .i_srst       (slv1_srst),
+    .i_aclk       (aclk),
+    .i_aresetn    (aresetn),
+    .i_srst       (srst),
     .i_awvalid    (o_awvalid[1]),
     .i_awready    (o_awready[1]),
     .i_awch       (o_awch[1*AWCH_W+:AWCH_W]),
@@ -1442,9 +1442,9 @@ module axicb_crossbar_top
     )
     mst2_if
     (
-    .i_aclk       (slv2_aclk),
-    .i_aresetn    (slv2_aresetn),
-    .i_srst       (slv2_srst),
+    .i_aclk       (aclk),
+    .i_aresetn    (aresetn),
+    .i_srst       (srst),
     .i_awvalid    (o_awvalid[2]),
     .i_awready    (o_awready[2]),
     .i_awch       (o_awch[2*AWCH_W+:AWCH_W]),
@@ -1540,9 +1540,9 @@ module axicb_crossbar_top
     )
     mst3_if
     (
-    .i_aclk       (slv3_aclk),
-    .i_aresetn    (slv3_aresetn),
-    .i_srst       (slv3_srst),
+    .i_aclk       (aclk),
+    .i_aresetn    (aresetn),
+    .i_srst       (srst),
     .i_awvalid    (o_awvalid[3]),
     .i_awready    (o_awready[3]),
     .i_awch       (o_awch[3*AWCH_W+:AWCH_W]),

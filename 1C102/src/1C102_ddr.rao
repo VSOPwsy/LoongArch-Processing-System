@@ -4,35 +4,74 @@
     <Mode>Standard</Mode>
     <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">sys_resetn</Signal>
-            <Signal capture_enable="true">sys_resetn_debounced</Signal>
-            <Signal capture_enable="true">ddr_ui_resetn</Signal>
-            <Signal capture_enable="true">core_resetn</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_awvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_awready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_wvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_wready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_bvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_bready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_arvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_arready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_rvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/mst0_rready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_awvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_awready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_wvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_wready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_bvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_bready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_arvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_arready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_rvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_256/slv1_rready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_awid[7:0]">
+                <Signal>ddr_ctr/s_axi_awid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_awid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_awuser[0:0]">
+                <Signal>ddr_ctr/s_axi_awuser[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/s_axi_awvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_awready</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_wvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_wready</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_wlast</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_bvalid</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_bid[7:0]">
+                <Signal>ddr_ctr/s_axi_bid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_bid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_bresp[1:0]">
+                <Signal>ddr_ctr/s_axi_bresp[1]</Signal>
+                <Signal>ddr_ctr/s_axi_bresp[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/s_axi_bready</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_arvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_arready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_arid[7:0]">
+                <Signal>ddr_ctr/s_axi_arid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_arid[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/s_axi_rvalid</Signal>
+            <Signal capture_enable="true">ddr_ctr/s_axi_rready</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_rid[7:0]">
+                <Signal>ddr_ctr/s_axi_rid[7]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[6]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[5]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[4]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[3]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[2]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[1]</Signal>
+                <Signal>ddr_ctr/s_axi_rid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/s_axi_rresp[1:0]">
+                <Signal>ddr_ctr/s_axi_rresp[1]</Signal>
+                <Signal>ddr_ctr/s_axi_rresp[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/s_axi_rlast</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>AXI_crossbar_256/slv1_awvalid</Signal>
+                    <Signal>ddr_ctr/s_axi_awvalid</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -73,5 +112,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1010110001100001</GAO_ID>
+    <GAO_ID>0000010110101101</GAO_ID>
 </GAO_CONFIG>

@@ -46,11 +46,8 @@
         <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_ctr_fifo_ar/ddr_ctr_fifo_ar.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_ctr_fifo_aw/ddr_ctr_fifo_aw.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_ctr_fifo_b/ddr_ctr_fifo_b.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_ctr_fifo_r/ddr_ctr_fifo_r.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ddr_ctr_fifo_w/ddr_ctr_fifo_w.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ddr_queue_fifo/ddr_queue_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_osc/gowin_osc.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll_20M/gowin_pll_20M.v" type="file.verilog" enable="1"/>
@@ -58,9 +55,6 @@
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ml_fifo/ml_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/scfifo_app/scfifo_app.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/scfifo_rd_data/scfifo_rd_data.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/scfifo_rd_resp/scfifo_rd_resp.v" type="file.verilog" enable="1"/>
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/ddr3_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_ctrl_top.v" type="file.verilog" enable="1"/>
@@ -78,7 +72,15 @@
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102_ext_osc.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102_int_osc.sdc" type="file.sdc" enable="1"/>
+        <File path="src/1C102_int_osc_CPU_ONLY.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102.rao" type="file.gao" enable="0"/>
-        <File path="src/1C102_crossbar.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102_CPU.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102_crossbar.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_crossbar256int.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_crossbar256mst.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_crossbar256slv.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_crossbar32.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_crossbar32mst.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_ddr.rao" type="file.gao" enable="0"/>
     </FileList>
 </Project>

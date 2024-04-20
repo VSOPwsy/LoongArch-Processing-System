@@ -25,7 +25,6 @@ module axi2apb_bridge # (
 	input                   	axi_s_awvalid,
 	output                  	axi_s_awready,
 
-	input [ID_WIDTH-1:0]       axi_s_wid,
 	input [31:0]            	axi_s_wdata,
 	input [3:0]             	axi_s_wstrb,
 	input                   	axi_s_wlast,
