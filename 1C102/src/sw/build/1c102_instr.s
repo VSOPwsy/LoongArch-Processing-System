@@ -786,8 +786,8 @@ main():
 1c001a10:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
 1c001a14:	03c005ad 	xori	$r13,$r13,0x1
 1c001a18:	2980018d 	st.w	$r13,$r12,0
-1c001a1c:	14001c6c 	lu12i.w	$r12,227(0xe3)
-1c001a20:	03bf918c 	ori	$r12,$r12,0xfe4
+1c001a1c:	140002cc 	lu12i.w	$r12,22(0x16)
+1c001a20:	03b3298c 	ori	$r12,$r12,0xcca
 1c001a24:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
 1c001a28:	50001400 	b	20(0x14) # 1c001a3c <main+0x94>
 1c001a2c:	03400000 	andi	$r0,$r0,0x0

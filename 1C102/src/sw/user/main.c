@@ -518,7 +518,7 @@ int main(void) {
 		{
 			LED ^= (int32_t)0x00000001;
 		}
-		my_delay_ms(1000);
+		my_delay_ms(100);
     }
 
     return 0;
