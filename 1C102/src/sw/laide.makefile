@@ -30,7 +30,7 @@ all:
 clean:
 	make -C build clean
 flash:
-	$(OPENOCD_PATH)$(OPENOCD_EXE) -f $(OPENOCD_PATH)$(OPENOCD_TOOL_CFG) -f $(OPENOCD_PATH)$(OPENOCD_MCU_CFG) -c "program build/1c102_instrs.bin 0x1c000000 exit"
+	$(OPENOCD_PATH)$(OPENOCD_EXE) -f $(OPENOCD_PATH)$(OPENOCD_TOOL_CFG) -f $(OPENOCD_PATH)$(OPENOCD_MCU_CFG) -c "program build/1c102_instr.bin 0x1c000000 exit"
 help:
 	@echo "this is help"
 .PHONY: $(PHONY)
