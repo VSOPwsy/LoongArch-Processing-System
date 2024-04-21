@@ -33,12 +33,12 @@ module TOP # (
     output          ddr_cke,
     output          ddr_odt,
     output          ddr_reset_n,
-    output  [3:0]   ddr_dm
+    output  [3:0]   ddr_dm,
 
-    // input            sd_miso,
-    // output           sd_clk,
-    // output           sd_cs,
-    // output           sd_mosi
+    input            sd_miso,
+    output           sd_clk,
+    output           sd_cs,
+    output           sd_mosi
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -425,6 +425,42 @@ module TOP # (
     wire                        ddr_test_256_rlast;
     wire                        ddr_test_256_rvalid;
     wire                        ddr_test_256_rready;
+
+    wire [`ID_WIDTH       -1:0] model_awid;
+    wire [`ADDR_WIDTH    -1 :0] model_awaddr;
+    wire [`LEN_WIDTH     -1 :0] model_awlen;
+    wire [`SIZE_WIDTH    -1 :0] model_awsize;
+    wire [`BURST_WIDTH   -1 :0] model_awburst;
+    wire [`LOCK_WIDTH    -1 :0] model_awlock;
+    wire [`CACHE_WIDTH   -1 :0] model_awcache;
+    wire [`PROT_WIDTH    -1 :0] model_awprot;
+    wire                        model_awvalid;
+    wire                        model_awready;
+    wire [`DDR_DATA_WIDTH-1 :0] model_wdata;
+    wire [`DDR_STRB_WIDTH-1 :0] model_wstrb;
+    wire                        model_wlast;
+    wire                        model_wvalid;
+    wire                        model_wready;
+    wire [`ID_WIDTH       -1:0] model_bid;
+    wire [`RESP_WIDTH    -1 :0] model_bresp;
+    wire                        model_bvalid;
+    wire                        model_bready;
+    wire [`ID_WIDTH       -1:0] model_arid;
+    wire [`ADDR_WIDTH    -1 :0] model_araddr;
+    wire [`LEN_WIDTH     -1 :0] model_arlen;
+    wire [`SIZE_WIDTH    -1 :0] model_arsize;
+    wire [`BURST_WIDTH   -1 :0] model_arburst;
+    wire [`LOCK_WIDTH    -1 :0] model_arlock;
+    wire [`CACHE_WIDTH   -1 :0] model_arcache;
+    wire [`PROT_WIDTH    -1 :0] model_arprot;
+    wire                        model_arvalid;
+    wire                        model_arready;
+    wire [`ID_WIDTH       -1:0] model_rid;
+    wire [`DDR_DATA_WIDTH-1 :0] model_rdata;
+    wire [`RESP_WIDTH    -1 :0] model_rresp;
+    wire                        model_rlast;
+    wire                        model_rvalid;
+    wire                        model_rready;
 
     wire [`ID_WIDTH       -1:0] ddr_arb_awid;
     wire [`ADDR_WIDTH    -1 :0] ddr_arb_awaddr;
@@ -1031,7 +1067,67 @@ module TOP # (
         .uart_irq           (uart1_int              )
     );
 
-    
+    sd_read_para_top # (
+        .DATA_WIDTH         (`DDR_DATA_WIDTH),
+        .ADDR_WIDTH         (`ADDR_WIDTH),
+        .ID_WIDTH           (`ID_WIDTH),
+        
+        .APB_DATA_WIDTH     (`APB_DATA_WIDTH),
+        .REG_NUM            (6)
+  )
+  sd_read_para_top_inst (
+        .sys_clk            (core_clk),
+        .rst_n              (core_resetn),
+
+        .sd_miso            (sd_miso),
+        .sd_clk             (sd_clk),
+        .sd_cs              (sd_cs),
+        .sd_mosi            (sd_mosi),
+
+        .model_awid         (model_awid),
+        .model_awaddr       (model_awaddr),
+        .model_awlen        (model_awlen),
+        .model_awsize       (model_awsize),
+        .model_awburst      (model_awburst),
+        .model_awlock       (model_awlock),
+        .model_awcache      (model_awcache),
+        .model_awprot       (model_awprot),
+        .model_awvalid      (model_awvalid),
+        .model_awready      (model_awready),
+        .model_wdata        (model_wdata),
+        .model_wstrb        (model_wstrb),
+        .model_wlast        (model_wlast),
+        .model_wvalid       (model_wvalid),
+        .model_wready       (model_wready),
+        .model_bid          (model_bid),
+        .model_bresp        (model_bresp),
+        .model_bvalid       (model_bvalid),
+        .model_bready       (model_bready),
+        .model_arid         (model_arid),
+        .model_araddr       (model_araddr),
+        .model_arlen        (model_arlen),
+        .model_arsize       (model_arsize),
+        .model_arburst      (model_arburst),
+        .model_arlock       (model_arlock),
+        .model_arcache      (model_arcache),
+        .model_arprot       (model_arprot),
+        .model_arvalid      (model_arvalid),
+        .model_arready      (model_arready),
+        .model_rid          (model_rid),
+        .model_rdata        (model_rdata),
+        .model_rresp        (model_rresp),
+        .model_rlast        (model_rlast),
+        .model_rvalid       (model_rvalid),
+        .model_rready       (model_rready),
+
+        .apb_psel           (apb2_psel),
+        .apb_rw             (apb2_rw),
+        .apb_addr           (apb2_addr),
+        .apb_enab           (apb2_enab),
+        .apb_datai          (apb2_datai),
+        .apb_datao          (apb2_datao),
+        .apb_ack            (apb2_ack)
+  );
     LED_driver LED (
         .clk                (apb_clk                ),
         .resetn             (apb_reset_n            ),
@@ -1241,6 +1337,46 @@ module TOP # (
         .slv1_rresp         (cpu_ddr_256_rresp      ),
         .slv1_rdata         (cpu_ddr_256_rdata      ),
         .slv1_rlast         (cpu_ddr_256_rlast      ),
+
+        .slv2_aclk          (core_clk               ),
+        .slv2_aresetn       (1'b1                   ),
+        .slv2_srst          (~core_resetn           ),
+        .slv2_awvalid       (model_awvalid          ),
+        .slv2_awready       (model_awready          ),
+        .slv2_awaddr        (model_awaddr           ),
+        .slv2_awlen         (model_awlen            ),
+        .slv2_awsize        (model_awsize           ),
+        .slv2_awburst       (model_awburst          ),
+        .slv2_awlock        (model_awlock           ),
+        .slv2_awcache       (model_awcache          ),
+        .slv2_awprot        (model_awprot           ),
+        .slv2_awid          (model_awid             ),
+        .slv2_wvalid        (model_wvalid           ),
+        .slv2_wready        (model_wready           ),
+        .slv2_wlast         (model_wlast            ),
+        .slv2_wdata         (model_wdata            ),
+        .slv2_wstrb         (model_wstrb            ),
+        .slv2_bvalid        (model_bvalid           ),
+        .slv2_bready        (model_bready           ),
+        .slv2_bid           (model_bid              ),
+        .slv2_bresp         (model_bresp            ),
+        .slv2_arvalid       (model_arvalid          ),
+        .slv2_arready       (model_arready          ),
+        .slv2_araddr        (model_araddr           ),
+        .slv2_arlen         (model_arlen            ),
+        .slv2_arsize        (model_arsize           ),
+        .slv2_arburst       (model_arburst          ),
+        .slv2_arlock        (model_arlock           ),
+        .slv2_arcache       (model_arcache          ),
+        .slv2_arprot        (model_arprot           ),
+        .slv2_arid          (model_arid             ),
+        .slv2_rvalid        (model_rvalid           ),
+        .slv2_rready        (model_rready           ),
+        .slv2_rid           (model_rid              ),
+        .slv2_rresp         (model_rresp            ),
+        .slv2_rdata         (model_rdata            ),
+        .slv2_rlast         (model_rlast            ),
+
 
         .mst0_aclk          (ddr_ui_clk             ),
         .mst0_aresetn       (1'b1                   ),

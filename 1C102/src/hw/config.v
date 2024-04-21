@@ -68,9 +68,8 @@
 `define APB_SLV1_ADDR_BASE   32'hbfe88000     //APB1 base address    
 `define APB_SLV1_ADDR_LEN    32'h00000007     //APB1 length
 //APB2
-//I2C
-`define APB_SLV2_ADDR_BASE   32'hbfe90000     //APB2 base address    
-`define APB_SLV2_ADDR_LEN    32'h00000007     //APB3 length
+`define APB_SLV2_ADDR_BASE   32'hbfec0000     //APB2 base address    
+`define APB_SLV2_ADDR_LEN    32'h0000001c     //APB2 length
 //APB3
 `define APB_SLV3_ADDR_BASE   32'hffffffff     //APB3 base address    
 `define APB_SLV3_ADDR_LEN    32'hffffffff     //APB3 length

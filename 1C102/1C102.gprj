@@ -54,9 +54,9 @@
         <File path="src/hw/ip_repo/gowin_pll_ext/gowin_pll_ext.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/ml_fifo/ml_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/ml_wrfifo/ml_wrfifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/ddr3_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/model_loader/sd_axi_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_ctrl_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_init.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_read.v" type="file.verilog" enable="1"/>

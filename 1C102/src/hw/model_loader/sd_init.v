@@ -61,7 +61,7 @@ assign  sd_clk = ~div_clk;         //SD_CLK
 assign  div_clk_180deg = ~div_clk; //相位和DIV_CLK相差180度的时钟
 
 //时钟分频,div_clk = 250KHz
-always @(posedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref) begin
     if(!rst_n) begin
         div_clk <= 1'b0;
         div_cnt <= 8'd0;
@@ -77,7 +77,7 @@ always @(posedge clk_ref or negedge rst_n) begin
 end
 
 //上电等待稳定计数器
-always @(posedge div_clk or negedge rst_n) begin
+always @(posedge div_clk) begin
     if(!rst_n) 
         poweron_cnt <= 13'd0;
     else if(cur_state == st_idle) begin
@@ -90,7 +90,7 @@ end
 
 //接收sd卡返回的响应数据
 //在div_clk_180deg(sd_clk)的上升沿锁存数据
-always @(posedge div_clk_180deg or negedge rst_n) begin
+always @(posedge div_clk_180deg) begin
     if(!rst_n) begin
         res_en <= 1'b0;
         res_data <= 48'd0;
@@ -121,7 +121,7 @@ always @(posedge div_clk_180deg or negedge rst_n) begin
     end
 end                    
 
-always @(posedge div_clk or negedge rst_n) begin
+always @(posedge div_clk) begin
     if(!rst_n)
         cur_state <= st_idle;
     else
@@ -196,7 +196,7 @@ end
 
 //SD卡在div_clk_180deg(sd_clk)的上升沿锁存数据,因此在sd_clk的下降沿输出数据
 //为了统一在alway块中使用上升沿触发,此处使用和sd_clk相位相差180度的时钟
-always @(posedge div_clk or negedge rst_n) begin
+always @(posedge div_clk) begin
     if(!rst_n) begin
         sd_cs <= 1'b1;
         sd_mosi <= 1'b1;

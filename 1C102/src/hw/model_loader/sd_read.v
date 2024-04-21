@@ -5,7 +5,7 @@ module sd_read(
     input                sd_miso       ,  //SD卡SPI串行输入数据信号
     output  reg          sd_cs         ,  //SD卡SPI片选信号
     output  reg          sd_mosi       ,  //SD卡SPI串行输出数据信号
-       //用户读接口
+    //用户读接口
     input                rd_start_en   ,  //开始读SD卡数据信号
     input        [31:0]  rd_sec_addr   ,  //读数据扇区地址
     output  reg          rd_busy       ,  //读数据忙信号
@@ -36,7 +36,7 @@ wire           pos_rd_en     ;            //开始读SD卡数据信号的上升�
 //*****************************************************
 assign  pos_rd_en = (~rd_en_d1) & rd_en_d0;
 
-always @(posedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref) begin
     if(!rst_n) begin
         rd_en_d0 <= 1'b0;
         rd_en_d1 <= 1'b0;
@@ -47,7 +47,7 @@ always @(posedge clk_ref or negedge rst_n) begin
     end
 end
 
-always @(negedge clk_ref or negedge rst_n) begin
+always @(negedge clk_ref) begin
     if(!rst_n) begin
         res_en <= 1'b0;
         res_data <= 8'd0;
@@ -75,7 +75,7 @@ always @(negedge clk_ref or negedge rst_n) begin
     end
 end
 
-always @(negedge clk_ref or negedge rst_n) begin
+always @(negedge clk_ref) begin
     if(!rst_n) begin
         rx_en_t <= 1'b0;
         rx_data_t <= 16'd0;
@@ -111,7 +111,7 @@ always @(negedge clk_ref or negedge rst_n) begin
     end
 end
 //寄存输出数据有效信号和数据
-always @(posedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref) begin
     if(!rst_n) begin
         rd_val_en <= 1'b0;
         rd_val_data <= 16'd0;
@@ -126,7 +126,7 @@ always @(posedge clk_ref or negedge rst_n) begin
     end
 end
 //读命令
-always @(posedge clk_ref or negedge rst_n) begin
+always @(posedge clk_ref) begin
     if(!rst_n) begin
         sd_cs <= 1'b1;
         sd_mosi <= 1'b1;

@@ -1,6 +1,7 @@
 module sd_ctrl_top(
     input                clk_ref       ,  //时钟信号
     input                rst_n         ,  //复位信号,低电平有效
+    input                start         ,    
     //SD卡接口
     input                sd_miso       ,  //SD卡SPI串行输入数据信号
     output               sd_clk        ,  //SD卡SPI时钟信号    
@@ -64,7 +65,7 @@ sd_init u_sd_init(
 //SD卡读数据
 sd_read u_sd_read(
     .clk_ref            (clk_ref),
-    .rst_n              (rst_n),
+    .rst_n              (rst_n & (~start)),
     
     .sd_miso            (sd_miso),
     .sd_cs              (rd_sd_cs),
