@@ -74,7 +74,7 @@
         <File path="src/1C102_int_osc.sdc" type="file.sdc" enable="1"/>
         <File path="src/1C102_int_osc_CPU_ONLY.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102.rao" type="file.gao" enable="0"/>
-        <File path="src/1C102_CPU.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_CPU.rao" type="file.gao" enable="1"/>
         <File path="src/1C102_crossbar.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_crossbar256int.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_crossbar256mst.rao" type="file.gao" enable="0"/>

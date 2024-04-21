@@ -18,6 +18,11 @@ module TOP # (
     input           RsRx,
     output          RsTx,
 
+    input           LJTAG_TRST,
+    input           LJTAG_TMS,
+    output          LJTAG_TDO,
+    input           LJTAG_TDI,
+    input           LJTAG_TCK,
 
     inout   [31:0]  ddr_dq,
     inout   [3:0]   ddr_dqs,
@@ -34,6 +39,7 @@ module TOP # (
     output          ddr_odt,
     output          ddr_reset_n,
     output  [3:0]   ddr_dm
+
 
     // input            sd_miso,
     // output           sd_clk,
@@ -555,11 +561,11 @@ module TOP # (
         .data_sram_rrdy     (data_sram_rrdy         ),
         .data_sram_resp     (data_sram_resp         ),
 
-        .trstn              (ljtag_trst_i           ),
-        .tck                (ljtag_tck_i            ),
-        .tdi                (ljtag_tdi_i            ),
-        .tms                (ljtag_tms_i            ),
-        .tdo                (ljtag_tdo_o            ),
+        .trstn              (LJTAG_TRST             ),
+        .tck                (LJTAG_TCK              ),
+        .tdi                (LJTAG_TDI              ),
+        .tms                (LJTAG_TMS              ),
+        .tdo                (LJTAG_TDO              ),
         .ljtag_prrst        (ljtag_prrst_src        ),
         .ljtag_lock         (1'b0                   ),
 
