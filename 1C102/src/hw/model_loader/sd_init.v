@@ -61,19 +61,27 @@ assign  sd_clk = ~div_clk;         //SD_CLK
 assign  div_clk_180deg = ~div_clk; //相位和DIV_CLK相差180度的时钟
 
 //时钟分频,div_clk = 250KHz
+// always @(posedge clk_ref) begin
+//     if(!rst_n) begin
+//         div_clk <= 1'b0;
+//         div_cnt <= 8'd0;
+//     end
+//     else begin
+//         if(div_cnt == DIV_FREQ/2-1'b1) begin
+//             div_clk <= ~div_clk;
+//             div_cnt <= 8'd0;
+//         end
+//         else    
+//             div_cnt <= div_cnt + 1'b1;
+//     end        
+// end
 always @(posedge clk_ref) begin
-    if(!rst_n) begin
-        div_clk <= 1'b0;
+    if(div_cnt == DIV_FREQ/2-1'b1) begin
+        div_clk <= ~div_clk;
         div_cnt <= 8'd0;
     end
-    else begin
-        if(div_cnt == DIV_FREQ/2-1'b1) begin
-            div_clk <= ~div_clk;
-            div_cnt <= 8'd0;
-        end
-        else    
-            div_cnt <= div_cnt + 1'b1;
-    end        
+    else    
+        div_cnt <= div_cnt + 1'b1;
 end
 
 //上电等待稳定计数器
