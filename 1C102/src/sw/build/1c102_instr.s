@@ -13,7 +13,7 @@ _start():
 1c000008 <CopyDataInit>:
 CopyDataInit():
 1c000008:	1438004f 	lu12i.w	$r15,114690(0x1c002)
-1c00000c:	03b931ef 	ori	$r15,$r15,0xe4c
+1c00000c:	03ba31ef 	ori	$r15,$r15,0xe8c
 1c000010:	001035f0 	add.w	$r16,$r15,$r13
 1c000014:	2880020f 	ld.w	$r15,$r16,0
 1c000018:	00103590 	add.w	$r16,$r12,$r13
@@ -112,39 +112,39 @@ exception_pmu():
 
 1c001090 <wake_label>:
 wake_label():
-1c001090:	54144c00 	bl	5196(0x144c) # 1c0024dc <TIMER_WAKE_INT>
+1c001090:	54148c00 	bl	5260(0x148c) # 1c00251c <TIMER_WAKE_INT>
 1c001094:	50003c00 	b	60(0x3c) # 1c0010d0 <exception_exit>
 
 1c001098 <touch_label>:
 touch_label():
-1c001098:	54148c00 	bl	5260(0x148c) # 1c002524 <TOUCH>
+1c001098:	5414cc00 	bl	5324(0x14cc) # 1c002564 <TOUCH>
 1c00109c:	50003400 	b	52(0x34) # 1c0010d0 <exception_exit>
 
 1c0010a0 <uart2_label>:
 uart2_label():
-1c0010a0:	54151000 	bl	5392(0x1510) # 1c0025b0 <UART2_INT>
+1c0010a0:	54155000 	bl	5456(0x1550) # 1c0025f0 <UART2_INT>
 1c0010a4:	50002c00 	b	44(0x2c) # 1c0010d0 <exception_exit>
 
 1c0010a8 <bcc_label>:
 bcc_label():
-1c0010a8:	54154400 	bl	5444(0x1544) # 1c0025ec <BAT_FAIL>
+1c0010a8:	54158400 	bl	5508(0x1584) # 1c00262c <BAT_FAIL>
 1c0010ac:	50002400 	b	36(0x24) # 1c0010d0 <exception_exit>
 
 1c0010b0 <exint_label>:
 exint_label():
-1c0010b0:	54135c00 	bl	4956(0x135c) # 1c00240c <ext_handler>
+1c0010b0:	54139c00 	bl	5020(0x139c) # 1c00244c <ext_handler>
 1c0010b4:	50001c00 	b	28(0x1c) # 1c0010d0 <exception_exit>
 
 1c0010b8 <timer_label>:
 timer_label():
-1c0010b8:	54176800 	bl	5992(0x1768) # 1c002820 <TIMER_HANDLER>
+1c0010b8:	5417a800 	bl	6056(0x17a8) # 1c002860 <TIMER_HANDLER>
 1c0010bc:	50001400 	b	20(0x14) # 1c0010d0 <exception_exit>
 
 1c0010c0 <exception_core_check>:
 exception_core_check():
 1c0010c0:	0341018d 	andi	$r13,$r12,0x40
 1c0010c4:	40000da0 	beqz	$r13,12(0xc) # 1c0010d0 <exception_exit>
-1c0010c8:	5415fc00 	bl	5628(0x15fc) # 1c0026c4 <intc_handler>
+1c0010c8:	54163c00 	bl	5692(0x163c) # 1c002704 <intc_handler>
 1c0010cc:	50000400 	b	4(0x4) # 1c0010d0 <exception_exit>
 
 1c0010d0 <exception_exit>:
@@ -353,7 +353,7 @@ myprintf():
 1c0013c4:	6802adac 	bltu	$r13,$r12,684(0x2ac) # 1c001670 <myprintf+0x33c>
 1c0013c8:	0040898d 	slli.w	$r13,$r12,0x2
 1c0013cc:	1c00002c 	pcaddu12i	$r12,1(0x1)
-1c0013d0:	0292318c 	addi.w	$r12,$r12,1164(0x48c)
+1c0013d0:	0293318c 	addi.w	$r12,$r12,1228(0x4cc)
 1c0013d4:	001031ac 	add.w	$r12,$r13,$r12
 1c0013d8:	2880018c 	ld.w	$r12,$r12,0
 1c0013dc:	4c000180 	jirl	$r0,$r12,0
@@ -772,1092 +772,1092 @@ main():
 1c0019d8:	02bffd8d 	addi.w	$r13,$r12,-1(0xfff)
 1c0019dc:	29bfb2cd 	st.w	$r13,$r22,-20(0xfec)
 1c0019e0:	47ffe59f 	bnez	$r12,-28(0x7fffe4) # 1c0019c4 <main+0x1c>
-1c0019e4:	29bf92c0 	st.w	$r0,$r22,-28(0xfe4)
-1c0019e8:	28bf92cd 	ld.w	$r13,$r22,-28(0xfe4)
-1c0019ec:	1480000c 	lu12i.w	$r12,262144(0x40000)
-1c0019f0:	2980018d 	st.w	$r13,$r12,0
-1c0019f4:	1480000c 	lu12i.w	$r12,262144(0x40000)
+1c0019e4:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c0019e8:	02801c0d 	addi.w	$r13,$r0,7(0x7)
+1c0019ec:	2980018d 	st.w	$r13,$r12,0
+1c0019f0:	03400000 	andi	$r0,$r0,0x0
+1c0019f4:	157fd80c 	lu12i.w	$r12,-262464(0xbfec0)
 1c0019f8:	2880018c 	ld.w	$r12,$r12,0
-1c0019fc:	0015018d 	move	$r13,$r12
-1c001a00:	28bf92cc 	ld.w	$r12,$r22,-28(0xfe4)
-1c001a04:	5c0019ac 	bne	$r13,$r12,24(0x18) # 1c001a1c <main+0x74>
-1c001a08:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
-1c001a0c:	2880018d 	ld.w	$r13,$r12,0
-1c001a10:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
-1c001a14:	03c005ad 	xori	$r13,$r13,0x1
-1c001a18:	2980018d 	st.w	$r13,$r12,0
-1c001a1c:	140002cc 	lu12i.w	$r12,22(0x16)
-1c001a20:	03b3298c 	ori	$r12,$r12,0xcca
-1c001a24:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
-1c001a28:	50001400 	b	20(0x14) # 1c001a3c <main+0x94>
-1c001a2c:	03400000 	andi	$r0,$r0,0x0
-1c001a30:	03400000 	andi	$r0,$r0,0x0
-1c001a34:	03400000 	andi	$r0,$r0,0x0
-1c001a38:	03400000 	andi	$r0,$r0,0x0
-1c001a3c:	28bfa2cc 	ld.w	$r12,$r22,-24(0xfe8)
-1c001a40:	02bffd8d 	addi.w	$r13,$r12,-1(0xfff)
-1c001a44:	29bfa2cd 	st.w	$r13,$r22,-24(0xfe8)
-1c001a48:	47ffe59f 	bnez	$r12,-28(0x7fffe4) # 1c001a2c <main+0x84>
-1c001a4c:	53ff9fff 	b	-100(0xfffff9c) # 1c0019e8 <main+0x40>
+1c0019fc:	43fff99f 	beqz	$r12,-8(0x7ffff8) # 1c0019f4 <main+0x4c>
+1c001a00:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001a04:	0280180d 	addi.w	$r13,$r0,6(0x6)
+1c001a08:	2980018d 	st.w	$r13,$r12,0
+1c001a0c:	157fd80c 	lu12i.w	$r12,-262464(0xbfec0)
+1c001a10:	0380118c 	ori	$r12,$r12,0x4
+1c001a14:	142468ad 	lu12i.w	$r13,74565(0x12345)
+1c001a18:	0399e1ad 	ori	$r13,$r13,0x678
+1c001a1c:	2980018d 	st.w	$r13,$r12,0
+1c001a20:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001a24:	0280100d 	addi.w	$r13,$r0,4(0x4)
+1c001a28:	2980018d 	st.w	$r13,$r12,0
+1c001a2c:	157fd80c 	lu12i.w	$r12,-262464(0xbfec0)
+1c001a30:	0380118c 	ori	$r12,$r12,0x4
+1c001a34:	2880018d 	ld.w	$r13,$r12,0
+1c001a38:	142468ac 	lu12i.w	$r12,74565(0x12345)
+1c001a3c:	0399e18c 	ori	$r12,$r12,0x678
+1c001a40:	5c004dac 	bne	$r13,$r12,76(0x4c) # 1c001a8c <main+0xe4>
+1c001a44:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001a48:	2880018c 	ld.w	$r12,$r12,0
+1c001a4c:	03c0118d 	xori	$r13,$r12,0x4
+1c001a50:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001a54:	2980018d 	st.w	$r13,$r12,0
+1c001a58:	14001c6c 	lu12i.w	$r12,227(0xe3)
+1c001a5c:	03bf918c 	ori	$r12,$r12,0xfe4
+1c001a60:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
+1c001a64:	50001400 	b	20(0x14) # 1c001a78 <main+0xd0>
+1c001a68:	03400000 	andi	$r0,$r0,0x0
+1c001a6c:	03400000 	andi	$r0,$r0,0x0
+1c001a70:	03400000 	andi	$r0,$r0,0x0
+1c001a74:	03400000 	andi	$r0,$r0,0x0
+1c001a78:	28bfa2cc 	ld.w	$r12,$r22,-24(0xfe8)
+1c001a7c:	02bffd8d 	addi.w	$r13,$r12,-1(0xfff)
+1c001a80:	29bfa2cd 	st.w	$r13,$r22,-24(0xfe8)
+1c001a84:	47ffe59f 	bnez	$r12,-28(0x7fffe4) # 1c001a68 <main+0xc0>
+1c001a88:	53ffbfff 	b	-68(0xfffffbc) # 1c001a44 <main+0x9c>
+1c001a8c:	50000000 	b	0 # 1c001a8c <main+0xe4>
 
-1c001a50 <UART1_HANDLER>:
+1c001a90 <UART1_HANDLER>:
 UART1_HANDLER():
-1c001a50:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001a54:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001a58:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001a5c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001a60:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
-1c001a64:	2880018d 	ld.w	$r13,$r12,0
-1c001a68:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
-1c001a6c:	03c005ad 	xori	$r13,$r13,0x1
-1c001a70:	2980018d 	st.w	$r13,$r12,0
-1c001a74:	57fdefff 	bl	-532(0xffffdec) # 1c001860 <uart1_interrupt>
-1c001a78:	03400000 	andi	$r0,$r0,0x0
-1c001a7c:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001a80:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001a84:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001a88:	4c000020 	jirl	$r0,$r1,0
+1c001a90:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001a94:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001a98:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001a9c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001aa0:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001aa4:	2880018d 	ld.w	$r13,$r12,0
+1c001aa8:	157fe00c 	lu12i.w	$r12,-262400(0xbff00)
+1c001aac:	03c005ad 	xori	$r13,$r13,0x1
+1c001ab0:	2980018d 	st.w	$r13,$r12,0
+1c001ab4:	57fdafff 	bl	-596(0xffffdac) # 1c001860 <uart1_interrupt>
+1c001ab8:	03400000 	andi	$r0,$r0,0x0
+1c001abc:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001ac0:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001ac4:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001ac8:	4c000020 	jirl	$r0,$r1,0
 
-1c001a8c <exti_gpioa0_irq_handler>:
+1c001acc <exti_gpioa0_irq_handler>:
 exti_gpioa0_irq_handler():
-1c001a8c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001a90:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001a94:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001a98:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001a9c:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001aa0:	028290c6 	addi.w	$r6,$r6,164(0xa4)
-1c001aa4:	02801405 	addi.w	$r5,$r0,5(0x5)
-1c001aa8:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001aac:	02be0084 	addi.w	$r4,$r4,-128(0xf80)
-1c001ab0:	57f887ff 	bl	-1916(0xffff884) # 1c001334 <myprintf>
-1c001ab4:	02800405 	addi.w	$r5,$r0,1(0x1)
-1c001ab8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001abc:	03808184 	ori	$r4,$r12,0x20
-1c001ac0:	57fddbff 	bl	-552(0xffffdd8) # 1c001898 <EXTI_ClearITPendingBit>
-1c001ac4:	03400000 	andi	$r0,$r0,0x0
-1c001ac8:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001acc:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001ad0:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001ad4:	4c000020 	jirl	$r0,$r1,0
+1c001acc:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001ad0:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001ad4:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001ad8:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001adc:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001ae0:	028290c6 	addi.w	$r6,$r6,164(0xa4)
+1c001ae4:	02801405 	addi.w	$r5,$r0,5(0x5)
+1c001ae8:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001aec:	02be0084 	addi.w	$r4,$r4,-128(0xf80)
+1c001af0:	57f847ff 	bl	-1980(0xffff844) # 1c001334 <myprintf>
+1c001af4:	02800405 	addi.w	$r5,$r0,1(0x1)
+1c001af8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001afc:	03808184 	ori	$r4,$r12,0x20
+1c001b00:	57fd9bff 	bl	-616(0xffffd98) # 1c001898 <EXTI_ClearITPendingBit>
+1c001b04:	03400000 	andi	$r0,$r0,0x0
+1c001b08:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001b0c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001b10:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001b14:	4c000020 	jirl	$r0,$r1,0
 
-1c001ad8 <exti_gpioa1_irq_handler>:
+1c001b18 <exti_gpioa1_irq_handler>:
 exti_gpioa1_irq_handler():
-1c001ad8:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001adc:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001ae0:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001ae4:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001ae8:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001aec:	0281c0c6 	addi.w	$r6,$r6,112(0x70)
-1c001af0:	02802805 	addi.w	$r5,$r0,10(0xa)
-1c001af4:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001af8:	02bcd084 	addi.w	$r4,$r4,-204(0xf34)
-1c001afc:	57f83bff 	bl	-1992(0xffff838) # 1c001334 <myprintf>
-1c001b00:	02800805 	addi.w	$r5,$r0,2(0x2)
-1c001b04:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001b08:	03808184 	ori	$r4,$r12,0x20
-1c001b0c:	57fd8fff 	bl	-628(0xffffd8c) # 1c001898 <EXTI_ClearITPendingBit>
-1c001b10:	03400000 	andi	$r0,$r0,0x0
-1c001b14:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001b18:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001b1c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001b20:	4c000020 	jirl	$r0,$r1,0
+1c001b18:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001b1c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001b20:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001b24:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001b28:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001b2c:	0281c0c6 	addi.w	$r6,$r6,112(0x70)
+1c001b30:	02802805 	addi.w	$r5,$r0,10(0xa)
+1c001b34:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001b38:	02bcd084 	addi.w	$r4,$r4,-204(0xf34)
+1c001b3c:	57f7fbff 	bl	-2056(0xffff7f8) # 1c001334 <myprintf>
+1c001b40:	02800805 	addi.w	$r5,$r0,2(0x2)
+1c001b44:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001b48:	03808184 	ori	$r4,$r12,0x20
+1c001b4c:	57fd4fff 	bl	-692(0xffffd4c) # 1c001898 <EXTI_ClearITPendingBit>
+1c001b50:	03400000 	andi	$r0,$r0,0x0
+1c001b54:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001b58:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001b5c:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001b60:	4c000020 	jirl	$r0,$r1,0
 
-1c001b24 <exti_gpioa2_irq_handler>:
+1c001b64 <exti_gpioa2_irq_handler>:
 exti_gpioa2_irq_handler():
-1c001b24:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001b28:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001b2c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001b30:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001b34:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001b38:	0280f0c6 	addi.w	$r6,$r6,60(0x3c)
-1c001b3c:	02803c05 	addi.w	$r5,$r0,15(0xf)
-1c001b40:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001b44:	02bba084 	addi.w	$r4,$r4,-280(0xee8)
-1c001b48:	57f7efff 	bl	-2068(0xffff7ec) # 1c001334 <myprintf>
-1c001b4c:	02801005 	addi.w	$r5,$r0,4(0x4)
-1c001b50:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001b54:	03808184 	ori	$r4,$r12,0x20
-1c001b58:	57fd43ff 	bl	-704(0xffffd40) # 1c001898 <EXTI_ClearITPendingBit>
-1c001b5c:	03400000 	andi	$r0,$r0,0x0
-1c001b60:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001b64:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001b68:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001b6c:	4c000020 	jirl	$r0,$r1,0
+1c001b64:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001b68:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001b6c:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001b70:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001b74:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001b78:	0280f0c6 	addi.w	$r6,$r6,60(0x3c)
+1c001b7c:	02803c05 	addi.w	$r5,$r0,15(0xf)
+1c001b80:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001b84:	02bba084 	addi.w	$r4,$r4,-280(0xee8)
+1c001b88:	57f7afff 	bl	-2132(0xffff7ac) # 1c001334 <myprintf>
+1c001b8c:	02801005 	addi.w	$r5,$r0,4(0x4)
+1c001b90:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001b94:	03808184 	ori	$r4,$r12,0x20
+1c001b98:	57fd03ff 	bl	-768(0xffffd00) # 1c001898 <EXTI_ClearITPendingBit>
+1c001b9c:	03400000 	andi	$r0,$r0,0x0
+1c001ba0:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001ba4:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001ba8:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001bac:	4c000020 	jirl	$r0,$r1,0
 
-1c001b70 <exti_gpioa3_irq_handler>:
+1c001bb0 <exti_gpioa3_irq_handler>:
 exti_gpioa3_irq_handler():
-1c001b70:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001b74:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001b78:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001b7c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001b80:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001b84:	028020c6 	addi.w	$r6,$r6,8(0x8)
-1c001b88:	02805005 	addi.w	$r5,$r0,20(0x14)
-1c001b8c:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001b90:	02ba7084 	addi.w	$r4,$r4,-356(0xe9c)
-1c001b94:	57f7a3ff 	bl	-2144(0xffff7a0) # 1c001334 <myprintf>
-1c001b98:	02802005 	addi.w	$r5,$r0,8(0x8)
-1c001b9c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001ba0:	03808184 	ori	$r4,$r12,0x20
-1c001ba4:	57fcf7ff 	bl	-780(0xffffcf4) # 1c001898 <EXTI_ClearITPendingBit>
-1c001ba8:	03400000 	andi	$r0,$r0,0x0
-1c001bac:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001bb0:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001bb4:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001bb8:	4c000020 	jirl	$r0,$r1,0
+1c001bb0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001bb4:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001bb8:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001bbc:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001bc0:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001bc4:	028020c6 	addi.w	$r6,$r6,8(0x8)
+1c001bc8:	02805005 	addi.w	$r5,$r0,20(0x14)
+1c001bcc:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001bd0:	02ba7084 	addi.w	$r4,$r4,-356(0xe9c)
+1c001bd4:	57f763ff 	bl	-2208(0xffff760) # 1c001334 <myprintf>
+1c001bd8:	02802005 	addi.w	$r5,$r0,8(0x8)
+1c001bdc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001be0:	03808184 	ori	$r4,$r12,0x20
+1c001be4:	57fcb7ff 	bl	-844(0xffffcb4) # 1c001898 <EXTI_ClearITPendingBit>
+1c001be8:	03400000 	andi	$r0,$r0,0x0
+1c001bec:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001bf0:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001bf4:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001bf8:	4c000020 	jirl	$r0,$r1,0
 
-1c001bbc <exti_gpioa4_irq_handler>:
+1c001bfc <exti_gpioa4_irq_handler>:
 exti_gpioa4_irq_handler():
-1c001bbc:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001bc0:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001bc4:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001bc8:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001bcc:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001bd0:	02bf50c6 	addi.w	$r6,$r6,-44(0xfd4)
-1c001bd4:	02806405 	addi.w	$r5,$r0,25(0x19)
-1c001bd8:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001bdc:	02b94084 	addi.w	$r4,$r4,-432(0xe50)
-1c001be0:	57f757ff 	bl	-2220(0xffff754) # 1c001334 <myprintf>
-1c001be4:	02804005 	addi.w	$r5,$r0,16(0x10)
-1c001be8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001bec:	03808184 	ori	$r4,$r12,0x20
-1c001bf0:	57fcabff 	bl	-856(0xffffca8) # 1c001898 <EXTI_ClearITPendingBit>
-1c001bf4:	03400000 	andi	$r0,$r0,0x0
-1c001bf8:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001bfc:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001c00:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001c04:	4c000020 	jirl	$r0,$r1,0
+1c001bfc:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001c00:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001c04:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001c08:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001c0c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001c10:	02bf50c6 	addi.w	$r6,$r6,-44(0xfd4)
+1c001c14:	02806405 	addi.w	$r5,$r0,25(0x19)
+1c001c18:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001c1c:	02b94084 	addi.w	$r4,$r4,-432(0xe50)
+1c001c20:	57f717ff 	bl	-2284(0xffff714) # 1c001334 <myprintf>
+1c001c24:	02804005 	addi.w	$r5,$r0,16(0x10)
+1c001c28:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001c2c:	03808184 	ori	$r4,$r12,0x20
+1c001c30:	57fc6bff 	bl	-920(0xffffc68) # 1c001898 <EXTI_ClearITPendingBit>
+1c001c34:	03400000 	andi	$r0,$r0,0x0
+1c001c38:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001c3c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001c40:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001c44:	4c000020 	jirl	$r0,$r1,0
 
-1c001c08 <exti_gpioa5_irq_handler>:
+1c001c48 <exti_gpioa5_irq_handler>:
 exti_gpioa5_irq_handler():
-1c001c08:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001c0c:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001c10:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001c14:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001c18:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001c1c:	02be80c6 	addi.w	$r6,$r6,-96(0xfa0)
-1c001c20:	02807805 	addi.w	$r5,$r0,30(0x1e)
-1c001c24:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001c28:	02b81084 	addi.w	$r4,$r4,-508(0xe04)
-1c001c2c:	57f70bff 	bl	-2296(0xffff708) # 1c001334 <myprintf>
-1c001c30:	02808005 	addi.w	$r5,$r0,32(0x20)
-1c001c34:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001c38:	03808184 	ori	$r4,$r12,0x20
-1c001c3c:	57fc5fff 	bl	-932(0xffffc5c) # 1c001898 <EXTI_ClearITPendingBit>
-1c001c40:	03400000 	andi	$r0,$r0,0x0
-1c001c44:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001c48:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001c4c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001c50:	4c000020 	jirl	$r0,$r1,0
+1c001c48:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001c4c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001c50:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001c54:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001c58:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001c5c:	02be80c6 	addi.w	$r6,$r6,-96(0xfa0)
+1c001c60:	02807805 	addi.w	$r5,$r0,30(0x1e)
+1c001c64:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001c68:	02b81084 	addi.w	$r4,$r4,-508(0xe04)
+1c001c6c:	57f6cbff 	bl	-2360(0xffff6c8) # 1c001334 <myprintf>
+1c001c70:	02808005 	addi.w	$r5,$r0,32(0x20)
+1c001c74:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001c78:	03808184 	ori	$r4,$r12,0x20
+1c001c7c:	57fc1fff 	bl	-996(0xffffc1c) # 1c001898 <EXTI_ClearITPendingBit>
+1c001c80:	03400000 	andi	$r0,$r0,0x0
+1c001c84:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001c88:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001c8c:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001c90:	4c000020 	jirl	$r0,$r1,0
 
-1c001c54 <exti_gpioa6_irq_handler>:
+1c001c94 <exti_gpioa6_irq_handler>:
 exti_gpioa6_irq_handler():
-1c001c54:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001c58:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001c5c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001c60:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001c64:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001c68:	02bdb0c6 	addi.w	$r6,$r6,-148(0xf6c)
-1c001c6c:	02808c05 	addi.w	$r5,$r0,35(0x23)
-1c001c70:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001c74:	02b6e084 	addi.w	$r4,$r4,-584(0xdb8)
-1c001c78:	57f6bfff 	bl	-2372(0xffff6bc) # 1c001334 <myprintf>
-1c001c7c:	02810005 	addi.w	$r5,$r0,64(0x40)
-1c001c80:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001c84:	03808184 	ori	$r4,$r12,0x20
-1c001c88:	57fc13ff 	bl	-1008(0xffffc10) # 1c001898 <EXTI_ClearITPendingBit>
-1c001c8c:	03400000 	andi	$r0,$r0,0x0
-1c001c90:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001c94:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001c98:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001c9c:	4c000020 	jirl	$r0,$r1,0
+1c001c94:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001c98:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001c9c:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001ca0:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001ca4:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001ca8:	02bdb0c6 	addi.w	$r6,$r6,-148(0xf6c)
+1c001cac:	02808c05 	addi.w	$r5,$r0,35(0x23)
+1c001cb0:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001cb4:	02b6e084 	addi.w	$r4,$r4,-584(0xdb8)
+1c001cb8:	57f67fff 	bl	-2436(0xffff67c) # 1c001334 <myprintf>
+1c001cbc:	02810005 	addi.w	$r5,$r0,64(0x40)
+1c001cc0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001cc4:	03808184 	ori	$r4,$r12,0x20
+1c001cc8:	57fbd3ff 	bl	-1072(0xffffbd0) # 1c001898 <EXTI_ClearITPendingBit>
+1c001ccc:	03400000 	andi	$r0,$r0,0x0
+1c001cd0:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001cd4:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001cd8:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001cdc:	4c000020 	jirl	$r0,$r1,0
 
-1c001ca0 <exti_gpioa7_irq_handler>:
+1c001ce0 <exti_gpioa7_irq_handler>:
 exti_gpioa7_irq_handler():
-1c001ca0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001ca4:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001ca8:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001cac:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001cb0:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001cb4:	02bce0c6 	addi.w	$r6,$r6,-200(0xf38)
-1c001cb8:	0280a405 	addi.w	$r5,$r0,41(0x29)
-1c001cbc:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001cc0:	02b5b084 	addi.w	$r4,$r4,-660(0xd6c)
-1c001cc4:	57f673ff 	bl	-2448(0xffff670) # 1c001334 <myprintf>
-1c001cc8:	02820005 	addi.w	$r5,$r0,128(0x80)
-1c001ccc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001cd0:	03808184 	ori	$r4,$r12,0x20
-1c001cd4:	57fbc7ff 	bl	-1084(0xffffbc4) # 1c001898 <EXTI_ClearITPendingBit>
-1c001cd8:	03400000 	andi	$r0,$r0,0x0
-1c001cdc:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001ce0:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001ce4:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001ce8:	4c000020 	jirl	$r0,$r1,0
+1c001ce0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001ce4:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001ce8:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001cec:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001cf0:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001cf4:	02bce0c6 	addi.w	$r6,$r6,-200(0xf38)
+1c001cf8:	0280a405 	addi.w	$r5,$r0,41(0x29)
+1c001cfc:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001d00:	02b5b084 	addi.w	$r4,$r4,-660(0xd6c)
+1c001d04:	57f633ff 	bl	-2512(0xffff630) # 1c001334 <myprintf>
+1c001d08:	02820005 	addi.w	$r5,$r0,128(0x80)
+1c001d0c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001d10:	03808184 	ori	$r4,$r12,0x20
+1c001d14:	57fb87ff 	bl	-1148(0xffffb84) # 1c001898 <EXTI_ClearITPendingBit>
+1c001d18:	03400000 	andi	$r0,$r0,0x0
+1c001d1c:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001d20:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001d24:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001d28:	4c000020 	jirl	$r0,$r1,0
 
-1c001cec <exti_gpiob0_irq_handler>:
+1c001d2c <exti_gpiob0_irq_handler>:
 exti_gpiob0_irq_handler():
-1c001cec:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001cf0:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001cf4:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001cf8:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001cfc:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001d00:	02bc10c6 	addi.w	$r6,$r6,-252(0xf04)
-1c001d04:	0280b805 	addi.w	$r5,$r0,46(0x2e)
-1c001d08:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001d0c:	02b48084 	addi.w	$r4,$r4,-736(0xd20)
-1c001d10:	57f627ff 	bl	-2524(0xffff624) # 1c001334 <myprintf>
-1c001d14:	02840005 	addi.w	$r5,$r0,256(0x100)
-1c001d18:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001d1c:	03808184 	ori	$r4,$r12,0x20
-1c001d20:	57fb7bff 	bl	-1160(0xffffb78) # 1c001898 <EXTI_ClearITPendingBit>
-1c001d24:	03400000 	andi	$r0,$r0,0x0
-1c001d28:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001d2c:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001d30:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001d34:	4c000020 	jirl	$r0,$r1,0
+1c001d2c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001d30:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001d34:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001d38:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001d3c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001d40:	02bc10c6 	addi.w	$r6,$r6,-252(0xf04)
+1c001d44:	0280b805 	addi.w	$r5,$r0,46(0x2e)
+1c001d48:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001d4c:	02b48084 	addi.w	$r4,$r4,-736(0xd20)
+1c001d50:	57f5e7ff 	bl	-2588(0xffff5e4) # 1c001334 <myprintf>
+1c001d54:	02840005 	addi.w	$r5,$r0,256(0x100)
+1c001d58:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001d5c:	03808184 	ori	$r4,$r12,0x20
+1c001d60:	57fb3bff 	bl	-1224(0xffffb38) # 1c001898 <EXTI_ClearITPendingBit>
+1c001d64:	03400000 	andi	$r0,$r0,0x0
+1c001d68:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001d6c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001d70:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001d74:	4c000020 	jirl	$r0,$r1,0
 
-1c001d38 <exti_gpiob1_irq_handler>:
+1c001d78 <exti_gpiob1_irq_handler>:
 exti_gpiob1_irq_handler():
-1c001d38:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001d3c:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001d40:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001d44:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001d48:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001d4c:	02bb40c6 	addi.w	$r6,$r6,-304(0xed0)
-1c001d50:	0280d005 	addi.w	$r5,$r0,52(0x34)
-1c001d54:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001d58:	02b35084 	addi.w	$r4,$r4,-812(0xcd4)
-1c001d5c:	57f5dbff 	bl	-2600(0xffff5d8) # 1c001334 <myprintf>
-1c001d60:	02880005 	addi.w	$r5,$r0,512(0x200)
-1c001d64:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001d68:	03808184 	ori	$r4,$r12,0x20
-1c001d6c:	57fb2fff 	bl	-1236(0xffffb2c) # 1c001898 <EXTI_ClearITPendingBit>
-1c001d70:	03400000 	andi	$r0,$r0,0x0
-1c001d74:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001d78:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001d7c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001d80:	4c000020 	jirl	$r0,$r1,0
+1c001d78:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001d7c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001d80:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001d84:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001d88:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001d8c:	02bb40c6 	addi.w	$r6,$r6,-304(0xed0)
+1c001d90:	0280d005 	addi.w	$r5,$r0,52(0x34)
+1c001d94:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001d98:	02b35084 	addi.w	$r4,$r4,-812(0xcd4)
+1c001d9c:	57f59bff 	bl	-2664(0xffff598) # 1c001334 <myprintf>
+1c001da0:	02880005 	addi.w	$r5,$r0,512(0x200)
+1c001da4:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001da8:	03808184 	ori	$r4,$r12,0x20
+1c001dac:	57faefff 	bl	-1300(0xffffaec) # 1c001898 <EXTI_ClearITPendingBit>
+1c001db0:	03400000 	andi	$r0,$r0,0x0
+1c001db4:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001db8:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001dbc:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001dc0:	4c000020 	jirl	$r0,$r1,0
 
-1c001d84 <exti_gpiob2_irq_handler>:
+1c001dc4 <exti_gpiob2_irq_handler>:
 exti_gpiob2_irq_handler():
-1c001d84:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001d88:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001d8c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001d90:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001d94:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001d98:	02ba70c6 	addi.w	$r6,$r6,-356(0xe9c)
-1c001d9c:	0280e805 	addi.w	$r5,$r0,58(0x3a)
-1c001da0:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001da4:	02b22084 	addi.w	$r4,$r4,-888(0xc88)
-1c001da8:	57f58fff 	bl	-2676(0xffff58c) # 1c001334 <myprintf>
-1c001dac:	02900005 	addi.w	$r5,$r0,1024(0x400)
-1c001db0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001db4:	03808184 	ori	$r4,$r12,0x20
-1c001db8:	57fae3ff 	bl	-1312(0xffffae0) # 1c001898 <EXTI_ClearITPendingBit>
-1c001dbc:	03400000 	andi	$r0,$r0,0x0
-1c001dc0:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001dc4:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001dc8:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001dcc:	4c000020 	jirl	$r0,$r1,0
+1c001dc4:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001dc8:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001dcc:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001dd0:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001dd4:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001dd8:	02ba70c6 	addi.w	$r6,$r6,-356(0xe9c)
+1c001ddc:	0280e805 	addi.w	$r5,$r0,58(0x3a)
+1c001de0:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001de4:	02b22084 	addi.w	$r4,$r4,-888(0xc88)
+1c001de8:	57f54fff 	bl	-2740(0xffff54c) # 1c001334 <myprintf>
+1c001dec:	02900005 	addi.w	$r5,$r0,1024(0x400)
+1c001df0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001df4:	03808184 	ori	$r4,$r12,0x20
+1c001df8:	57faa3ff 	bl	-1376(0xffffaa0) # 1c001898 <EXTI_ClearITPendingBit>
+1c001dfc:	03400000 	andi	$r0,$r0,0x0
+1c001e00:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001e04:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001e08:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001e0c:	4c000020 	jirl	$r0,$r1,0
 
-1c001dd0 <exti_gpiob3_irq_handler>:
+1c001e10 <exti_gpiob3_irq_handler>:
 exti_gpiob3_irq_handler():
-1c001dd0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001dd4:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001dd8:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001ddc:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001de0:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001de4:	02b9a0c6 	addi.w	$r6,$r6,-408(0xe68)
-1c001de8:	02810005 	addi.w	$r5,$r0,64(0x40)
-1c001dec:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001df0:	02b0f084 	addi.w	$r4,$r4,-964(0xc3c)
-1c001df4:	57f543ff 	bl	-2752(0xffff540) # 1c001334 <myprintf>
-1c001df8:	03a00005 	ori	$r5,$r0,0x800
-1c001dfc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001e00:	03808184 	ori	$r4,$r12,0x20
-1c001e04:	57fa97ff 	bl	-1388(0xffffa94) # 1c001898 <EXTI_ClearITPendingBit>
-1c001e08:	03400000 	andi	$r0,$r0,0x0
-1c001e0c:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001e10:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001e14:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001e18:	4c000020 	jirl	$r0,$r1,0
+1c001e10:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001e14:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001e18:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001e1c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001e20:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001e24:	02b9a0c6 	addi.w	$r6,$r6,-408(0xe68)
+1c001e28:	02810005 	addi.w	$r5,$r0,64(0x40)
+1c001e2c:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001e30:	02b0f084 	addi.w	$r4,$r4,-964(0xc3c)
+1c001e34:	57f503ff 	bl	-2816(0xffff500) # 1c001334 <myprintf>
+1c001e38:	03a00005 	ori	$r5,$r0,0x800
+1c001e3c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001e40:	03808184 	ori	$r4,$r12,0x20
+1c001e44:	57fa57ff 	bl	-1452(0xffffa54) # 1c001898 <EXTI_ClearITPendingBit>
+1c001e48:	03400000 	andi	$r0,$r0,0x0
+1c001e4c:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001e50:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001e54:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001e58:	4c000020 	jirl	$r0,$r1,0
 
-1c001e1c <exti_gpiob4_irq_handler>:
+1c001e5c <exti_gpiob4_irq_handler>:
 exti_gpiob4_irq_handler():
-1c001e1c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001e20:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001e24:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001e28:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001e2c:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001e30:	02b8d0c6 	addi.w	$r6,$r6,-460(0xe34)
-1c001e34:	02811405 	addi.w	$r5,$r0,69(0x45)
-1c001e38:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001e3c:	02afc084 	addi.w	$r4,$r4,-1040(0xbf0)
-1c001e40:	57f4f7ff 	bl	-2828(0xffff4f4) # 1c001334 <myprintf>
-1c001e44:	14000025 	lu12i.w	$r5,1(0x1)
-1c001e48:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001e4c:	03808184 	ori	$r4,$r12,0x20
-1c001e50:	57fa4bff 	bl	-1464(0xffffa48) # 1c001898 <EXTI_ClearITPendingBit>
-1c001e54:	03400000 	andi	$r0,$r0,0x0
-1c001e58:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001e5c:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001e60:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001e64:	4c000020 	jirl	$r0,$r1,0
+1c001e5c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001e60:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001e64:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001e68:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001e6c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001e70:	02b8d0c6 	addi.w	$r6,$r6,-460(0xe34)
+1c001e74:	02811405 	addi.w	$r5,$r0,69(0x45)
+1c001e78:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001e7c:	02afc084 	addi.w	$r4,$r4,-1040(0xbf0)
+1c001e80:	57f4b7ff 	bl	-2892(0xffff4b4) # 1c001334 <myprintf>
+1c001e84:	14000025 	lu12i.w	$r5,1(0x1)
+1c001e88:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001e8c:	03808184 	ori	$r4,$r12,0x20
+1c001e90:	57fa0bff 	bl	-1528(0xffffa08) # 1c001898 <EXTI_ClearITPendingBit>
+1c001e94:	03400000 	andi	$r0,$r0,0x0
+1c001e98:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001e9c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001ea0:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001ea4:	4c000020 	jirl	$r0,$r1,0
 
-1c001e68 <exti_gpiob5_irq_handler>:
+1c001ea8 <exti_gpiob5_irq_handler>:
 exti_gpiob5_irq_handler():
-1c001e68:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001e6c:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001e70:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001e74:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001e78:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001e7c:	02b800c6 	addi.w	$r6,$r6,-512(0xe00)
-1c001e80:	02812805 	addi.w	$r5,$r0,74(0x4a)
-1c001e84:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001e88:	02ae9084 	addi.w	$r4,$r4,-1116(0xba4)
-1c001e8c:	57f4abff 	bl	-2904(0xffff4a8) # 1c001334 <myprintf>
-1c001e90:	14000045 	lu12i.w	$r5,2(0x2)
-1c001e94:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001e98:	03808184 	ori	$r4,$r12,0x20
-1c001e9c:	57f9ffff 	bl	-1540(0xffff9fc) # 1c001898 <EXTI_ClearITPendingBit>
-1c001ea0:	03400000 	andi	$r0,$r0,0x0
-1c001ea4:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001ea8:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001eac:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001eb0:	4c000020 	jirl	$r0,$r1,0
+1c001ea8:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001eac:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001eb0:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001eb4:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001eb8:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001ebc:	02b800c6 	addi.w	$r6,$r6,-512(0xe00)
+1c001ec0:	02812805 	addi.w	$r5,$r0,74(0x4a)
+1c001ec4:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001ec8:	02ae9084 	addi.w	$r4,$r4,-1116(0xba4)
+1c001ecc:	57f46bff 	bl	-2968(0xffff468) # 1c001334 <myprintf>
+1c001ed0:	14000045 	lu12i.w	$r5,2(0x2)
+1c001ed4:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001ed8:	03808184 	ori	$r4,$r12,0x20
+1c001edc:	57f9bfff 	bl	-1604(0xffff9bc) # 1c001898 <EXTI_ClearITPendingBit>
+1c001ee0:	03400000 	andi	$r0,$r0,0x0
+1c001ee4:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001ee8:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001eec:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001ef0:	4c000020 	jirl	$r0,$r1,0
 
-1c001eb4 <exti_gpiob6_irq_handler>:
+1c001ef4 <exti_gpiob6_irq_handler>:
 exti_gpiob6_irq_handler():
-1c001eb4:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001eb8:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001ebc:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001ec0:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001ec4:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001ec8:	02b730c6 	addi.w	$r6,$r6,-564(0xdcc)
-1c001ecc:	02814005 	addi.w	$r5,$r0,80(0x50)
-1c001ed0:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001ed4:	02ad6084 	addi.w	$r4,$r4,-1192(0xb58)
-1c001ed8:	57f45fff 	bl	-2980(0xffff45c) # 1c001334 <myprintf>
-1c001edc:	14000085 	lu12i.w	$r5,4(0x4)
-1c001ee0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001ee4:	03808184 	ori	$r4,$r12,0x20
-1c001ee8:	57f9b3ff 	bl	-1616(0xffff9b0) # 1c001898 <EXTI_ClearITPendingBit>
-1c001eec:	03400000 	andi	$r0,$r0,0x0
-1c001ef0:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001ef4:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001ef8:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001efc:	4c000020 	jirl	$r0,$r1,0
+1c001ef4:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001ef8:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001efc:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001f00:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001f04:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001f08:	02b730c6 	addi.w	$r6,$r6,-564(0xdcc)
+1c001f0c:	02814005 	addi.w	$r5,$r0,80(0x50)
+1c001f10:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001f14:	02ad6084 	addi.w	$r4,$r4,-1192(0xb58)
+1c001f18:	57f41fff 	bl	-3044(0xffff41c) # 1c001334 <myprintf>
+1c001f1c:	14000085 	lu12i.w	$r5,4(0x4)
+1c001f20:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001f24:	03808184 	ori	$r4,$r12,0x20
+1c001f28:	57f973ff 	bl	-1680(0xffff970) # 1c001898 <EXTI_ClearITPendingBit>
+1c001f2c:	03400000 	andi	$r0,$r0,0x0
+1c001f30:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001f34:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001f38:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001f3c:	4c000020 	jirl	$r0,$r1,0
 
-1c001f00 <exti_gpiob7_irq_handler>:
+1c001f40 <exti_gpiob7_irq_handler>:
 exti_gpiob7_irq_handler():
-1c001f00:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001f04:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001f08:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001f0c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001f10:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001f14:	02b660c6 	addi.w	$r6,$r6,-616(0xd98)
-1c001f18:	02815805 	addi.w	$r5,$r0,86(0x56)
-1c001f1c:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001f20:	02ac3084 	addi.w	$r4,$r4,-1268(0xb0c)
-1c001f24:	57f413ff 	bl	-3056(0xffff410) # 1c001334 <myprintf>
-1c001f28:	14000105 	lu12i.w	$r5,8(0x8)
-1c001f2c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001f30:	03808184 	ori	$r4,$r12,0x20
-1c001f34:	57f967ff 	bl	-1692(0xffff964) # 1c001898 <EXTI_ClearITPendingBit>
-1c001f38:	03400000 	andi	$r0,$r0,0x0
-1c001f3c:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001f40:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001f44:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001f48:	4c000020 	jirl	$r0,$r1,0
+1c001f40:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001f44:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001f48:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001f4c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001f50:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001f54:	02b660c6 	addi.w	$r6,$r6,-616(0xd98)
+1c001f58:	02815805 	addi.w	$r5,$r0,86(0x56)
+1c001f5c:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001f60:	02ac3084 	addi.w	$r4,$r4,-1268(0xb0c)
+1c001f64:	57f3d3ff 	bl	-3120(0xffff3d0) # 1c001334 <myprintf>
+1c001f68:	14000105 	lu12i.w	$r5,8(0x8)
+1c001f6c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001f70:	03808184 	ori	$r4,$r12,0x20
+1c001f74:	57f927ff 	bl	-1756(0xffff924) # 1c001898 <EXTI_ClearITPendingBit>
+1c001f78:	03400000 	andi	$r0,$r0,0x0
+1c001f7c:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001f80:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001f84:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001f88:	4c000020 	jirl	$r0,$r1,0
 
-1c001f4c <exti_gpioc0_irq_handler>:
+1c001f8c <exti_gpioc0_irq_handler>:
 exti_gpioc0_irq_handler():
-1c001f4c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001f50:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001f54:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001f58:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001f5c:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001f60:	02b590c6 	addi.w	$r6,$r6,-668(0xd64)
-1c001f64:	02817405 	addi.w	$r5,$r0,93(0x5d)
-1c001f68:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001f6c:	02ab0084 	addi.w	$r4,$r4,-1344(0xac0)
-1c001f70:	57f3c7ff 	bl	-3132(0xffff3c4) # 1c001334 <myprintf>
-1c001f74:	14000205 	lu12i.w	$r5,16(0x10)
-1c001f78:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001f7c:	03808184 	ori	$r4,$r12,0x20
-1c001f80:	57f91bff 	bl	-1768(0xffff918) # 1c001898 <EXTI_ClearITPendingBit>
-1c001f84:	03400000 	andi	$r0,$r0,0x0
-1c001f88:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001f8c:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001f90:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001f94:	4c000020 	jirl	$r0,$r1,0
+1c001f8c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001f90:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001f94:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001f98:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001f9c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001fa0:	02b590c6 	addi.w	$r6,$r6,-668(0xd64)
+1c001fa4:	02817405 	addi.w	$r5,$r0,93(0x5d)
+1c001fa8:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001fac:	02ab0084 	addi.w	$r4,$r4,-1344(0xac0)
+1c001fb0:	57f387ff 	bl	-3196(0xffff384) # 1c001334 <myprintf>
+1c001fb4:	14000205 	lu12i.w	$r5,16(0x10)
+1c001fb8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c001fbc:	03808184 	ori	$r4,$r12,0x20
+1c001fc0:	57f8dbff 	bl	-1832(0xffff8d8) # 1c001898 <EXTI_ClearITPendingBit>
+1c001fc4:	03400000 	andi	$r0,$r0,0x0
+1c001fc8:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c001fcc:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c001fd0:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c001fd4:	4c000020 	jirl	$r0,$r1,0
 
-1c001f98 <exti_gpioc1_irq_handler>:
+1c001fd8 <exti_gpioc1_irq_handler>:
 exti_gpioc1_irq_handler():
-1c001f98:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001f9c:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001fa0:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001fa4:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001fa8:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001fac:	02b4c0c6 	addi.w	$r6,$r6,-720(0xd30)
-1c001fb0:	02818c05 	addi.w	$r5,$r0,99(0x63)
-1c001fb4:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c001fb8:	02a9d084 	addi.w	$r4,$r4,-1420(0xa74)
-1c001fbc:	57f37bff 	bl	-3208(0xffff378) # 1c001334 <myprintf>
-1c001fc0:	14000405 	lu12i.w	$r5,32(0x20)
-1c001fc4:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c001fc8:	03808184 	ori	$r4,$r12,0x20
-1c001fcc:	57f8cfff 	bl	-1844(0xffff8cc) # 1c001898 <EXTI_ClearITPendingBit>
-1c001fd0:	03400000 	andi	$r0,$r0,0x0
-1c001fd4:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c001fd8:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c001fdc:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c001fe0:	4c000020 	jirl	$r0,$r1,0
+1c001fd8:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c001fdc:	29803061 	st.w	$r1,$r3,12(0xc)
+1c001fe0:	29802076 	st.w	$r22,$r3,8(0x8)
+1c001fe4:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c001fe8:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c001fec:	02b4c0c6 	addi.w	$r6,$r6,-720(0xd30)
+1c001ff0:	02818c05 	addi.w	$r5,$r0,99(0x63)
+1c001ff4:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c001ff8:	02a9d084 	addi.w	$r4,$r4,-1420(0xa74)
+1c001ffc:	57f33bff 	bl	-3272(0xffff338) # 1c001334 <myprintf>
+1c002000:	14000405 	lu12i.w	$r5,32(0x20)
+1c002004:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002008:	03808184 	ori	$r4,$r12,0x20
+1c00200c:	57f88fff 	bl	-1908(0xffff88c) # 1c001898 <EXTI_ClearITPendingBit>
+1c002010:	03400000 	andi	$r0,$r0,0x0
+1c002014:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002018:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c00201c:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002020:	4c000020 	jirl	$r0,$r1,0
 
-1c001fe4 <exti_gpioc2_irq_handler>:
+1c002024 <exti_gpioc2_irq_handler>:
 exti_gpioc2_irq_handler():
-1c001fe4:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c001fe8:	29803061 	st.w	$r1,$r3,12(0xc)
-1c001fec:	29802076 	st.w	$r22,$r3,8(0x8)
-1c001ff0:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c001ff4:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c001ff8:	02b3f0c6 	addi.w	$r6,$r6,-772(0xcfc)
-1c001ffc:	0281a405 	addi.w	$r5,$r0,105(0x69)
-1c002000:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c002004:	02a8a084 	addi.w	$r4,$r4,-1496(0xa28)
-1c002008:	57f32fff 	bl	-3284(0xffff32c) # 1c001334 <myprintf>
-1c00200c:	14000805 	lu12i.w	$r5,64(0x40)
-1c002010:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002014:	03808184 	ori	$r4,$r12,0x20
-1c002018:	57f883ff 	bl	-1920(0xffff880) # 1c001898 <EXTI_ClearITPendingBit>
-1c00201c:	03400000 	andi	$r0,$r0,0x0
-1c002020:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002024:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002028:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c00202c:	4c000020 	jirl	$r0,$r1,0
+1c002024:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002028:	29803061 	st.w	$r1,$r3,12(0xc)
+1c00202c:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002030:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002034:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002038:	02b3f0c6 	addi.w	$r6,$r6,-772(0xcfc)
+1c00203c:	0281a405 	addi.w	$r5,$r0,105(0x69)
+1c002040:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c002044:	02a8a084 	addi.w	$r4,$r4,-1496(0xa28)
+1c002048:	57f2efff 	bl	-3348(0xffff2ec) # 1c001334 <myprintf>
+1c00204c:	14000805 	lu12i.w	$r5,64(0x40)
+1c002050:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002054:	03808184 	ori	$r4,$r12,0x20
+1c002058:	57f843ff 	bl	-1984(0xffff840) # 1c001898 <EXTI_ClearITPendingBit>
+1c00205c:	03400000 	andi	$r0,$r0,0x0
+1c002060:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002064:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002068:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c00206c:	4c000020 	jirl	$r0,$r1,0
 
-1c002030 <exti_gpioc3_irq_handler>:
+1c002070 <exti_gpioc3_irq_handler>:
 exti_gpioc3_irq_handler():
-1c002030:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002034:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002038:	29802076 	st.w	$r22,$r3,8(0x8)
-1c00203c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002040:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002044:	02b320c6 	addi.w	$r6,$r6,-824(0xcc8)
-1c002048:	0281bc05 	addi.w	$r5,$r0,111(0x6f)
-1c00204c:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c002050:	02a77084 	addi.w	$r4,$r4,-1572(0x9dc)
-1c002054:	57f2e3ff 	bl	-3360(0xffff2e0) # 1c001334 <myprintf>
-1c002058:	14001005 	lu12i.w	$r5,128(0x80)
-1c00205c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002060:	03808184 	ori	$r4,$r12,0x20
-1c002064:	57f837ff 	bl	-1996(0xffff834) # 1c001898 <EXTI_ClearITPendingBit>
-1c002068:	03400000 	andi	$r0,$r0,0x0
-1c00206c:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002070:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002074:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002078:	4c000020 	jirl	$r0,$r1,0
+1c002070:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002074:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002078:	29802076 	st.w	$r22,$r3,8(0x8)
+1c00207c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002080:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002084:	02b320c6 	addi.w	$r6,$r6,-824(0xcc8)
+1c002088:	0281bc05 	addi.w	$r5,$r0,111(0x6f)
+1c00208c:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c002090:	02a77084 	addi.w	$r4,$r4,-1572(0x9dc)
+1c002094:	57f2a3ff 	bl	-3424(0xffff2a0) # 1c001334 <myprintf>
+1c002098:	14001005 	lu12i.w	$r5,128(0x80)
+1c00209c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0020a0:	03808184 	ori	$r4,$r12,0x20
+1c0020a4:	57f7f7ff 	bl	-2060(0xffff7f4) # 1c001898 <EXTI_ClearITPendingBit>
+1c0020a8:	03400000 	andi	$r0,$r0,0x0
+1c0020ac:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0020b0:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c0020b4:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c0020b8:	4c000020 	jirl	$r0,$r1,0
 
-1c00207c <exti_gpioc4_irq_handler>:
+1c0020bc <exti_gpioc4_irq_handler>:
 exti_gpioc4_irq_handler():
-1c00207c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002080:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002084:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002088:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c00208c:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002090:	02b250c6 	addi.w	$r6,$r6,-876(0xc94)
-1c002094:	0281d405 	addi.w	$r5,$r0,117(0x75)
-1c002098:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c00209c:	02a64084 	addi.w	$r4,$r4,-1648(0x990)
-1c0020a0:	57f297ff 	bl	-3436(0xffff294) # 1c001334 <myprintf>
-1c0020a4:	14002005 	lu12i.w	$r5,256(0x100)
-1c0020a8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0020ac:	03808184 	ori	$r4,$r12,0x20
-1c0020b0:	57f7ebff 	bl	-2072(0xffff7e8) # 1c001898 <EXTI_ClearITPendingBit>
-1c0020b4:	03400000 	andi	$r0,$r0,0x0
-1c0020b8:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c0020bc:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c0020c0:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c0020c4:	4c000020 	jirl	$r0,$r1,0
+1c0020bc:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c0020c0:	29803061 	st.w	$r1,$r3,12(0xc)
+1c0020c4:	29802076 	st.w	$r22,$r3,8(0x8)
+1c0020c8:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c0020cc:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c0020d0:	02b250c6 	addi.w	$r6,$r6,-876(0xc94)
+1c0020d4:	0281d405 	addi.w	$r5,$r0,117(0x75)
+1c0020d8:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c0020dc:	02a64084 	addi.w	$r4,$r4,-1648(0x990)
+1c0020e0:	57f257ff 	bl	-3500(0xffff254) # 1c001334 <myprintf>
+1c0020e4:	14002005 	lu12i.w	$r5,256(0x100)
+1c0020e8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0020ec:	03808184 	ori	$r4,$r12,0x20
+1c0020f0:	57f7abff 	bl	-2136(0xffff7a8) # 1c001898 <EXTI_ClearITPendingBit>
+1c0020f4:	03400000 	andi	$r0,$r0,0x0
+1c0020f8:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0020fc:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002100:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002104:	4c000020 	jirl	$r0,$r1,0
 
-1c0020c8 <exti_gpioc5_irq_handler>:
+1c002108 <exti_gpioc5_irq_handler>:
 exti_gpioc5_irq_handler():
-1c0020c8:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c0020cc:	29803061 	st.w	$r1,$r3,12(0xc)
-1c0020d0:	29802076 	st.w	$r22,$r3,8(0x8)
-1c0020d4:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c0020d8:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c0020dc:	02b180c6 	addi.w	$r6,$r6,-928(0xc60)
-1c0020e0:	0281e805 	addi.w	$r5,$r0,122(0x7a)
-1c0020e4:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c0020e8:	02a51084 	addi.w	$r4,$r4,-1724(0x944)
-1c0020ec:	57f24bff 	bl	-3512(0xffff248) # 1c001334 <myprintf>
-1c0020f0:	14004005 	lu12i.w	$r5,512(0x200)
-1c0020f4:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0020f8:	03808184 	ori	$r4,$r12,0x20
-1c0020fc:	57f79fff 	bl	-2148(0xffff79c) # 1c001898 <EXTI_ClearITPendingBit>
-1c002100:	03400000 	andi	$r0,$r0,0x0
-1c002104:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002108:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c00210c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002110:	4c000020 	jirl	$r0,$r1,0
+1c002108:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c00210c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002110:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002114:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002118:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c00211c:	02b180c6 	addi.w	$r6,$r6,-928(0xc60)
+1c002120:	0281e805 	addi.w	$r5,$r0,122(0x7a)
+1c002124:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c002128:	02a51084 	addi.w	$r4,$r4,-1724(0x944)
+1c00212c:	57f20bff 	bl	-3576(0xffff208) # 1c001334 <myprintf>
+1c002130:	14004005 	lu12i.w	$r5,512(0x200)
+1c002134:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002138:	03808184 	ori	$r4,$r12,0x20
+1c00213c:	57f75fff 	bl	-2212(0xffff75c) # 1c001898 <EXTI_ClearITPendingBit>
+1c002140:	03400000 	andi	$r0,$r0,0x0
+1c002144:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002148:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c00214c:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002150:	4c000020 	jirl	$r0,$r1,0
 
-1c002114 <exti_gpioc6_irq_handler>:
+1c002154 <exti_gpioc6_irq_handler>:
 exti_gpioc6_irq_handler():
-1c002114:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002118:	29803061 	st.w	$r1,$r3,12(0xc)
-1c00211c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002120:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002124:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002128:	02b0b0c6 	addi.w	$r6,$r6,-980(0xc2c)
-1c00212c:	0281fc05 	addi.w	$r5,$r0,127(0x7f)
-1c002130:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c002134:	02a3e084 	addi.w	$r4,$r4,-1800(0x8f8)
-1c002138:	57f1ffff 	bl	-3588(0xffff1fc) # 1c001334 <myprintf>
-1c00213c:	14008005 	lu12i.w	$r5,1024(0x400)
-1c002140:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002144:	03808184 	ori	$r4,$r12,0x20
-1c002148:	57f753ff 	bl	-2224(0xffff750) # 1c001898 <EXTI_ClearITPendingBit>
-1c00214c:	03400000 	andi	$r0,$r0,0x0
-1c002150:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002154:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002158:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c00215c:	4c000020 	jirl	$r0,$r1,0
+1c002154:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002158:	29803061 	st.w	$r1,$r3,12(0xc)
+1c00215c:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002160:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002164:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002168:	02b0b0c6 	addi.w	$r6,$r6,-980(0xc2c)
+1c00216c:	0281fc05 	addi.w	$r5,$r0,127(0x7f)
+1c002170:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c002174:	02a3e084 	addi.w	$r4,$r4,-1800(0x8f8)
+1c002178:	57f1bfff 	bl	-3652(0xffff1bc) # 1c001334 <myprintf>
+1c00217c:	14008005 	lu12i.w	$r5,1024(0x400)
+1c002180:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002184:	03808184 	ori	$r4,$r12,0x20
+1c002188:	57f713ff 	bl	-2288(0xffff710) # 1c001898 <EXTI_ClearITPendingBit>
+1c00218c:	03400000 	andi	$r0,$r0,0x0
+1c002190:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002194:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002198:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c00219c:	4c000020 	jirl	$r0,$r1,0
 
-1c002160 <exti_gpioc7_irq_handler>:
+1c0021a0 <exti_gpioc7_irq_handler>:
 exti_gpioc7_irq_handler():
-1c002160:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002164:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002168:	29802076 	st.w	$r22,$r3,8(0x8)
-1c00216c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002170:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002174:	02afe0c6 	addi.w	$r6,$r6,-1032(0xbf8)
-1c002178:	02821405 	addi.w	$r5,$r0,133(0x85)
-1c00217c:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c002180:	02a2b084 	addi.w	$r4,$r4,-1876(0x8ac)
-1c002184:	57f1b3ff 	bl	-3664(0xffff1b0) # 1c001334 <myprintf>
-1c002188:	14010005 	lu12i.w	$r5,2048(0x800)
-1c00218c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002190:	03808184 	ori	$r4,$r12,0x20
-1c002194:	57f707ff 	bl	-2300(0xffff704) # 1c001898 <EXTI_ClearITPendingBit>
-1c002198:	03400000 	andi	$r0,$r0,0x0
-1c00219c:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c0021a0:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c0021a4:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c0021a8:	4c000020 	jirl	$r0,$r1,0
+1c0021a0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c0021a4:	29803061 	st.w	$r1,$r3,12(0xc)
+1c0021a8:	29802076 	st.w	$r22,$r3,8(0x8)
+1c0021ac:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c0021b0:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c0021b4:	02afe0c6 	addi.w	$r6,$r6,-1032(0xbf8)
+1c0021b8:	02821405 	addi.w	$r5,$r0,133(0x85)
+1c0021bc:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c0021c0:	02a2b084 	addi.w	$r4,$r4,-1876(0x8ac)
+1c0021c4:	57f173ff 	bl	-3728(0xffff170) # 1c001334 <myprintf>
+1c0021c8:	14010005 	lu12i.w	$r5,2048(0x800)
+1c0021cc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0021d0:	03808184 	ori	$r4,$r12,0x20
+1c0021d4:	57f6c7ff 	bl	-2364(0xffff6c4) # 1c001898 <EXTI_ClearITPendingBit>
+1c0021d8:	03400000 	andi	$r0,$r0,0x0
+1c0021dc:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0021e0:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c0021e4:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c0021e8:	4c000020 	jirl	$r0,$r1,0
 
-1c0021ac <exti_gpiod0_irq_handler>:
+1c0021ec <exti_gpiod0_irq_handler>:
 exti_gpiod0_irq_handler():
-1c0021ac:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c0021b0:	29803061 	st.w	$r1,$r3,12(0xc)
-1c0021b4:	29802076 	st.w	$r22,$r3,8(0x8)
-1c0021b8:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c0021bc:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c0021c0:	02af10c6 	addi.w	$r6,$r6,-1084(0xbc4)
-1c0021c4:	02822c05 	addi.w	$r5,$r0,139(0x8b)
-1c0021c8:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c0021cc:	02a18084 	addi.w	$r4,$r4,-1952(0x860)
-1c0021d0:	57f167ff 	bl	-3740(0xffff164) # 1c001334 <myprintf>
-1c0021d4:	14020005 	lu12i.w	$r5,4096(0x1000)
-1c0021d8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0021dc:	03808184 	ori	$r4,$r12,0x20
-1c0021e0:	57f6bbff 	bl	-2376(0xffff6b8) # 1c001898 <EXTI_ClearITPendingBit>
-1c0021e4:	03400000 	andi	$r0,$r0,0x0
-1c0021e8:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c0021ec:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c0021f0:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c0021f4:	4c000020 	jirl	$r0,$r1,0
+1c0021ec:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c0021f0:	29803061 	st.w	$r1,$r3,12(0xc)
+1c0021f4:	29802076 	st.w	$r22,$r3,8(0x8)
+1c0021f8:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c0021fc:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002200:	02af10c6 	addi.w	$r6,$r6,-1084(0xbc4)
+1c002204:	02822c05 	addi.w	$r5,$r0,139(0x8b)
+1c002208:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c00220c:	02a18084 	addi.w	$r4,$r4,-1952(0x860)
+1c002210:	57f127ff 	bl	-3804(0xffff124) # 1c001334 <myprintf>
+1c002214:	14020005 	lu12i.w	$r5,4096(0x1000)
+1c002218:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c00221c:	03808184 	ori	$r4,$r12,0x20
+1c002220:	57f67bff 	bl	-2440(0xffff678) # 1c001898 <EXTI_ClearITPendingBit>
+1c002224:	03400000 	andi	$r0,$r0,0x0
+1c002228:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c00222c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002230:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002234:	4c000020 	jirl	$r0,$r1,0
 
-1c0021f8 <exti_gpiod1_irq_handler>:
+1c002238 <exti_gpiod1_irq_handler>:
 exti_gpiod1_irq_handler():
-1c0021f8:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c0021fc:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002200:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002204:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002208:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c00220c:	02ae40c6 	addi.w	$r6,$r6,-1136(0xb90)
-1c002210:	02824405 	addi.w	$r5,$r0,145(0x91)
-1c002214:	1c000024 	pcaddu12i	$r4,1(0x1)
-1c002218:	02a05084 	addi.w	$r4,$r4,-2028(0x814)
-1c00221c:	57f11bff 	bl	-3816(0xffff118) # 1c001334 <myprintf>
-1c002220:	14040005 	lu12i.w	$r5,8192(0x2000)
-1c002224:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002228:	03808184 	ori	$r4,$r12,0x20
-1c00222c:	57f66fff 	bl	-2452(0xffff66c) # 1c001898 <EXTI_ClearITPendingBit>
-1c002230:	03400000 	andi	$r0,$r0,0x0
-1c002234:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002238:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c00223c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002240:	4c000020 	jirl	$r0,$r1,0
+1c002238:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c00223c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002240:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002244:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002248:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c00224c:	02ae40c6 	addi.w	$r6,$r6,-1136(0xb90)
+1c002250:	02824405 	addi.w	$r5,$r0,145(0x91)
+1c002254:	1c000024 	pcaddu12i	$r4,1(0x1)
+1c002258:	02a05084 	addi.w	$r4,$r4,-2028(0x814)
+1c00225c:	57f0dbff 	bl	-3880(0xffff0d8) # 1c001334 <myprintf>
+1c002260:	14040005 	lu12i.w	$r5,8192(0x2000)
+1c002264:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002268:	03808184 	ori	$r4,$r12,0x20
+1c00226c:	57f62fff 	bl	-2516(0xffff62c) # 1c001898 <EXTI_ClearITPendingBit>
+1c002270:	03400000 	andi	$r0,$r0,0x0
+1c002274:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002278:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c00227c:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002280:	4c000020 	jirl	$r0,$r1,0
 
-1c002244 <exti_gpiod2_irq_handler>:
+1c002284 <exti_gpiod2_irq_handler>:
 exti_gpiod2_irq_handler():
-1c002244:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002248:	29803061 	st.w	$r1,$r3,12(0xc)
-1c00224c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002250:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002254:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002258:	02ad70c6 	addi.w	$r6,$r6,-1188(0xb5c)
-1c00225c:	02825c05 	addi.w	$r5,$r0,151(0x97)
-1c002260:	1c000004 	pcaddu12i	$r4,0
-1c002264:	029f2084 	addi.w	$r4,$r4,1992(0x7c8)
-1c002268:	57f0cfff 	bl	-3892(0xffff0cc) # 1c001334 <myprintf>
-1c00226c:	14080005 	lu12i.w	$r5,16384(0x4000)
-1c002270:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002274:	03808184 	ori	$r4,$r12,0x20
-1c002278:	57f623ff 	bl	-2528(0xffff620) # 1c001898 <EXTI_ClearITPendingBit>
-1c00227c:	03400000 	andi	$r0,$r0,0x0
-1c002280:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002284:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002288:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c00228c:	4c000020 	jirl	$r0,$r1,0
+1c002284:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002288:	29803061 	st.w	$r1,$r3,12(0xc)
+1c00228c:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002290:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002294:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002298:	02ad70c6 	addi.w	$r6,$r6,-1188(0xb5c)
+1c00229c:	02825c05 	addi.w	$r5,$r0,151(0x97)
+1c0022a0:	1c000004 	pcaddu12i	$r4,0
+1c0022a4:	029f2084 	addi.w	$r4,$r4,1992(0x7c8)
+1c0022a8:	57f08fff 	bl	-3956(0xffff08c) # 1c001334 <myprintf>
+1c0022ac:	14080005 	lu12i.w	$r5,16384(0x4000)
+1c0022b0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0022b4:	03808184 	ori	$r4,$r12,0x20
+1c0022b8:	57f5e3ff 	bl	-2592(0xffff5e0) # 1c001898 <EXTI_ClearITPendingBit>
+1c0022bc:	03400000 	andi	$r0,$r0,0x0
+1c0022c0:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0022c4:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c0022c8:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c0022cc:	4c000020 	jirl	$r0,$r1,0
 
-1c002290 <exti_gpiod3_irq_handler>:
+1c0022d0 <exti_gpiod3_irq_handler>:
 exti_gpiod3_irq_handler():
-1c002290:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002294:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002298:	29802076 	st.w	$r22,$r3,8(0x8)
-1c00229c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c0022a0:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c0022a4:	02aca0c6 	addi.w	$r6,$r6,-1240(0xb28)
-1c0022a8:	02827405 	addi.w	$r5,$r0,157(0x9d)
-1c0022ac:	1c000004 	pcaddu12i	$r4,0
-1c0022b0:	029df084 	addi.w	$r4,$r4,1916(0x77c)
-1c0022b4:	57f083ff 	bl	-3968(0xffff080) # 1c001334 <myprintf>
-1c0022b8:	14100005 	lu12i.w	$r5,32768(0x8000)
-1c0022bc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0022c0:	03808184 	ori	$r4,$r12,0x20
-1c0022c4:	57f5d7ff 	bl	-2604(0xffff5d4) # 1c001898 <EXTI_ClearITPendingBit>
-1c0022c8:	03400000 	andi	$r0,$r0,0x0
-1c0022cc:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c0022d0:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c0022d4:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c0022d8:	4c000020 	jirl	$r0,$r1,0
+1c0022d0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c0022d4:	29803061 	st.w	$r1,$r3,12(0xc)
+1c0022d8:	29802076 	st.w	$r22,$r3,8(0x8)
+1c0022dc:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c0022e0:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c0022e4:	02aca0c6 	addi.w	$r6,$r6,-1240(0xb28)
+1c0022e8:	02827405 	addi.w	$r5,$r0,157(0x9d)
+1c0022ec:	1c000004 	pcaddu12i	$r4,0
+1c0022f0:	029df084 	addi.w	$r4,$r4,1916(0x77c)
+1c0022f4:	57f043ff 	bl	-4032(0xffff040) # 1c001334 <myprintf>
+1c0022f8:	14100005 	lu12i.w	$r5,32768(0x8000)
+1c0022fc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002300:	03808184 	ori	$r4,$r12,0x20
+1c002304:	57f597ff 	bl	-2668(0xffff594) # 1c001898 <EXTI_ClearITPendingBit>
+1c002308:	03400000 	andi	$r0,$r0,0x0
+1c00230c:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002310:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002314:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002318:	4c000020 	jirl	$r0,$r1,0
 
-1c0022dc <exti_gpiod4_irq_handler>:
+1c00231c <exti_gpiod4_irq_handler>:
 exti_gpiod4_irq_handler():
-1c0022dc:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c0022e0:	29803061 	st.w	$r1,$r3,12(0xc)
-1c0022e4:	29802076 	st.w	$r22,$r3,8(0x8)
-1c0022e8:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c0022ec:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c0022f0:	02abd0c6 	addi.w	$r6,$r6,-1292(0xaf4)
-1c0022f4:	02828c05 	addi.w	$r5,$r0,163(0xa3)
-1c0022f8:	1c000004 	pcaddu12i	$r4,0
-1c0022fc:	029cc084 	addi.w	$r4,$r4,1840(0x730)
-1c002300:	57f037ff 	bl	-4044(0xffff034) # 1c001334 <myprintf>
-1c002304:	14200005 	lu12i.w	$r5,65536(0x10000)
-1c002308:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c00230c:	03808184 	ori	$r4,$r12,0x20
-1c002310:	57f58bff 	bl	-2680(0xffff588) # 1c001898 <EXTI_ClearITPendingBit>
-1c002314:	03400000 	andi	$r0,$r0,0x0
-1c002318:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c00231c:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002320:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002324:	4c000020 	jirl	$r0,$r1,0
+1c00231c:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002320:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002324:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002328:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c00232c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002330:	02abd0c6 	addi.w	$r6,$r6,-1292(0xaf4)
+1c002334:	02828c05 	addi.w	$r5,$r0,163(0xa3)
+1c002338:	1c000004 	pcaddu12i	$r4,0
+1c00233c:	029cc084 	addi.w	$r4,$r4,1840(0x730)
+1c002340:	57eff7ff 	bl	-4108(0xfffeff4) # 1c001334 <myprintf>
+1c002344:	14200005 	lu12i.w	$r5,65536(0x10000)
+1c002348:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c00234c:	03808184 	ori	$r4,$r12,0x20
+1c002350:	57f54bff 	bl	-2744(0xffff548) # 1c001898 <EXTI_ClearITPendingBit>
+1c002354:	03400000 	andi	$r0,$r0,0x0
+1c002358:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c00235c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002360:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002364:	4c000020 	jirl	$r0,$r1,0
 
-1c002328 <exti_gpiod5_irq_handler>:
+1c002368 <exti_gpiod5_irq_handler>:
 exti_gpiod5_irq_handler():
-1c002328:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c00232c:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002330:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002334:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002338:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c00233c:	02ab00c6 	addi.w	$r6,$r6,-1344(0xac0)
-1c002340:	0282a805 	addi.w	$r5,$r0,170(0xaa)
-1c002344:	1c000004 	pcaddu12i	$r4,0
-1c002348:	029b9084 	addi.w	$r4,$r4,1764(0x6e4)
-1c00234c:	57efebff 	bl	-4120(0xfffefe8) # 1c001334 <myprintf>
-1c002350:	14400005 	lu12i.w	$r5,131072(0x20000)
-1c002354:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002358:	03808184 	ori	$r4,$r12,0x20
-1c00235c:	57f53fff 	bl	-2756(0xffff53c) # 1c001898 <EXTI_ClearITPendingBit>
-1c002360:	03400000 	andi	$r0,$r0,0x0
-1c002364:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002368:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c00236c:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002370:	4c000020 	jirl	$r0,$r1,0
+1c002368:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c00236c:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002370:	29802076 	st.w	$r22,$r3,8(0x8)
+1c002374:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002378:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c00237c:	02ab00c6 	addi.w	$r6,$r6,-1344(0xac0)
+1c002380:	0282a805 	addi.w	$r5,$r0,170(0xaa)
+1c002384:	1c000004 	pcaddu12i	$r4,0
+1c002388:	029b9084 	addi.w	$r4,$r4,1764(0x6e4)
+1c00238c:	57efabff 	bl	-4184(0xfffefa8) # 1c001334 <myprintf>
+1c002390:	14400005 	lu12i.w	$r5,131072(0x20000)
+1c002394:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002398:	03808184 	ori	$r4,$r12,0x20
+1c00239c:	57f4ffff 	bl	-2820(0xffff4fc) # 1c001898 <EXTI_ClearITPendingBit>
+1c0023a0:	03400000 	andi	$r0,$r0,0x0
+1c0023a4:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0023a8:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c0023ac:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c0023b0:	4c000020 	jirl	$r0,$r1,0
 
-1c002374 <exti_gpiod6_irq_handler>:
+1c0023b4 <exti_gpiod6_irq_handler>:
 exti_gpiod6_irq_handler():
-1c002374:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002378:	29803061 	st.w	$r1,$r3,12(0xc)
-1c00237c:	29802076 	st.w	$r22,$r3,8(0x8)
-1c002380:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002384:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002388:	02aa30c6 	addi.w	$r6,$r6,-1396(0xa8c)
-1c00238c:	0282c005 	addi.w	$r5,$r0,176(0xb0)
-1c002390:	1c000004 	pcaddu12i	$r4,0
-1c002394:	029a6084 	addi.w	$r4,$r4,1688(0x698)
-1c002398:	57ef9fff 	bl	-4196(0xfffef9c) # 1c001334 <myprintf>
-1c00239c:	14800005 	lu12i.w	$r5,262144(0x40000)
-1c0023a0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0023a4:	03808184 	ori	$r4,$r12,0x20
-1c0023a8:	57f4f3ff 	bl	-2832(0xffff4f0) # 1c001898 <EXTI_ClearITPendingBit>
-1c0023ac:	03400000 	andi	$r0,$r0,0x0
-1c0023b0:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c0023b4:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c0023b8:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c0023bc:	4c000020 	jirl	$r0,$r1,0
+1c0023b4:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c0023b8:	29803061 	st.w	$r1,$r3,12(0xc)
+1c0023bc:	29802076 	st.w	$r22,$r3,8(0x8)
+1c0023c0:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c0023c4:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c0023c8:	02aa30c6 	addi.w	$r6,$r6,-1396(0xa8c)
+1c0023cc:	0282c005 	addi.w	$r5,$r0,176(0xb0)
+1c0023d0:	1c000004 	pcaddu12i	$r4,0
+1c0023d4:	029a6084 	addi.w	$r4,$r4,1688(0x698)
+1c0023d8:	57ef5fff 	bl	-4260(0xfffef5c) # 1c001334 <myprintf>
+1c0023dc:	14800005 	lu12i.w	$r5,262144(0x40000)
+1c0023e0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0023e4:	03808184 	ori	$r4,$r12,0x20
+1c0023e8:	57f4b3ff 	bl	-2896(0xffff4b0) # 1c001898 <EXTI_ClearITPendingBit>
+1c0023ec:	03400000 	andi	$r0,$r0,0x0
+1c0023f0:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c0023f4:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c0023f8:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c0023fc:	4c000020 	jirl	$r0,$r1,0
 
-1c0023c0 <exti_gpiod7_irq_handler>:
+1c002400 <exti_gpiod7_irq_handler>:
 exti_gpiod7_irq_handler():
-1c0023c0:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c0023c4:	29803061 	st.w	$r1,$r3,12(0xc)
-1c0023c8:	29802076 	st.w	$r22,$r3,8(0x8)
-1c0023cc:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c0023d0:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c0023d4:	02a960c6 	addi.w	$r6,$r6,-1448(0xa58)
-1c0023d8:	0282d805 	addi.w	$r5,$r0,182(0xb6)
-1c0023dc:	1c000004 	pcaddu12i	$r4,0
-1c0023e0:	02993084 	addi.w	$r4,$r4,1612(0x64c)
-1c0023e4:	57ef53ff 	bl	-4272(0xfffef50) # 1c001334 <myprintf>
-1c0023e8:	15000005 	lu12i.w	$r5,-524288(0x80000)
-1c0023ec:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0023f0:	03808184 	ori	$r4,$r12,0x20
-1c0023f4:	57f4a7ff 	bl	-2908(0xffff4a4) # 1c001898 <EXTI_ClearITPendingBit>
-1c0023f8:	03400000 	andi	$r0,$r0,0x0
-1c0023fc:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c002400:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002404:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002408:	4c000020 	jirl	$r0,$r1,0
+1c002400:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002404:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002408:	29802076 	st.w	$r22,$r3,8(0x8)
+1c00240c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002410:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002414:	02a960c6 	addi.w	$r6,$r6,-1448(0xa58)
+1c002418:	0282d805 	addi.w	$r5,$r0,182(0xb6)
+1c00241c:	1c000004 	pcaddu12i	$r4,0
+1c002420:	02993084 	addi.w	$r4,$r4,1612(0x64c)
+1c002424:	57ef13ff 	bl	-4336(0xfffef10) # 1c001334 <myprintf>
+1c002428:	15000005 	lu12i.w	$r5,-524288(0x80000)
+1c00242c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002430:	03808184 	ori	$r4,$r12,0x20
+1c002434:	57f467ff 	bl	-2972(0xffff464) # 1c001898 <EXTI_ClearITPendingBit>
+1c002438:	03400000 	andi	$r0,$r0,0x0
+1c00243c:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c002440:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002444:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002448:	4c000020 	jirl	$r0,$r1,0
 
-1c00240c <ext_handler>:
+1c00244c <ext_handler>:
 ext_handler():
-1c00240c:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c002410:	29807061 	st.w	$r1,$r3,28(0x1c)
-1c002414:	29806076 	st.w	$r22,$r3,24(0x18)
-1c002418:	02808076 	addi.w	$r22,$r3,32(0x20)
-1c00241c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002420:	0380f18c 	ori	$r12,$r12,0x3c
-1c002424:	1402000d 	lu12i.w	$r13,4096(0x1000)
-1c002428:	2980018d 	st.w	$r13,$r12,0
-1c00242c:	1c000026 	pcaddu12i	$r6,1(0x1)
-1c002430:	02a850c6 	addi.w	$r6,$r6,-1516(0xa14)
-1c002434:	02838805 	addi.w	$r5,$r0,226(0xe2)
-1c002438:	1c000004 	pcaddu12i	$r4,0
-1c00243c:	0297c084 	addi.w	$r4,$r4,1520(0x5f0)
-1c002440:	57eef7ff 	bl	-4364(0xfffeef4) # 1c001334 <myprintf>
-1c002444:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002448:	0380818c 	ori	$r12,$r12,0x20
-1c00244c:	2880318c 	ld.w	$r12,$r12,12(0xc)
-1c002450:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
-1c002454:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002458:	0380818c 	ori	$r12,$r12,0x20
-1c00245c:	2880018c 	ld.w	$r12,$r12,0
-1c002460:	29bf92cc 	st.w	$r12,$r22,-28(0xfe4)
-1c002464:	28bfa2cd 	ld.w	$r13,$r22,-24(0xfe8)
-1c002468:	28bf92cc 	ld.w	$r12,$r22,-28(0xfe4)
-1c00246c:	0014b1ac 	and	$r12,$r13,$r12
-1c002470:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
-1c002474:	03400000 	andi	$r0,$r0,0x0
-1c002478:	29bfb2c0 	st.w	$r0,$r22,-20(0xfec)
-1c00247c:	50004000 	b	64(0x40) # 1c0024bc <ext_handler+0xb0>
-1c002480:	28bfa2cd 	ld.w	$r13,$r22,-24(0xfe8)
-1c002484:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
-1c002488:	0017b1ac 	srl.w	$r12,$r13,$r12
-1c00248c:	0340058c 	andi	$r12,$r12,0x1
-1c002490:	40002180 	beqz	$r12,32(0x20) # 1c0024b0 <ext_handler+0xa4>
-1c002494:	1c00000d 	pcaddu12i	$r13,0
-1c002498:	029451ad 	addi.w	$r13,$r13,1300(0x514)
-1c00249c:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
-1c0024a0:	0040898c 	slli.w	$r12,$r12,0x2
-1c0024a4:	001031ac 	add.w	$r12,$r13,$r12
-1c0024a8:	2880018c 	ld.w	$r12,$r12,0
-1c0024ac:	4c000181 	jirl	$r1,$r12,0
-1c0024b0:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
-1c0024b4:	0280058c 	addi.w	$r12,$r12,1(0x1)
-1c0024b8:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
-1c0024bc:	28bfb2cd 	ld.w	$r13,$r22,-20(0xfec)
-1c0024c0:	02807c0c 	addi.w	$r12,$r0,31(0x1f)
-1c0024c4:	6fffbd8d 	bgeu	$r12,$r13,-68(0x3ffbc) # 1c002480 <ext_handler+0x74>
-1c0024c8:	03400000 	andi	$r0,$r0,0x0
-1c0024cc:	28807061 	ld.w	$r1,$r3,28(0x1c)
-1c0024d0:	28806076 	ld.w	$r22,$r3,24(0x18)
-1c0024d4:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c0024d8:	4c000020 	jirl	$r0,$r1,0
+1c00244c:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c002450:	29807061 	st.w	$r1,$r3,28(0x1c)
+1c002454:	29806076 	st.w	$r22,$r3,24(0x18)
+1c002458:	02808076 	addi.w	$r22,$r3,32(0x20)
+1c00245c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002460:	0380f18c 	ori	$r12,$r12,0x3c
+1c002464:	1402000d 	lu12i.w	$r13,4096(0x1000)
+1c002468:	2980018d 	st.w	$r13,$r12,0
+1c00246c:	1c000026 	pcaddu12i	$r6,1(0x1)
+1c002470:	02a850c6 	addi.w	$r6,$r6,-1516(0xa14)
+1c002474:	02838805 	addi.w	$r5,$r0,226(0xe2)
+1c002478:	1c000004 	pcaddu12i	$r4,0
+1c00247c:	0297c084 	addi.w	$r4,$r4,1520(0x5f0)
+1c002480:	57eeb7ff 	bl	-4428(0xfffeeb4) # 1c001334 <myprintf>
+1c002484:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002488:	0380818c 	ori	$r12,$r12,0x20
+1c00248c:	2880318c 	ld.w	$r12,$r12,12(0xc)
+1c002490:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
+1c002494:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002498:	0380818c 	ori	$r12,$r12,0x20
+1c00249c:	2880018c 	ld.w	$r12,$r12,0
+1c0024a0:	29bf92cc 	st.w	$r12,$r22,-28(0xfe4)
+1c0024a4:	28bfa2cd 	ld.w	$r13,$r22,-24(0xfe8)
+1c0024a8:	28bf92cc 	ld.w	$r12,$r22,-28(0xfe4)
+1c0024ac:	0014b1ac 	and	$r12,$r13,$r12
+1c0024b0:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
+1c0024b4:	03400000 	andi	$r0,$r0,0x0
+1c0024b8:	29bfb2c0 	st.w	$r0,$r22,-20(0xfec)
+1c0024bc:	50004000 	b	64(0x40) # 1c0024fc <ext_handler+0xb0>
+1c0024c0:	28bfa2cd 	ld.w	$r13,$r22,-24(0xfe8)
+1c0024c4:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
+1c0024c8:	0017b1ac 	srl.w	$r12,$r13,$r12
+1c0024cc:	0340058c 	andi	$r12,$r12,0x1
+1c0024d0:	40002180 	beqz	$r12,32(0x20) # 1c0024f0 <ext_handler+0xa4>
+1c0024d4:	1c00000d 	pcaddu12i	$r13,0
+1c0024d8:	029451ad 	addi.w	$r13,$r13,1300(0x514)
+1c0024dc:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
+1c0024e0:	0040898c 	slli.w	$r12,$r12,0x2
+1c0024e4:	001031ac 	add.w	$r12,$r13,$r12
+1c0024e8:	2880018c 	ld.w	$r12,$r12,0
+1c0024ec:	4c000181 	jirl	$r1,$r12,0
+1c0024f0:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
+1c0024f4:	0280058c 	addi.w	$r12,$r12,1(0x1)
+1c0024f8:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
+1c0024fc:	28bfb2cd 	ld.w	$r13,$r22,-20(0xfec)
+1c002500:	02807c0c 	addi.w	$r12,$r0,31(0x1f)
+1c002504:	6fffbd8d 	bgeu	$r12,$r13,-68(0x3ffbc) # 1c0024c0 <ext_handler+0x74>
+1c002508:	03400000 	andi	$r0,$r0,0x0
+1c00250c:	28807061 	ld.w	$r1,$r3,28(0x1c)
+1c002510:	28806076 	ld.w	$r22,$r3,24(0x18)
+1c002514:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c002518:	4c000020 	jirl	$r0,$r1,0
 
-1c0024dc <TIMER_WAKE_INT>:
+1c00251c <TIMER_WAKE_INT>:
 TIMER_WAKE_INT():
-1c0024dc:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c0024e0:	29807061 	st.w	$r1,$r3,28(0x1c)
-1c0024e4:	29806076 	st.w	$r22,$r3,24(0x18)
-1c0024e8:	02808076 	addi.w	$r22,$r3,32(0x20)
-1c0024ec:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0024f0:	0380f18c 	ori	$r12,$r12,0x3c
-1c0024f4:	1400020d 	lu12i.w	$r13,16(0x10)
-1c0024f8:	2980018d 	st.w	$r13,$r12,0
-1c0024fc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002500:	0380118c 	ori	$r12,$r12,0x4
-1c002504:	2880018c 	ld.w	$r12,$r12,0
-1c002508:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
-1c00250c:	57f3cbff 	bl	-3128(0xffff3c8) # 1c0018d4 <WDG_DogFeed>
-1c002510:	03400000 	andi	$r0,$r0,0x0
-1c002514:	28807061 	ld.w	$r1,$r3,28(0x1c)
-1c002518:	28806076 	ld.w	$r22,$r3,24(0x18)
-1c00251c:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c002520:	4c000020 	jirl	$r0,$r1,0
+1c00251c:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c002520:	29807061 	st.w	$r1,$r3,28(0x1c)
+1c002524:	29806076 	st.w	$r22,$r3,24(0x18)
+1c002528:	02808076 	addi.w	$r22,$r3,32(0x20)
+1c00252c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002530:	0380f18c 	ori	$r12,$r12,0x3c
+1c002534:	1400020d 	lu12i.w	$r13,16(0x10)
+1c002538:	2980018d 	st.w	$r13,$r12,0
+1c00253c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002540:	0380118c 	ori	$r12,$r12,0x4
+1c002544:	2880018c 	ld.w	$r12,$r12,0
+1c002548:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
+1c00254c:	57f38bff 	bl	-3192(0xffff388) # 1c0018d4 <WDG_DogFeed>
+1c002550:	03400000 	andi	$r0,$r0,0x0
+1c002554:	28807061 	ld.w	$r1,$r3,28(0x1c)
+1c002558:	28806076 	ld.w	$r22,$r3,24(0x18)
+1c00255c:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c002560:	4c000020 	jirl	$r0,$r1,0
 
-1c002524 <TOUCH>:
+1c002564 <TOUCH>:
 TOUCH():
-1c002524:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c002528:	29807061 	st.w	$r1,$r3,28(0x1c)
-1c00252c:	29806076 	st.w	$r22,$r3,24(0x18)
-1c002530:	02808076 	addi.w	$r22,$r3,32(0x20)
-1c002534:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
-1c002538:	0380118c 	ori	$r12,$r12,0x4
-1c00253c:	2880018c 	ld.w	$r12,$r12,0
-1c002540:	0044c18c 	srli.w	$r12,$r12,0x10
-1c002544:	006f818c 	bstrpick.w	$r12,$r12,0xf,0x0
-1c002548:	037ffd8c 	andi	$r12,$r12,0xfff
-1c00254c:	297fbacc 	st.h	$r12,$r22,-18(0xfee)
-1c002550:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
-1c002554:	0380118c 	ori	$r12,$r12,0x4
-1c002558:	2880018c 	ld.w	$r12,$r12,0
-1c00255c:	0067818c 	bstrpick.w	$r12,$r12,0x7,0x0
-1c002560:	03403d8c 	andi	$r12,$r12,0xf
-1c002564:	293fb6cc 	st.b	$r12,$r22,-19(0xfed)
-1c002568:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c00256c:	0380f18c 	ori	$r12,$r12,0x3c
-1c002570:	1400040d 	lu12i.w	$r13,32(0x20)
-1c002574:	2980018d 	st.w	$r13,$r12,0
-1c002578:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
-1c00257c:	0380118c 	ori	$r12,$r12,0x4
-1c002580:	02803c0d 	addi.w	$r13,$r0,15(0xf)
-1c002584:	2980018d 	st.w	$r13,$r12,0
-1c002588:	2a7fbacc 	ld.hu	$r12,$r22,-18(0xfee)
-1c00258c:	00150185 	move	$r5,$r12
-1c002590:	1c000004 	pcaddu12i	$r4,0
-1c002594:	02938084 	addi.w	$r4,$r4,1248(0x4e0)
-1c002598:	57ed9fff 	bl	-4708(0xfffed9c) # 1c001334 <myprintf>
-1c00259c:	03400000 	andi	$r0,$r0,0x0
-1c0025a0:	28807061 	ld.w	$r1,$r3,28(0x1c)
-1c0025a4:	28806076 	ld.w	$r22,$r3,24(0x18)
-1c0025a8:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c0025ac:	4c000020 	jirl	$r0,$r1,0
-
-1c0025b0 <UART2_INT>:
-UART2_INT():
-1c0025b0:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c0025b4:	29807076 	st.w	$r22,$r3,28(0x1c)
-1c0025b8:	02808076 	addi.w	$r22,$r3,32(0x20)
-1c0025bc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c0025c0:	0380f18c 	ori	$r12,$r12,0x3c
-1c0025c4:	1400080d 	lu12i.w	$r13,64(0x40)
-1c0025c8:	2980018d 	st.w	$r13,$r12,0
-1c0025cc:	157fd18c 	lu12i.w	$r12,-262516(0xbfe8c)
-1c0025d0:	0380098c 	ori	$r12,$r12,0x2
-1c0025d4:	2a00018c 	ld.bu	$r12,$r12,0
-1c0025d8:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
+1c002564:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c002568:	29807061 	st.w	$r1,$r3,28(0x1c)
+1c00256c:	29806076 	st.w	$r22,$r3,24(0x18)
+1c002570:	02808076 	addi.w	$r22,$r3,32(0x20)
+1c002574:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
+1c002578:	0380118c 	ori	$r12,$r12,0x4
+1c00257c:	2880018c 	ld.w	$r12,$r12,0
+1c002580:	0044c18c 	srli.w	$r12,$r12,0x10
+1c002584:	006f818c 	bstrpick.w	$r12,$r12,0xf,0x0
+1c002588:	037ffd8c 	andi	$r12,$r12,0xfff
+1c00258c:	297fbacc 	st.h	$r12,$r22,-18(0xfee)
+1c002590:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
+1c002594:	0380118c 	ori	$r12,$r12,0x4
+1c002598:	2880018c 	ld.w	$r12,$r12,0
+1c00259c:	0067818c 	bstrpick.w	$r12,$r12,0x7,0x0
+1c0025a0:	03403d8c 	andi	$r12,$r12,0xf
+1c0025a4:	293fb6cc 	st.b	$r12,$r22,-19(0xfed)
+1c0025a8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0025ac:	0380f18c 	ori	$r12,$r12,0x3c
+1c0025b0:	1400040d 	lu12i.w	$r13,32(0x20)
+1c0025b4:	2980018d 	st.w	$r13,$r12,0
+1c0025b8:	157fd68c 	lu12i.w	$r12,-262476(0xbfeb4)
+1c0025bc:	0380118c 	ori	$r12,$r12,0x4
+1c0025c0:	02803c0d 	addi.w	$r13,$r0,15(0xf)
+1c0025c4:	2980018d 	st.w	$r13,$r12,0
+1c0025c8:	2a7fbacc 	ld.hu	$r12,$r22,-18(0xfee)
+1c0025cc:	00150185 	move	$r5,$r12
+1c0025d0:	1c000004 	pcaddu12i	$r4,0
+1c0025d4:	02938084 	addi.w	$r4,$r4,1248(0x4e0)
+1c0025d8:	57ed5fff 	bl	-4772(0xfffed5c) # 1c001334 <myprintf>
 1c0025dc:	03400000 	andi	$r0,$r0,0x0
-1c0025e0:	28807076 	ld.w	$r22,$r3,28(0x1c)
-1c0025e4:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c0025e8:	4c000020 	jirl	$r0,$r1,0
+1c0025e0:	28807061 	ld.w	$r1,$r3,28(0x1c)
+1c0025e4:	28806076 	ld.w	$r22,$r3,24(0x18)
+1c0025e8:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c0025ec:	4c000020 	jirl	$r0,$r1,0
 
-1c0025ec <BAT_FAIL>:
-BAT_FAIL():
-1c0025ec:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c0025f0:	29807061 	st.w	$r1,$r3,28(0x1c)
-1c0025f4:	29806076 	st.w	$r22,$r3,24(0x18)
+1c0025f0 <UART2_INT>:
+UART2_INT():
+1c0025f0:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c0025f4:	29807076 	st.w	$r22,$r3,28(0x1c)
 1c0025f8:	02808076 	addi.w	$r22,$r3,32(0x20)
 1c0025fc:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002600:	0380118c 	ori	$r12,$r12,0x4
-1c002604:	2880018c 	ld.w	$r12,$r12,0
-1c002608:	0044cd8c 	srli.w	$r12,$r12,0x13
-1c00260c:	03407d8c 	andi	$r12,$r12,0x1f
-1c002610:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
-1c002614:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002618:	0380118c 	ori	$r12,$r12,0x4
-1c00261c:	2880018e 	ld.w	$r14,$r12,0
-1c002620:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002624:	0380f18c 	ori	$r12,$r12,0x3c
-1c002628:	1401f00d 	lu12i.w	$r13,3968(0xf80)
-1c00262c:	0014b5cd 	and	$r13,$r14,$r13
-1c002630:	2980018d 	st.w	$r13,$r12,0
-1c002634:	28bfb2cd 	ld.w	$r13,$r22,-20(0xfec)
-1c002638:	0280400c 	addi.w	$r12,$r0,16(0x10)
-1c00263c:	6800718d 	bltu	$r12,$r13,112(0x70) # 1c0026ac <BAT_FAIL+0xc0>
-1c002640:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
-1c002644:	0040898d 	slli.w	$r13,$r12,0x2
-1c002648:	1c00000c 	pcaddu12i	$r12,0
-1c00264c:	0292d18c 	addi.w	$r12,$r12,1204(0x4b4)
-1c002650:	001031ac 	add.w	$r12,$r13,$r12
-1c002654:	2880018c 	ld.w	$r12,$r12,0
-1c002658:	4c000180 	jirl	$r0,$r12,0
-1c00265c:	1c000004 	pcaddu12i	$r4,0
-1c002660:	0290d084 	addi.w	$r4,$r4,1076(0x434)
-1c002664:	57ecd3ff 	bl	-4912(0xfffecd0) # 1c001334 <myprintf>
-1c002668:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c00266c:	0380118c 	ori	$r12,$r12,0x4
-1c002670:	29800180 	st.w	$r0,$r12,0
-1c002674:	50003c00 	b	60(0x3c) # 1c0026b0 <BAT_FAIL+0xc4>
-1c002678:	1c000004 	pcaddu12i	$r4,0
-1c00267c:	02910084 	addi.w	$r4,$r4,1088(0x440)
-1c002680:	57ecb7ff 	bl	-4940(0xfffecb4) # 1c001334 <myprintf>
-1c002684:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002688:	0380118c 	ori	$r12,$r12,0x4
-1c00268c:	2880018e 	ld.w	$r14,$r12,0
-1c002690:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
-1c002694:	0380118c 	ori	$r12,$r12,0x4
-1c002698:	15fffeed 	lu12i.w	$r13,-9(0xffff7)
-1c00269c:	03bffdad 	ori	$r13,$r13,0xfff
-1c0026a0:	0014b5cd 	and	$r13,$r14,$r13
-1c0026a4:	2980018d 	st.w	$r13,$r12,0
-1c0026a8:	50000800 	b	8(0x8) # 1c0026b0 <BAT_FAIL+0xc4>
-1c0026ac:	03400000 	andi	$r0,$r0,0x0
-1c0026b0:	03400000 	andi	$r0,$r0,0x0
-1c0026b4:	28807061 	ld.w	$r1,$r3,28(0x1c)
-1c0026b8:	28806076 	ld.w	$r22,$r3,24(0x18)
-1c0026bc:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c0026c0:	4c000020 	jirl	$r0,$r1,0
+1c002600:	0380f18c 	ori	$r12,$r12,0x3c
+1c002604:	1400080d 	lu12i.w	$r13,64(0x40)
+1c002608:	2980018d 	st.w	$r13,$r12,0
+1c00260c:	157fd18c 	lu12i.w	$r12,-262516(0xbfe8c)
+1c002610:	0380098c 	ori	$r12,$r12,0x2
+1c002614:	2a00018c 	ld.bu	$r12,$r12,0
+1c002618:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
+1c00261c:	03400000 	andi	$r0,$r0,0x0
+1c002620:	28807076 	ld.w	$r22,$r3,28(0x1c)
+1c002624:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c002628:	4c000020 	jirl	$r0,$r1,0
 
-1c0026c4 <intc_handler>:
+1c00262c <BAT_FAIL>:
+BAT_FAIL():
+1c00262c:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c002630:	29807061 	st.w	$r1,$r3,28(0x1c)
+1c002634:	29806076 	st.w	$r22,$r3,24(0x18)
+1c002638:	02808076 	addi.w	$r22,$r3,32(0x20)
+1c00263c:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002640:	0380118c 	ori	$r12,$r12,0x4
+1c002644:	2880018c 	ld.w	$r12,$r12,0
+1c002648:	0044cd8c 	srli.w	$r12,$r12,0x13
+1c00264c:	03407d8c 	andi	$r12,$r12,0x1f
+1c002650:	29bfb2cc 	st.w	$r12,$r22,-20(0xfec)
+1c002654:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002658:	0380118c 	ori	$r12,$r12,0x4
+1c00265c:	2880018e 	ld.w	$r14,$r12,0
+1c002660:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c002664:	0380f18c 	ori	$r12,$r12,0x3c
+1c002668:	1401f00d 	lu12i.w	$r13,3968(0xf80)
+1c00266c:	0014b5cd 	and	$r13,$r14,$r13
+1c002670:	2980018d 	st.w	$r13,$r12,0
+1c002674:	28bfb2cd 	ld.w	$r13,$r22,-20(0xfec)
+1c002678:	0280400c 	addi.w	$r12,$r0,16(0x10)
+1c00267c:	6800718d 	bltu	$r12,$r13,112(0x70) # 1c0026ec <BAT_FAIL+0xc0>
+1c002680:	28bfb2cc 	ld.w	$r12,$r22,-20(0xfec)
+1c002684:	0040898d 	slli.w	$r13,$r12,0x2
+1c002688:	1c00000c 	pcaddu12i	$r12,0
+1c00268c:	0292d18c 	addi.w	$r12,$r12,1204(0x4b4)
+1c002690:	001031ac 	add.w	$r12,$r13,$r12
+1c002694:	2880018c 	ld.w	$r12,$r12,0
+1c002698:	4c000180 	jirl	$r0,$r12,0
+1c00269c:	1c000004 	pcaddu12i	$r4,0
+1c0026a0:	0290d084 	addi.w	$r4,$r4,1076(0x434)
+1c0026a4:	57ec93ff 	bl	-4976(0xfffec90) # 1c001334 <myprintf>
+1c0026a8:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0026ac:	0380118c 	ori	$r12,$r12,0x4
+1c0026b0:	29800180 	st.w	$r0,$r12,0
+1c0026b4:	50003c00 	b	60(0x3c) # 1c0026f0 <BAT_FAIL+0xc4>
+1c0026b8:	1c000004 	pcaddu12i	$r4,0
+1c0026bc:	02910084 	addi.w	$r4,$r4,1088(0x440)
+1c0026c0:	57ec77ff 	bl	-5004(0xfffec74) # 1c001334 <myprintf>
+1c0026c4:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0026c8:	0380118c 	ori	$r12,$r12,0x4
+1c0026cc:	2880018e 	ld.w	$r14,$r12,0
+1c0026d0:	157fd60c 	lu12i.w	$r12,-262480(0xbfeb0)
+1c0026d4:	0380118c 	ori	$r12,$r12,0x4
+1c0026d8:	15fffeed 	lu12i.w	$r13,-9(0xffff7)
+1c0026dc:	03bffdad 	ori	$r13,$r13,0xfff
+1c0026e0:	0014b5cd 	and	$r13,$r14,$r13
+1c0026e4:	2980018d 	st.w	$r13,$r12,0
+1c0026e8:	50000800 	b	8(0x8) # 1c0026f0 <BAT_FAIL+0xc4>
+1c0026ec:	03400000 	andi	$r0,$r0,0x0
+1c0026f0:	03400000 	andi	$r0,$r0,0x0
+1c0026f4:	28807061 	ld.w	$r1,$r3,28(0x1c)
+1c0026f8:	28806076 	ld.w	$r22,$r3,24(0x18)
+1c0026fc:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c002700:	4c000020 	jirl	$r0,$r1,0
+
+1c002704 <intc_handler>:
 intc_handler():
-1c0026c4:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
-1c0026c8:	29807061 	st.w	$r1,$r3,28(0x1c)
-1c0026cc:	29806076 	st.w	$r22,$r3,24(0x18)
-1c0026d0:	02808076 	addi.w	$r22,$r3,32(0x20)
-1c0026d4:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
-1c0026d8:	0380158c 	ori	$r12,$r12,0x5
-1c0026dc:	2a00018c 	ld.bu	$r12,$r12,0
-1c0026e0:	293f9ecc 	st.b	$r12,$r22,-25(0xfe7)
-1c0026e4:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
-1c0026e8:	0340058c 	andi	$r12,$r12,0x1
-1c0026ec:	40005980 	beqz	$r12,88(0x58) # 1c002744 <intc_handler+0x80>
-1c0026f0:	02840004 	addi.w	$r4,$r0,256(0x100)
-1c0026f4:	57f20fff 	bl	-3572(0xffff20c) # 1c001900 <TIM_GetITStatus>
-1c0026f8:	0015008c 	move	$r12,$r4
-1c0026fc:	40004980 	beqz	$r12,72(0x48) # 1c002744 <intc_handler+0x80>
-1c002700:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
-1c002704:	02a4018c 	addi.w	$r12,$r12,-1792(0x900)
-1c002708:	2880018c 	ld.w	$r12,$r12,0
-1c00270c:	0240058c 	sltui	$r12,$r12,1(0x1)
-1c002710:	0067818c 	bstrpick.w	$r12,$r12,0x7,0x0
-1c002714:	0015018d 	move	$r13,$r12
-1c002718:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
-1c00271c:	02a3a18c 	addi.w	$r12,$r12,-1816(0x8e8)
-1c002720:	2980018d 	st.w	$r13,$r12,0
-1c002724:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
-1c002728:	02a3718c 	addi.w	$r12,$r12,-1828(0x8dc)
-1c00272c:	2880018c 	ld.w	$r12,$r12,0
-1c002730:	00150185 	move	$r5,$r12
-1c002734:	02805004 	addi.w	$r4,$r0,20(0x14)
-1c002738:	57f033ff 	bl	-4048(0xffff030) # 1c001768 <gpio_write>
-1c00273c:	02840004 	addi.w	$r4,$r0,256(0x100)
-1c002740:	57f20fff 	bl	-3572(0xffff20c) # 1c00194c <TIM_ClearIT>
-1c002744:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
-1c002748:	0340118c 	andi	$r12,$r12,0x4
-1c00274c:	40009580 	beqz	$r12,148(0x94) # 1c0027e0 <intc_handler+0x11c>
-1c002750:	57f303ff 	bl	-3328(0xffff300) # 1c001a50 <UART1_HANDLER>
-1c002754:	29bfa2c0 	st.w	$r0,$r22,-24(0xfe8)
-1c002758:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c00275c:	0380118c 	ori	$r12,$r12,0x4
-1c002760:	2880018c 	ld.w	$r12,$r12,0
-1c002764:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
-1c002768:	50006c00 	b	108(0x6c) # 1c0027d4 <intc_handler+0x110>
-1c00276c:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c002770:	2880018c 	ld.w	$r12,$r12,0
-1c002774:	29bf82cc 	st.w	$r12,$r22,-32(0xfe0)
-1c002778:	28bf82cd 	ld.w	$r13,$r22,-32(0xfe0)
-1c00277c:	0280340c 	addi.w	$r12,$r0,13(0xd)
-1c002780:	5c001dac 	bne	$r13,$r12,28(0x1c) # 1c00279c <intc_handler+0xd8>
-1c002784:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c002788:	0280340d 	addi.w	$r13,$r0,13(0xd)
-1c00278c:	2980018d 	st.w	$r13,$r12,0
-1c002790:	0280040c 	addi.w	$r12,$r0,1(0x1)
-1c002794:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
-1c002798:	50002c00 	b	44(0x2c) # 1c0027c4 <intc_handler+0x100>
-1c00279c:	28bfa2cc 	ld.w	$r12,$r22,-24(0xfe8)
-1c0027a0:	40001980 	beqz	$r12,24(0x18) # 1c0027b8 <intc_handler+0xf4>
-1c0027a4:	29bfa2c0 	st.w	$r0,$r22,-24(0xfe8)
-1c0027a8:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c0027ac:	0280280d 	addi.w	$r13,$r0,10(0xa)
-1c0027b0:	2980018d 	st.w	$r13,$r12,0
-1c0027b4:	50001000 	b	16(0x10) # 1c0027c4 <intc_handler+0x100>
-1c0027b8:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c0027bc:	28bf82cd 	ld.w	$r13,$r22,-32(0xfe0)
-1c0027c0:	2980018d 	st.w	$r13,$r12,0
+1c002704:	02bf8063 	addi.w	$r3,$r3,-32(0xfe0)
+1c002708:	29807061 	st.w	$r1,$r3,28(0x1c)
+1c00270c:	29806076 	st.w	$r22,$r3,24(0x18)
+1c002710:	02808076 	addi.w	$r22,$r3,32(0x20)
+1c002714:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
+1c002718:	0380158c 	ori	$r12,$r12,0x5
+1c00271c:	2a00018c 	ld.bu	$r12,$r12,0
+1c002720:	293f9ecc 	st.b	$r12,$r22,-25(0xfe7)
+1c002724:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
+1c002728:	0340058c 	andi	$r12,$r12,0x1
+1c00272c:	40005980 	beqz	$r12,88(0x58) # 1c002784 <intc_handler+0x80>
+1c002730:	02840004 	addi.w	$r4,$r0,256(0x100)
+1c002734:	57f1cfff 	bl	-3636(0xffff1cc) # 1c001900 <TIM_GetITStatus>
+1c002738:	0015008c 	move	$r12,$r4
+1c00273c:	40004980 	beqz	$r12,72(0x48) # 1c002784 <intc_handler+0x80>
+1c002740:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
+1c002744:	02a3018c 	addi.w	$r12,$r12,-1856(0x8c0)
+1c002748:	2880018c 	ld.w	$r12,$r12,0
+1c00274c:	0240058c 	sltui	$r12,$r12,1(0x1)
+1c002750:	0067818c 	bstrpick.w	$r12,$r12,0x7,0x0
+1c002754:	0015018d 	move	$r13,$r12
+1c002758:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
+1c00275c:	02a2a18c 	addi.w	$r12,$r12,-1880(0x8a8)
+1c002760:	2980018d 	st.w	$r13,$r12,0
+1c002764:	1cc7ffcc 	pcaddu12i	$r12,409598(0x63ffe)
+1c002768:	02a2718c 	addi.w	$r12,$r12,-1892(0x89c)
+1c00276c:	2880018c 	ld.w	$r12,$r12,0
+1c002770:	00150185 	move	$r5,$r12
+1c002774:	02805004 	addi.w	$r4,$r0,20(0x14)
+1c002778:	57eff3ff 	bl	-4112(0xfffeff0) # 1c001768 <gpio_write>
+1c00277c:	02840004 	addi.w	$r4,$r0,256(0x100)
+1c002780:	57f1cfff 	bl	-3636(0xffff1cc) # 1c00194c <TIM_ClearIT>
+1c002784:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
+1c002788:	0340118c 	andi	$r12,$r12,0x4
+1c00278c:	40009580 	beqz	$r12,148(0x94) # 1c002820 <intc_handler+0x11c>
+1c002790:	57f303ff 	bl	-3328(0xffff300) # 1c001a90 <UART1_HANDLER>
+1c002794:	29bfa2c0 	st.w	$r0,$r22,-24(0xfe8)
+1c002798:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
+1c00279c:	0380118c 	ori	$r12,$r12,0x4
+1c0027a0:	2880018c 	ld.w	$r12,$r12,0
+1c0027a4:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
+1c0027a8:	50006c00 	b	108(0x6c) # 1c002814 <intc_handler+0x110>
+1c0027ac:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
+1c0027b0:	2880018c 	ld.w	$r12,$r12,0
+1c0027b4:	29bf82cc 	st.w	$r12,$r22,-32(0xfe0)
+1c0027b8:	28bf82cd 	ld.w	$r13,$r22,-32(0xfe0)
+1c0027bc:	0280340c 	addi.w	$r12,$r0,13(0xd)
+1c0027c0:	5c001dac 	bne	$r13,$r12,28(0x1c) # 1c0027dc <intc_handler+0xd8>
 1c0027c4:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
-1c0027c8:	0380118c 	ori	$r12,$r12,0x4
-1c0027cc:	2880018c 	ld.w	$r12,$r12,0
-1c0027d0:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
-1c0027d4:	283fbecc 	ld.b	$r12,$r22,-17(0xfef)
-1c0027d8:	0340058c 	andi	$r12,$r12,0x1
-1c0027dc:	43ff919f 	beqz	$r12,-112(0x7fff90) # 1c00276c <intc_handler+0xa8>
-1c0027e0:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
-1c0027e4:	0340218c 	andi	$r12,$r12,0x8
-1c0027e8:	40001580 	beqz	$r12,20(0x14) # 1c0027fc <intc_handler+0x138>
-1c0027ec:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
-1c0027f0:	03800d8c 	ori	$r12,$r12,0x3
-1c0027f4:	0280200d 	addi.w	$r13,$r0,8(0x8)
-1c0027f8:	2900018d 	st.b	$r13,$r12,0
-1c0027fc:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
-1c002800:	03800d8c 	ori	$r12,$r12,0x3
-1c002804:	02bffc0d 	addi.w	$r13,$r0,-1(0xfff)
-1c002808:	2900018d 	st.b	$r13,$r12,0
-1c00280c:	03400000 	andi	$r0,$r0,0x0
-1c002810:	28807061 	ld.w	$r1,$r3,28(0x1c)
-1c002814:	28806076 	ld.w	$r22,$r3,24(0x18)
-1c002818:	02808063 	addi.w	$r3,$r3,32(0x20)
-1c00281c:	4c000020 	jirl	$r0,$r1,0
+1c0027c8:	0280340d 	addi.w	$r13,$r0,13(0xd)
+1c0027cc:	2980018d 	st.w	$r13,$r12,0
+1c0027d0:	0280040c 	addi.w	$r12,$r0,1(0x1)
+1c0027d4:	29bfa2cc 	st.w	$r12,$r22,-24(0xfe8)
+1c0027d8:	50002c00 	b	44(0x2c) # 1c002804 <intc_handler+0x100>
+1c0027dc:	28bfa2cc 	ld.w	$r12,$r22,-24(0xfe8)
+1c0027e0:	40001980 	beqz	$r12,24(0x18) # 1c0027f8 <intc_handler+0xf4>
+1c0027e4:	29bfa2c0 	st.w	$r0,$r22,-24(0xfe8)
+1c0027e8:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
+1c0027ec:	0280280d 	addi.w	$r13,$r0,10(0xa)
+1c0027f0:	2980018d 	st.w	$r13,$r12,0
+1c0027f4:	50001000 	b	16(0x10) # 1c002804 <intc_handler+0x100>
+1c0027f8:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
+1c0027fc:	28bf82cd 	ld.w	$r13,$r22,-32(0xfe0)
+1c002800:	2980018d 	st.w	$r13,$r12,0
+1c002804:	157fd10c 	lu12i.w	$r12,-262520(0xbfe88)
+1c002808:	0380118c 	ori	$r12,$r12,0x4
+1c00280c:	2880018c 	ld.w	$r12,$r12,0
+1c002810:	293fbecc 	st.b	$r12,$r22,-17(0xfef)
+1c002814:	283fbecc 	ld.b	$r12,$r22,-17(0xfef)
+1c002818:	0340058c 	andi	$r12,$r12,0x1
+1c00281c:	43ff919f 	beqz	$r12,-112(0x7fff90) # 1c0027ac <intc_handler+0xa8>
+1c002820:	2a3f9ecc 	ld.bu	$r12,$r22,-25(0xfe7)
+1c002824:	0340218c 	andi	$r12,$r12,0x8
+1c002828:	40001580 	beqz	$r12,20(0x14) # 1c00283c <intc_handler+0x138>
+1c00282c:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
+1c002830:	03800d8c 	ori	$r12,$r12,0x3
+1c002834:	0280200d 	addi.w	$r13,$r0,8(0x8)
+1c002838:	2900018d 	st.b	$r13,$r12,0
+1c00283c:	157fd40c 	lu12i.w	$r12,-262496(0xbfea0)
+1c002840:	03800d8c 	ori	$r12,$r12,0x3
+1c002844:	02bffc0d 	addi.w	$r13,$r0,-1(0xfff)
+1c002848:	2900018d 	st.b	$r13,$r12,0
+1c00284c:	03400000 	andi	$r0,$r0,0x0
+1c002850:	28807061 	ld.w	$r1,$r3,28(0x1c)
+1c002854:	28806076 	ld.w	$r22,$r3,24(0x18)
+1c002858:	02808063 	addi.w	$r3,$r3,32(0x20)
+1c00285c:	4c000020 	jirl	$r0,$r1,0
 
-1c002820 <TIMER_HANDLER>:
+1c002860 <TIMER_HANDLER>:
 TIMER_HANDLER():
-1c002820:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
-1c002824:	29803061 	st.w	$r1,$r3,12(0xc)
-1c002828:	29802076 	st.w	$r22,$r3,8(0x8)
-1c00282c:	02804076 	addi.w	$r22,$r3,16(0x10)
-1c002830:	57ef17ff 	bl	-4332(0xfffef14) # 1c001744 <Set_Timer_clear>
-1c002834:	1c000004 	pcaddu12i	$r4,0
-1c002838:	028aa084 	addi.w	$r4,$r4,680(0x2a8)
-1c00283c:	57eafbff 	bl	-5384(0xfffeaf8) # 1c001334 <myprintf>
-1c002840:	57eee7ff 	bl	-4380(0xfffeee4) # 1c001724 <Set_Timer_stop>
-1c002844:	03400000 	andi	$r0,$r0,0x0
-1c002848:	28803061 	ld.w	$r1,$r3,12(0xc)
-1c00284c:	28802076 	ld.w	$r22,$r3,8(0x8)
-1c002850:	02804063 	addi.w	$r3,$r3,16(0x10)
-1c002854:	4c000020 	jirl	$r0,$r1,0
+1c002860:	02bfc063 	addi.w	$r3,$r3,-16(0xff0)
+1c002864:	29803061 	st.w	$r1,$r3,12(0xc)
+1c002868:	29802076 	st.w	$r22,$r3,8(0x8)
+1c00286c:	02804076 	addi.w	$r22,$r3,16(0x10)
+1c002870:	57eed7ff 	bl	-4396(0xfffeed4) # 1c001744 <Set_Timer_clear>
+1c002874:	1c000004 	pcaddu12i	$r4,0
+1c002878:	028aa084 	addi.w	$r4,$r4,680(0x2a8)
+1c00287c:	57eabbff 	bl	-5448(0xfffeab8) # 1c001334 <myprintf>
+1c002880:	57eea7ff 	bl	-4444(0xfffeea4) # 1c001724 <Set_Timer_stop>
+1c002884:	03400000 	andi	$r0,$r0,0x0
+1c002888:	28803061 	ld.w	$r1,$r3,12(0xc)
+1c00288c:	28802076 	ld.w	$r22,$r3,8(0x8)
+1c002890:	02804063 	addi.w	$r3,$r3,16(0x10)
+1c002894:	4c000020 	jirl	$r0,$r1,0
 
 Disassembly of section .rodata:
 
-1c002858 <Ext_IrqHandle-0x150>:
-1c002858:	1c001554 	pcaddu12i	$r20,170(0xaa)
-1c00285c:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002860:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002864:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002868:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c00286c:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002870:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002874:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002878:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c00287c:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002880:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002884:	1c00156c 	pcaddu12i	$r12,171(0xab)
-1c002888:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c00288c:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c002890:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c002894:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c002898:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c00289c:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c0028a0:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c0028a4:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
-1c0028a8:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c002898 <Ext_IrqHandle-0x150>:
+1c002898:	1c001554 	pcaddu12i	$r20,170(0xaa)
+1c00289c:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0028a0:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0028a4:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0028a8:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028ac:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028b0:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028b4:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028b8:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028bc:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028c0:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028c4:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028c8:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028cc:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028d0:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028d4:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028d8:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028dc:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028e0:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028e4:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0028e8:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0028c4:	1c00156c 	pcaddu12i	$r12,171(0xab)
+1c0028c8:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028cc:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028d0:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028d4:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028d8:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028dc:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028e0:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028e4:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
+1c0028e8:	1c0015f4 	pcaddu12i	$r20,175(0xaf)
 1c0028ec:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028f0:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0028f4:	1c001670 	pcaddu12i	$r16,179(0xb3)
@@ -1882,9 +1882,9 @@ Disassembly of section .rodata:
 1c002940:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002944:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002948:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c00294c:	1c0014e4 	pcaddu12i	$r4,167(0xa7)
-1c002950:	1c00140c 	pcaddu12i	$r12,160(0xa0)
-1c002954:	1c001474 	pcaddu12i	$r20,163(0xa3)
+1c00294c:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c002950:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c002954:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002958:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c00295c:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002960:	1c001670 	pcaddu12i	$r16,179(0xb3)
@@ -1895,381 +1895,397 @@ Disassembly of section .rodata:
 1c002974:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002978:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c00297c:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002980:	1c0014ac 	pcaddu12i	$r12,165(0xa5)
-1c002984:	1c00151c 	pcaddu12i	$r28,168(0xa8)
+1c002980:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c002984:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c002988:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c00298c:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002990:	1c0013e0 	pcaddu12i	$r0,159(0x9f)
-1c002994:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c002998:	1c00143c 	pcaddu12i	$r28,161(0xa1)
+1c00298c:	1c0014e4 	pcaddu12i	$r4,167(0xa7)
+1c002990:	1c00140c 	pcaddu12i	$r12,160(0xa0)
+1c002994:	1c001474 	pcaddu12i	$r20,163(0xa3)
+1c002998:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c00299c:	1c001670 	pcaddu12i	$r16,179(0xb3)
 1c0029a0:	1c001670 	pcaddu12i	$r16,179(0xb3)
-1c0029a4:	1c00151c 	pcaddu12i	$r28,168(0xa8)
+1c0029a4:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029a8:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029ac:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029b0:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029b4:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029b8:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029bc:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029c0:	1c0014ac 	pcaddu12i	$r12,165(0xa5)
+1c0029c4:	1c00151c 	pcaddu12i	$r28,168(0xa8)
+1c0029c8:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029cc:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029d0:	1c0013e0 	pcaddu12i	$r0,159(0x9f)
+1c0029d4:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029d8:	1c00143c 	pcaddu12i	$r28,161(0xa1)
+1c0029dc:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029e0:	1c001670 	pcaddu12i	$r16,179(0xb3)
+1c0029e4:	1c00151c 	pcaddu12i	$r28,168(0xa8)
 
-1c0029a8 <Ext_IrqHandle>:
-1c0029a8:	1c001a8c 	pcaddu12i	$r12,212(0xd4)
-1c0029ac:	1c001ad8 	pcaddu12i	$r24,214(0xd6)
-1c0029b0:	1c001b24 	pcaddu12i	$r4,217(0xd9)
-1c0029b4:	1c001b70 	pcaddu12i	$r16,219(0xdb)
-1c0029b8:	1c001bbc 	pcaddu12i	$r28,221(0xdd)
-1c0029bc:	1c001c08 	pcaddu12i	$r8,224(0xe0)
-1c0029c0:	1c001c54 	pcaddu12i	$r20,226(0xe2)
-1c0029c4:	1c001ca0 	pcaddu12i	$r0,229(0xe5)
-1c0029c8:	1c001cec 	pcaddu12i	$r12,231(0xe7)
-1c0029cc:	1c001d38 	pcaddu12i	$r24,233(0xe9)
-1c0029d0:	1c001d84 	pcaddu12i	$r4,236(0xec)
-1c0029d4:	1c001dd0 	pcaddu12i	$r16,238(0xee)
-1c0029d8:	1c001e1c 	pcaddu12i	$r28,240(0xf0)
-1c0029dc:	1c001e68 	pcaddu12i	$r8,243(0xf3)
-1c0029e0:	1c001eb4 	pcaddu12i	$r20,245(0xf5)
-1c0029e4:	1c001f00 	pcaddu12i	$r0,248(0xf8)
-1c0029e8:	1c001f4c 	pcaddu12i	$r12,250(0xfa)
-1c0029ec:	1c001f98 	pcaddu12i	$r24,252(0xfc)
-1c0029f0:	1c001fe4 	pcaddu12i	$r4,255(0xff)
-1c0029f4:	1c002030 	pcaddu12i	$r16,257(0x101)
-1c0029f8:	1c00207c 	pcaddu12i	$r28,259(0x103)
-1c0029fc:	1c0020c8 	pcaddu12i	$r8,262(0x106)
-1c002a00:	1c002114 	pcaddu12i	$r20,264(0x108)
-1c002a04:	1c002160 	pcaddu12i	$r0,267(0x10b)
-1c002a08:	1c0021ac 	pcaddu12i	$r12,269(0x10d)
-1c002a0c:	1c0021f8 	pcaddu12i	$r24,271(0x10f)
-1c002a10:	1c002244 	pcaddu12i	$r4,274(0x112)
-1c002a14:	1c002290 	pcaddu12i	$r16,276(0x114)
-1c002a18:	1c0022dc 	pcaddu12i	$r28,278(0x116)
-1c002a1c:	1c002328 	pcaddu12i	$r8,281(0x119)
-1c002a20:	1c002374 	pcaddu12i	$r20,283(0x11b)
-1c002a24:	1c0023c0 	pcaddu12i	$r0,286(0x11e)
-1c002a28:	3c200a0d 	0x3c200a0d
-1c002a2c:	696c2020 	bltu	$r1,$r0,93216(0x16c20) # 1c01964c <_sidata+0x16800>
-1c002a30:	203a656e 	ll.w	$r14,$r11,14948(0x3a64)
-1c002a34:	66206425 	bge	$r1,$r5,-122780(0x22064) # 1bfe4a98 <_start-0x1b568>
-1c002a38:	3a636e75 	0x3a636e75
-1c002a3c:	20207325 	ll.w	$r5,$r25,8304(0x2070)
-1c002a40:	0a0d3e20 	0x0a0d3e20
-1c002a44:	00000000 	0x00000000
-1c002a48:	2e2e2e0a 	0x2e2e2e0a
-1c002a4c:	2e2e2e2e 	0x2e2e2e2e
-1c002a50:	2e2e2e2e 	0x2e2e2e2e
-1c002a54:	4f532e2e 	jirl	$r14,$r17,-44244(0x3532c)
-1c002a58:	495f5446 	bceqz	$fcc2,1662804(0x195f54) # 1c1989ac <_sidata+0x195b60>
-1c002a5c:	2e2e544e 	0x2e2e544e
-1c002a60:	2e2e2e2e 	0x2e2e2e2e
-1c002a64:	2e2e2e2e 	0x2e2e2e2e
-1c002a68:	2e2e2e2e 	0x2e2e2e2e
-1c002a6c:	00000d0a 	0x00000d0a
-1c002a70:	2d2d2d0a 	0x2d2d2d0a
-1c002a74:	63756f74 	blt	$r27,$r20,-35476(0x3756c) # 1bff9fe0 <_start-0x6020>
-1c002a78:	746e4968 	0x746e4968
-1c002a7c:	79654b3a 	0x79654b3a
-1c002a80:	6e616843 	bgeu	$r2,$r3,-106136(0x26168) # 1bfe8be8 <_start-0x17418>
-1c002a84:	3a6c656e 	0x3a6c656e
-1c002a88:	78257830 	0x78257830
-1c002a8c:	0000000a 	0x0000000a
-1c002a90:	2e2e2e0a 	0x2e2e2e0a
-1c002a94:	2e2e2e2e 	0x2e2e2e2e
-1c002a98:	2e2e2e2e 	0x2e2e2e2e
-1c002a9c:	41422e2e 	beqz	$r17,3752492(0x39422c) # 1c396cc8 <_sidata+0x393e7c>
-1c002aa0:	41465f54 	beqz	$r26,-3062180(0x51465c) # 1bd170fc <_start-0x2e8f04>
-1c002aa4:	2e2e4c49 	0x2e2e4c49
+1c0029e8 <Ext_IrqHandle>:
+1c0029e8:	1c001acc 	pcaddu12i	$r12,214(0xd6)
+1c0029ec:	1c001b18 	pcaddu12i	$r24,216(0xd8)
+1c0029f0:	1c001b64 	pcaddu12i	$r4,219(0xdb)
+1c0029f4:	1c001bb0 	pcaddu12i	$r16,221(0xdd)
+1c0029f8:	1c001bfc 	pcaddu12i	$r28,223(0xdf)
+1c0029fc:	1c001c48 	pcaddu12i	$r8,226(0xe2)
+1c002a00:	1c001c94 	pcaddu12i	$r20,228(0xe4)
+1c002a04:	1c001ce0 	pcaddu12i	$r0,231(0xe7)
+1c002a08:	1c001d2c 	pcaddu12i	$r12,233(0xe9)
+1c002a0c:	1c001d78 	pcaddu12i	$r24,235(0xeb)
+1c002a10:	1c001dc4 	pcaddu12i	$r4,238(0xee)
+1c002a14:	1c001e10 	pcaddu12i	$r16,240(0xf0)
+1c002a18:	1c001e5c 	pcaddu12i	$r28,242(0xf2)
+1c002a1c:	1c001ea8 	pcaddu12i	$r8,245(0xf5)
+1c002a20:	1c001ef4 	pcaddu12i	$r20,247(0xf7)
+1c002a24:	1c001f40 	pcaddu12i	$r0,250(0xfa)
+1c002a28:	1c001f8c 	pcaddu12i	$r12,252(0xfc)
+1c002a2c:	1c001fd8 	pcaddu12i	$r24,254(0xfe)
+1c002a30:	1c002024 	pcaddu12i	$r4,257(0x101)
+1c002a34:	1c002070 	pcaddu12i	$r16,259(0x103)
+1c002a38:	1c0020bc 	pcaddu12i	$r28,261(0x105)
+1c002a3c:	1c002108 	pcaddu12i	$r8,264(0x108)
+1c002a40:	1c002154 	pcaddu12i	$r20,266(0x10a)
+1c002a44:	1c0021a0 	pcaddu12i	$r0,269(0x10d)
+1c002a48:	1c0021ec 	pcaddu12i	$r12,271(0x10f)
+1c002a4c:	1c002238 	pcaddu12i	$r24,273(0x111)
+1c002a50:	1c002284 	pcaddu12i	$r4,276(0x114)
+1c002a54:	1c0022d0 	pcaddu12i	$r16,278(0x116)
+1c002a58:	1c00231c 	pcaddu12i	$r28,280(0x118)
+1c002a5c:	1c002368 	pcaddu12i	$r8,283(0x11b)
+1c002a60:	1c0023b4 	pcaddu12i	$r20,285(0x11d)
+1c002a64:	1c002400 	pcaddu12i	$r0,288(0x120)
+1c002a68:	3c200a0d 	0x3c200a0d
+1c002a6c:	696c2020 	bltu	$r1,$r0,93216(0x16c20) # 1c01968c <_sidata+0x16800>
+1c002a70:	203a656e 	ll.w	$r14,$r11,14948(0x3a64)
+1c002a74:	66206425 	bge	$r1,$r5,-122780(0x22064) # 1bfe4ad8 <_start-0x1b528>
+1c002a78:	3a636e75 	0x3a636e75
+1c002a7c:	20207325 	ll.w	$r5,$r25,8304(0x2070)
+1c002a80:	0a0d3e20 	0x0a0d3e20
+1c002a84:	00000000 	0x00000000
+1c002a88:	2e2e2e0a 	0x2e2e2e0a
+1c002a8c:	2e2e2e2e 	0x2e2e2e2e
+1c002a90:	2e2e2e2e 	0x2e2e2e2e
+1c002a94:	4f532e2e 	jirl	$r14,$r17,-44244(0x3532c)
+1c002a98:	495f5446 	bceqz	$fcc2,1662804(0x195f54) # 1c1989ec <_sidata+0x195b60>
+1c002a9c:	2e2e544e 	0x2e2e544e
+1c002aa0:	2e2e2e2e 	0x2e2e2e2e
+1c002aa4:	2e2e2e2e 	0x2e2e2e2e
 1c002aa8:	2e2e2e2e 	0x2e2e2e2e
-1c002aac:	2e2e2e2e 	0x2e2e2e2e
-1c002ab0:	2e2e2e2e 	0x2e2e2e2e
-1c002ab4:	00000d0a 	0x00000d0a
-1c002ab8:	2e2e2e0a 	0x2e2e2e0a
-1c002abc:	2e2e2e2e 	0x2e2e2e2e
-1c002ac0:	2e2e2e2e 	0x2e2e2e2e
-1c002ac4:	44412e2e 	bnez	$r17,3686700(0x38412c) # 1c386bf0 <_sidata+0x383da4>
-1c002ac8:	2e2e2e43 	0x2e2e2e43
-1c002acc:	2e2e2e2e 	0x2e2e2e2e
-1c002ad0:	2e2e2e2e 	0x2e2e2e2e
-1c002ad4:	0a2e2e2e 	xvfmadd.d	$xr14,$xr17,$xr11,$xr28
-1c002ad8:	0000000d 	0x0000000d
-1c002adc:	65726f43 	bge	$r26,$r3,94828(0x1726c) # 1c019d48 <_sidata+0x16efc>
-1c002ae0:	6d695420 	bgeu	$r1,$r0,92500(0x16954) # 1c019434 <_sidata+0x165e8>
-1c002ae4:	63207265 	blt	$r19,$r5,-57232(0x32070) # 1bff4b54 <_start-0xb4ac>
-1c002ae8:	7261656c 	0x7261656c
-1c002aec:	746e6920 	0x746e6920
-1c002af0:	75727265 	0x75727265
-1c002af4:	2e2e7470 	0x2e2e7470
-1c002af8:	0000000a 	0x0000000a
-1c002afc:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b00:	1c00265c 	pcaddu12i	$r28,306(0x132)
-1c002b04:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b08:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b0c:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b10:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b14:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b18:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b1c:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b20:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b24:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b28:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b2c:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b30:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b34:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b38:	1c0026ac 	pcaddu12i	$r12,309(0x135)
-1c002b3c:	1c002678 	pcaddu12i	$r24,307(0x133)
+1c002aac:	00000d0a 	0x00000d0a
+1c002ab0:	2d2d2d0a 	0x2d2d2d0a
+1c002ab4:	63756f74 	blt	$r27,$r20,-35476(0x3756c) # 1bffa020 <_start-0x5fe0>
+1c002ab8:	746e4968 	0x746e4968
+1c002abc:	79654b3a 	0x79654b3a
+1c002ac0:	6e616843 	bgeu	$r2,$r3,-106136(0x26168) # 1bfe8c28 <_start-0x173d8>
+1c002ac4:	3a6c656e 	0x3a6c656e
+1c002ac8:	78257830 	0x78257830
+1c002acc:	0000000a 	0x0000000a
+1c002ad0:	2e2e2e0a 	0x2e2e2e0a
+1c002ad4:	2e2e2e2e 	0x2e2e2e2e
+1c002ad8:	2e2e2e2e 	0x2e2e2e2e
+1c002adc:	41422e2e 	beqz	$r17,3752492(0x39422c) # 1c396d08 <_sidata+0x393e7c>
+1c002ae0:	41465f54 	beqz	$r26,-3062180(0x51465c) # 1bd1713c <_start-0x2e8ec4>
+1c002ae4:	2e2e4c49 	0x2e2e4c49
+1c002ae8:	2e2e2e2e 	0x2e2e2e2e
+1c002aec:	2e2e2e2e 	0x2e2e2e2e
+1c002af0:	2e2e2e2e 	0x2e2e2e2e
+1c002af4:	00000d0a 	0x00000d0a
+1c002af8:	2e2e2e0a 	0x2e2e2e0a
+1c002afc:	2e2e2e2e 	0x2e2e2e2e
+1c002b00:	2e2e2e2e 	0x2e2e2e2e
+1c002b04:	44412e2e 	bnez	$r17,3686700(0x38412c) # 1c386c30 <_sidata+0x383da4>
+1c002b08:	2e2e2e43 	0x2e2e2e43
+1c002b0c:	2e2e2e2e 	0x2e2e2e2e
+1c002b10:	2e2e2e2e 	0x2e2e2e2e
+1c002b14:	0a2e2e2e 	xvfmadd.d	$xr14,$xr17,$xr11,$xr28
+1c002b18:	0000000d 	0x0000000d
+1c002b1c:	65726f43 	bge	$r26,$r3,94828(0x1726c) # 1c019d88 <_sidata+0x16efc>
+1c002b20:	6d695420 	bgeu	$r1,$r0,92500(0x16954) # 1c019474 <_sidata+0x165e8>
+1c002b24:	63207265 	blt	$r19,$r5,-57232(0x32070) # 1bff4b94 <_start-0xb46c>
+1c002b28:	7261656c 	0x7261656c
+1c002b2c:	746e6920 	0x746e6920
+1c002b30:	75727265 	0x75727265
+1c002b34:	2e2e7470 	0x2e2e7470
+1c002b38:	0000000a 	0x0000000a
+1c002b3c:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b40:	1c00269c 	pcaddu12i	$r28,308(0x134)
+1c002b44:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b48:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b4c:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b50:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b54:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b58:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b5c:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b60:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b64:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b68:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b6c:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b70:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b74:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b78:	1c0026ec 	pcaddu12i	$r12,311(0x137)
+1c002b7c:	1c0026b8 	pcaddu12i	$r24,309(0x135)
 
-1c002b40 <__FUNCTION__.1643>:
-1c002b40:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c019fb8 <_sidata+0x1716c>
-1c002b44:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019ba8 <_sidata+0x16d5c>
-1c002b48:	5f30616f 	bne	$r11,$r15,-53152(0x33060) # 1bff5ba8 <_start-0xa458>
-1c002b4c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9cbc <_start-0x6344>
-1c002b50:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c0099b0 <_sidata+0x6b64>
-1c002b54:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002b80 <__FUNCTION__.1643>:
+1c002b80:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c019ff8 <_sidata+0x1716c>
+1c002b84:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019be8 <_sidata+0x16d5c>
+1c002b88:	5f30616f 	bne	$r11,$r15,-53152(0x33060) # 1bff5be8 <_start-0xa418>
+1c002b8c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9cfc <_start-0x6304>
+1c002b90:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c0099f0 <_sidata+0x6b64>
+1c002b94:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002b58 <__FUNCTION__.1647>:
-1c002b58:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c019fd0 <_sidata+0x17184>
-1c002b5c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019bc0 <_sidata+0x16d74>
-1c002b60:	5f31616f 	bne	$r11,$r15,-52896(0x33160) # 1bff5cc0 <_start-0xa340>
-1c002b64:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9cd4 <_start-0x632c>
-1c002b68:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c0099c8 <_sidata+0x6b7c>
-1c002b6c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002b98 <__FUNCTION__.1647>:
+1c002b98:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a010 <_sidata+0x17184>
+1c002b9c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c00 <_sidata+0x16d74>
+1c002ba0:	5f31616f 	bne	$r11,$r15,-52896(0x33160) # 1bff5d00 <_start-0xa300>
+1c002ba4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d14 <_start-0x62ec>
+1c002ba8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a08 <_sidata+0x6b7c>
+1c002bac:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002b70 <__FUNCTION__.1651>:
-1c002b70:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c019fe8 <_sidata+0x1719c>
-1c002b74:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019bd8 <_sidata+0x16d8c>
-1c002b78:	5f32616f 	bne	$r11,$r15,-52640(0x33260) # 1bff5dd8 <_start-0xa228>
-1c002b7c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9cec <_start-0x6314>
-1c002b80:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c0099e0 <_sidata+0x6b94>
-1c002b84:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002bb0 <__FUNCTION__.1651>:
+1c002bb0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a028 <_sidata+0x1719c>
+1c002bb4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c18 <_sidata+0x16d8c>
+1c002bb8:	5f32616f 	bne	$r11,$r15,-52640(0x33260) # 1bff5e18 <_start-0xa1e8>
+1c002bbc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d2c <_start-0x62d4>
+1c002bc0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a20 <_sidata+0x6b94>
+1c002bc4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002b88 <__FUNCTION__.1655>:
-1c002b88:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a000 <_sidata+0x171b4>
-1c002b8c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019bf0 <_sidata+0x16da4>
-1c002b90:	5f33616f 	bne	$r11,$r15,-52384(0x33360) # 1bff5ef0 <_start-0xa110>
-1c002b94:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d04 <_start-0x62fc>
-1c002b98:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c0099f8 <_sidata+0x6bac>
-1c002b9c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002bc8 <__FUNCTION__.1655>:
+1c002bc8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a040 <_sidata+0x171b4>
+1c002bcc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c30 <_sidata+0x16da4>
+1c002bd0:	5f33616f 	bne	$r11,$r15,-52384(0x33360) # 1bff5f30 <_start-0xa0d0>
+1c002bd4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d44 <_start-0x62bc>
+1c002bd8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a38 <_sidata+0x6bac>
+1c002bdc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002ba0 <__FUNCTION__.1659>:
-1c002ba0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a018 <_sidata+0x171cc>
-1c002ba4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c08 <_sidata+0x16dbc>
-1c002ba8:	5f34616f 	bne	$r11,$r15,-52128(0x33460) # 1bff6008 <_start-0x9ff8>
-1c002bac:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d1c <_start-0x62e4>
-1c002bb0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a10 <_sidata+0x6bc4>
-1c002bb4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002be0 <__FUNCTION__.1659>:
+1c002be0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a058 <_sidata+0x171cc>
+1c002be4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c48 <_sidata+0x16dbc>
+1c002be8:	5f34616f 	bne	$r11,$r15,-52128(0x33460) # 1bff6048 <_start-0x9fb8>
+1c002bec:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d5c <_start-0x62a4>
+1c002bf0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a50 <_sidata+0x6bc4>
+1c002bf4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002bb8 <__FUNCTION__.1663>:
-1c002bb8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a030 <_sidata+0x171e4>
-1c002bbc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c20 <_sidata+0x16dd4>
-1c002bc0:	5f35616f 	bne	$r11,$r15,-51872(0x33560) # 1bff6120 <_start-0x9ee0>
-1c002bc4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d34 <_start-0x62cc>
-1c002bc8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a28 <_sidata+0x6bdc>
-1c002bcc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002bf8 <__FUNCTION__.1663>:
+1c002bf8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a070 <_sidata+0x171e4>
+1c002bfc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c60 <_sidata+0x16dd4>
+1c002c00:	5f35616f 	bne	$r11,$r15,-51872(0x33560) # 1bff6160 <_start-0x9ea0>
+1c002c04:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d74 <_start-0x628c>
+1c002c08:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a68 <_sidata+0x6bdc>
+1c002c0c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002bd0 <__FUNCTION__.1667>:
-1c002bd0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a048 <_sidata+0x171fc>
-1c002bd4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c38 <_sidata+0x16dec>
-1c002bd8:	5f36616f 	bne	$r11,$r15,-51616(0x33660) # 1bff6238 <_start-0x9dc8>
-1c002bdc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d4c <_start-0x62b4>
-1c002be0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a40 <_sidata+0x6bf4>
-1c002be4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c10 <__FUNCTION__.1667>:
+1c002c10:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a088 <_sidata+0x171fc>
+1c002c14:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c78 <_sidata+0x16dec>
+1c002c18:	5f36616f 	bne	$r11,$r15,-51616(0x33660) # 1bff6278 <_start-0x9d88>
+1c002c1c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d8c <_start-0x6274>
+1c002c20:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a80 <_sidata+0x6bf4>
+1c002c24:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002be8 <__FUNCTION__.1671>:
-1c002be8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a060 <_sidata+0x17214>
-1c002bec:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c50 <_sidata+0x16e04>
-1c002bf0:	5f37616f 	bne	$r11,$r15,-51360(0x33760) # 1bff6350 <_start-0x9cb0>
-1c002bf4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d64 <_start-0x629c>
-1c002bf8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a58 <_sidata+0x6c0c>
-1c002bfc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c28 <__FUNCTION__.1671>:
+1c002c28:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0a0 <_sidata+0x17214>
+1c002c2c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c90 <_sidata+0x16e04>
+1c002c30:	5f37616f 	bne	$r11,$r15,-51360(0x33760) # 1bff6390 <_start-0x9c70>
+1c002c34:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9da4 <_start-0x625c>
+1c002c38:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a98 <_sidata+0x6c0c>
+1c002c3c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c00 <__FUNCTION__.1675>:
-1c002c00:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a078 <_sidata+0x1722c>
-1c002c04:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c68 <_sidata+0x16e1c>
-1c002c08:	5f30626f 	bne	$r19,$r15,-53152(0x33060) # 1bff5c68 <_start-0xa398>
-1c002c0c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d7c <_start-0x6284>
-1c002c10:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a70 <_sidata+0x6c24>
-1c002c14:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c40 <__FUNCTION__.1675>:
+1c002c40:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0b8 <_sidata+0x1722c>
+1c002c44:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019ca8 <_sidata+0x16e1c>
+1c002c48:	5f30626f 	bne	$r19,$r15,-53152(0x33060) # 1bff5ca8 <_start-0xa358>
+1c002c4c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9dbc <_start-0x6244>
+1c002c50:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ab0 <_sidata+0x6c24>
+1c002c54:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c18 <__FUNCTION__.1679>:
-1c002c18:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a090 <_sidata+0x17244>
-1c002c1c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c80 <_sidata+0x16e34>
-1c002c20:	5f31626f 	bne	$r19,$r15,-52896(0x33160) # 1bff5d80 <_start-0xa280>
-1c002c24:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9d94 <_start-0x626c>
-1c002c28:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009a88 <_sidata+0x6c3c>
-1c002c2c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c58 <__FUNCTION__.1679>:
+1c002c58:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0d0 <_sidata+0x17244>
+1c002c5c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cc0 <_sidata+0x16e34>
+1c002c60:	5f31626f 	bne	$r19,$r15,-52896(0x33160) # 1bff5dc0 <_start-0xa240>
+1c002c64:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9dd4 <_start-0x622c>
+1c002c68:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ac8 <_sidata+0x6c3c>
+1c002c6c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c30 <__FUNCTION__.1683>:
-1c002c30:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0a8 <_sidata+0x1725c>
-1c002c34:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019c98 <_sidata+0x16e4c>
-1c002c38:	5f32626f 	bne	$r19,$r15,-52640(0x33260) # 1bff5e98 <_start-0xa168>
-1c002c3c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9dac <_start-0x6254>
-1c002c40:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009aa0 <_sidata+0x6c54>
-1c002c44:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c70 <__FUNCTION__.1683>:
+1c002c70:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0e8 <_sidata+0x1725c>
+1c002c74:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cd8 <_sidata+0x16e4c>
+1c002c78:	5f32626f 	bne	$r19,$r15,-52640(0x33260) # 1bff5ed8 <_start-0xa128>
+1c002c7c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9dec <_start-0x6214>
+1c002c80:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ae0 <_sidata+0x6c54>
+1c002c84:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c48 <__FUNCTION__.1687>:
-1c002c48:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0c0 <_sidata+0x17274>
-1c002c4c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cb0 <_sidata+0x16e64>
-1c002c50:	5f33626f 	bne	$r19,$r15,-52384(0x33360) # 1bff5fb0 <_start-0xa050>
-1c002c54:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9dc4 <_start-0x623c>
-1c002c58:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ab8 <_sidata+0x6c6c>
-1c002c5c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002c88 <__FUNCTION__.1687>:
+1c002c88:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a100 <_sidata+0x17274>
+1c002c8c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cf0 <_sidata+0x16e64>
+1c002c90:	5f33626f 	bne	$r19,$r15,-52384(0x33360) # 1bff5ff0 <_start-0xa010>
+1c002c94:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e04 <_start-0x61fc>
+1c002c98:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009af8 <_sidata+0x6c6c>
+1c002c9c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c60 <__FUNCTION__.1691>:
-1c002c60:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0d8 <_sidata+0x1728c>
-1c002c64:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cc8 <_sidata+0x16e7c>
-1c002c68:	5f34626f 	bne	$r19,$r15,-52128(0x33460) # 1bff60c8 <_start-0x9f38>
-1c002c6c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9ddc <_start-0x6224>
-1c002c70:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ad0 <_sidata+0x6c84>
-1c002c74:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002ca0 <__FUNCTION__.1691>:
+1c002ca0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a118 <_sidata+0x1728c>
+1c002ca4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d08 <_sidata+0x16e7c>
+1c002ca8:	5f34626f 	bne	$r19,$r15,-52128(0x33460) # 1bff6108 <_start-0x9ef8>
+1c002cac:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e1c <_start-0x61e4>
+1c002cb0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b10 <_sidata+0x6c84>
+1c002cb4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c78 <__FUNCTION__.1695>:
-1c002c78:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a0f0 <_sidata+0x172a4>
-1c002c7c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019ce0 <_sidata+0x16e94>
-1c002c80:	5f35626f 	bne	$r19,$r15,-51872(0x33560) # 1bff61e0 <_start-0x9e20>
-1c002c84:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9df4 <_start-0x620c>
-1c002c88:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ae8 <_sidata+0x6c9c>
-1c002c8c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002cb8 <__FUNCTION__.1695>:
+1c002cb8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a130 <_sidata+0x172a4>
+1c002cbc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d20 <_sidata+0x16e94>
+1c002cc0:	5f35626f 	bne	$r19,$r15,-51872(0x33560) # 1bff6220 <_start-0x9de0>
+1c002cc4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e34 <_start-0x61cc>
+1c002cc8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b28 <_sidata+0x6c9c>
+1c002ccc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002c90 <__FUNCTION__.1699>:
-1c002c90:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a108 <_sidata+0x172bc>
-1c002c94:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019cf8 <_sidata+0x16eac>
-1c002c98:	5f36626f 	bne	$r19,$r15,-51616(0x33660) # 1bff62f8 <_start-0x9d08>
-1c002c9c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e0c <_start-0x61f4>
-1c002ca0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b00 <_sidata+0x6cb4>
-1c002ca4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002cd0 <__FUNCTION__.1699>:
+1c002cd0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a148 <_sidata+0x172bc>
+1c002cd4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d38 <_sidata+0x16eac>
+1c002cd8:	5f36626f 	bne	$r19,$r15,-51616(0x33660) # 1bff6338 <_start-0x9cc8>
+1c002cdc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e4c <_start-0x61b4>
+1c002ce0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b40 <_sidata+0x6cb4>
+1c002ce4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002ca8 <__FUNCTION__.1703>:
-1c002ca8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a120 <_sidata+0x172d4>
-1c002cac:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d10 <_sidata+0x16ec4>
-1c002cb0:	5f37626f 	bne	$r19,$r15,-51360(0x33760) # 1bff6410 <_start-0x9bf0>
-1c002cb4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e24 <_start-0x61dc>
-1c002cb8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b18 <_sidata+0x6ccc>
-1c002cbc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002ce8 <__FUNCTION__.1703>:
+1c002ce8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a160 <_sidata+0x172d4>
+1c002cec:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d50 <_sidata+0x16ec4>
+1c002cf0:	5f37626f 	bne	$r19,$r15,-51360(0x33760) # 1bff6450 <_start-0x9bb0>
+1c002cf4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e64 <_start-0x619c>
+1c002cf8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b58 <_sidata+0x6ccc>
+1c002cfc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002cc0 <__FUNCTION__.1707>:
-1c002cc0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a138 <_sidata+0x172ec>
-1c002cc4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d28 <_sidata+0x16edc>
-1c002cc8:	5f30636f 	bne	$r27,$r15,-53152(0x33060) # 1bff5d28 <_start-0xa2d8>
-1c002ccc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e3c <_start-0x61c4>
-1c002cd0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b30 <_sidata+0x6ce4>
-1c002cd4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d00 <__FUNCTION__.1707>:
+1c002d00:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a178 <_sidata+0x172ec>
+1c002d04:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d68 <_sidata+0x16edc>
+1c002d08:	5f30636f 	bne	$r27,$r15,-53152(0x33060) # 1bff5d68 <_start-0xa298>
+1c002d0c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e7c <_start-0x6184>
+1c002d10:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b70 <_sidata+0x6ce4>
+1c002d14:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002cd8 <__FUNCTION__.1711>:
-1c002cd8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a150 <_sidata+0x17304>
-1c002cdc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d40 <_sidata+0x16ef4>
-1c002ce0:	5f31636f 	bne	$r27,$r15,-52896(0x33160) # 1bff5e40 <_start-0xa1c0>
-1c002ce4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e54 <_start-0x61ac>
-1c002ce8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b48 <_sidata+0x6cfc>
-1c002cec:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d18 <__FUNCTION__.1711>:
+1c002d18:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a190 <_sidata+0x17304>
+1c002d1c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d80 <_sidata+0x16ef4>
+1c002d20:	5f31636f 	bne	$r27,$r15,-52896(0x33160) # 1bff5e80 <_start-0xa180>
+1c002d24:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e94 <_start-0x616c>
+1c002d28:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b88 <_sidata+0x6cfc>
+1c002d2c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002cf0 <__FUNCTION__.1715>:
-1c002cf0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a168 <_sidata+0x1731c>
-1c002cf4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d58 <_sidata+0x16f0c>
-1c002cf8:	5f32636f 	bne	$r27,$r15,-52640(0x33260) # 1bff5f58 <_start-0xa0a8>
-1c002cfc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e6c <_start-0x6194>
-1c002d00:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b60 <_sidata+0x6d14>
-1c002d04:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d30 <__FUNCTION__.1715>:
+1c002d30:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1a8 <_sidata+0x1731c>
+1c002d34:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d98 <_sidata+0x16f0c>
+1c002d38:	5f32636f 	bne	$r27,$r15,-52640(0x33260) # 1bff5f98 <_start-0xa068>
+1c002d3c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9eac <_start-0x6154>
+1c002d40:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ba0 <_sidata+0x6d14>
+1c002d44:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d08 <__FUNCTION__.1719>:
-1c002d08:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a180 <_sidata+0x17334>
-1c002d0c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d70 <_sidata+0x16f24>
-1c002d10:	5f33636f 	bne	$r27,$r15,-52384(0x33360) # 1bff6070 <_start-0x9f90>
-1c002d14:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e84 <_start-0x617c>
-1c002d18:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b78 <_sidata+0x6d2c>
-1c002d1c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d48 <__FUNCTION__.1719>:
+1c002d48:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1c0 <_sidata+0x17334>
+1c002d4c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019db0 <_sidata+0x16f24>
+1c002d50:	5f33636f 	bne	$r27,$r15,-52384(0x33360) # 1bff60b0 <_start-0x9f50>
+1c002d54:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9ec4 <_start-0x613c>
+1c002d58:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009bb8 <_sidata+0x6d2c>
+1c002d5c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d20 <__FUNCTION__.1723>:
-1c002d20:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a198 <_sidata+0x1734c>
-1c002d24:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019d88 <_sidata+0x16f3c>
-1c002d28:	5f34636f 	bne	$r27,$r15,-52128(0x33460) # 1bff6188 <_start-0x9e78>
-1c002d2c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9e9c <_start-0x6164>
-1c002d30:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009b90 <_sidata+0x6d44>
-1c002d34:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d60 <__FUNCTION__.1723>:
+1c002d60:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1d8 <_sidata+0x1734c>
+1c002d64:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019dc8 <_sidata+0x16f3c>
+1c002d68:	5f34636f 	bne	$r27,$r15,-52128(0x33460) # 1bff61c8 <_start-0x9e38>
+1c002d6c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9edc <_start-0x6124>
+1c002d70:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009bd0 <_sidata+0x6d44>
+1c002d74:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d38 <__FUNCTION__.1727>:
-1c002d38:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1b0 <_sidata+0x17364>
-1c002d3c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019da0 <_sidata+0x16f54>
-1c002d40:	5f35636f 	bne	$r27,$r15,-51872(0x33560) # 1bff62a0 <_start-0x9d60>
-1c002d44:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9eb4 <_start-0x614c>
-1c002d48:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ba8 <_sidata+0x6d5c>
-1c002d4c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d78 <__FUNCTION__.1727>:
+1c002d78:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1f0 <_sidata+0x17364>
+1c002d7c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019de0 <_sidata+0x16f54>
+1c002d80:	5f35636f 	bne	$r27,$r15,-51872(0x33560) # 1bff62e0 <_start-0x9d20>
+1c002d84:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9ef4 <_start-0x610c>
+1c002d88:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009be8 <_sidata+0x6d5c>
+1c002d8c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d50 <__FUNCTION__.1731>:
-1c002d50:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1c8 <_sidata+0x1737c>
-1c002d54:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019db8 <_sidata+0x16f6c>
-1c002d58:	5f36636f 	bne	$r27,$r15,-51616(0x33660) # 1bff63b8 <_start-0x9c48>
-1c002d5c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9ecc <_start-0x6134>
-1c002d60:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009bc0 <_sidata+0x6d74>
-1c002d64:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002d90 <__FUNCTION__.1731>:
+1c002d90:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a208 <_sidata+0x1737c>
+1c002d94:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019df8 <_sidata+0x16f6c>
+1c002d98:	5f36636f 	bne	$r27,$r15,-51616(0x33660) # 1bff63f8 <_start-0x9c08>
+1c002d9c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f0c <_start-0x60f4>
+1c002da0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c00 <_sidata+0x6d74>
+1c002da4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d68 <__FUNCTION__.1735>:
-1c002d68:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1e0 <_sidata+0x17394>
-1c002d6c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019dd0 <_sidata+0x16f84>
-1c002d70:	5f37636f 	bne	$r27,$r15,-51360(0x33760) # 1bff64d0 <_start-0x9b30>
-1c002d74:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9ee4 <_start-0x611c>
-1c002d78:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009bd8 <_sidata+0x6d8c>
-1c002d7c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002da8 <__FUNCTION__.1735>:
+1c002da8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a220 <_sidata+0x17394>
+1c002dac:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e10 <_sidata+0x16f84>
+1c002db0:	5f37636f 	bne	$r27,$r15,-51360(0x33760) # 1bff6510 <_start-0x9af0>
+1c002db4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f24 <_start-0x60dc>
+1c002db8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c18 <_sidata+0x6d8c>
+1c002dbc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d80 <__FUNCTION__.1739>:
-1c002d80:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a1f8 <_sidata+0x173ac>
-1c002d84:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019de8 <_sidata+0x16f9c>
-1c002d88:	5f30646f 	bne	$r3,$r15,-53148(0x33064) # 1bff5dec <_start-0xa214>
-1c002d8c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9efc <_start-0x6104>
-1c002d90:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009bf0 <_sidata+0x6da4>
-1c002d94:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002dc0 <__FUNCTION__.1739>:
+1c002dc0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a238 <_sidata+0x173ac>
+1c002dc4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e28 <_sidata+0x16f9c>
+1c002dc8:	5f30646f 	bne	$r3,$r15,-53148(0x33064) # 1bff5e2c <_start-0xa1d4>
+1c002dcc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f3c <_start-0x60c4>
+1c002dd0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c30 <_sidata+0x6da4>
+1c002dd4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002d98 <__FUNCTION__.1743>:
-1c002d98:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a210 <_sidata+0x173c4>
-1c002d9c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e00 <_sidata+0x16fb4>
-1c002da0:	5f31646f 	bne	$r3,$r15,-52892(0x33164) # 1bff5f04 <_start-0xa0fc>
-1c002da4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f14 <_start-0x60ec>
-1c002da8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c08 <_sidata+0x6dbc>
-1c002dac:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002dd8 <__FUNCTION__.1743>:
+1c002dd8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a250 <_sidata+0x173c4>
+1c002ddc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e40 <_sidata+0x16fb4>
+1c002de0:	5f31646f 	bne	$r3,$r15,-52892(0x33164) # 1bff5f44 <_start-0xa0bc>
+1c002de4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f54 <_start-0x60ac>
+1c002de8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c48 <_sidata+0x6dbc>
+1c002dec:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002db0 <__FUNCTION__.1747>:
-1c002db0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a228 <_sidata+0x173dc>
-1c002db4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e18 <_sidata+0x16fcc>
-1c002db8:	5f32646f 	bne	$r3,$r15,-52636(0x33264) # 1bff601c <_start-0x9fe4>
-1c002dbc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f2c <_start-0x60d4>
-1c002dc0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c20 <_sidata+0x6dd4>
-1c002dc4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002df0 <__FUNCTION__.1747>:
+1c002df0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a268 <_sidata+0x173dc>
+1c002df4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e58 <_sidata+0x16fcc>
+1c002df8:	5f32646f 	bne	$r3,$r15,-52636(0x33264) # 1bff605c <_start-0x9fa4>
+1c002dfc:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f6c <_start-0x6094>
+1c002e00:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c60 <_sidata+0x6dd4>
+1c002e04:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002dc8 <__FUNCTION__.1751>:
-1c002dc8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a240 <_sidata+0x173f4>
-1c002dcc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e30 <_sidata+0x16fe4>
-1c002dd0:	5f33646f 	bne	$r3,$r15,-52380(0x33364) # 1bff6134 <_start-0x9ecc>
-1c002dd4:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f44 <_start-0x60bc>
-1c002dd8:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c38 <_sidata+0x6dec>
-1c002ddc:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e08 <__FUNCTION__.1751>:
+1c002e08:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a280 <_sidata+0x173f4>
+1c002e0c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e70 <_sidata+0x16fe4>
+1c002e10:	5f33646f 	bne	$r3,$r15,-52380(0x33364) # 1bff6174 <_start-0x9e8c>
+1c002e14:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f84 <_start-0x607c>
+1c002e18:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c78 <_sidata+0x6dec>
+1c002e1c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002de0 <__FUNCTION__.1755>:
-1c002de0:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a258 <_sidata+0x1740c>
-1c002de4:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e48 <_sidata+0x16ffc>
-1c002de8:	5f34646f 	bne	$r3,$r15,-52124(0x33464) # 1bff624c <_start-0x9db4>
-1c002dec:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f5c <_start-0x60a4>
-1c002df0:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c50 <_sidata+0x6e04>
-1c002df4:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e20 <__FUNCTION__.1755>:
+1c002e20:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a298 <_sidata+0x1740c>
+1c002e24:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e88 <_sidata+0x16ffc>
+1c002e28:	5f34646f 	bne	$r3,$r15,-52124(0x33464) # 1bff628c <_start-0x9d74>
+1c002e2c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f9c <_start-0x6064>
+1c002e30:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c90 <_sidata+0x6e04>
+1c002e34:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002df8 <__FUNCTION__.1759>:
-1c002df8:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a270 <_sidata+0x17424>
-1c002dfc:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e60 <_sidata+0x17014>
-1c002e00:	5f35646f 	bne	$r3,$r15,-51868(0x33564) # 1bff6364 <_start-0x9c9c>
-1c002e04:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f74 <_start-0x608c>
-1c002e08:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c68 <_sidata+0x6e1c>
-1c002e0c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e38 <__FUNCTION__.1759>:
+1c002e38:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a2b0 <_sidata+0x17424>
+1c002e3c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019ea0 <_sidata+0x17014>
+1c002e40:	5f35646f 	bne	$r3,$r15,-51868(0x33564) # 1bff63a4 <_start-0x9c5c>
+1c002e44:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9fb4 <_start-0x604c>
+1c002e48:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ca8 <_sidata+0x6e1c>
+1c002e4c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002e10 <__FUNCTION__.1763>:
-1c002e10:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a288 <_sidata+0x1743c>
-1c002e14:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e78 <_sidata+0x1702c>
-1c002e18:	5f36646f 	bne	$r3,$r15,-51612(0x33664) # 1bff647c <_start-0x9b84>
-1c002e1c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9f8c <_start-0x6074>
-1c002e20:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c80 <_sidata+0x6e34>
-1c002e24:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e50 <__FUNCTION__.1763>:
+1c002e50:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a2c8 <_sidata+0x1743c>
+1c002e54:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019eb8 <_sidata+0x1702c>
+1c002e58:	5f36646f 	bne	$r3,$r15,-51612(0x33664) # 1bff64bc <_start-0x9b44>
+1c002e5c:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9fcc <_start-0x6034>
+1c002e60:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009cc0 <_sidata+0x6e34>
+1c002e64:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002e28 <__FUNCTION__.1767>:
-1c002e28:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a2a0 <_sidata+0x17454>
-1c002e2c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019e90 <_sidata+0x17044>
-1c002e30:	5f37646f 	bne	$r3,$r15,-51356(0x33764) # 1bff6594 <_start-0x9a6c>
-1c002e34:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9fa4 <_start-0x605c>
-1c002e38:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009c98 <_sidata+0x6e4c>
-1c002e3c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e68 <__FUNCTION__.1767>:
+1c002e68:	69747865 	bltu	$r3,$r5,95352(0x17478) # 1c01a2e0 <_sidata+0x17454>
+1c002e6c:	6970675f 	bltu	$r26,$r31,94308(0x17064) # 1c019ed0 <_sidata+0x17044>
+1c002e70:	5f37646f 	bne	$r3,$r15,-51356(0x33764) # 1bff65d4 <_start-0x9a2c>
+1c002e74:	5f717269 	bne	$r19,$r9,-36496(0x37170) # 1bff9fe4 <_start-0x601c>
+1c002e78:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009cd8 <_sidata+0x6e4c>
+1c002e7c:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
-1c002e40 <__FUNCTION__.1776>:
-1c002e40:	5f747865 	bne	$r3,$r5,-35720(0x37478) # 1bffa2b8 <_start-0x5d48>
-1c002e44:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ca4 <_sidata+0x6e58>
-1c002e48:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
+1c002e80 <__FUNCTION__.1776>:
+1c002e80:	5f747865 	bne	$r3,$r5,-35720(0x37478) # 1bffa2f8 <_start-0x5d08>
+1c002e84:	646e6168 	bge	$r11,$r8,28256(0x6e60) # 1c009ce4 <_sidata+0x6e58>
+1c002e88:	0072656c 	bstrins.w	$r12,$r11,0x12,0x19
 
 Disassembly of section .bss.state:
 

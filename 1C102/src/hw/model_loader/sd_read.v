@@ -165,7 +165,7 @@ always @(posedge clk_ref) begin
             end
             4'd2 : begin
                 //拉高rd_data_flag信号,准备接收数据
-                rd_data_flag <= 1'b1;
+                rd_data_flag <= 1'b1; 
                 if(rx_finish_en) begin                      //数据接收完成
                     rd_ctrl_cnt <= rd_ctrl_cnt + 4'd1;
                     rd_data_flag <= 1'b0;

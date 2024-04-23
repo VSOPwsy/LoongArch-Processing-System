@@ -76,7 +76,10 @@ reg                         start;
 reg  [ADDR_WIDTH-1:0]       sd_addr_base;
 reg  [16:0]                 sd_sec_num;
 reg  [ADDR_WIDTH-1:0]       ddr_addr_base;
-reg                         done;       
+reg                         done;      
+reg  [2:0]                  apb_reg_addr;
+reg  [APB_DATA_WIDTH-1:0]   apb_reg_wdata;
+reg                         apb_reg_wen;
 
 apb_register_if # (
     .REG_NUM(REG_NUM)

@@ -461,64 +461,31 @@ START:
 
 #define LED *(volatile int32_t*)0xbff00000
 #define DDR_TEST *(volatile int32_t*)0x40000000
+#define SD_INIT_REG *(volatile int32_t*)0xbfec0000
+#define SD_BASE_ADDR_REG *(volatile int32_t*)0xbfec0004
+
 volatile int num = 0; 
 
 int main(void) {
-
-    // EnableInt();// 开总中断
-
-	// UART_FIFO_CTRL = 0x05;// baud_rate = 19200, enable parity check
-    // my_delay_ms(2000);// delay 2000ms at least after modifying UART_FIFO_CTRL. delay 1000ms is false.
-    
-    // soc_printf("\r\n");
-    // my_delay_ms(25);
-    
-    // uint8_t *str0 = "ABCD";
-    // soc_printf("str0 = %s\r\n", str0);
-	// my_delay_ms(25);// delay 25ms at least between two soc_printf.
-    // // soc_printf("str0 = %s over 16 char\r\n", str0);// sending more than 16 characters at once will get stuck
-    // // my_delay_ms(25);
-    
-	// /*
-    // uint8_t buf0[4] = {"ABCD"};
-    // soc_printf("strlen = %d\r\n", sizeof(buf0));
-    // my_delay_ms(25);
-    // // soc_printf("buf0 = %s\r\n", buf0);// there is an error with printing the character array
-    // // my_delay_ms(25);
-    
-    // for(volatile int i = 0; i < 4; i++)
-    // {
-    //     soc_printf("buf0 = %c\r\n", buf0[i]);
-    //     my_delay_ms(25);
-    // }
-
-    // uint8_t buf1[4];
-    // memset(buf1, 0x1, 4);
-    // for(volatile int i = 0; i < 4; i++)
-    // {
-    //     soc_printf("buf1 = %d\r\n", buf1[i]);
-    //     my_delay_ms(25);
-    // }
-	// */
-
-    // uint8_t buf0[4] = "ABCD";
-    // soc_printf("len = %d\r\n", sizeof(buf0));
-	// my_delay_ms(25);
-
-	// volatile int num = 8;
-    // soc_printf("num = %d\r\n", num);
-    // my_delay_ms(25);
-
-	// uart1_interrupt();
 	my_delay_ms(1000);
-	volatile uint32_t a = 0;
-    while(1) {
-		DDR_TEST = a;
-		if (DDR_TEST == a)
+	LED = (uint32_t)0x00000007;
+	while (SD_INIT_REG == 0);
+
+	LED = (uint32_t)0x00000006;
+
+	SD_BASE_ADDR_REG = (uint32_t)0x12345678;
+	LED = (uint32_t)0x00000004;
+
+	if (SD_BASE_ADDR_REG == (uint32_t)0x12345678)
+	{
+		while (1)
 		{
-			LED ^= (int32_t)0x00000001;
+			LED ^= (uint32_t)0x00000004;
+			my_delay_ms(1000);
 		}
-		my_delay_ms(100);
+	}
+
+    while(1) {
     }
 
     return 0;
