@@ -12,7 +12,7 @@
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>sd_mosi</Signal>
+                    <Signal>sd_read_para_top_inst/sd_init_done</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>

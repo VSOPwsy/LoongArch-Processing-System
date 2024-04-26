@@ -50,8 +50,6 @@ D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/bui
 Allocating common symbols
 Common symbol       size              file
 
-nmi_caller          0x4               main.o
-state               0x4               main.o
 exti_irq_handle     0x80              main.o
 STS                 0x1               ls1c102_i2c.o
 _rand_next          0x4               ls1x_printf.o
@@ -324,25 +322,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 soc_printf.o
  .data          0x0000000000000000        0x0 soc_printf.o
  .bss           0x0000000000000000        0x0 soc_printf.o
- .text.soc_myputchar
-                0x0000000000000000       0x38 soc_printf.o
- .text.soc_puts
-                0x0000000000000000       0x58 soc_printf.o
- .text.soc_printbase
-                0x0000000000000000       0xf0 soc_printf.o
- .text.soc_myprintf
-                0x0000000000000000      0x250 soc_printf.o
- .rodata.soc_myprintf
-                0x0000000000000000      0x150 soc_printf.o
- .debug_info    0x0000000000000000      0x371 soc_printf.o
- .debug_abbrev  0x0000000000000000      0x15e soc_printf.o
- .debug_loc     0x0000000000000000      0x374 soc_printf.o
- .debug_aranges
-                0x0000000000000000       0x38 soc_printf.o
- .debug_ranges  0x0000000000000000       0x28 soc_printf.o
- .debug_line    0x0000000000000000      0x3c4 soc_printf.o
- .debug_str     0x0000000000000000      0x1ef soc_printf.o
- .comment       0x0000000000000000       0x12 soc_printf.o
  .eh_frame      0x0000000000000000       0xb0 soc_printf.o
  .text          0x0000000000000000        0x0 soc_pwm.o
  .data          0x0000000000000000        0x0 soc_pwm.o
@@ -497,33 +476,12 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 soc_gpio.o
  .text.gpio_init
                 0x0000000000000000       0x84 soc_gpio.o
- .text.gpio_write
-                0x0000000000000000       0x84 soc_gpio.o
  .text.gpio_read
                 0x0000000000000000       0x58 soc_gpio.o
- .debug_info    0x0000000000000000      0x321 soc_gpio.o
- .debug_abbrev  0x0000000000000000       0xff soc_gpio.o
- .debug_loc     0x0000000000000000      0x269 soc_gpio.o
- .debug_aranges
-                0x0000000000000000       0x30 soc_gpio.o
- .debug_ranges  0x0000000000000000       0x20 soc_gpio.o
- .debug_line    0x0000000000000000      0x1ee soc_gpio.o
- .debug_str     0x0000000000000000      0x2f8 soc_gpio.o
- .comment       0x0000000000000000       0x12 soc_gpio.o
  .eh_frame      0x0000000000000000       0x50 soc_gpio.o
  .text          0x0000000000000000        0x0 soc_uart.o
  .data          0x0000000000000000        0x0 soc_uart.o
  .bss           0x0000000000000000        0x0 soc_uart.o
- .text.uart1_interrupt
-                0x0000000000000000       0x18 soc_uart.o
- .debug_info    0x0000000000000000       0xf3 soc_uart.o
- .debug_abbrev  0x0000000000000000       0x89 soc_uart.o
- .debug_aranges
-                0x0000000000000000       0x20 soc_uart.o
- .debug_ranges  0x0000000000000000       0x10 soc_uart.o
- .debug_line    0x0000000000000000       0xa6 soc_uart.o
- .debug_str     0x0000000000000000      0x204 soc_uart.o
- .comment       0x0000000000000000       0x12 soc_uart.o
  .eh_frame      0x0000000000000000       0x28 soc_uart.o
  .text          0x0000000000000000        0x0 ls1x_exti.o
  .data          0x0000000000000000        0x0 ls1x_exti.o
@@ -764,6 +722,8 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 uartTest.o
  .text.recv_buf_init
                 0x0000000000000000       0x4c uartTest.o
+ .text.recv_dat_int
+                0x0000000000000000       0x34 uartTest.o
  .rodata.test_uart_recv.str1.4
                 0x0000000000000000       0x11 uartTest.o
  .text.test_uart_recv
@@ -772,8 +732,21 @@ Discarded input sections
                 0x0000000000000000        0xe uartTest.o
  .text.test_uart_send
                 0x0000000000000000       0x60 uartTest.o
+ .bss.g_recvBuff
+                0x0000000000000000       0x14 uartTest.o
  .bss.g_recvCache
                 0x0000000000000000      0x100 uartTest.o
+ .bss.g_recv_flag
+                0x0000000000000000        0x4 uartTest.o
+ .debug_info    0x0000000000000000      0x43e uartTest.o
+ .debug_abbrev  0x0000000000000000      0x186 uartTest.o
+ .debug_loc     0x0000000000000000       0x48 uartTest.o
+ .debug_aranges
+                0x0000000000000000       0x38 uartTest.o
+ .debug_ranges  0x0000000000000000       0x28 uartTest.o
+ .debug_line    0x0000000000000000      0x386 uartTest.o
+ .debug_str     0x0000000000000000      0x36c uartTest.o
+ .comment       0x0000000000000000       0x12 uartTest.o
  .eh_frame      0x0000000000000000       0x8c uartTest.o
  .text          0x0000000000000000        0x0 Buffer.o
  .data          0x0000000000000000        0x0 Buffer.o
@@ -796,6 +769,8 @@ Discarded input sections
                 0x0000000000000000       0x60 Buffer.o
  .text.Buffer_readInt
                 0x0000000000000000       0x58 Buffer.o
+ .text.Buffer_write
+                0x0000000000000000       0x54 Buffer.o
  .text.Buffer_writeShort
                 0x0000000000000000       0x58 Buffer.o
  .text.Buffer_writeInt
@@ -804,6 +779,15 @@ Discarded input sections
                 0x0000000000000000       0x54 Buffer.o
  .text.Buffer_readHexChar
                 0x0000000000000000       0x7c Buffer.o
+ .debug_info    0x0000000000000000      0x5d3 Buffer.o
+ .debug_abbrev  0x0000000000000000      0x157 Buffer.o
+ .debug_loc     0x0000000000000000      0x5d3 Buffer.o
+ .debug_aranges
+                0x0000000000000000       0x88 Buffer.o
+ .debug_ranges  0x0000000000000000       0x78 Buffer.o
+ .debug_line    0x0000000000000000      0x6f6 Buffer.o
+ .debug_str     0x0000000000000000      0x369 Buffer.o
+ .comment       0x0000000000000000       0x12 Buffer.o
  .eh_frame      0x0000000000000000      0x1a0 Buffer.o
  .text          0x0000000000000000        0x0 main.o
  .data          0x0000000000000000        0x0 main.o
@@ -815,14 +799,12 @@ Discarded input sections
  .rodata.cmdline.str1.4
                 0x0000000000000000        0x4 main.o
  .text.cmdline  0x0000000000000000      0x878 main.o
- .text.UART1_HANDLER
-                0x0000000000000000       0x28 main.o
  .bss.num       0x0000000000000000        0x4 main.o
  .rodata.str1.4
                 0x0000000000000000      0x337 main.o
  .rodata        0x0000000000000000      0x1e0 main.o
  .eh_frame      0x0000000000000000       0xbc main.o
- COMMON         0x0000000000000000       0x88 main.o
+ COMMON         0x0000000000000000       0x80 main.o
  .text          0x0000000000000000        0x0 1c102_cmd.o
  .data          0x0000000000000000        0x0 1c102_cmd.o
  .bss           0x0000000000000000        0x0 1c102_cmd.o
@@ -1267,7 +1249,7 @@ dram             0x0000000080001000 0x0000000000001000 rw
 Linker script and memory map
 
 
-.text           0x000000001c000000     0x20dc
+.text           0x000000001c000000     0x2584
                 0x000000001c000000                . = ALIGN (0x4)
  *(.text .text.*)
  .text._start   0x000000001c000000     0x1128 start.o
@@ -1279,8 +1261,9 @@ Linker script and memory map
  .text.printbase
                 0x000000001c001148       0xf0 ls1x_printf.o
                 0x000000001c001148                printbase
- .text.puts     0x000000001c001238       0x58 ls1x_printf.o
-                0x000000001c001238                puts
+ .text.ls1x_puts
+                0x000000001c001238       0x58 ls1x_printf.o
+                0x000000001c001238                ls1x_puts
  .text.myprintf
                 0x000000001c001290      0x208 ls1x_printf.o
                 0x000000001c001290                myprintf
@@ -1296,245 +1279,265 @@ Linker script and memory map
  .text.Set_Timer_clear
                 0x000000001c0014c0        0xc ls1x_common.o
                 0x000000001c0014c0                Set_Timer_clear
+ .text.soc_myputchar
+                0x000000001c0014cc       0x38 soc_printf.o
+                0x000000001c0014cc                soc_myputchar
+ .text.soc_puts
+                0x000000001c001504       0x58 soc_printf.o
+                0x000000001c001504                soc_puts
+ .text.soc_printbase
+                0x000000001c00155c       0xf0 soc_printf.o
+                0x000000001c00155c                soc_printbase
+ .text.soc_myprintf
+                0x000000001c00164c      0x250 soc_printf.o
+                0x000000001c00164c                soc_myprintf
+ .text.gpio_write
+                0x000000001c00189c       0x84 soc_gpio.o
+                0x000000001c00189c                gpio_write
+ .text.uart1_interrupt
+                0x000000001c001920       0x18 soc_uart.o
+                0x000000001c001920                uart1_interrupt
  .text.EXTI_ClearITPendingBit
-                0x000000001c0014cc       0x10 ls1x_exti.o
-                0x000000001c0014cc                EXTI_ClearITPendingBit
+                0x000000001c001938       0x10 ls1x_exti.o
+                0x000000001c001938                EXTI_ClearITPendingBit
  .text.WDG_DogFeed
-                0x000000001c0014dc       0x14 ls1x_wdg.o
-                0x000000001c0014dc                WDG_DogFeed
+                0x000000001c001948       0x14 ls1x_wdg.o
+                0x000000001c001948                WDG_DogFeed
  .text.TIM_GetITStatus
-                0x000000001c0014f0       0x18 ls1c102_ptimer.o
-                0x000000001c0014f0                TIM_GetITStatus
+                0x000000001c00195c       0x18 ls1c102_ptimer.o
+                0x000000001c00195c                TIM_GetITStatus
  .text.TIM_ClearIT
-                0x000000001c001508       0x2c ls1c102_ptimer.o
-                0x000000001c001508                TIM_ClearIT
- .text.recv_dat_int
-                0x000000001c001534       0x34 uartTest.o
-                0x000000001c001534                recv_dat_int
- .text.Buffer_write
-                0x000000001c001568       0x54 Buffer.o
-                0x000000001c001568                Buffer_write
- .text.main     0x000000001c0015bc       0xec main.o
-                0x000000001c0015bc                main
+                0x000000001c001974       0x2c ls1c102_ptimer.o
+                0x000000001c001974                TIM_ClearIT
+ .text.main     0x000000001c0019a0      0x140 main.o
+                0x000000001c0019a0                main
+ .text.UART1_HANDLER
+                0x000000001c001ae0       0x28 main.o
+                0x000000001c001ae0                UART1_HANDLER
  .text.exti_gpioa0_irq_handler
-                0x000000001c0016a8       0x3c 1c102_Interrupt.o
-                0x000000001c0016a8                exti_gpioa0_irq_handler
+                0x000000001c001b08       0x3c 1c102_Interrupt.o
+                0x000000001c001b08                exti_gpioa0_irq_handler
  .text.exti_gpioa1_irq_handler
-                0x000000001c0016e4       0x3c 1c102_Interrupt.o
-                0x000000001c0016e4                exti_gpioa1_irq_handler
+                0x000000001c001b44       0x3c 1c102_Interrupt.o
+                0x000000001c001b44                exti_gpioa1_irq_handler
  .text.exti_gpioa2_irq_handler
-                0x000000001c001720       0x3c 1c102_Interrupt.o
-                0x000000001c001720                exti_gpioa2_irq_handler
+                0x000000001c001b80       0x3c 1c102_Interrupt.o
+                0x000000001c001b80                exti_gpioa2_irq_handler
  .text.exti_gpioa3_irq_handler
-                0x000000001c00175c       0x3c 1c102_Interrupt.o
-                0x000000001c00175c                exti_gpioa3_irq_handler
+                0x000000001c001bbc       0x3c 1c102_Interrupt.o
+                0x000000001c001bbc                exti_gpioa3_irq_handler
  .text.exti_gpioa4_irq_handler
-                0x000000001c001798       0x3c 1c102_Interrupt.o
-                0x000000001c001798                exti_gpioa4_irq_handler
+                0x000000001c001bf8       0x3c 1c102_Interrupt.o
+                0x000000001c001bf8                exti_gpioa4_irq_handler
  .text.exti_gpioa5_irq_handler
-                0x000000001c0017d4       0x3c 1c102_Interrupt.o
-                0x000000001c0017d4                exti_gpioa5_irq_handler
+                0x000000001c001c34       0x3c 1c102_Interrupt.o
+                0x000000001c001c34                exti_gpioa5_irq_handler
  .text.exti_gpioa6_irq_handler
-                0x000000001c001810       0x3c 1c102_Interrupt.o
-                0x000000001c001810                exti_gpioa6_irq_handler
+                0x000000001c001c70       0x3c 1c102_Interrupt.o
+                0x000000001c001c70                exti_gpioa6_irq_handler
  .text.exti_gpioa7_irq_handler
-                0x000000001c00184c       0x3c 1c102_Interrupt.o
-                0x000000001c00184c                exti_gpioa7_irq_handler
+                0x000000001c001cac       0x3c 1c102_Interrupt.o
+                0x000000001c001cac                exti_gpioa7_irq_handler
  .text.exti_gpiob0_irq_handler
-                0x000000001c001888       0x3c 1c102_Interrupt.o
-                0x000000001c001888                exti_gpiob0_irq_handler
+                0x000000001c001ce8       0x3c 1c102_Interrupt.o
+                0x000000001c001ce8                exti_gpiob0_irq_handler
  .text.exti_gpiob1_irq_handler
-                0x000000001c0018c4       0x3c 1c102_Interrupt.o
-                0x000000001c0018c4                exti_gpiob1_irq_handler
+                0x000000001c001d24       0x3c 1c102_Interrupt.o
+                0x000000001c001d24                exti_gpiob1_irq_handler
  .text.exti_gpiob2_irq_handler
-                0x000000001c001900       0x3c 1c102_Interrupt.o
-                0x000000001c001900                exti_gpiob2_irq_handler
+                0x000000001c001d60       0x3c 1c102_Interrupt.o
+                0x000000001c001d60                exti_gpiob2_irq_handler
  .text.exti_gpiob3_irq_handler
-                0x000000001c00193c       0x3c 1c102_Interrupt.o
-                0x000000001c00193c                exti_gpiob3_irq_handler
+                0x000000001c001d9c       0x3c 1c102_Interrupt.o
+                0x000000001c001d9c                exti_gpiob3_irq_handler
  .text.exti_gpiob4_irq_handler
-                0x000000001c001978       0x3c 1c102_Interrupt.o
-                0x000000001c001978                exti_gpiob4_irq_handler
+                0x000000001c001dd8       0x3c 1c102_Interrupt.o
+                0x000000001c001dd8                exti_gpiob4_irq_handler
  .text.exti_gpiob5_irq_handler
-                0x000000001c0019b4       0x3c 1c102_Interrupt.o
-                0x000000001c0019b4                exti_gpiob5_irq_handler
+                0x000000001c001e14       0x3c 1c102_Interrupt.o
+                0x000000001c001e14                exti_gpiob5_irq_handler
  .text.exti_gpiob6_irq_handler
-                0x000000001c0019f0       0x3c 1c102_Interrupt.o
-                0x000000001c0019f0                exti_gpiob6_irq_handler
+                0x000000001c001e50       0x3c 1c102_Interrupt.o
+                0x000000001c001e50                exti_gpiob6_irq_handler
  .text.exti_gpiob7_irq_handler
-                0x000000001c001a2c       0x3c 1c102_Interrupt.o
-                0x000000001c001a2c                exti_gpiob7_irq_handler
+                0x000000001c001e8c       0x3c 1c102_Interrupt.o
+                0x000000001c001e8c                exti_gpiob7_irq_handler
  .text.exti_gpioc0_irq_handler
-                0x000000001c001a68       0x3c 1c102_Interrupt.o
-                0x000000001c001a68                exti_gpioc0_irq_handler
+                0x000000001c001ec8       0x3c 1c102_Interrupt.o
+                0x000000001c001ec8                exti_gpioc0_irq_handler
  .text.exti_gpioc1_irq_handler
-                0x000000001c001aa4       0x3c 1c102_Interrupt.o
-                0x000000001c001aa4                exti_gpioc1_irq_handler
+                0x000000001c001f04       0x3c 1c102_Interrupt.o
+                0x000000001c001f04                exti_gpioc1_irq_handler
  .text.exti_gpioc2_irq_handler
-                0x000000001c001ae0       0x3c 1c102_Interrupt.o
-                0x000000001c001ae0                exti_gpioc2_irq_handler
+                0x000000001c001f40       0x3c 1c102_Interrupt.o
+                0x000000001c001f40                exti_gpioc2_irq_handler
  .text.exti_gpioc3_irq_handler
-                0x000000001c001b1c       0x3c 1c102_Interrupt.o
-                0x000000001c001b1c                exti_gpioc3_irq_handler
+                0x000000001c001f7c       0x3c 1c102_Interrupt.o
+                0x000000001c001f7c                exti_gpioc3_irq_handler
  .text.exti_gpioc4_irq_handler
-                0x000000001c001b58       0x3c 1c102_Interrupt.o
-                0x000000001c001b58                exti_gpioc4_irq_handler
+                0x000000001c001fb8       0x3c 1c102_Interrupt.o
+                0x000000001c001fb8                exti_gpioc4_irq_handler
  .text.exti_gpioc5_irq_handler
-                0x000000001c001b94       0x3c 1c102_Interrupt.o
-                0x000000001c001b94                exti_gpioc5_irq_handler
+                0x000000001c001ff4       0x3c 1c102_Interrupt.o
+                0x000000001c001ff4                exti_gpioc5_irq_handler
  .text.exti_gpioc6_irq_handler
-                0x000000001c001bd0       0x3c 1c102_Interrupt.o
-                0x000000001c001bd0                exti_gpioc6_irq_handler
+                0x000000001c002030       0x3c 1c102_Interrupt.o
+                0x000000001c002030                exti_gpioc6_irq_handler
  .text.exti_gpioc7_irq_handler
-                0x000000001c001c0c       0x3c 1c102_Interrupt.o
-                0x000000001c001c0c                exti_gpioc7_irq_handler
+                0x000000001c00206c       0x3c 1c102_Interrupt.o
+                0x000000001c00206c                exti_gpioc7_irq_handler
  .text.exti_gpiod0_irq_handler
-                0x000000001c001c48       0x3c 1c102_Interrupt.o
-                0x000000001c001c48                exti_gpiod0_irq_handler
+                0x000000001c0020a8       0x3c 1c102_Interrupt.o
+                0x000000001c0020a8                exti_gpiod0_irq_handler
  .text.exti_gpiod1_irq_handler
-                0x000000001c001c84       0x3c 1c102_Interrupt.o
-                0x000000001c001c84                exti_gpiod1_irq_handler
+                0x000000001c0020e4       0x3c 1c102_Interrupt.o
+                0x000000001c0020e4                exti_gpiod1_irq_handler
  .text.exti_gpiod2_irq_handler
-                0x000000001c001cc0       0x3c 1c102_Interrupt.o
-                0x000000001c001cc0                exti_gpiod2_irq_handler
+                0x000000001c002120       0x3c 1c102_Interrupt.o
+                0x000000001c002120                exti_gpiod2_irq_handler
  .text.exti_gpiod3_irq_handler
-                0x000000001c001cfc       0x3c 1c102_Interrupt.o
-                0x000000001c001cfc                exti_gpiod3_irq_handler
+                0x000000001c00215c       0x3c 1c102_Interrupt.o
+                0x000000001c00215c                exti_gpiod3_irq_handler
  .text.exti_gpiod4_irq_handler
-                0x000000001c001d38       0x3c 1c102_Interrupt.o
-                0x000000001c001d38                exti_gpiod4_irq_handler
+                0x000000001c002198       0x3c 1c102_Interrupt.o
+                0x000000001c002198                exti_gpiod4_irq_handler
  .text.exti_gpiod5_irq_handler
-                0x000000001c001d74       0x3c 1c102_Interrupt.o
-                0x000000001c001d74                exti_gpiod5_irq_handler
+                0x000000001c0021d4       0x3c 1c102_Interrupt.o
+                0x000000001c0021d4                exti_gpiod5_irq_handler
  .text.exti_gpiod6_irq_handler
-                0x000000001c001db0       0x3c 1c102_Interrupt.o
-                0x000000001c001db0                exti_gpiod6_irq_handler
+                0x000000001c002210       0x3c 1c102_Interrupt.o
+                0x000000001c002210                exti_gpiod6_irq_handler
  .text.exti_gpiod7_irq_handler
-                0x000000001c001dec       0x3c 1c102_Interrupt.o
-                0x000000001c001dec                exti_gpiod7_irq_handler
+                0x000000001c00224c       0x3c 1c102_Interrupt.o
+                0x000000001c00224c                exti_gpiod7_irq_handler
  .text.ext_handler
-                0x000000001c001e28       0x98 1c102_Interrupt.o
-                0x000000001c001e28                ext_handler
+                0x000000001c002288       0x98 1c102_Interrupt.o
+                0x000000001c002288                ext_handler
  .text.TIMER_WAKE_INT
-                0x000000001c001ec0       0x30 1c102_Interrupt.o
-                0x000000001c001ec0                TIMER_WAKE_INT
- .text.TOUCH    0x000000001c001ef0       0x4c 1c102_Interrupt.o
-                0x000000001c001ef0                TOUCH
+                0x000000001c002320       0x30 1c102_Interrupt.o
+                0x000000001c002320                TIMER_WAKE_INT
+ .text.TOUCH    0x000000001c002350       0x4c 1c102_Interrupt.o
+                0x000000001c002350                TOUCH
  .text.UART2_INT
-                0x000000001c001f3c       0x20 1c102_Interrupt.o
-                0x000000001c001f3c                UART2_INT
+                0x000000001c00239c       0x20 1c102_Interrupt.o
+                0x000000001c00239c                UART2_INT
  .text.BAT_FAIL
-                0x000000001c001f5c       0x90 1c102_Interrupt.o
-                0x000000001c001f5c                BAT_FAIL
+                0x000000001c0023bc       0x90 1c102_Interrupt.o
+                0x000000001c0023bc                BAT_FAIL
  .text.intc_handler
-                0x000000001c001fec       0xc8 1c102_Interrupt.o
-                0x000000001c001fec                intc_handler
+                0x000000001c00244c      0x110 1c102_Interrupt.o
+                0x000000001c00244c                intc_handler
  .text.TIMER_HANDLER
-                0x000000001c0020b4       0x28 1c102_Interrupt.o
-                0x000000001c0020b4                TIMER_HANDLER
-                0x000000001c0020dc                . = ALIGN (0x4)
-                0x000000001c0020dc                _etext = .
+                0x000000001c00255c       0x28 1c102_Interrupt.o
+                0x000000001c00255c                TIMER_HANDLER
+                0x000000001c002584                . = ALIGN (0x4)
+                0x000000001c002584                _etext = .
 
-.rodata         0x000000001c0020dc      0x5c4
-                0x000000001c0020dc                . = ALIGN (0x4)
+.rodata         0x000000001c002584      0x704
+                0x000000001c002584                . = ALIGN (0x4)
  *(.rodata .rodata.*)
  .rodata.myprintf
-                0x000000001c0020dc      0x150 ls1x_printf.o
+                0x000000001c002584      0x150 ls1x_printf.o
+ .rodata.soc_myprintf
+                0x000000001c0026d4      0x150 soc_printf.o
+ .rodata.main.str1.4
+                0x000000001c002824       0x2b main.o
+                                         0x2f (size before relaxing)
+ *fill*         0x000000001c00284f        0x1 
  .rodata.exti_gpioa0_irq_handler.str1.4
-                0x000000001c00222c       0x1d 1c102_Interrupt.o
- *fill*         0x000000001c002249        0x3 
+                0x000000001c002850       0x1d 1c102_Interrupt.o
+ *fill*         0x000000001c00286d        0x3 
  .rodata.TOUCH.str1.4
-                0x000000001c00224c       0x1e 1c102_Interrupt.o
- *fill*         0x000000001c00226a        0x2 
+                0x000000001c002870       0x1e 1c102_Interrupt.o
+ *fill*         0x000000001c00288e        0x2 
  .rodata.BAT_FAIL.str1.4
-                0x000000001c00226c       0x4a 1c102_Interrupt.o
- *fill*         0x000000001c0022b6        0x2 
- .rodata.intc_handler.str1.4
-                0x000000001c0022b8       0x39 1c102_Interrupt.o
- *fill*         0x000000001c0022f1        0x3 
+                0x000000001c002890       0x4a 1c102_Interrupt.o
+ *fill*         0x000000001c0028da        0x2 
  .rodata.TIMER_HANDLER.str1.4
-                0x000000001c0022f4       0x20 1c102_Interrupt.o
+                0x000000001c0028dc       0x20 1c102_Interrupt.o
                                          0x1e (size before relaxing)
  .rodata.__FUNCTION__.1776
-                0x000000001c002314        0xc 1c102_Interrupt.o
+                0x000000001c0028fc        0xc 1c102_Interrupt.o
  .rodata.__FUNCTION__.1767
-                0x000000001c002320       0x18 1c102_Interrupt.o
+                0x000000001c002908       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1763
-                0x000000001c002338       0x18 1c102_Interrupt.o
+                0x000000001c002920       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1759
-                0x000000001c002350       0x18 1c102_Interrupt.o
+                0x000000001c002938       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1755
-                0x000000001c002368       0x18 1c102_Interrupt.o
+                0x000000001c002950       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1751
-                0x000000001c002380       0x18 1c102_Interrupt.o
+                0x000000001c002968       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1747
-                0x000000001c002398       0x18 1c102_Interrupt.o
+                0x000000001c002980       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1743
-                0x000000001c0023b0       0x18 1c102_Interrupt.o
+                0x000000001c002998       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1739
-                0x000000001c0023c8       0x18 1c102_Interrupt.o
+                0x000000001c0029b0       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1735
-                0x000000001c0023e0       0x18 1c102_Interrupt.o
+                0x000000001c0029c8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1731
-                0x000000001c0023f8       0x18 1c102_Interrupt.o
+                0x000000001c0029e0       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1727
-                0x000000001c002410       0x18 1c102_Interrupt.o
+                0x000000001c0029f8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1723
-                0x000000001c002428       0x18 1c102_Interrupt.o
+                0x000000001c002a10       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1719
-                0x000000001c002440       0x18 1c102_Interrupt.o
+                0x000000001c002a28       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1715
-                0x000000001c002458       0x18 1c102_Interrupt.o
+                0x000000001c002a40       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1711
-                0x000000001c002470       0x18 1c102_Interrupt.o
+                0x000000001c002a58       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1707
-                0x000000001c002488       0x18 1c102_Interrupt.o
+                0x000000001c002a70       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1703
-                0x000000001c0024a0       0x18 1c102_Interrupt.o
+                0x000000001c002a88       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1699
-                0x000000001c0024b8       0x18 1c102_Interrupt.o
+                0x000000001c002aa0       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1695
-                0x000000001c0024d0       0x18 1c102_Interrupt.o
+                0x000000001c002ab8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1691
-                0x000000001c0024e8       0x18 1c102_Interrupt.o
+                0x000000001c002ad0       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1687
-                0x000000001c002500       0x18 1c102_Interrupt.o
+                0x000000001c002ae8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1683
-                0x000000001c002518       0x18 1c102_Interrupt.o
+                0x000000001c002b00       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1679
-                0x000000001c002530       0x18 1c102_Interrupt.o
+                0x000000001c002b18       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1675
-                0x000000001c002548       0x18 1c102_Interrupt.o
+                0x000000001c002b30       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1671
-                0x000000001c002560       0x18 1c102_Interrupt.o
+                0x000000001c002b48       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1667
-                0x000000001c002578       0x18 1c102_Interrupt.o
+                0x000000001c002b60       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1663
-                0x000000001c002590       0x18 1c102_Interrupt.o
+                0x000000001c002b78       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1659
-                0x000000001c0025a8       0x18 1c102_Interrupt.o
+                0x000000001c002b90       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1655
-                0x000000001c0025c0       0x18 1c102_Interrupt.o
+                0x000000001c002ba8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1651
-                0x000000001c0025d8       0x18 1c102_Interrupt.o
+                0x000000001c002bc0       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1647
-                0x000000001c0025f0       0x18 1c102_Interrupt.o
+                0x000000001c002bd8       0x18 1c102_Interrupt.o
  .rodata.__FUNCTION__.1643
-                0x000000001c002608       0x18 1c102_Interrupt.o
+                0x000000001c002bf0       0x18 1c102_Interrupt.o
  .rodata.Ext_IrqHandle
-                0x000000001c002620       0x80 1c102_Interrupt.o
-                0x000000001c002620                Ext_IrqHandle
-                0x000000001c0026a0                . = ALIGN (0x4)
-                0x000000001c0026a0                _sidata = ALIGN (., 0x4)
-                0x000000001c0026a0                . = ALIGN (0x4)
+                0x000000001c002c08       0x80 1c102_Interrupt.o
+                0x000000001c002c08                Ext_IrqHandle
+                0x000000001c002c88                . = ALIGN (0x4)
+                0x000000001c002c88                _sidata = ALIGN (., 0x4)
+                0x000000001c002c88                . = ALIGN (0x4)
 
-.rela.dyn       0x000000001c0026a0        0x0
+.rela.dyn       0x000000001c002c88        0x0
  .rela.rodata.myprintf
-                0x000000001c0026a0        0x0 start.o
+                0x000000001c002c88        0x0 start.o
+ .rela.rodata.soc_myprintf
+                0x000000001c002c88        0x0 start.o
  .rela.rodata.Ext_IrqHandle
-                0x000000001c0026a0        0x0 start.o
+                0x000000001c002c88        0x0 start.o
 
-.data           0x0000000080001000        0x0 load address 0x000000001c0026a0
+.data           0x0000000080001000        0x0 load address 0x000000001c002c88
                 0x0000000080001000                _sdata = .
                 0x0000000080001000                . = ALIGN (0x4)
  *(.got.plt)
@@ -1596,56 +1599,53 @@ LOAD D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAID
 LOAD D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/loongarch32-newlib-elf/lib/\libc.a
 OUTPUT(1c102_instr.elf elf32-loongarch)
 
-.bss.g_recvBuff
-                0x0000000080000000       0x14
- .bss.g_recvBuff
-                0x0000000080000000       0x14 uartTest.o
+.bss.state      0x0000000080000000        0x4
+ .bss.state     0x0000000080000000        0x4 1c102_Interrupt.o
+                0x0000000080000000                state
 
-.bss.g_recv_flag
-                0x0000000080000014        0x4
- .bss.g_recv_flag
-                0x0000000080000014        0x4 uartTest.o
-
-.debug_line     0x0000000000000000     0x3b32
+.debug_line     0x0000000000000000     0x3775
  .debug_line    0x0000000000000000       0xd0 start.o
- .debug_line    0x00000000000000d0      0x8c8 ls1x_printf.o
- .debug_line    0x0000000000000998      0x563 ls1x_uart.o
- .debug_line    0x0000000000000efb      0x358 ls1x_common.o
- .debug_line    0x0000000000001253      0x398 ls1x_exti.o
- .debug_line    0x00000000000015eb      0x266 ls1x_wdg.o
- .debug_line    0x0000000000001851      0x3e5 ls1c102_ptimer.o
- .debug_line    0x0000000000001c36      0x386 uartTest.o
- .debug_line    0x0000000000001fbc      0x6f6 Buffer.o
- .debug_line    0x00000000000026b2      0xbff main.o
- .debug_line    0x00000000000032b1      0x881 1c102_Interrupt.o
+ .debug_line    0x00000000000000d0      0x8c9 ls1x_printf.o
+ .debug_line    0x0000000000000999      0x563 ls1x_uart.o
+ .debug_line    0x0000000000000efc      0x358 ls1x_common.o
+ .debug_line    0x0000000000001254      0x3c4 soc_printf.o
+ .debug_line    0x0000000000001618      0x1ee soc_gpio.o
+ .debug_line    0x0000000000001806       0xa6 soc_uart.o
+ .debug_line    0x00000000000018ac      0x398 ls1x_exti.o
+ .debug_line    0x0000000000001c44      0x266 ls1x_wdg.o
+ .debug_line    0x0000000000001eaa      0x3e5 ls1c102_ptimer.o
+ .debug_line    0x000000000000228f      0xc03 main.o
+ .debug_line    0x0000000000002e92      0x8e3 1c102_Interrupt.o
 
-.debug_info     0x0000000000000000     0x41b3
+.debug_info     0x0000000000000000     0x4003
  .debug_info    0x0000000000000000       0x26 start.o
  .debug_info    0x0000000000000026      0x952 ls1x_printf.o
  .debug_info    0x0000000000000978      0x6f5 ls1x_uart.o
  .debug_info    0x000000000000106d      0x23e ls1x_common.o
- .debug_info    0x00000000000012ab      0x3be ls1x_exti.o
- .debug_info    0x0000000000001669      0x2a8 ls1x_wdg.o
- .debug_info    0x0000000000001911      0x32d ls1c102_ptimer.o
- .debug_info    0x0000000000001c3e      0x43e uartTest.o
- .debug_info    0x000000000000207c      0x5d3 Buffer.o
- .debug_info    0x000000000000264f      0x929 main.o
- .debug_info    0x0000000000002f78     0x123b 1c102_Interrupt.o
+ .debug_info    0x00000000000012ab      0x371 soc_printf.o
+ .debug_info    0x000000000000161c      0x321 soc_gpio.o
+ .debug_info    0x000000000000193d       0xf3 soc_uart.o
+ .debug_info    0x0000000000001a30      0x3be ls1x_exti.o
+ .debug_info    0x0000000000001dee      0x2a8 ls1x_wdg.o
+ .debug_info    0x0000000000002096      0x32d ls1c102_ptimer.o
+ .debug_info    0x00000000000023c3      0xa35 main.o
+ .debug_info    0x0000000000002df8     0x120b 1c102_Interrupt.o
 
-.debug_abbrev   0x0000000000000000     0x1029
+.debug_abbrev   0x0000000000000000     0x1025
  .debug_abbrev  0x0000000000000000       0x14 start.o
  .debug_abbrev  0x0000000000000014      0x250 ls1x_printf.o
  .debug_abbrev  0x0000000000000264      0x257 ls1x_uart.o
  .debug_abbrev  0x00000000000004bb       0xf4 ls1x_common.o
- .debug_abbrev  0x00000000000005af      0x167 ls1x_exti.o
- .debug_abbrev  0x0000000000000716       0xeb ls1x_wdg.o
- .debug_abbrev  0x0000000000000801      0x127 ls1c102_ptimer.o
- .debug_abbrev  0x0000000000000928      0x186 uartTest.o
- .debug_abbrev  0x0000000000000aae      0x157 Buffer.o
- .debug_abbrev  0x0000000000000c05      0x230 main.o
- .debug_abbrev  0x0000000000000e35      0x1f4 1c102_Interrupt.o
+ .debug_abbrev  0x00000000000005af      0x15e soc_printf.o
+ .debug_abbrev  0x000000000000070d       0xff soc_gpio.o
+ .debug_abbrev  0x000000000000080c       0x89 soc_uart.o
+ .debug_abbrev  0x0000000000000895      0x167 ls1x_exti.o
+ .debug_abbrev  0x00000000000009fc       0xeb ls1x_wdg.o
+ .debug_abbrev  0x0000000000000ae7      0x127 ls1c102_ptimer.o
+ .debug_abbrev  0x0000000000000c0e      0x250 main.o
+ .debug_abbrev  0x0000000000000e5e      0x1c7 1c102_Interrupt.o
 
-.debug_aranges  0x0000000000000000      0x4c8
+.debug_aranges  0x0000000000000000      0x490
  .debug_aranges
                 0x0000000000000000       0x20 start.o
  .debug_aranges
@@ -1655,75 +1655,81 @@ OUTPUT(1c102_instr.elf elf32-loongarch)
  .debug_aranges
                 0x0000000000000118       0x68 ls1x_common.o
  .debug_aranges
-                0x0000000000000180       0x50 ls1x_exti.o
+                0x0000000000000180       0x38 soc_printf.o
  .debug_aranges
-                0x00000000000001d0       0x30 ls1x_wdg.o
+                0x00000000000001b8       0x30 soc_gpio.o
  .debug_aranges
-                0x0000000000000200       0x68 ls1c102_ptimer.o
+                0x00000000000001e8       0x20 soc_uart.o
  .debug_aranges
-                0x0000000000000268       0x38 uartTest.o
+                0x0000000000000208       0x50 ls1x_exti.o
  .debug_aranges
-                0x00000000000002a0       0x88 Buffer.o
+                0x0000000000000258       0x30 ls1x_wdg.o
  .debug_aranges
-                0x0000000000000328       0x40 main.o
+                0x0000000000000288       0x68 ls1c102_ptimer.o
  .debug_aranges
-                0x0000000000000368      0x160 1c102_Interrupt.o
+                0x00000000000002f0       0x40 main.o
+ .debug_aranges
+                0x0000000000000330      0x160 1c102_Interrupt.o
 
-.debug_str      0x0000000000000000     0x1287
+.debug_str      0x0000000000000000     0x126c
  .debug_str     0x0000000000000000       0xb1 start.o
- .debug_str     0x00000000000000b1      0x2a8 ls1x_printf.o
-                                        0x35b (size before relaxing)
- .debug_str     0x0000000000000359      0x225 ls1x_uart.o
+ .debug_str     0x00000000000000b1      0x29f ls1x_printf.o
+                                        0x360 (size before relaxing)
+ .debug_str     0x0000000000000350      0x225 ls1x_uart.o
                                         0x490 (size before relaxing)
- .debug_str     0x000000000000057e      0x10b ls1x_common.o
+ .debug_str     0x0000000000000575      0x10b ls1x_common.o
                                         0x2d4 (size before relaxing)
- .debug_str     0x0000000000000689      0x1d6 ls1x_exti.o
+ .debug_str     0x0000000000000680       0x9d soc_printf.o
+                                        0x1ef (size before relaxing)
+ .debug_str     0x000000000000071d      0x16b soc_gpio.o
+                                        0x2f8 (size before relaxing)
+ .debug_str     0x0000000000000888       0x7f soc_uart.o
+                                        0x204 (size before relaxing)
+ .debug_str     0x0000000000000907      0x1d6 ls1x_exti.o
                                         0x3e9 (size before relaxing)
- .debug_str     0x000000000000085f      0x15c ls1x_wdg.o
+ .debug_str     0x0000000000000add      0x10e ls1x_wdg.o
                                         0x349 (size before relaxing)
- .debug_str     0x00000000000009bb      0x14c ls1c102_ptimer.o
+ .debug_str     0x0000000000000beb      0x14c ls1c102_ptimer.o
                                         0x381 (size before relaxing)
- .debug_str     0x0000000000000b07      0x116 uartTest.o
-                                        0x36c (size before relaxing)
- .debug_str     0x0000000000000c1d      0x12f Buffer.o
-                                        0x369 (size before relaxing)
- .debug_str     0x0000000000000d4c      0x126 main.o
-                                        0x324 (size before relaxing)
- .debug_str     0x0000000000000e72      0x415 1c102_Interrupt.o
-                                        0x6e7 (size before relaxing)
+ .debug_str     0x0000000000000d37      0x115 main.o
+                                        0x342 (size before relaxing)
+ .debug_str     0x0000000000000e4c      0x420 1c102_Interrupt.o
+                                        0x6fc (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x1efa
+.debug_loc      0x0000000000000000     0x1ff7
  .debug_loc     0x0000000000000000      0x94f ls1x_printf.o
  .debug_loc     0x000000000000094f      0x2ab ls1x_uart.o
  .debug_loc     0x0000000000000bfa       0xe5 ls1x_common.o
- .debug_loc     0x0000000000000cdf      0x139 ls1x_exti.o
- .debug_loc     0x0000000000000e18       0xb4 ls1c102_ptimer.o
- .debug_loc     0x0000000000000ecc       0x48 uartTest.o
- .debug_loc     0x0000000000000f14      0x5d3 Buffer.o
- .debug_loc     0x00000000000014e7      0x92e main.o
- .debug_loc     0x0000000000001e15       0xe5 1c102_Interrupt.o
+ .debug_loc     0x0000000000000cdf      0x374 soc_printf.o
+ .debug_loc     0x0000000000001053      0x269 soc_gpio.o
+ .debug_loc     0x00000000000012bc      0x139 ls1x_exti.o
+ .debug_loc     0x00000000000013f5       0xb4 ls1c102_ptimer.o
+ .debug_loc     0x00000000000014a9      0x9e9 main.o
+ .debug_loc     0x0000000000001e92      0x165 1c102_Interrupt.o
 
-.debug_ranges   0x0000000000000000      0x408
+.debug_ranges   0x0000000000000000      0x3c0
  .debug_ranges  0x0000000000000000       0x68 ls1x_printf.o
  .debug_ranges  0x0000000000000068       0x70 ls1x_uart.o
  .debug_ranges  0x00000000000000d8       0x58 ls1x_common.o
- .debug_ranges  0x0000000000000130       0x40 ls1x_exti.o
- .debug_ranges  0x0000000000000170       0x20 ls1x_wdg.o
- .debug_ranges  0x0000000000000190       0x58 ls1c102_ptimer.o
- .debug_ranges  0x00000000000001e8       0x28 uartTest.o
- .debug_ranges  0x0000000000000210       0x78 Buffer.o
- .debug_ranges  0x0000000000000288       0x30 main.o
- .debug_ranges  0x00000000000002b8      0x150 1c102_Interrupt.o
+ .debug_ranges  0x0000000000000130       0x28 soc_printf.o
+ .debug_ranges  0x0000000000000158       0x20 soc_gpio.o
+ .debug_ranges  0x0000000000000178       0x10 soc_uart.o
+ .debug_ranges  0x0000000000000188       0x40 ls1x_exti.o
+ .debug_ranges  0x00000000000001c8       0x20 ls1x_wdg.o
+ .debug_ranges  0x00000000000001e8       0x58 ls1c102_ptimer.o
+ .debug_ranges  0x0000000000000240       0x30 main.o
+ .debug_ranges  0x0000000000000270      0x150 1c102_Interrupt.o
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 ls1x_printf.o
                                          0x12 (size before relaxing)
  .comment       0x0000000000000011       0x12 ls1x_uart.o
  .comment       0x0000000000000011       0x12 ls1x_common.o
+ .comment       0x0000000000000011       0x12 soc_printf.o
+ .comment       0x0000000000000011       0x12 soc_gpio.o
+ .comment       0x0000000000000011       0x12 soc_uart.o
  .comment       0x0000000000000011       0x12 ls1x_exti.o
  .comment       0x0000000000000011       0x12 ls1x_wdg.o
  .comment       0x0000000000000011       0x12 ls1c102_ptimer.o
- .comment       0x0000000000000011       0x12 uartTest.o
- .comment       0x0000000000000011       0x12 Buffer.o
  .comment       0x0000000000000011       0x12 main.o
  .comment       0x0000000000000011       0x12 1c102_Interrupt.o

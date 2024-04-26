@@ -1,7 +1,7 @@
 module sd_read_model(
     input                clk           ,  //时钟信号
     input                rst_n         ,  //复位信号,低电平有效
-    input        [16:0]  sd_sec_num    ,  //SD卡读扇区个数               
+    input        [31:0]  sd_sec_num    ,  //SD卡读扇区个数               
     input                rd_busy       ,  //SD卡读忙信号
     input                sd_rd_val_en  ,  //SD卡读数据有效信号
     input        [15:0]  sd_rd_val_data,  //SD卡读出的数据
@@ -18,7 +18,7 @@ reg                 rd_busy_d0       ;
 reg                 rd_busy_d1       ;  
 reg                 rd_flow_state    ;  //读sd卡状态控制
 reg                 ddr_flow_state   ;  //DDR写数据状态控制
-reg    [16:0]       rd_sec_cnt       ;  //读扇区次数计数器
+reg    [31:0]       rd_sec_cnt       ;  //读扇区次数计数器
 reg                 sd_rd_last       ;
 
 wire                neg_rd_busy      ;  //SD卡读忙信号下降沿

@@ -1,10 +1,10 @@
 module sd_axi_top#(
-    parameter DATA_WIDTH = 256,
+    parameter DDR_DATA_WIDTH = 256,
     parameter ADDR_WIDTH = 32,
-    parameter STRB_WIDTH = (DATA_WIDTH/8),
+    parameter DDR_STRB_WIDTH = (DDR_DATA_WIDTH/8),
     parameter ID_WIDTH = 8,
 
-    parameter DQ_WIDTH = (DATA_WIDTH/8)
+    parameter DQ_WIDTH = (DDR_DATA_WIDTH/8)
 )(
     input           clk                 ,  
     input           rst_n               ,
@@ -24,8 +24,8 @@ module sd_axi_top#(
     output  wire [2:0]               model_awprot,
     output  wire                     model_awvalid,
     input   wire                     model_awready,
-    output  wire [DATA_WIDTH-1:0]    model_wdata,
-    output  wire [STRB_WIDTH-1:0]    model_wstrb,//
+    output  wire [DDR_DATA_WIDTH-1:0]model_wdata,
+    output  wire [DDR_STRB_WIDTH-1:0]model_wstrb,//
     output  wire                     model_wlast,//
     output  wire                     model_wvalid,
     input   wire                     model_wready

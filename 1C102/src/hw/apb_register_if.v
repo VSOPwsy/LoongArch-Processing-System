@@ -1,40 +1,41 @@
-`include "config.v"
-
 module apb_register_if # (
+    parameter ADDR_WIDTH = 32,
+    parameter DATA_WIDTH = 32,
     parameter REG_NUM = 8,
-    parameter REG_DATA_WIDTH = 32
+    parameter REG_DATA_WIDTH = 32   // must less than or equal to DATA_WIDTH
 )
 (
-    input                            clk,
-    input                            resetn,
+    input                               clk,
+    input                               resetn,
 
-    input                            apb_psel,
-	input                            apb_rw,    // 0 for rd, 1 for wr
-    input      [`ADDR_WIDTH-1:0]     apb_addr,
-	input                            apb_enab,
-    input      [`APB_DATA_WIDTH-1:0] apb_datai,
+    input                               apb_psel,
+	input                               apb_rw,    // 0 for rd, 1 for wr
+    input      [ADDR_WIDTH-1:0]         apb_addr,
+	input                               apb_enab,
+    input      [DATA_WIDTH-1:0]         apb_datai,
 
-    output reg [`APB_DATA_WIDTH-1:0] apb_reg_wdata,
-    output reg [$clog2(REG_NUM)-1:0] apb_reg_addr,
-    output reg                       apb_reg_wen, 
+    output reg [REG_DATA_WIDTH-1:0]     apb_reg_wdata,
+    output reg [$clog2(REG_NUM_EFF)-1:0]apb_reg_addr,
+    output reg                          apb_reg_wen, 
 
-    input      [`APB_DATA_WIDTH-1:0] R0,
-    input      [`APB_DATA_WIDTH-1:0] R1,
-    input      [`APB_DATA_WIDTH-1:0] R2,
-    input      [`APB_DATA_WIDTH-1:0] R3,
-    input      [`APB_DATA_WIDTH-1:0] R4,
-    input      [`APB_DATA_WIDTH-1:0] R5,
-    input      [`APB_DATA_WIDTH-1:0] R6,
-    input      [`APB_DATA_WIDTH-1:0] R7,
+    input      [REG_DATA_WIDTH-1:0]     R0,
+    input      [REG_DATA_WIDTH-1:0]     R1,
+    input      [REG_DATA_WIDTH-1:0]     R2,
+    input      [REG_DATA_WIDTH-1:0]     R3,
+    input      [REG_DATA_WIDTH-1:0]     R4,
+    input      [REG_DATA_WIDTH-1:0]     R5,
+    input      [REG_DATA_WIDTH-1:0]     R6,
+    input      [REG_DATA_WIDTH-1:0]     R7,
     
-    output reg [`APB_DATA_WIDTH-1:0] apb_datao,
-	output reg                       apb_ack
+    output reg [DATA_WIDTH-1:0]         apb_datao,
+	output reg                          apb_ack
 );
     initial begin
         apb_ack = 0;
     end
 
-    localparam LOG2_REG_NUM = $clog2(REG_NUM);
+    localparam REG_NUM_EFF = REG_NUM < 2 ? 2 : REG_NUM;
+    localparam LOG2_REG_NUM = $clog2(REG_NUM_EFF);
     localparam LOG2_REG_BYTE_ADDR_WIDTH = $clog2(REG_DATA_WIDTH/8);
     localparam IDLE = 1'b0;
     localparam ENABLE = 1'b1;
@@ -77,7 +78,7 @@ module apb_register_if # (
                     if (apb_psel & ~apb_enab) begin
                         if (apb_rw) begin
                             apb_ack <= 1'b1;
-                            apb_reg_wdata <= apb_datai;
+                            apb_reg_wdata <= apb_datai[0+:REG_DATA_WIDTH];
                             apb_reg_addr <= apb_addr[LOG2_REG_BYTE_ADDR_WIDTH+:LOG2_REG_NUM];
                             apb_reg_wen <= 1;
                         end

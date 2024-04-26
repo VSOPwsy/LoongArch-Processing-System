@@ -1513,7 +1513,7 @@ module TOP # (
         .ddr_dm             (ddr_dm                 )
     );
     // assign led[2:0] = 0;
-    assign led[0] = ~init_calib_complete;
+    assign led[0] = init_calib_complete;
 `endif
 endmodule
 

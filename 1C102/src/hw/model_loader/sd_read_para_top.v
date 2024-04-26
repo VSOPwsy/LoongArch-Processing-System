@@ -1,13 +1,12 @@
 module sd_read_para_top #(
-    parameter DATA_WIDTH = 256,
     parameter ADDR_WIDTH = 32,
-    parameter STRB_WIDTH = (DATA_WIDTH/8),
+    parameter DDR_DATA_WIDTH = 256,
+    parameter DDR_STRB_WIDTH = (DDR_DATA_WIDTH/8),
     parameter ID_WIDTH = 8,
 
-    parameter DQ_WIDTH = (DATA_WIDTH/8),
+    parameter DQ_WIDTH = (DDR_DATA_WIDTH/8),
 
-    parameter APB_DATA_WIDTH = 32,
-    parameter REG_NUM = 6
+    parameter APB_DATA_WIDTH = 32
 )
 (    
     input                           sys_clk      ,
@@ -30,8 +29,8 @@ module sd_read_para_top #(
     output  wire [2:0]               model_awprot,
     output  wire                     model_awvalid,
     input   wire                     model_awready,
-    output  wire [DATA_WIDTH-1:0]    model_wdata,
-    output  wire [STRB_WIDTH-1:0]    model_wstrb,
+    output  wire [DDR_DATA_WIDTH-1:0]model_wdata,
+    output  wire [DDR_STRB_WIDTH-1:0]model_wstrb,
     output  wire                     model_wlast,
     output  wire                     model_wvalid,
     input   wire                     model_wready,
@@ -50,7 +49,7 @@ module sd_read_para_top #(
     output  wire                     model_arvalid,
     input   wire                     model_arready,
     input   wire [ID_WIDTH-1:0]      model_rid,
-    input   wire [DATA_WIDTH-1:0]    model_rdata,
+    input   wire [DDR_DATA_WIDTH-1:0]model_rdata,
     input   wire [1:0]               model_rresp,
     input   wire                     model_rlast,
     input   wire                     model_rvalid,
@@ -67,14 +66,18 @@ module sd_read_para_top #(
 
     );     
 
+    localparam REG_NUM = 6;
+    localparam LOG2_REG_NUM = $clog2(REG)
+
 wire                        ddr_wr_en;  
 wire [15:0]                 ddr_wr_data,sd_rd_val_data;
 wire                        ddr_wr_last;
 wire                        sd_rd_busy,sd_rd_val_en,sd_rd_start_en;
 wire [31:0]                 sd_rd_sec_addr; 
+wire                        sd_init_done;
 reg                         start;
 reg  [ADDR_WIDTH-1:0]       sd_addr_base;
-reg  [16:0]                 sd_sec_num;
+reg  [31:0]                 sd_sec_num;
 reg  [ADDR_WIDTH-1:0]       ddr_addr_base;
 reg                         done;      
 reg  [2:0]                  apb_reg_addr;
@@ -82,7 +85,10 @@ reg  [APB_DATA_WIDTH-1:0]   apb_reg_wdata;
 reg                         apb_reg_wen;
 
 apb_register_if # (
-    .REG_NUM(REG_NUM)
+    .ADDR_WIDTH(ADDR_WIDTH),
+    .DDR_DATA_WIDTH(DDR_DATA_WIDTH),
+    .REG_NUM(REG_NUM),
+    .REG_DATA_WIDTH(32)
   )
   apb_register_if_inst (
     .clk(sys_clk),
@@ -176,9 +182,9 @@ sd_read_model u_sd_read_model(
 
     //
 sd_axi_top # (
-    .DATA_WIDTH             (DATA_WIDTH),
     .ADDR_WIDTH             (ADDR_WIDTH),
-    .STRB_WIDTH             (STRB_WIDTH),
+    .DDR_DATA_WIDTH         (DDR_DATA_WIDTH),
+    .DDR_STRB_WIDTH         (DDR_STRB_WIDTH),
     .ID_WIDTH               (ID_WIDTH),
     .DQ_WIDTH               (DQ_WIDTH)
     )

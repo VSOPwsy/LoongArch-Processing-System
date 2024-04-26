@@ -1,30 +1,35 @@
 `include "config.v"
 
 module apb_register # (
-    parameter REG_NUM = 8
+    parameter ADDR_WIDTH = 32,
+    parameter DATA_WIDTH = 32,
+    parameter REG_NUM = 8,
+    parameter REG_DATA_WIDTH = 32
 )
 (
     input clk,
     input resetn,
     input reg_apb_wen,
-    input [`APB_DATA_WIDTH-1:0] reg_apb_wdata,
-    input [$clog2(REG_NUM)-1:0] reg_apb_addr,
+    input [REG_DATA_WIDTH-1:0] reg_apb_wdata,
+    input [$clog2(REG_NUM_EFF)-1:0] reg_apb_addr,
 
     input yjq_wen,
-    input [`APB_DATA_WIDTH-1:0] yjq_wdata,
-    input [$clog2(REG_NUM)-1:0] yjq_addr,
+    input [REG_DATA_WIDTH-1:0] yjq_wdata,
+    input [$clog2(REG_NUM_EFF)-1:0] yjq_addr,
 
-    output reg [`APB_DATA_WIDTH-1:0] R0,
-    output reg [`APB_DATA_WIDTH-1:0] R1,
-    output reg [`APB_DATA_WIDTH-1:0] R2,
-    output reg [`APB_DATA_WIDTH-1:0] R3,
-    output reg [`APB_DATA_WIDTH-1:0] R4,
-    output reg [`APB_DATA_WIDTH-1:0] R5,
-    output reg [`APB_DATA_WIDTH-1:0] R6,
-    output reg [`APB_DATA_WIDTH-1:0] R7
+    output reg [REG_DATA_WIDTH-1:0] R0,
+    output reg [REG_DATA_WIDTH-1:0] R1,
+    output reg [REG_DATA_WIDTH-1:0] R2,
+    output reg [REG_DATA_WIDTH-1:0] R3,
+    output reg [REG_DATA_WIDTH-1:0] R4,
+    output reg [REG_DATA_WIDTH-1:0] R5,
+    output reg [REG_DATA_WIDTH-1:0] R6,
+    output reg [REG_DATA_WIDTH-1:0] R7
 );
 
-localparam LOG2_REG_NUM = $clog2(REG_NUM);
+localparam REG_NUM_EFF = REG_NUM < 2 ? 2 : REG_NUM;
+localparam LOG2_REG_NUM = $clog2(REG_NUM_EFF);
+localparam LOG2_REG_BYTE_ADDR_WIDTH = $clog2(REG_DATA_WIDTH/8);
 initial begin
     R0 = 0;
     R1 = 0;
