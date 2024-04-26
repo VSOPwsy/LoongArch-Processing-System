@@ -1,11 +1,11 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Template file for instantiation
-//Tool Version: V1.9.9.01 (64-bit)
+//Tool Version: V1.9.9
 //Part Number: GW5AT-LV138PG484AC2/I1
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Sun Apr 14 01:11:22 2024
+//Created Time: Mon Apr 22 22:42:23 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
@@ -16,9 +16,6 @@
 		.memory_clk(memory_clk_i), //input memory_clk
 		.pll_lock(pll_lock_i), //input pll_lock
 		.rst_n(rst_n_i), //input rst_n
-		.clk_out(clk_out_o), //output clk_out
-		.ddr_rst(ddr_rst_o), //output ddr_rst
-		.init_calib_complete(init_calib_complete_o), //output init_calib_complete
 		.cmd_ready(cmd_ready_o), //output cmd_ready
 		.cmd(cmd_i), //input [2:0] cmd
 		.cmd_en(cmd_en_i), //input cmd_en
@@ -35,6 +32,9 @@
 		.ref_req(ref_req_i), //input ref_req
 		.sr_ack(sr_ack_o), //output sr_ack
 		.ref_ack(ref_ack_o), //output ref_ack
+		.init_calib_complete(init_calib_complete_o), //output init_calib_complete
+		.clk_out(clk_out_o), //output clk_out
+		.ddr_rst(ddr_rst_o), //output ddr_rst
 		.burst(burst_i), //input burst
 		.O_ddr_addr(O_ddr_addr_o), //output [14:0] O_ddr_addr
 		.O_ddr_ba(O_ddr_ba_o), //output [2:0] O_ddr_ba

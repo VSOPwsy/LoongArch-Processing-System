@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/1c102_instr.elf",
+            "name": "Debug LoongArch",
+            "request": "launch",
+            "type": "debugger-for-loongarch",
+            "servertype": "openocd",
+            "toolchainPrefix":"loongarch32-newlib-elf",
+            "toolchainPath": "D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/buildtool/la32-tool/bin",
+            "serverpath": "D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/openocd/openocd.exe",
+            "device": "la132",
+            "configFiles": [
+                "D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/openocd/lalink.cfg",
+                "D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/sw/LAIDE/openocd/la132.cfg"
+            ]
+        }
+    ]
+}

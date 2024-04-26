@@ -1,4 +1,5 @@
 parameter DRAM_TYPE = "DDR3";
+`define DDR3
 parameter nCK_PER_CLK = 4;
 parameter tCK = 5000;
 parameter REG_CTRL = "OFF";
@@ -23,8 +24,8 @@ parameter tRFC = 260000;
 parameter tDLLK = 512;
 parameter BURST_MODE = "8";
 parameter BURST_TYPE = "SEQ";
-parameter CL = 6;
-parameter CWL = 6;
+parameter CL = 5;
+parameter CWL = 5;
 parameter AL = "0";
 parameter SLOT_0_CONFIG = 8'b00000001;
 parameter SLOT_1_CONFIG = 8'b00000000;
@@ -32,4 +33,4 @@ parameter RTT_NOM = "40";
 parameter RTT_WR = "OFF";
 parameter USER_REFRESH = "OFF";
 parameter ADDR_CMD_MODE = "1T";
-parameter OUTPUT_DRV = "HIGH";
+parameter OUTPUT_DRV = "LOW";

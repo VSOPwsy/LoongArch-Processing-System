@@ -85,7 +85,7 @@ cpu_wait:
 DEFAULT_INT_HANDLER:
 	SAVE_REGS_FAST(REGS_MEM)
         csrrd   t0, CSR_ExStatus
-        andi    t1, t0, INT_VECTOR # t1 = t0 & 0b1011_1011_1100
+        andi    t1, t0, INT_VECTOR
         beqz    t1, exception_core_check
 exception_pmu:
         andi    t1,t0,0x4
@@ -131,7 +131,7 @@ timer_label:
         b       exception_exit
 
 exception_core_check:
-        andi    t1, t0, INTC_VECTOR # t1 = t0 & 0b100_0000
+        andi    t1, t0, INTC_VECTOR 
         beqz    t1, exception_exit
         bl      intc_handler
         b       exception_exit

@@ -58,7 +58,7 @@ CC_OPTS	 = $(DEBUG) $(FLAGS) $(INCLUDE)
 CC_COPTS = $(DEBUG) $(FLAGS) $(INCLUDE) 
 
 LD_SCRIPT = ld.script
-LD_OPTS   = -G 0 -static -T $(LD_SCRIPT) -Map $(IMAGE_MAP) --gc-sections --sysroot=$(GCC_ROOT)/loongarch32-newlib-elf
+LD_OPTS   = -G 0 -static -T $(LD_SCRIPT) -Map $(IMAGE_MAP) --gc-sections
 
 # **********************************************
 # Files to be compiled
@@ -80,15 +80,15 @@ LS1C1X_OBJ = $(OBJ_S) $(OBJ_C)
 .PHONY : all
 all : $(IMAGE_BIN) 
 $(IMAGE_BIN):$(LS1C1X_OBJ) 
-	$(LD) $(LD_OPTS) -o $(IMAGE_ELF) $^ -Map $(IMAGE_MAP) -L$(GCC_ROOT)/loongarch32-newlib-elf/lib/ -L$(GCC_ROOT)/lib/gcc/loongarch32-newlib-elf/8.3.0 --start-group -lm -lgcc -lc --end-group
+	$(LD) $(LD_OPTS) -o $(IMAGE_ELF) $^ -Map $(IMAGE_MAP) -L$(GCC_ROOT)/loongarch32-newlib-elf/lib/ -L$(GCC_ROOT)/lib/gcc/loongarch32-newlib-elf/8.3.0 -lm -lgcc -lc
 	$(OBJCOPY) -O binary $(IMAGE_ELF) $(IMAGE_BIN)
 	$(SIZE) $(IMAGE_ELF)
 	$(OBJDUMP) -alD $(IMAGE_ELF) > $(IMAGENAME).s
 
 $(OBJ_C) : %.o : %.c 
-	$(CC) $(CC_COPTS) -c -o $@ $^
+	$(CC) $(CC_COPTS) -g -Og -c -o $@ $^
 $(OBJ_S) : %.o : %.S
-	$(CC) $(CC_OPTS) -c -o $@ $^
+	$(CC) $(CC_OPTS) -g -Og -c -o $@ $^
 
 
 .PHONY : clean 

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="DDR3_Memory_Interface_Top" Register="5644" Alu="231" Lut="3407" Bsram="24" T_Register="5644(5644)" T_Alu="231(231)" T_Lut="3407(3407)" T_Bsram="24(24)"/>
+<Module name="DDR3_Memory_Interface_Top" Register="5586" Alu="207" Lut="3366" Bsram="24"/>

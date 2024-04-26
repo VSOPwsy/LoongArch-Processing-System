@@ -40,7 +40,7 @@ reg    [7:0]   cur_state      ;
 reg    [7:0]   next_state     ; 
                               
 reg    [7:0]   div_cnt        ;    //分频计数器
-reg            div_clk        ;    //分频后的时钟         
+reg            div_clk; /* synthesis syn_keep = 1 */
 reg    [12:0]  poweron_cnt    ;    //上电等待稳定计数器
 reg            res_en         ;    //接收SD卡返回数据有效信号
 reg    [47:0]  res_data       ;    //接收SD卡返回数据
@@ -60,21 +60,6 @@ wire           div_clk_180deg ;    //时钟相位和div_clk相差180度
 assign  sd_clk = ~div_clk;         //SD_CLK
 assign  div_clk_180deg = ~div_clk; //相位和DIV_CLK相差180度的时钟
 
-//时钟分频,div_clk = 250KHz
-// always @(posedge clk_ref) begin
-//     if(!rst_n) begin
-//         div_clk <= 1'b0;
-//         div_cnt <= 8'd0;
-//     end
-//     else begin
-//         if(div_cnt == DIV_FREQ/2-1'b1) begin
-//             div_clk <= ~div_clk;
-//             div_cnt <= 8'd0;
-//         end
-//         else    
-//             div_cnt <= div_cnt + 1'b1;
-//     end        
-// end
 always @(posedge clk_ref) begin
     if(div_cnt == DIV_FREQ/2-1'b1) begin
         div_clk <= ~div_clk;
