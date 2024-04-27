@@ -3,5 +3,6 @@
 		"test.h": "c",
 		"soc_ls1c102.h": "c",
 		"ls1c102_interrupt.h": "c"
-	}
+	},
+	"debugger-for-loongarch.variableUseNaturalFormat": false
 }

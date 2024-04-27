@@ -17,6 +17,7 @@ module sd_read_para_top #(
     output                          sd_clk       ,
     output                          sd_cs        ,
     output                          sd_mosi      ,
+    output                          sd_gnd       ,
 
     //AXI_croosbar
     output  wire [ID_WIDTH-1:0]      model_awid,
@@ -67,7 +68,9 @@ module sd_read_para_top #(
     );     
 
     localparam REG_NUM = 6;
-    localparam LOG2_REG_NUM = $clog2(REG)
+    localparam LOG2_REG_NUM = $clog2(REG_NUM);
+
+    assign sd_gnd = 1'b0;
 
 wire                        ddr_wr_en;  
 wire [15:0]                 ddr_wr_data,sd_rd_val_data;
@@ -86,7 +89,7 @@ reg                         apb_reg_wen;
 
 apb_register_if # (
     .ADDR_WIDTH(ADDR_WIDTH),
-    .DDR_DATA_WIDTH(DDR_DATA_WIDTH),
+    .DATA_WIDTH(APB_DATA_WIDTH),
     .REG_NUM(REG_NUM),
     .REG_DATA_WIDTH(32)
   )

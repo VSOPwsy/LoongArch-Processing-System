@@ -51,7 +51,7 @@ end
 //SD卡初始化
 sd_init u_sd_init(
     .clk_ref            (clk_ref),
-    .rst_n              (rst_n),
+    .arst_n             (rst_n),
     
     .sd_miso            (sd_miso),
     .sd_clk             (init_sd_clk),

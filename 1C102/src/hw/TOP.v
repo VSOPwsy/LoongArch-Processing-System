@@ -44,7 +44,8 @@ module TOP # (
     input            sd_miso,
     output           sd_clk,
     output           sd_cs,
-    output           sd_mosi
+    output           sd_mosi,
+    output           sd_gnd
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1091,14 +1092,11 @@ module TOP # (
     );
 
     sd_read_para_top # (
-        .DATA_WIDTH         (`DDR_DATA_WIDTH),
+        .DDR_DATA_WIDTH     (`DDR_DATA_WIDTH),
         .ADDR_WIDTH         (`ADDR_WIDTH),
         .ID_WIDTH           (`ID_WIDTH),
-        
-        .APB_DATA_WIDTH     (`APB_DATA_WIDTH),
-        .REG_NUM            (6)
-  )
-  sd_read_para_top_inst (
+        .APB_DATA_WIDTH     (`APB_DATA_WIDTH)
+  ) sd_read_para_top_inst (
         .sys_clk            (core_clk),
         .rst_n              (core_resetn),
 
@@ -1106,6 +1104,7 @@ module TOP # (
         .sd_clk             (sd_clk),
         .sd_cs              (sd_cs),
         .sd_mosi            (sd_mosi),
+        .sd_gnd             (sd_gnd),
 
         .model_awid         (model_awid),
         .model_awaddr       (model_awaddr),

@@ -460,11 +460,13 @@ START:
 // ================================================================
 
 #define LED *(volatile int32_t*)0xbff00000
+#define DDR_BASE *(volatile int32_t*)0x40000000
 
 volatile int num = 0; 
 
 int main(void) {
 	LED = (uint32_t)0x00000007;
+	DDR_BASE = (uint32_t)0x12345678;
 
     EnableInt();// 开总中断
 
@@ -511,9 +513,32 @@ int main(void) {
     my_delay_ms(25);
 
 	uart1_interrupt();
-
+	int cnt = 0;
+	volatile a = 0;
     while(1) {
+		DDR_BASE = a;
+		if (DDR_BASE == a)
+		{
+			if (cnt == 20000)
+			{
+				cnt = 0;
+				LED ^= (uint32_t)0x0000007;
+			}
+			else
+			{
+				cnt += 1;
+			}
+		}
+		else
+		{
+			break;
+		}
     }
+	while (1)
+	{
+		LED = (uint32_t)0x00000000;
+	}
+	
 
     return 0;
 }
