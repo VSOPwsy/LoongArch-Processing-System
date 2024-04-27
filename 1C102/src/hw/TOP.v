@@ -44,7 +44,8 @@ module TOP # (
     input            sd_miso,
     output           sd_clk,
     output           sd_cs,
-    output           sd_mosi
+    output           sd_mosi,
+    output           sd_gnd
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1106,6 +1107,7 @@ module TOP # (
         .sd_clk             (sd_clk),
         .sd_cs              (sd_cs),
         .sd_mosi            (sd_mosi),
+        .sd_gnd             (sd_gnd),
 
         .model_awid         (model_awid),
         .model_awaddr       (model_awaddr),
@@ -1453,11 +1455,21 @@ module TOP # (
         .ctr_clk            (ddr_ctl_clk            ),
         .memory_clk         (ddr_intf_clk           ),
         .pll_lock           (locked                 ),
-        .sys_resetn         (sys_resetn_debounced   ),
+        .sys_resetn         (ddr_resetn             ),
         .axi_aresetn        (ddr_ui_resetn          ),
         .ui_clk             (ddr_ui_clk             ),
         .ui_sync_resetn     (ddr_ui_resetn          ),
         .init_calib_complete(init_calib_complete    ),
+
+        .apb_clk            (apb_clk                ),
+        .apb_rstn           (apb_reset_n            ),
+        .apb_psel           (apb3_psel              ),
+        .apb_rw             (apb3_rw                ),
+        .apb_addr           (apb3_addr              ),
+        .apb_enab           (apb3_enab              ),
+        .apb_datai          (apb3_datai             ),
+        .apb_datao          (apb3_datao             ),
+        .apb_ack            (apb3_ack               ),
 
         .s_axi_awid         (ddr_arb_awid           ),
         .s_axi_awaddr       (ddr_arb_awaddr         ),
@@ -1513,7 +1525,7 @@ module TOP # (
         .ddr_dm             (ddr_dm                 )
     );
     // assign led[2:0] = 0;
-    assign led[0] = ~init_calib_complete;
+    assign led[0] = init_calib_complete;
 `endif
 endmodule
 

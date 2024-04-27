@@ -41,42 +41,48 @@ module apb_register_if # (
 
     reg state_current = IDLE, state_next = IDLE;
 
-    always @(*) begin
+    always @(posedge clk) begin
         if (~resetn) begin
-            state_next = IDLE;
+            state_current <= IDLE;
         end
         else begin
-            case (state_current)
-                IDLE: begin
-                    if (apb_psel & ~apb_enab) begin
-                        state_next = ENABLE;
-                    end
-                    else begin
-                        state_next = IDLE;
-                    end
-                end
+            state_current <= state_next;
+        end
+    end
 
-                ENABLE: begin
+    always @(*) begin
+        case (state_current)
+            IDLE: begin
+                if (apb_psel & ~apb_enab) begin
+                    state_next = ENABLE;
+                end
+                else begin
                     state_next = IDLE;
                 end
-            endcase
-        end
+            end
+
+            ENABLE: begin
+                state_next = IDLE;
+            end
+        endcase
     end
 
 
     always @(posedge clk) begin
         if (~resetn) begin
-            apb_ack <= 1;
+            apb_ack <= 0;
             apb_datao <= 0;
             apb_reg_wdata <= 0;
             apb_reg_wen <=0;
         end
         else begin
+            apb_ack <= 1'b0;
+            apb_reg_wen <= 1'b0;
             case (state_current)
                 IDLE: begin
                     if (apb_psel & ~apb_enab) begin
+                        apb_ack <= 1'b1;
                         if (apb_rw) begin
-                            apb_ack <= 1'b1;
                             apb_reg_wdata <= apb_datai;
                             apb_reg_addr <= apb_addr[LOG2_REG_BYTE_ADDR_WIDTH+:LOG2_REG_NUM];
                             apb_reg_wen <= 1;
@@ -95,8 +101,6 @@ module apb_register_if # (
                 end
 
                 ENABLE: begin
-                    apb_ack <= 1'b0;
-                    apb_reg_wen <= 1'b0;
                 end
             endcase
         end

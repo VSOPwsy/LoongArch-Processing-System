@@ -23,8 +23,7 @@ module DDR_Controller #
     parameter PIPELINE_OUTPUT = 0,
     // Interleave read and write burst cycles
     parameter INTERLEAVE = 0
-)
-(
+)(
     input  wire                     ctr_clk,
     input  wire                     memory_clk,
     input  wire                     pll_lock,
@@ -34,6 +33,19 @@ module DDR_Controller #
     output wire                     ui_clk,
     output reg                      ui_sync_resetn,
     output wire                     init_calib_complete,
+
+    /*
+     * APB interface
+     */
+    input wire                          apb_clk,
+    input wire                          apb_rstn,
+	input wire                      	apb_psel,
+	input wire                      	apb_rw,    // 0 for rd, 1 for wr
+	input wire  [ADDR_WIDTH     -1 :0]	apb_addr,
+	input wire                      	apb_enab,
+	input wire  [31                :0]  apb_datai,
+	output wire [31                :0]  apb_datao,
+	output wire                      	apb_ack,
 
     /*
      * AXI slave interface
@@ -131,6 +143,27 @@ module DDR_Controller #
     wire                     queue_fifo_full;
     wire                     data_fifo_empty;
     wire                     data_fifo_full;
+
+    apb_register_if # (
+        .REG_NUM(2)
+    )
+    apb_register_if_ddr (
+        .clk(apb_clk),
+        .resetn(apb_rstn),
+
+        .apb_psel(apb_psel),
+        .apb_rw(apb_rw),
+        .apb_addr(apb_addr),
+        .apb_enab(apb_enab),
+        .apb_datai(apb_datai),
+
+        .R0(init_calib_complete),
+        .R1(),
+
+        .apb_datao(apb_datao),
+        .apb_ack(apb_ack)
+    );
+
 
     axi_ram_wr_rd_if #(
         .DATA_WIDTH(DATA_WIDTH),
@@ -255,14 +288,14 @@ module DDR_Controller #
         .clk_out         (ui_clk),
         .ddr_rst         (ddr_rst),
 
-        .addr            (ram_cmd_addr[$clog2(DQ_WIDTH/8) +: ADDR_WIDTH-$clog2(DQ_WIDTH/8)]),
+        .addr            (ram_cmd_addr[$clog2(DATA_WIDTH/8) +: ADDR_WIDTH-$clog2(DATA_WIDTH/8)]),
         .cmd             ({2'b0, ram_cmd_rd_en}),
         .cmd_en          (ram_cmd_rd_en | (wr_data_ready & ram_cmd_wr_en)),
         .cmd_ready       (ram_cmd_ready),
         .rd_data         (app_rd_data),
         .rd_data_end     (),
         .rd_data_valid   (app_rd_data_valid),
-        .burst           (1'b0),
+        .burst           (1'b1),
         .wr_data         (ram_cmd_wr_data),
         .wr_data_end     (1'b1), // DATA_WIDTH must be equal to 8 times of DQ_WIDTH
         .wr_data_mask    (~ram_cmd_wr_strb),

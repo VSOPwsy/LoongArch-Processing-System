@@ -27,17 +27,17 @@ parameter  POWER_ON_NUM = 5000;
 //当超时计数器等于此值时,认为SD卡响应超时,重新发送软件复位命令
 parameter  OVER_TIME_NUM = 25000;
                         
-parameter  st_idle        = 7'b000_0001;  //默认状态,上电等待SD卡稳定
-parameter  st_send_cmd0   = 7'b000_0010;  //发送软件复位命令
-parameter  st_wait_cmd0   = 7'b000_0100;  //等待SD卡响应
-parameter  st_send_cmd8   = 7'b000_1000;  //发送主设备的电压范围，检测SD卡是否满足
-parameter  st_send_cmd55  = 7'b001_0000;  //告诉SD卡接下来的命令是应用相关命令
-parameter  st_send_acmd41 = 7'b010_0000;  //发送操作寄存器(OCR)内容
-parameter  st_init_done   = 7'b100_0000;  //SD卡初始化完成
+parameter  st_idle        = 3'd0;  //默认状态,上电等待SD卡稳定
+parameter  st_send_cmd0   = 3'd1;  //发送软件复位命令
+parameter  st_wait_cmd0   = 3'd2;  //等待SD卡响应
+parameter  st_send_cmd8   = 3'd3;  //发送主设备的电压范围，检测SD卡是否满足
+parameter  st_send_cmd55  = 3'd4;  //告诉SD卡接下来的命令是应用相关命令
+parameter  st_send_acmd41 = 3'd5;  //发送操作寄存器(OCR)内容
+parameter  st_init_done   = 3'd6;  //SD卡初始化完成
 
 //reg define
-reg    [7:0]   cur_state      ;
-reg    [7:0]   next_state     ; 
+reg    [2:0]   cur_state      ;
+reg    [2:0]   next_state     ; 
                               
 reg    [7:0]   div_cnt        ;    //分频计数器
 reg            div_clk; /* synthesis syn_keep = 1 */

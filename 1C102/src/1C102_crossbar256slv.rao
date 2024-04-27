@@ -2,7 +2,7 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
             <Signal capture_enable="true">AXI_crossbar_256/slv1_awvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/slv1_awready</Signal>
@@ -14,6 +14,40 @@
             <Signal capture_enable="true">AXI_crossbar_256/slv1_arready</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/slv1_rvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_256/slv1_rready</Signal>
+            <Bus capture_enable="true" name="AXI_crossbar_256/slv1_wstrb[31:0]">
+                <Signal>AXI_crossbar_256/slv1_wstrb[31]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[30]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[29]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[28]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[27]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[26]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[25]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[24]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[23]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[22]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[21]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[20]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[19]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[18]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[17]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[16]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[15]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[14]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[13]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[12]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[11]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[10]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[9]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[8]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[7]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[6]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[5]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[4]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[3]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[2]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[1]</Signal>
+                <Signal>AXI_crossbar_256/slv1_wstrb[0]</Signal>
+            </Bus>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -59,5 +93,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1000100100100010</GAO_ID>
+    <GAO_ID>1111111111100011</GAO_ID>
 </GAO_CONFIG>

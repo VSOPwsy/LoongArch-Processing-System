@@ -41,8 +41,8 @@
 #define DMA_BASE		        PHYS_TO_UNCACHED(0x1fec0000)            //DMA
 #define VPWM_BASE		        PHYS_TO_UNCACHED(0x1fec0020)            //vpwm
 #define TIMER_BASE		        PHYS_TO_UNCACHED(0x1fed0000)            //timer
-#define UART_BASEADDR  UART0_BASEADDR
-//#define UART_BASEADDR  UART1_BASEADDR
+// #define UART_BASEADDR  UART0_BASEADDR
+#define UART_BASEADDR  UART1_BASEADDR
 
 
 

@@ -41,7 +41,7 @@ extern unsigned int str2num(unsigned char);
 int do_help(int argc, void *argv[]);
 int do_exit(int argc, void *argv[]);
 
-unsigned int nmi_caller;
+// unsigned int nmi_caller;
 
 static struct cmd_struct {
 	const char *cmdname;
@@ -457,89 +457,45 @@ START:
 #include "soc_printf.h"
 
 #include "1c102_Interrupt.h"
+
+#include "ddr.h"
+#include "sd.h"
 // ================================================================
+#define LED *(volatile uint32_t*)0xbff00000
 
-#define LED *(volatile int32_t*)0xbff00000
-#define DDR_TEST *(volatile int32_t*)0x40000000
-volatile int num = 0; 
-
-int main(void) {
-    my_delay_ms(2000);// delay 2000ms at least after modifying UART_FIFO_CTRL. delay 1000ms is false.
-	LED = (uint32_t)0x00000007;
-    EnableInt();// 开总中断
-
-	UART_FIFO_CTRL = 0x05;// baud_rate = 19200, enable parity check
-    // my_delay_ms(2000);// delay 2000ms at least after modifying UART_FIFO_CTRL. delay 1000ms is false.
-    
-    // soc_printf("\r\n");
-    // my_delay_ms(25);
-    
-    // uint8_t *str0 = "ABCD";
-    // soc_printf("str0 = %s\r\n", str0);
-	// my_delay_ms(25);// delay 25ms at least between two soc_printf.
-    // // soc_printf("str0 = %s over 16 char\r\n", str0);// sending more than 16 characters at once will get stuck
-    // // my_delay_ms(25);
-    
-	// /*
-    // uint8_t buf0[4] = {"ABCD"};
-    // soc_printf("strlen = %d\r\n", sizeof(buf0));
-    // my_delay_ms(25);
-    // // soc_printf("buf0 = %s\r\n", buf0);// there is an error with printing the character array
-    // // my_delay_ms(25);
-    
-    // for(volatile int i = 0; i < 4; i++)
-    // {
-    //     soc_printf("buf0 = %c\r\n", buf0[i]);
-    //     my_delay_ms(25);
-    // }
-
-    // uint8_t buf1[4];
-    // memset(buf1, 0x1, 4);
-    // for(volatile int i = 0; i < 4; i++)
-    // {
-    //     soc_printf("buf1 = %d\r\n", buf1[i]);
-    //     my_delay_ms(25);
-    // }
-	// */
-
-    // uint8_t buf0[4] = "ABCD";
-    // soc_printf("len = %d\r\n", sizeof(buf0));
-	// my_delay_ms(25);
-
-	// volatile int num = 8;
-    // soc_printf("num = %d\r\n", num);
-    // my_delay_ms(25);
-
-	// uart1_interrupt();
+int System_Init(void)
+{
+	EnableInt();
+	UART_FIFO_CTRL = 0x05;
 	my_delay_ms(2000);
-	volatile uint32_t a = 0;
-	volatile uint32_t cnt = 0;
-	// soc_printf("Hello world!");
-    while(1) {
-		DDR_TEST = a;
-		if (DDR_TEST == a)
-		{
-			if (cnt == 20000)
-			{
-				cnt = 0;
-				LED ^= (int32_t)0x00000001;
-			}
-			else
-			{
-				cnt += 1;
-			}
-			a += 1;
-		}
-		else
-		{
-			break;
-		}
-		
-    }
-	while (1)
+
+	if (!DDR_Init())
 	{
-		LED = (int32_t)0x00000001;
+		soc_printf("DDR failed to initialize\r\n");
+		my_delay_ms(25);
+		return 0;
 	}
+
+	if (!SD_Init())
+	{
+		soc_printf("SD failed to initialize\r\n");
+		my_delay_ms(25);
+		return 0;
+	}
+
+	soc_printf("System Initialized Successfully\r\n");
+	my_delay_ms(25);
+
+	uart1_interrupt();
+
+	return 1;
+}
+
+int main(void)
+{
+	System_Init();
+	LED = (uint32_t)0x00000007;
+
 
     return 0;
 }

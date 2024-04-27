@@ -2,76 +2,86 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="apb_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_awid[7:0]">
-                <Signal>ddr_ctr/s_axi_awid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_awid[0]</Signal>
+            <Bus capture_enable="true" name="apb3_addr[31:0]">
+                <Signal>apb3_addr[31]</Signal>
+                <Signal>apb3_addr[30]</Signal>
+                <Signal>apb3_addr[29]</Signal>
+                <Signal>apb3_addr[28]</Signal>
+                <Signal>apb3_addr[27]</Signal>
+                <Signal>apb3_addr[26]</Signal>
+                <Signal>apb3_addr[25]</Signal>
+                <Signal>apb3_addr[24]</Signal>
+                <Signal>apb3_addr[23]</Signal>
+                <Signal>apb3_addr[22]</Signal>
+                <Signal>apb3_addr[21]</Signal>
+                <Signal>apb3_addr[20]</Signal>
+                <Signal>apb3_addr[19]</Signal>
+                <Signal>apb3_addr[18]</Signal>
+                <Signal>apb3_addr[17]</Signal>
+                <Signal>apb3_addr[16]</Signal>
+                <Signal>apb3_addr[15]</Signal>
+                <Signal>apb3_addr[14]</Signal>
+                <Signal>apb3_addr[13]</Signal>
+                <Signal>apb3_addr[12]</Signal>
+                <Signal>apb3_addr[11]</Signal>
+                <Signal>apb3_addr[10]</Signal>
+                <Signal>apb3_addr[9]</Signal>
+                <Signal>apb3_addr[8]</Signal>
+                <Signal>apb3_addr[7]</Signal>
+                <Signal>apb3_addr[6]</Signal>
+                <Signal>apb3_addr[5]</Signal>
+                <Signal>apb3_addr[4]</Signal>
+                <Signal>apb3_addr[3]</Signal>
+                <Signal>apb3_addr[2]</Signal>
+                <Signal>apb3_addr[1]</Signal>
+                <Signal>apb3_addr[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_awuser[0:0]">
-                <Signal>ddr_ctr/s_axi_awuser[0]</Signal>
+            <Bus capture_enable="true" name="apb3_datao[31:0]">
+                <Signal>apb3_datao[31]</Signal>
+                <Signal>apb3_datao[30]</Signal>
+                <Signal>apb3_datao[29]</Signal>
+                <Signal>apb3_datao[28]</Signal>
+                <Signal>apb3_datao[27]</Signal>
+                <Signal>apb3_datao[26]</Signal>
+                <Signal>apb3_datao[25]</Signal>
+                <Signal>apb3_datao[24]</Signal>
+                <Signal>apb3_datao[23]</Signal>
+                <Signal>apb3_datao[22]</Signal>
+                <Signal>apb3_datao[21]</Signal>
+                <Signal>apb3_datao[20]</Signal>
+                <Signal>apb3_datao[19]</Signal>
+                <Signal>apb3_datao[18]</Signal>
+                <Signal>apb3_datao[17]</Signal>
+                <Signal>apb3_datao[16]</Signal>
+                <Signal>apb3_datao[15]</Signal>
+                <Signal>apb3_datao[14]</Signal>
+                <Signal>apb3_datao[13]</Signal>
+                <Signal>apb3_datao[12]</Signal>
+                <Signal>apb3_datao[11]</Signal>
+                <Signal>apb3_datao[10]</Signal>
+                <Signal>apb3_datao[9]</Signal>
+                <Signal>apb3_datao[8]</Signal>
+                <Signal>apb3_datao[7]</Signal>
+                <Signal>apb3_datao[6]</Signal>
+                <Signal>apb3_datao[5]</Signal>
+                <Signal>apb3_datao[4]</Signal>
+                <Signal>apb3_datao[3]</Signal>
+                <Signal>apb3_datao[2]</Signal>
+                <Signal>apb3_datao[1]</Signal>
+                <Signal>apb3_datao[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">ddr_ctr/s_axi_awvalid</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_awready</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_wvalid</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_wready</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_wlast</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_bvalid</Signal>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_bid[7:0]">
-                <Signal>ddr_ctr/s_axi_bid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_bid[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_bresp[1:0]">
-                <Signal>ddr_ctr/s_axi_bresp[1]</Signal>
-                <Signal>ddr_ctr/s_axi_bresp[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">ddr_ctr/s_axi_bready</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_arvalid</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_arready</Signal>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_arid[7:0]">
-                <Signal>ddr_ctr/s_axi_arid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_arid[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">ddr_ctr/s_axi_rvalid</Signal>
-            <Signal capture_enable="true">ddr_ctr/s_axi_rready</Signal>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_rid[7:0]">
-                <Signal>ddr_ctr/s_axi_rid[7]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[6]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[5]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[4]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[3]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[2]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[1]</Signal>
-                <Signal>ddr_ctr/s_axi_rid[0]</Signal>
-            </Bus>
-            <Bus capture_enable="true" name="ddr_ctr/s_axi_rresp[1:0]">
-                <Signal>ddr_ctr/s_axi_rresp[1]</Signal>
-                <Signal>ddr_ctr/s_axi_rresp[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">ddr_ctr/s_axi_rlast</Signal>
+            <Signal capture_enable="true">apb3_psel</Signal>
+            <Signal capture_enable="true">apb3_rw</Signal>
+            <Signal capture_enable="true">apb3_enab</Signal>
+            <Signal capture_enable="true">apb3_ack</Signal>
+            <Signal capture_enable="true">init_calib_complete</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>ddr_ctr/s_axi_awvalid</Signal>
+                    <Signal>apb3_psel</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -112,5 +122,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0000010110101101</GAO_ID>
+    <GAO_ID>1110110110001001</GAO_ID>
 </GAO_CONFIG>

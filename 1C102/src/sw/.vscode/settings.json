@@ -2,6 +2,23 @@
 	"files.associations": {
 		"test.h": "c",
 		"soc_ls1c102.h": "c",
-		"ls1c102_interrupt.h": "c"
-	}
+		"ls1c102_interrupt.h": "c",
+		"ls1x_common.h": "c",
+		"my_delay.h": "c",
+		"soc_gpio.h": "c",
+		"soc_pwm.h": "c",
+		"soc_hpet.h": "c",
+		"soc_uart.h": "c",
+		"soc_printf.h": "c",
+		"1c102_interrupt.h": "c",
+		"ls1x_string.h": "c",
+		"usergpio.h": "c",
+		"ls1x_wdg.h": "c",
+		"ls1x_clock.h": "c",
+		"ls1x_pmu.h": "c",
+		"config.h": "c",
+		"calin8m.h": "c",
+		"ls1x.h": "c"
+	},
+	"debugger-for-loongarch.variableUseNaturalFormat": false
 }

@@ -41,6 +41,23 @@ in the default header file 'stdint.h'. therefore, the duplicated parts in 'test.
 #define ATE_Freq			   (*(volatile int *)0xbf0201b0)
 
 
+
+
+#define DDR_BASE                0x40000000
+#define DDR_CTR_BASE            0xbfff1000
+#define DDR_INIT                (*(volatile uint32_t*)(DDR_CTR_BASE))
+
+
+#define SD_DMA_CTR_BASE         0xbfff0000
+#define SD_INIT                 (*(volatile uint32_t*)(SD_DMA_CTR_BASE))
+#define SD_DMA_START            (*(volatile uint32_t*)(SD_DMA_CTR_BASE + 0x04))
+#define SD_DMA_SD_BASE          (*(volatile uint32_t*)(SD_DMA_CTR_BASE + 0x08))
+#define SD_DMA_SD_SEC_NUM       (*(volatile uint32_t*)(SD_DMA_CTR_BASE + 0x0C))
+#define SD_DMA_DDR_BASE         (*(volatile uint32_t*)(SD_DMA_CTR_BASE + 0x10))
+#define SD_DMA_DONE             (*(volatile uint32_t*)(SD_DMA_CTR_BASE + 0x14))
+
+
+
 /******************  PMU REGS  ******************/
 typedef struct
 {

@@ -18,6 +18,7 @@ module sd_read_para_top #(
     output                          sd_clk       ,
     output                          sd_cs        ,
     output                          sd_mosi      ,
+    output                          sd_gnd       ,
 
     //AXI_croosbar
     output  wire [ID_WIDTH-1:0]      model_awid,
@@ -61,20 +62,22 @@ module sd_read_para_top #(
 	input wire                      	apb_rw,    // 0 for rd, 1 for wr
 	input wire  [ADDR_WIDTH     -1 :0]	apb_addr,
 	input wire                      	apb_enab,
-	input wire  [APB_DATA_WIDTH -1 :0] apb_datai,
-	output wire [APB_DATA_WIDTH -1 :0] apb_datao,
+	input wire  [APB_DATA_WIDTH -1 :0]  apb_datai,
+	output wire [APB_DATA_WIDTH -1 :0]  apb_datao,
 	output wire                      	apb_ack
 
     );     
 
+    assign sd_gnd = 1'b0;
 wire                        ddr_wr_en;  
 wire [15:0]                 ddr_wr_data,sd_rd_val_data;
 wire                        ddr_wr_last;
 wire                        sd_rd_busy,sd_rd_val_en,sd_rd_start_en;
 wire [31:0]                 sd_rd_sec_addr; 
+wire                        sd_init_done;
 reg                         start;
 reg  [ADDR_WIDTH-1:0]       sd_addr_base;
-reg  [16:0]                 sd_sec_num;
+reg  [31:0]                 sd_sec_num;
 reg  [ADDR_WIDTH-1:0]       ddr_addr_base;
 reg                         done;      
 reg  [2:0]                  apb_reg_addr;
@@ -84,7 +87,7 @@ reg                         apb_reg_wen;
 apb_register_if # (
     .REG_NUM(REG_NUM)
   )
-  apb_register_if_inst (
+  apb_register_if_sd (
     .clk(sys_clk),
     .resetn(rst_n),
 

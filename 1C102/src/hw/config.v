@@ -69,11 +69,12 @@
 `define APB_SLV1_ADDR_LEN    32'h00000007     //APB1 length
 //APB2
 //SD DMA
-`define APB_SLV2_ADDR_BASE   32'hbfec0000     //APB2 base address    
+`define APB_SLV2_ADDR_BASE   32'hbfff0000     //APB2 base address    
 `define APB_SLV2_ADDR_LEN    32'h0000001c     //APB2 length
 //APB3
-`define APB_SLV3_ADDR_BASE   32'hffffffff     //APB3 base address    
-`define APB_SLV3_ADDR_LEN    32'hffffffff     //APB3 length
+//DDR State
+`define APB_SLV3_ADDR_BASE   32'hbfff1000     //APB3 base address    
+`define APB_SLV3_ADDR_LEN    32'h00000001     //APB3 length
 //APB4
 `define APB_SLV4_ADDR_BASE   32'hffffffff     //APB4 base address    
 `define APB_SLV4_ADDR_LEN    32'hffffffff     //APB4 length
