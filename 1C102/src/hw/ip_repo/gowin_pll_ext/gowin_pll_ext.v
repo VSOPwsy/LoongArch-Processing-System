@@ -1,21 +1,21 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.9.01 (64-bit)
+//Tool Version: V1.9.9 (64-bit)
 //Part Number: GW5AT-LV138PG484AC2/I1
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Sun Apr 14 00:05:26 2024
+//Created Time: Mon Apr 29 01:05:46 2024
 
-module Gowin_PLL_ext (lock, clkout0, clkout1, clkin);
+module Gowin_PLL_ext (lock, clkout0, clkout1, clkout2, clkout3, clkin);
 
 output lock;
 output clkout0;
 output clkout1;
+output clkout2;
+output clkout3;
 input clkin;
 
-wire clkout2;
-wire clkout3;
 wire clkout4;
 wire clkout5;
 wire clkout6;
@@ -81,9 +81,9 @@ defparam PLL_inst.FCLKIN = "50";
 defparam PLL_inst.IDIV_SEL = 1;
 defparam PLL_inst.FBDIV_SEL = 1;
 defparam PLL_inst.ODIV0_SEL = 100;
-defparam PLL_inst.ODIV1_SEL = 4;
-defparam PLL_inst.ODIV2_SEL = 8;
-defparam PLL_inst.ODIV3_SEL = 8;
+defparam PLL_inst.ODIV1_SEL = 16;
+defparam PLL_inst.ODIV2_SEL = 4;
+defparam PLL_inst.ODIV3_SEL = 16;
 defparam PLL_inst.ODIV4_SEL = 8;
 defparam PLL_inst.ODIV5_SEL = 8;
 defparam PLL_inst.ODIV6_SEL = 8;
@@ -92,8 +92,8 @@ defparam PLL_inst.MDIV_FRAC_SEL = 0;
 defparam PLL_inst.ODIV0_FRAC_SEL = 0;
 defparam PLL_inst.CLKOUT0_EN = "TRUE";
 defparam PLL_inst.CLKOUT1_EN = "TRUE";
-defparam PLL_inst.CLKOUT2_EN = "FALSE";
-defparam PLL_inst.CLKOUT3_EN = "FALSE";
+defparam PLL_inst.CLKOUT2_EN = "TRUE";
+defparam PLL_inst.CLKOUT3_EN = "TRUE";
 defparam PLL_inst.CLKOUT4_EN = "FALSE";
 defparam PLL_inst.CLKOUT5_EN = "FALSE";
 defparam PLL_inst.CLKOUT6_EN = "FALSE";
@@ -127,7 +127,7 @@ defparam PLL_inst.CLKOUT1_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT1_PE_FINE = 0;
 defparam PLL_inst.CLKOUT2_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT2_PE_FINE = 0;
-defparam PLL_inst.CLKOUT3_PE_COARSE = 0;
+defparam PLL_inst.CLKOUT3_PE_COARSE = 8;
 defparam PLL_inst.CLKOUT3_PE_FINE = 0;
 defparam PLL_inst.CLKOUT4_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT4_PE_FINE = 0;

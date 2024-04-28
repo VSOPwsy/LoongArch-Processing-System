@@ -496,6 +496,14 @@ int main(void)
 	System_Init();
 	LED = (uint32_t)0x00000007;
 
+	SD_DMA_SD_START_SEC = (uint32_t)67072;
+	SD_DMA_SD_SEC_NUM = (uint32_t)1212;
+	SD_DMA_DDR_BASE = (uint32_t)0x00000000;
+
+	SD_DMA_START = (uint32_t)0x00000001;
+
+	while (!SD_DMA_DONE);
+	
 
     return 0;
 }

@@ -20,5 +20,5 @@
 		"calin8m.h": "c",
 		"ls1x.h": "c"
 	},
-	"debugger-for-loongarch.variableUseNaturalFormat": false
+	"debugger-for-loongarch.variableUseNaturalFormat": true
 }

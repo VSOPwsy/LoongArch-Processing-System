@@ -27,17 +27,17 @@ parameter  POWER_ON_NUM = 5000;
 //当超时计数器等于此值时,认为SD卡响应超时,重新发送软件复位命令
 parameter  OVER_TIME_NUM = 25000;
                         
-parameter  st_idle        = 3'd0;  //默认状态,上电等待SD卡稳定
-parameter  st_send_cmd0   = 3'd1;  //发送软件复位命令
-parameter  st_wait_cmd0   = 3'd2;  //等待SD卡响应
-parameter  st_send_cmd8   = 3'd3;  //发送主设备的电压范围，检测SD卡是否满足
-parameter  st_send_cmd55  = 3'd4;  //告诉SD卡接下来的命令是应用相关命令
-parameter  st_send_acmd41 = 3'd5;  //发送操作寄存器(OCR)内容
-parameter  st_init_done   = 3'd6;  //SD卡初始化完成
+parameter  st_idle        = 7'b000_0001;  //默认状态,上电等待SD卡稳定
+parameter  st_send_cmd0   = 7'b000_0010;  //发送软件复位命令
+parameter  st_wait_cmd0   = 7'b000_0100;  //等待SD卡响应
+parameter  st_send_cmd8   = 7'b000_1000;  //发送主设备的电压范围，检测SD卡是否满足
+parameter  st_send_cmd55  = 7'b001_0000;  //告诉SD卡接下来的命令是应用相关命令
+parameter  st_send_acmd41 = 7'b010_0000;  //发送操作寄存器(OCR)内容
+parameter  st_init_done   = 7'b100_0000;  //SD卡初始化完成
 
 //reg define
-reg    [2:0]   cur_state      ;
-reg    [2:0]   next_state     ; 
+reg    [7:0]      cur_state  /*synthesis syn_preserve=1*/       ;
+reg    [7:0]      next_state        ; 
                               
 reg    [7:0]   div_cnt        ;    //分频计数器
 reg            div_clk; /* synthesis syn_keep = 1 */
@@ -60,17 +60,24 @@ wire           div_clk_180deg ;    //时钟相位和div_clk相差180度
 assign  sd_clk = ~div_clk;         //SD_CLK
 assign  div_clk_180deg = ~div_clk; //相位和DIV_CLK相差180度的时钟
 
-always @(posedge clk_ref) begin
-    if(div_cnt == DIV_FREQ/2-1'b1) begin
-        div_clk <= ~div_clk;
+//时钟分频,div_clk = 250KHz
+always @(posedge clk_ref or negedge rst_n) begin
+    if(!rst_n) begin
+        div_clk <= 1'b0;
         div_cnt <= 8'd0;
     end
-    else    
-        div_cnt <= div_cnt + 1'b1;
+    else begin
+        if(div_cnt == DIV_FREQ/2-1'b1) begin
+            div_clk <= ~div_clk;
+            div_cnt <= 8'd0;
+        end
+        else    
+            div_cnt <= div_cnt + 1'b1;
+    end        
 end
 
 //上电等待稳定计数器
-always @(posedge div_clk) begin
+always @(posedge div_clk or negedge rst_n) begin
     if(!rst_n) 
         poweron_cnt <= 13'd0;
     else if(cur_state == st_idle) begin
@@ -83,7 +90,7 @@ end
 
 //接收sd卡返回的响应数据
 //在div_clk_180deg(sd_clk)的上升沿锁存数据
-always @(posedge div_clk_180deg) begin
+always @(posedge div_clk_180deg or negedge rst_n) begin
     if(!rst_n) begin
         res_en <= 1'b0;
         res_data <= 48'd0;
@@ -114,7 +121,7 @@ always @(posedge div_clk_180deg) begin
     end
 end                    
 
-always @(posedge div_clk) begin
+always @(posedge div_clk or negedge rst_n) begin
     if(!rst_n)
         cur_state <= st_idle;
     else
@@ -189,7 +196,7 @@ end
 
 //SD卡在div_clk_180deg(sd_clk)的上升沿锁存数据,因此在sd_clk的下降沿输出数据
 //为了统一在alway块中使用上升沿触发,此处使用和sd_clk相位相差180度的时钟
-always @(posedge div_clk) begin
+always @(posedge div_clk or negedge rst_n) begin
     if(!rst_n) begin
         sd_cs <= 1'b1;
         sd_mosi <= 1'b1;

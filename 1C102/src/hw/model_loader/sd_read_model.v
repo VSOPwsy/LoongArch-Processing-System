@@ -5,9 +5,8 @@ module sd_read_model(
     input                rd_busy       ,  //SD卡读忙信号
     input                sd_rd_val_en  ,  //SD卡读数据有效信号
     input        [15:0]  sd_rd_val_data,  //SD卡读出的数据
-    input        [31:0]  MODEL_ADDR_START, //SD卡起始读扇区
-
-    output  reg          rd_start_en   ,  //开始读SD卡数据信号
+    input        [31:0]  sd_start_sec  , //SD卡起始读扇区
+    input                start         ,
     output  reg  [31:0]  rd_sec_addr   ,  //读数据扇区地址
     output  reg          ddr_wr_en     ,  //DDR写使能信号
     output  reg          ddr_wr_last   ,  //完成
@@ -28,7 +27,7 @@ wire                neg_rd_busy      ;  //SD卡读忙信号下降沿
 
 //对rd_busy信号进行延时打拍,用于采rd_busy信号的下降沿
 always @(posedge clk) begin
-    if(rst_n == 1'b0) begin
+    if(~rst_n) begin
         rd_busy_d0 <= 1'b0;
         rd_busy_d1 <= 1'b0;
     end
@@ -40,21 +39,19 @@ end
 assign  neg_rd_busy = rd_busy_d1 & (~rd_busy_d0); //当rd_busy由高电平变为低电平时，产生一个时钟周期的脉冲信号，用于表示SD卡的单个扇区读完成
 
 always @(posedge clk) begin
-    if (!rst_n) begin
+    if (~rst_n) begin
         rd_flow_state <= 0;
-        rd_start_en   <= 0;
         rd_sec_addr   <= 0;
         rd_sec_cnt    <= 0;
         sd_rd_last    <= 0;
     end
     else begin
-        rd_start_en <= 1'b0;
         case (rd_flow_state)
             1'd0:begin
-                if (~sd_rd_last) begin
-                    rd_flow_state <= rd_flow_state + 1;
-                    rd_start_en <= 1'b1;
-                    rd_sec_addr <= MODEL_ADDR_START;
+                if (start) begin
+                    rd_flow_state <= 1'd1;
+                    rd_sec_addr <= sd_start_sec;
+                    sd_rd_last <= 1'b0;
                 end
             end
             1'd1:begin
@@ -64,13 +61,8 @@ always @(posedge clk) begin
 
                     if(rd_sec_cnt == sd_sec_num - 1'b1) begin
                         rd_sec_cnt <= 16'd0;
-                        rd_flow_state <= 0;
+                        rd_flow_state <= 1'd0;
                         sd_rd_last <= 1'b1;
-                    end    
-                    else begin
-                        rd_start_en <= 1'b1;
-                        sd_rd_last <= 1'b0;
-                        rd_flow_state <= 1'b1;
                     end
                 end
             end

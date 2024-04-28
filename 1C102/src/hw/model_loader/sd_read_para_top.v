@@ -11,6 +11,7 @@ module sd_read_para_top #(
 )
 (    
     input                           sys_clk      ,
+    input                clk_ref_180deg,   //时钟信号,与clk_ref相位相差180度
     input                           rst_n    ,
 
     //SD卡接口
@@ -18,7 +19,8 @@ module sd_read_para_top #(
     output                          sd_clk       ,
     output                          sd_cs        ,
     output                          sd_mosi      ,
-    output                          sd_gnd       ,
+    output                          sd_init_done,
+
 
     //AXI_croosbar
     output  wire [ID_WIDTH-1:0]      model_awid,
@@ -68,15 +70,13 @@ module sd_read_para_top #(
 
     );     
 
-    assign sd_gnd = 1'b0;
 wire                        ddr_wr_en;  
 wire [15:0]                 ddr_wr_data,sd_rd_val_data;
 wire                        ddr_wr_last;
-wire                        sd_rd_busy,sd_rd_val_en,sd_rd_start_en;
+wire                        sd_rd_busy,sd_rd_val_en;
 wire [31:0]                 sd_rd_sec_addr; 
-wire                        sd_init_done;
 reg                         start;
-reg  [ADDR_WIDTH-1:0]       sd_addr_base;
+reg  [ADDR_WIDTH-1:0]       sd_start_sec;
 reg  [31:0]                 sd_sec_num;
 reg  [ADDR_WIDTH-1:0]       ddr_addr_base;
 reg                         done;      
@@ -103,7 +103,7 @@ apb_register_if # (
 
     .R0(sd_init_done),
     .R1(start),
-    .R2(sd_addr_base),
+    .R2(sd_start_sec),
     .R3(sd_sec_num),
     .R4(ddr_addr_base),
     .R5(done),
@@ -115,7 +115,7 @@ apb_register_if # (
 always @(posedge sys_clk) begin
     if (~rst_n) begin
         start               <= 0;
-        sd_addr_base        <= 0;
+        sd_start_sec        <= 0;
         sd_sec_num          <= 0;
         ddr_addr_base       <= 0;
         done                <= 0;
@@ -123,18 +123,18 @@ always @(posedge sys_clk) begin
     else begin
         if (apb_reg_wen) begin
             start           <= apb_reg_addr == 'd1 ? apb_reg_wdata : start;
-            sd_addr_base    <= apb_reg_addr == 'd2 ? apb_reg_wdata : sd_addr_base;
+            sd_start_sec    <= apb_reg_addr == 'd2 ? apb_reg_wdata : sd_start_sec;
             sd_sec_num      <= apb_reg_addr == 'd3 ? apb_reg_wdata : sd_sec_num;
             ddr_addr_base   <= apb_reg_addr == 'd4 ? apb_reg_wdata : ddr_addr_base;
         end
         else begin
-            if (start) begin
-                start       <= 0;
-            end
-            sd_addr_base    <= sd_addr_base;
+            sd_start_sec    <= sd_start_sec;
             sd_sec_num      <= sd_sec_num;
             ddr_addr_base   <= ddr_addr_base;
             done            <= ddr_wr_last;
+        end
+        if (start & sd_init_done) begin
+            start <= 0;
         end
     end
 end
@@ -143,6 +143,7 @@ end
 //SD卡顶层控制模块
 sd_ctrl_top u_sd_ctrl_top(
     .clk_ref                (sys_clk),
+    .clk_ref_180deg         (clk_ref_180deg),
     .rst_n                  (rst_n),
     .start                  (start),
     //SD卡接口
@@ -151,7 +152,6 @@ sd_ctrl_top u_sd_ctrl_top(
     .sd_cs                  (sd_cs),
     .sd_mosi                (sd_mosi),
     //用户读SD卡接口
-    .rd_start_en            (sd_rd_start_en),
     .rd_sec_addr            (sd_rd_sec_addr),
     .rd_busy                (sd_rd_busy),
     .rd_val_en              (sd_rd_val_en),
@@ -163,14 +163,13 @@ sd_ctrl_top u_sd_ctrl_top(
 
 sd_read_model u_sd_read_model(
     .clk                   (sys_clk),
-    .rst_n                 (rst_n & (~start)),
+    .rst_n                 (rst_n),
+    .start                 (start),
     .sd_sec_num            (sd_sec_num),
     .rd_busy               (sd_rd_busy),
     .sd_rd_val_en          (sd_rd_val_en),
     .sd_rd_val_data        (sd_rd_val_data),
-    .MODEL_ADDR_START      (sd_addr_base),
-
-    .rd_start_en           (sd_rd_start_en),
+    .sd_start_sec          (sd_start_sec),
     .rd_sec_addr           (sd_rd_sec_addr),
     .ddr_wr_en             (ddr_wr_en),
     .ddr_wr_last           (ddr_wr_last),

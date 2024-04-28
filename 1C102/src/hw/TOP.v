@@ -13,7 +13,7 @@ module TOP # (
     input           sys_clk,    //50M
     input           sys_resetn,
 
-    output  [3:0]   led,
+    output  [5:0]   led,
 
     input           RsRx,
     output          RsTx,
@@ -44,8 +44,7 @@ module TOP # (
     input            sd_miso,
     output           sd_clk,
     output           sd_cs,
-    output           sd_mosi,
-    output           sd_gnd
+    output           sd_mosi
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,6 +53,7 @@ module TOP # (
 
     wire cpu_clk;           /* synthesis syn_keep=1 */ 
     wire core_clk;          /* synthesis syn_keep=1 */ 
+    wire core_clk_n;
     wire ddr_intf_clk;      /* synthesis syn_keep=1 */ 
     wire model_loader_clk;  /* synthesis syn_keep=1 */ 
     wire locked;
@@ -83,11 +83,12 @@ module TOP # (
     Gowin_PLL_ext clk_gen(
         .lock(locked), //output lock
         .clkout0(cpu_clk), // 8M
-        .clkout1(ddr_intf_clk), // 200M
+        .clkout1(core_clk), //50M
+        .clkout2(ddr_intf_clk), // 200M
+        .clkout3(core_clk_n), //50M
         .clkin(sys_clk) //external input 50M
     );
-    assign core_clk = sys_clk;
-    assign model_loader_clk = sys_clk;
+    assign model_loader_clk = core_clk;
 `endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -450,6 +451,7 @@ module TOP # (
     wire                        ddr_test_256_rvalid;
     wire                        ddr_test_256_rready;
 
+    wire                        sd_init_done;
     wire [`ID_WIDTH       -1:0] model_awid;
     wire [`ADDR_WIDTH    -1 :0] model_awaddr;
     wire [`LEN_WIDTH     -1 :0] model_awlen;
@@ -1101,13 +1103,14 @@ module TOP # (
   )
   sd_read_para_top_inst (
         .sys_clk            (core_clk),
+        .clk_ref_180deg     (core_clk_n),
         .rst_n              (core_resetn),
 
         .sd_miso            (sd_miso),
         .sd_clk             (sd_clk),
         .sd_cs              (sd_cs),
         .sd_mosi            (sd_mosi),
-        .sd_gnd             (sd_gnd),
+        .sd_init_done       (sd_init_done),
 
         .model_awid         (model_awid),
         .model_awaddr       (model_awaddr),
@@ -1164,7 +1167,7 @@ module TOP # (
         .apb_datao          (apb8_datao             ),
         .apb_ack            (apb8_ack               ),
 
-        .led                (led[3:1]               )
+        .led                (led[5:2]               )
     );
 `endif
 `endif
@@ -1526,6 +1529,7 @@ module TOP # (
     );
     // assign led[2:0] = 0;
     assign led[0] = init_calib_complete;
+    assign led[1] = sd_init_done;
 `endif
 endmodule
 
