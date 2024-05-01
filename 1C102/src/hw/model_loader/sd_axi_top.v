@@ -3,7 +3,7 @@ module sd_axi_top#(
     parameter ADDR_WIDTH = 32,
     parameter STRB_WIDTH = (DATA_WIDTH/8),
     parameter ID_WIDTH = 8,
-
+    parameter ID = 8'h40,
     parameter DQ_WIDTH = (DATA_WIDTH/8)
 )(
     input           clk                 ,  
@@ -28,45 +28,55 @@ module sd_axi_top#(
     output  wire [STRB_WIDTH-1:0]    model_wstrb,//
     output  wire                     model_wlast,//
     output  wire                     model_wvalid,
-    input   wire                     model_wready
+    input   wire                     model_wready,
+    input   wire [ID_WIDTH-1:0]      model_bid,
+    input   wire [1:0]               model_bresp,
+    input   wire                     model_bvalid,
+    output  wire                     model_bready,
 
+    output  reg                     ddr_wr_done
     );             
-    wire [$clog2(DQ_WIDTH)-1:0] offset;
-    wire [16:0] fifo_rddata;
+    wire [3:0] offset;
+    wire [15:0] fifo_rddata;
     wire fifo_empty;
-    reg [31:0] addr_reg;
-    reg model_awvalid_reg,model_wvalid_reg;
+    reg fifo_rd_last;
+    reg [ADDR_WIDTH-1:0] addr_reg;
+    reg model_awvalid_reg,model_wvalid_reg,model_bready_reg;
 
-    reg [1:0] current_state,next_state;
-    localparam ADDR = 2'b00;
-    localparam DATA = 2'b01;
-    localparam DONE = 2'b10;
+    reg [3:0] current_state,next_state;
+    localparam ADDR = 4'b0001;
+    localparam DATA = 4'b0010;
+    localparam RESP = 4'b0100;
+    localparam DONE = 4'b1000;
 
 	ml_wrfifo ml_wrfifo_inst(
-		.Data({wrlast,wrdata}), //input [16:0] Data
+		.Data(wrdata), //input [15:0] Data
 		.Clk(clk), //input Clk
 		.WrEn(wr_en), //input WrEn
 		.RdEn(model_wready & model_wvalid), //input RdEn
 		.Reset(!rst_n), //input Reset
-		.Q(fifo_rddata), //output [16:0] Q
+		.Q(fifo_rddata), //output [15:0] Q
 		.Empty(fifo_empty), //output Empty
 		.Full() //output Full
 	);
 
-    assign model_awaddr = addr_reg;
-    assign model_awid = 8'd40;
+    assign model_awaddr = {addr_reg[ADDR_WIDTH-1 : $clog2(STRB_WIDTH)], {$clog2(STRB_WIDTH){1'b0}}};
+    assign model_awid = ID;
     assign model_awlen = 0;
-    assign model_awsize = 32;
+    assign model_awsize = $clog2(STRB_WIDTH);
+    assign model_awburst = 0;
     assign model_awvalid = model_awvalid_reg;
 
-    assign offset = addr_reg[4:0];
-    assign model_wdata = {240'b0,fifo_rddata[15:0]} << (8 * offset);
+    assign offset = addr_reg[$clog2(STRB_WIDTH)-1 : 1];
+    assign model_wdata = {{(DATA_WIDTH-16){1'b0}},fifo_rddata[15:0]} << (16 * offset);
     assign model_wvalid = model_wvalid_reg;
-    assign model_wstrb = 32'h0003 << offset;
+    assign model_wstrb = {{(STRB_WIDTH-2){1'b0}},2'h3} << (2 * offset);
     assign model_wlast = 1'b1;
+
+    assign model_bready = model_bready_reg;
     
-    always @(posedge clk ) begin
-        if (!rst_n) begin
+    always @(posedge clk or negedge rst_n) begin
+        if (~rst_n) begin
             current_state <= ADDR;
         end
         else begin
@@ -78,21 +88,32 @@ module sd_axi_top#(
         next_state = current_state;
         model_awvalid_reg = 0;
         model_wvalid_reg = 0;
+        model_bready_reg = 0;
+        ddr_wr_done = 0;
         case (current_state)
             ADDR: begin
-                model_awvalid_reg = 1'b1;
+                model_awvalid_reg = ~fifo_empty;
                 if (model_awready & model_awvalid) begin
                     next_state = DATA;
+                end
+                else if (fifo_rd_last) begin
+                    next_state = DONE;
                 end
             end
             DATA:begin
                 model_wvalid_reg = ~fifo_empty;
                 if (model_wready & model_wvalid) begin
-                    next_state = fifo_rddata[16] ? DONE : ADDR;
+                    next_state = RESP;
+                end
+            end
+            RESP:begin
+                model_bready_reg = 1'b1;
+                if (model_bready && model_bvalid && model_bid == ID && model_bresp == 2'b00) begin
+                    next_state = ADDR;
                 end
             end
             DONE:begin
-                ////////////////////
+                ddr_wr_done = 1'b1;
             end
         endcase
     end
@@ -100,10 +121,14 @@ module sd_axi_top#(
     always @(posedge clk) begin
         if (~rst_n) begin
             addr_reg <= wr_base_addr;
+            fifo_rd_last <= 1'b0;
         end
         else begin
             if (model_wready & model_wvalid) begin
                 addr_reg <= addr_reg + 'd2;
+            end
+            if(wrlast) begin
+                fifo_rd_last <= 1'b1;
             end
         end
     end

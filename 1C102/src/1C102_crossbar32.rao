@@ -2,34 +2,8 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_awvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_awready</Signal>
-            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_awid[7:0]">
-                <Signal>AXI_crossbar_32/slv0_awid[7]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[6]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[5]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[4]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[3]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[2]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[1]</Signal>
-                <Signal>AXI_crossbar_32/slv0_awid[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_wvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_wready</Signal>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_bvalid</Signal>
-            <Signal capture_enable="true">AXI_crossbar_32/slv0_bready</Signal>
-            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_bid[7:0]">
-                <Signal>AXI_crossbar_32/slv0_bid[7]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[6]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[5]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[4]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[3]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[2]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[1]</Signal>
-                <Signal>AXI_crossbar_32/slv0_bid[0]</Signal>
-            </Bus>
             <Signal capture_enable="true">AXI_crossbar_32/slv0_arvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_32/slv0_arready</Signal>
             <Bus capture_enable="true" name="AXI_crossbar_32/slv0_arid[7:0]">
@@ -41,6 +15,25 @@
                 <Signal>AXI_crossbar_32/slv0_arid[2]</Signal>
                 <Signal>AXI_crossbar_32/slv0_arid[1]</Signal>
                 <Signal>AXI_crossbar_32/slv0_arid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_arlen[7:0]">
+                <Signal>AXI_crossbar_32/slv0_arlen[7]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[6]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[5]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[4]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[3]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[2]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[1]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arlen[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_arsize[2:0]">
+                <Signal>AXI_crossbar_32/slv0_arsize[2]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arsize[1]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arsize[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_arburst[1:0]">
+                <Signal>AXI_crossbar_32/slv0_arburst[1]</Signal>
+                <Signal>AXI_crossbar_32/slv0_arburst[0]</Signal>
             </Bus>
             <Signal capture_enable="true">AXI_crossbar_32/slv0_rvalid</Signal>
             <Signal capture_enable="true">AXI_crossbar_32/slv0_rready</Signal>
@@ -54,11 +47,162 @@
                 <Signal>AXI_crossbar_32/slv0_rid[1]</Signal>
                 <Signal>AXI_crossbar_32/slv0_rid[0]</Signal>
             </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/slv0_rdata[31:0]">
+                <Signal>AXI_crossbar_32/slv0_rdata[31]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[30]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[29]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[28]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[27]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[26]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[25]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[24]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[23]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[22]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[21]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[20]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[19]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[18]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[17]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[16]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[15]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[14]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[13]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[12]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[11]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[10]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[9]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[8]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[7]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[6]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[5]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[4]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[3]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[2]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[1]</Signal>
+                <Signal>AXI_crossbar_32/slv0_rdata[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">AXI_crossbar_32/slv0_rlast</Signal>
+            <Signal capture_enable="true">AXI_crossbar_32/mst1_arvalid</Signal>
+            <Signal capture_enable="true">AXI_crossbar_32/mst1_arready</Signal>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_araddr[31:0]">
+                <Signal>AXI_crossbar_32/mst1_araddr[31]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[30]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[29]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[28]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[27]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[26]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[25]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[24]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[23]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[22]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[21]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[20]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[19]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[18]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[17]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[16]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[15]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[14]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[13]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[12]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[11]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[10]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[9]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[8]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[7]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[6]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[5]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[4]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[3]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_araddr[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_arid[7:0]">
+                <Signal>AXI_crossbar_32/mst1_arid[7]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[6]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[5]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[4]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[3]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_arlen[7:0]">
+                <Signal>AXI_crossbar_32/mst1_arlen[7]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[6]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[5]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[4]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[3]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arlen[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_arsize[2:0]">
+                <Signal>AXI_crossbar_32/mst1_arsize[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arsize[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arsize[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_arburst[1:0]">
+                <Signal>AXI_crossbar_32/mst1_arburst[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_arburst[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">AXI_crossbar_32/mst1_rvalid</Signal>
+            <Signal capture_enable="true">AXI_crossbar_32/mst1_rready</Signal>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_rid[7:0]">
+                <Signal>AXI_crossbar_32/mst1_rid[7]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[6]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[5]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[4]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[3]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_rresp[1:0]">
+                <Signal>AXI_crossbar_32/mst1_rresp[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rresp[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="AXI_crossbar_32/mst1_rdata[31:0]">
+                <Signal>AXI_crossbar_32/mst1_rdata[31]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[30]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[29]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[28]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[27]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[26]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[25]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[24]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[23]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[22]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[21]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[20]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[19]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[18]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[17]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[16]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[15]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[14]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[13]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[12]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[11]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[10]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[9]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[8]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[7]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[6]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[5]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[4]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[3]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[2]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[1]</Signal>
+                <Signal>AXI_crossbar_32/mst1_rdata[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">AXI_crossbar_32/mst1_rlast</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>AXI_crossbar_32/slv0_awvalid</Signal>
+                    <Signal>AXI_crossbar_32/mst1_arvalid</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -99,5 +243,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1111111111100011</GAO_ID>
+    <GAO_ID>1110011011101000</GAO_ID>
 </GAO_CONFIG>

@@ -2,17 +2,33 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="256" window_num="1" capture_amount="256" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
-            <Signal capture_enable="true">sd_cs</Signal>
-            <Signal capture_enable="true">sd_mosi</Signal>
-            <Signal capture_enable="true">sd_miso</Signal>
-            <Signal capture_enable="true">sd_read_para_top_inst/start</Signal>
+            <Bus capture_enable="true" name="sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[15:0]">
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[15]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[14]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[13]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[12]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[11]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[10]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[9]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[8]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[7]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[6]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[5]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[4]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[3]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[2]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[1]</Signal>
+                <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Q[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/RdEn</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/Empty</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>sd_read_para_top_inst/start</Signal>
+                    <Signal>sd_read_para_top_inst/sd_axi_top_inst/ml_wrfifo_inst/RdEn</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -53,5 +69,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1000100111100010</GAO_ID>
+    <GAO_ID>0110110101111101</GAO_ID>
 </GAO_CONFIG>

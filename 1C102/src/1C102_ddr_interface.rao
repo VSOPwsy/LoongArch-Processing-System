@@ -1,0 +1,386 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="ddr_ui_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+        <SignalList>
+            <Signal capture_enable="true">ddr_ctr/DDR3_Memory_Interface/cmd_ready</Signal>
+            <Signal capture_enable="true">ddr_ctr/DDR3_Memory_Interface/cmd_en</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/DDR3_Memory_Interface/cmd[2:0]">
+                <Signal>ddr_ctr/DDR3_Memory_Interface/cmd[2]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/cmd[1]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/cmd[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/DDR3_Memory_Interface/addr[28:0]">
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[28]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[27]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[26]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[25]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[24]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[23]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[22]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[21]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[20]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[19]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[18]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[17]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[16]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[15]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[14]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[13]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[12]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[11]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[10]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[9]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[8]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[7]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[6]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[5]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[4]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[3]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[2]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[1]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/addr[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="ddr_ctr/DDR3_Memory_Interface/wr_data[255:0]">
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[255]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[254]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[253]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[252]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[251]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[250]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[249]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[248]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[247]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[246]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[245]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[244]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[243]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[242]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[241]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[240]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[239]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[238]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[237]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[236]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[235]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[234]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[233]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[232]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[231]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[230]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[229]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[228]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[227]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[226]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[225]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[224]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[223]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[222]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[221]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[220]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[219]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[218]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[217]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[216]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[215]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[214]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[213]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[212]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[211]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[210]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[209]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[208]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[207]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[206]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[205]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[204]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[203]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[202]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[201]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[200]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[199]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[198]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[197]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[196]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[195]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[194]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[193]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[192]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[191]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[190]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[189]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[188]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[187]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[186]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[185]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[184]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[183]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[182]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[181]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[180]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[179]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[178]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[177]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[176]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[175]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[174]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[173]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[172]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[171]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[170]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[169]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[168]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[167]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[166]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[165]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[164]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[163]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[162]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[161]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[160]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[159]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[158]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[157]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[156]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[155]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[154]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[153]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[152]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[151]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[150]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[149]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[148]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[147]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[146]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[145]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[144]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[143]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[142]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[141]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[140]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[139]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[138]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[137]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[136]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[135]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[134]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[133]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[132]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[131]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[130]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[129]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[128]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[127]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[126]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[125]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[124]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[123]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[122]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[121]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[120]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[119]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[118]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[117]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[116]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[115]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[114]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[113]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[112]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[111]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[110]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[109]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[108]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[107]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[106]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[105]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[104]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[103]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[102]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[101]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[100]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[99]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[98]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[97]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[96]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[95]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[94]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[93]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[92]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[91]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[90]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[89]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[88]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[87]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[86]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[85]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[84]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[83]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[82]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[81]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[80]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[79]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[78]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[77]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[76]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[75]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[74]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[73]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[72]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[71]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[70]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[69]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[68]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[67]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[66]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[65]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[64]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[63]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[62]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[61]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[60]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[59]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[58]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[57]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[56]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[55]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[54]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[53]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[52]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[51]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[50]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[49]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[48]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[47]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[46]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[45]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[44]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[43]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[42]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[41]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[40]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[39]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[38]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[37]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[36]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[35]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[34]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[33]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[32]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[31]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[30]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[29]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[28]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[27]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[26]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[25]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[24]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[23]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[22]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[21]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[20]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[19]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[18]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[17]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[16]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[15]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[14]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[13]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[12]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[11]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[10]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[9]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[8]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[7]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[6]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[5]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[4]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[3]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[2]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[1]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/DDR3_Memory_Interface/wr_data_end</Signal>
+            <Bus capture_enable="true" name="ddr_ctr/DDR3_Memory_Interface/wr_data_mask[31:0]">
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[31]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[30]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[29]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[28]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[27]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[26]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[25]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[24]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[23]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[22]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[21]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[20]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[19]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[18]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[17]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[16]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[15]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[14]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[13]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[12]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[11]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[10]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[9]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[8]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[7]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[6]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[5]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[4]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[3]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[2]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[1]</Signal>
+                <Signal>ddr_ctr/DDR3_Memory_Interface/wr_data_mask[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">ddr_ctr/DDR3_Memory_Interface/wr_data_rdy</Signal>
+            <Signal capture_enable="true">ddr_ctr/DDR3_Memory_Interface/wr_data_en</Signal>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>ddr_ctr/DDR3_Memory_Interface/cmd_en</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1"/>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>1110001001011000</GAO_ID>
+</GAO_CONFIG>

@@ -2,7 +2,7 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
             <Bus capture_enable="true" name="AXI_crossbar_32/mst1_awaddr[31:0]">
                 <Signal>AXI_crossbar_32/mst1_awaddr[31]</Signal>
@@ -102,7 +102,7 @@
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>AXI_crossbar_32/slv0_awvalid</Signal>
+                    <Signal>AXI_crossbar_32/slv1_awvalid</Signal>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>

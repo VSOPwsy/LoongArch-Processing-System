@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="ml_wrfifo" Register="25" Alu="3" Lut="12" Ssram="5"/>
+<Module name="ml_wrfifo" Register="24" Alu="3" Lut="12" Ssram="4"/>

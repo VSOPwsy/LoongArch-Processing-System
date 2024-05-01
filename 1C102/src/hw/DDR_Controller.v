@@ -116,7 +116,6 @@ module DDR_Controller #
 );
 
     wire                    ddr_rst;
-    wire                    wr_data_ready;
 
     wire [ID_WIDTH-1:0]      ram_cmd_id;
     wire [ADDR_WIDTH-1:0]    ram_cmd_addr;
@@ -135,14 +134,6 @@ module DDR_Controller #
     wire                     ram_rd_resp_last;
     wire                     ram_rd_resp_valid;
     wire                     ram_rd_resp_ready;
-
-    wire [DATA_WIDTH-1:0]    app_rd_data;
-    wire                     app_rd_data_valid;
-
-    wire                     queue_fifo_empty;
-    wire                     queue_fifo_full;
-    wire                     data_fifo_empty;
-    wire                     data_fifo_full;
 
     apb_register_if # (
         .REG_NUM(2)
@@ -246,8 +237,7 @@ module DDR_Controller #
         .ram_cmd_wr_en(ram_cmd_wr_en),
         .ram_cmd_rd_en(ram_cmd_rd_en),
         .ram_cmd_last(ram_cmd_last),
-        .ram_cmd_ready(ram_cmd_ready & (ram_cmd_wr_en ? wr_data_ready : 
-                                        ram_cmd_rd_en ? ~queue_fifo_full : 1'b1)),
+        .ram_cmd_ready(ram_cmd_ready),
         .ram_rd_resp_id(ram_rd_resp_id),
         .ram_rd_resp_data(ram_rd_resp_data),
         .ram_rd_resp_last(ram_rd_resp_last),
@@ -255,29 +245,91 @@ module DDR_Controller #
         .ram_rd_resp_ready(ram_rd_resp_ready)
     );
 
-    assign ram_rd_resp_valid = ~queue_fifo_empty & ~data_fifo_empty;
 
-	ddr_queue_fifo ddr_queue_fifo(
-		.Data({ram_cmd_last, ram_cmd_id}), //input [8:0] Data
+
+    wire                        cmd_fifo_empty;
+    wire                        cmd_fifo_full;
+    wire                        wr_data_fifo_empty;//need a separate FIFO for wr_data since maximum supported FIFO width is 256
+    wire                        wr_data_fifo_full;
+    wire                        rd_cmd_fifo_empty;
+    wire                        rd_cmd_fifo_full;
+    wire                        rd_fifo_empty;
+    wire                        rd_fifo_full;
+
+    wire                        ddr_cmd_ready;
+    wire                        ddr_wr_data_ready;
+
+    reg                         ddr_cmd_en;
+    wire [ID_WIDTH-1:0]         ddr_cmd_id;
+    wire [ADDR_WIDTH-1:0]       ddr_cmd_addr;
+    wire [DATA_WIDTH-1:0]       ddr_wr_data;
+    wire [STRB_WIDTH-1:0]       ddr_wr_strb;
+    wire                        ddr_cmd;
+
+    wire [ID_WIDTH-1:0]         ddr_rd_cmd_id;
+    wire                        ddr_rd_data_valid;
+    wire [DATA_WIDTH-1:0]       ddr_rd_data;
+
+    assign ram_cmd_ready = ~cmd_fifo_full;
+    assign ram_rd_resp_valid = ~rd_fifo_empty;
+
+	ddr_cmd_fifo ddr_cmd_fifo(
+		.Data({ram_cmd_rd_en,ram_cmd_wr_strb,ram_cmd_addr,ram_cmd_id}), //input [72:0] Data
 		.Clk(ui_clk), //input Clk
-		.WrEn(ram_cmd_rd_en & ram_cmd_ready), //input WrEn
-		.RdEn(ram_rd_resp_valid & ram_rd_resp_ready), //input RdEn
+		.WrEn(ram_cmd_wr_en|ram_cmd_rd_en), //input WrEn
+		.RdEn(ddr_cmd_en), //input RdEn
 		.Reset(~axi_aresetn), //input Reset
-		.Q({ram_rd_resp_last, ram_rd_resp_id}), //output [8:0] Q
-		.Empty(queue_fifo_empty), //output Empty
-		.Full(queue_fifo_full) //output Full
+		.Q({ddr_cmd,ddr_wr_strb,ddr_cmd_addr,ddr_cmd_id}), //output [72:0] Q
+		.Empty(cmd_fifo_empty), //output Empty
+		.Full(cmd_fifo_full) //output Full
 	);
 
-    ddr_data_fifo ddr_data_fifo(
-		.Data(app_rd_data), //input [255:0] Data
+	ddr_data_fifo ddr_wr_data_fifo(
+		.Data(ram_cmd_wr_data), //input [255:0] Data
 		.Clk(ui_clk), //input Clk
-		.WrEn(app_rd_data_valid), //input WrEn
+		.WrEn(ram_cmd_wr_en|ram_cmd_rd_en), //input WrEn
+		.RdEn(ddr_cmd_en), //input RdEn
+		.Reset(~axi_aresetn), //input Reset
+		.Q(ddr_wr_data), //output [255:0] Q
+		.Empty(wr_data_fifo_empty), //output Empty
+		.Full(wr_data_fifo_full) //output Full
+	);
+
+    ddr_rd_cmd_fifo ddr_rd_cmd_fifo(
+		.Data({ram_cmd_last,ram_cmd_id}), //input [7:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(ram_cmd_rd_en), //input WrEn
+		.RdEn(ram_rd_resp_valid & ram_rd_resp_ready), //input RdEn
+		.Reset(~axi_aresetn), //input Reset
+		.Q({ram_rd_resp_last,ram_rd_resp_id}), //output [7:0] Q
+		.Empty(rd_cmd_fifo_empty), //output Empty
+		.Full(rd_cmd_fifo_full) ///////////////////////// Unused
+	);
+
+    ddr_data_fifo ddr_rd_data_fifo(
+		.Data(ddr_rd_data), //input [255:0] Data
+		.Clk(ui_clk), //input Clk
+		.WrEn(ddr_rd_data_valid), //input WrEn
 		.RdEn(ram_rd_resp_valid & ram_rd_resp_ready), //input RdEn
 		.Reset(~axi_aresetn), //input Reset
 		.Q(ram_rd_resp_data), //output [255:0] Q
-		.Empty(data_fifo_empty), //output Empty
-		.Full(data_fifo_full) ///////////////////////// Unused
+		.Empty(rd_fifo_empty), //output Empty
+		.Full(rd_fifo_full) ///////////////////////// Unused
 	);
+
+    localparam DDR_CMD_IDLE = 0;
+    localparam DDR_CMD_PENDING = 1;
+    always @(*) begin
+        if(~axi_aresetn)begin
+            ddr_cmd_en = 0;
+        end
+        else begin
+            ddr_cmd_en = 0;
+            if(ddr_cmd_ready & ddr_wr_data_ready & ~cmd_fifo_empty & ~rd_fifo_full)begin
+                ddr_cmd_en = 1;
+            end
+        end
+    end
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (ctr_clk),
@@ -288,19 +340,19 @@ module DDR_Controller #
         .clk_out         (ui_clk),
         .ddr_rst         (ddr_rst),
 
-        .addr            (ram_cmd_addr[$clog2(DATA_WIDTH/8) +: ADDR_WIDTH-$clog2(DATA_WIDTH/8)]),
-        .cmd             ({2'b0, ram_cmd_rd_en}),
-        .cmd_en          (ram_cmd_rd_en | (wr_data_ready & ram_cmd_wr_en)),
-        .cmd_ready       (ram_cmd_ready),
-        .rd_data         (app_rd_data),
+        .addr            ({ddr_cmd_addr[$clog2(DATA_WIDTH/8) +: ADDR_WIDTH-$clog2(DATA_WIDTH/8)], {($clog2(DATA_WIDTH/8)){1'b0}}}),
+        .cmd             ({2'b0, ddr_cmd}),
+        .cmd_en          (ddr_cmd_en),
+        .cmd_ready       (ddr_cmd_ready),
+        .rd_data         (ddr_rd_data),
         .rd_data_end     (),
-        .rd_data_valid   (app_rd_data_valid),
+        .rd_data_valid   (ddr_rd_data_valid),
         .burst           (1'b1),
-        .wr_data         (ram_cmd_wr_data),
-        .wr_data_end     (1'b1), // DATA_WIDTH must be equal to 8 times of DQ_WIDTH
-        .wr_data_mask    (~ram_cmd_wr_strb),
-        .wr_data_rdy     (wr_data_ready),
-        .wr_data_en      (ram_cmd_wr_en),
+        .wr_data         (ddr_wr_data),
+        .wr_data_end     (1'b1),
+        .wr_data_mask    (~ddr_wr_strb),
+        .wr_data_rdy     (ddr_wr_data_ready),
+        .wr_data_en      (ddr_cmd_en),
         .sr_req          (1'b0),
         .sr_ack          (sr_ack),
         .ref_req         (1'b0),

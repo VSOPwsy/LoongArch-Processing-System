@@ -22,7 +22,7 @@ module fifomem
 
     localparam DEPTH = 1<<ADDRSIZE;
 
-    reg [DATASIZE-1:0] mem [DEPTH-1:0]; /* synthesis syn_ramstyle = "block_ram" */
+    reg [DATASIZE-1:0] mem [DEPTH-1:0];
     reg [DATASIZE-1:0] rdata_r;
 
     always @(posedge wclk) begin

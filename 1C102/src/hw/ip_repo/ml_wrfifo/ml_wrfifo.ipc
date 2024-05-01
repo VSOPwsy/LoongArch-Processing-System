@@ -22,4 +22,4 @@ OUTPUT_REG=false
 RDEN_CTRL=false
 STD=false
 Synthesis_tool=GowinSynthesis
-WIDTH_W=17
+WIDTH_W=16

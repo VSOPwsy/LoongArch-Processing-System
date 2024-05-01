@@ -5,18 +5,18 @@
 //Part Number: GW5AT-LV138PG484AC2/I1
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Sun Apr 21 12:34:43 2024
+//Created Time: Wed May  1 14:53:41 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
 
 	ml_wrfifo your_instance_name(
-		.Data(Data_i), //input [16:0] Data
+		.Data(Data_i), //input [15:0] Data
 		.Clk(Clk_i), //input Clk
 		.WrEn(WrEn_i), //input WrEn
 		.RdEn(RdEn_i), //input RdEn
 		.Reset(Reset_i), //input Reset
-		.Q(Q_o), //output [16:0] Q
+		.Q(Q_o), //output [15:0] Q
 		.Empty(Empty_o), //output Empty
 		.Full(Full_o) //output Full
 	);

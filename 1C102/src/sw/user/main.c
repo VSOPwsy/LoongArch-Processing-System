@@ -460,27 +460,38 @@ START:
 
 #include "ddr.h"
 #include "sd.h"
+#include "math.h"
 // ================================================================
 #define LED *(volatile uint32_t*)0xbff00000
-
+#define SYSTEM_INIT_TIMEOUT (uint32_t)50000
+uint32_t sys_init_cnt = 0;
 int System_Init(void)
 {
 	EnableInt();
 	UART_FIFO_CTRL = 0x05;
-	my_delay_ms(2000);
+	my_delay_ms(500);
 
-	if (!DDR_Init())
+	while (!DDR_Init())
 	{
-		soc_printf("DDR failed to initialize\r\n");
-		my_delay_ms(25);
-		return 0;
+		sys_init_cnt += 1;
+		if (sys_init_cnt == SYSTEM_INIT_TIMEOUT)
+		{
+			soc_printf("DDR failed to initialize\r\n");
+			my_delay_ms(25);
+			return 0;
+		}
 	}
-
-	if (!SD_Init())
+	
+	sys_init_cnt = 0;
+	while (!SD_Init())
 	{
-		soc_printf("SD failed to initialize\r\n");
-		my_delay_ms(25);
-		return 0;
+		sys_init_cnt += 1;
+		if (sys_init_cnt == SYSTEM_INIT_TIMEOUT)
+		{
+			soc_printf("SD failed to initialize\r\n");
+			my_delay_ms(25);
+			return 0;
+		}
 	}
 
 	soc_printf("System Initialized Successfully\r\n");
@@ -494,15 +505,16 @@ int System_Init(void)
 int main(void)
 {
 	System_Init();
-	LED = (uint32_t)0x00000007;
+	LED = (uint32_t)0x00000003;
 
-	SD_DMA_SD_START_SEC = (uint32_t)67072;
-	SD_DMA_SD_SEC_NUM = (uint32_t)1212;
-	SD_DMA_DDR_BASE = (uint32_t)0x00000000;
+	SD_DMA_SD_START_SEC = (uint32_t)34848;
+	SD_DMA_SD_SEC_NUM = (uint32_t)1;
+	SD_DMA_DDR_BASE = (uint32_t)0x40000000;
 
 	SD_DMA_START = (uint32_t)0x00000001;
 
 	while (!SD_DMA_DONE);
+	LED = (uint32_t)0x00000007;
 	
 
     return 0;

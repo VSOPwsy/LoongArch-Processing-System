@@ -18,7 +18,8 @@
 		"ls1x_pmu.h": "c",
 		"config.h": "c",
 		"calin8m.h": "c",
-		"ls1x.h": "c"
+		"ls1x.h": "c",
+		"math.h": "c"
 	},
-	"debugger-for-loongarch.variableUseNaturalFormat": true
+	"debugger-for-loongarch.variableUseNaturalFormat": false
 }
