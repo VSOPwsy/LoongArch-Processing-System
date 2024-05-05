@@ -2,15 +2,15 @@
 //All rights reserved.
 //File Title: Template file for instantiation
 //Tool Version: V1.9.9
-//Part Number: GW5AT-LV138PG484AC2/I1
+//Part Number: GW5AT-LV138PG484AC1/I0
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Thu May  2 20:58:17 2024
+//Created Time: Sun May  5 15:10:59 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
 
-	DDR3_Memory_Interface_Top your_instance_name(
+	ddr3_memory_interface your_instance_name(
 		.clk(clk_i), //input clk
 		.pll_stop(pll_stop_o), //output pll_stop
 		.memory_clk(memory_clk_i), //input memory_clk

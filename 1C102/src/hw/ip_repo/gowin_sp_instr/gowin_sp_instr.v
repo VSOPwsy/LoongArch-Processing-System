@@ -2,10 +2,10 @@
 //All rights reserved.
 //File Title: IP file
 //Tool Version: V1.9.9 (64-bit)
-//Part Number: GW5AT-LV138PG484AC2/I1
+//Part Number: GW5AT-LV138PG484AC1/I0
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Wed May  1 14:53:01 2024
+//Created Time: Sun May  5 15:18:18 2024
 
 module Gowin_SP_Instr (dout, clk, oce, ce, reset, wre, ad, din);
 
@@ -236,8 +236,10 @@ wire mux_o_184;
 wire mux_o_185;
 wire mux_o_186;
 wire mux_o_187;
+wire ce_w;
 wire gw_gnd;
 
+assign ce_w = ~wre & ce;
 assign gw_gnd = 1'b0;
 
 SPX9 spx9_inst_0 (
@@ -253,7 +255,7 @@ SPX9 spx9_inst_0 (
 );
 
 defparam spx9_inst_0.READ_MODE = 1'b0;
-defparam spx9_inst_0.WRITE_MODE = 2'b01;
+defparam spx9_inst_0.WRITE_MODE = 2'b00;
 defparam spx9_inst_0.BIT_WIDTH = 9;
 defparam spx9_inst_0.BLK_SEL = 3'b000;
 defparam spx9_inst_0.RESET_MODE = "SYNC";
@@ -271,7 +273,7 @@ SPX9 spx9_inst_1 (
 );
 
 defparam spx9_inst_1.READ_MODE = 1'b0;
-defparam spx9_inst_1.WRITE_MODE = 2'b01;
+defparam spx9_inst_1.WRITE_MODE = 2'b00;
 defparam spx9_inst_1.BIT_WIDTH = 9;
 defparam spx9_inst_1.BLK_SEL = 3'b001;
 defparam spx9_inst_1.RESET_MODE = "SYNC";
@@ -289,7 +291,7 @@ SPX9 spx9_inst_2 (
 );
 
 defparam spx9_inst_2.READ_MODE = 1'b0;
-defparam spx9_inst_2.WRITE_MODE = 2'b01;
+defparam spx9_inst_2.WRITE_MODE = 2'b00;
 defparam spx9_inst_2.BIT_WIDTH = 9;
 defparam spx9_inst_2.BLK_SEL = 3'b010;
 defparam spx9_inst_2.RESET_MODE = "SYNC";
@@ -307,7 +309,7 @@ SPX9 spx9_inst_3 (
 );
 
 defparam spx9_inst_3.READ_MODE = 1'b0;
-defparam spx9_inst_3.WRITE_MODE = 2'b01;
+defparam spx9_inst_3.WRITE_MODE = 2'b00;
 defparam spx9_inst_3.BIT_WIDTH = 9;
 defparam spx9_inst_3.BLK_SEL = 3'b011;
 defparam spx9_inst_3.RESET_MODE = "SYNC";
@@ -325,7 +327,7 @@ SPX9 spx9_inst_4 (
 );
 
 defparam spx9_inst_4.READ_MODE = 1'b0;
-defparam spx9_inst_4.WRITE_MODE = 2'b01;
+defparam spx9_inst_4.WRITE_MODE = 2'b00;
 defparam spx9_inst_4.BIT_WIDTH = 9;
 defparam spx9_inst_4.BLK_SEL = 3'b100;
 defparam spx9_inst_4.RESET_MODE = "SYNC";
@@ -343,7 +345,7 @@ SPX9 spx9_inst_5 (
 );
 
 defparam spx9_inst_5.READ_MODE = 1'b0;
-defparam spx9_inst_5.WRITE_MODE = 2'b01;
+defparam spx9_inst_5.WRITE_MODE = 2'b00;
 defparam spx9_inst_5.BIT_WIDTH = 9;
 defparam spx9_inst_5.BLK_SEL = 3'b101;
 defparam spx9_inst_5.RESET_MODE = "SYNC";
@@ -361,7 +363,7 @@ SPX9 spx9_inst_6 (
 );
 
 defparam spx9_inst_6.READ_MODE = 1'b0;
-defparam spx9_inst_6.WRITE_MODE = 2'b01;
+defparam spx9_inst_6.WRITE_MODE = 2'b00;
 defparam spx9_inst_6.BIT_WIDTH = 9;
 defparam spx9_inst_6.BLK_SEL = 3'b110;
 defparam spx9_inst_6.RESET_MODE = "SYNC";
@@ -379,7 +381,7 @@ SPX9 spx9_inst_7 (
 );
 
 defparam spx9_inst_7.READ_MODE = 1'b0;
-defparam spx9_inst_7.WRITE_MODE = 2'b01;
+defparam spx9_inst_7.WRITE_MODE = 2'b00;
 defparam spx9_inst_7.BIT_WIDTH = 9;
 defparam spx9_inst_7.BLK_SEL = 3'b111;
 defparam spx9_inst_7.RESET_MODE = "SYNC";
@@ -397,7 +399,7 @@ SPX9 spx9_inst_8 (
 );
 
 defparam spx9_inst_8.READ_MODE = 1'b0;
-defparam spx9_inst_8.WRITE_MODE = 2'b01;
+defparam spx9_inst_8.WRITE_MODE = 2'b00;
 defparam spx9_inst_8.BIT_WIDTH = 9;
 defparam spx9_inst_8.BLK_SEL = 3'b000;
 defparam spx9_inst_8.RESET_MODE = "SYNC";
@@ -415,7 +417,7 @@ SPX9 spx9_inst_9 (
 );
 
 defparam spx9_inst_9.READ_MODE = 1'b0;
-defparam spx9_inst_9.WRITE_MODE = 2'b01;
+defparam spx9_inst_9.WRITE_MODE = 2'b00;
 defparam spx9_inst_9.BIT_WIDTH = 9;
 defparam spx9_inst_9.BLK_SEL = 3'b001;
 defparam spx9_inst_9.RESET_MODE = "SYNC";
@@ -433,7 +435,7 @@ SPX9 spx9_inst_10 (
 );
 
 defparam spx9_inst_10.READ_MODE = 1'b0;
-defparam spx9_inst_10.WRITE_MODE = 2'b01;
+defparam spx9_inst_10.WRITE_MODE = 2'b00;
 defparam spx9_inst_10.BIT_WIDTH = 9;
 defparam spx9_inst_10.BLK_SEL = 3'b010;
 defparam spx9_inst_10.RESET_MODE = "SYNC";
@@ -451,7 +453,7 @@ SPX9 spx9_inst_11 (
 );
 
 defparam spx9_inst_11.READ_MODE = 1'b0;
-defparam spx9_inst_11.WRITE_MODE = 2'b01;
+defparam spx9_inst_11.WRITE_MODE = 2'b00;
 defparam spx9_inst_11.BIT_WIDTH = 9;
 defparam spx9_inst_11.BLK_SEL = 3'b011;
 defparam spx9_inst_11.RESET_MODE = "SYNC";
@@ -469,7 +471,7 @@ SPX9 spx9_inst_12 (
 );
 
 defparam spx9_inst_12.READ_MODE = 1'b0;
-defparam spx9_inst_12.WRITE_MODE = 2'b01;
+defparam spx9_inst_12.WRITE_MODE = 2'b00;
 defparam spx9_inst_12.BIT_WIDTH = 9;
 defparam spx9_inst_12.BLK_SEL = 3'b100;
 defparam spx9_inst_12.RESET_MODE = "SYNC";
@@ -487,7 +489,7 @@ SPX9 spx9_inst_13 (
 );
 
 defparam spx9_inst_13.READ_MODE = 1'b0;
-defparam spx9_inst_13.WRITE_MODE = 2'b01;
+defparam spx9_inst_13.WRITE_MODE = 2'b00;
 defparam spx9_inst_13.BIT_WIDTH = 9;
 defparam spx9_inst_13.BLK_SEL = 3'b101;
 defparam spx9_inst_13.RESET_MODE = "SYNC";
@@ -505,7 +507,7 @@ SPX9 spx9_inst_14 (
 );
 
 defparam spx9_inst_14.READ_MODE = 1'b0;
-defparam spx9_inst_14.WRITE_MODE = 2'b01;
+defparam spx9_inst_14.WRITE_MODE = 2'b00;
 defparam spx9_inst_14.BIT_WIDTH = 9;
 defparam spx9_inst_14.BLK_SEL = 3'b110;
 defparam spx9_inst_14.RESET_MODE = "SYNC";
@@ -523,7 +525,7 @@ SPX9 spx9_inst_15 (
 );
 
 defparam spx9_inst_15.READ_MODE = 1'b0;
-defparam spx9_inst_15.WRITE_MODE = 2'b01;
+defparam spx9_inst_15.WRITE_MODE = 2'b00;
 defparam spx9_inst_15.BIT_WIDTH = 9;
 defparam spx9_inst_15.BLK_SEL = 3'b111;
 defparam spx9_inst_15.RESET_MODE = "SYNC";
@@ -541,7 +543,7 @@ SPX9 spx9_inst_16 (
 );
 
 defparam spx9_inst_16.READ_MODE = 1'b0;
-defparam spx9_inst_16.WRITE_MODE = 2'b01;
+defparam spx9_inst_16.WRITE_MODE = 2'b00;
 defparam spx9_inst_16.BIT_WIDTH = 9;
 defparam spx9_inst_16.BLK_SEL = 3'b000;
 defparam spx9_inst_16.RESET_MODE = "SYNC";
@@ -559,7 +561,7 @@ SPX9 spx9_inst_17 (
 );
 
 defparam spx9_inst_17.READ_MODE = 1'b0;
-defparam spx9_inst_17.WRITE_MODE = 2'b01;
+defparam spx9_inst_17.WRITE_MODE = 2'b00;
 defparam spx9_inst_17.BIT_WIDTH = 9;
 defparam spx9_inst_17.BLK_SEL = 3'b001;
 defparam spx9_inst_17.RESET_MODE = "SYNC";
@@ -577,7 +579,7 @@ SPX9 spx9_inst_18 (
 );
 
 defparam spx9_inst_18.READ_MODE = 1'b0;
-defparam spx9_inst_18.WRITE_MODE = 2'b01;
+defparam spx9_inst_18.WRITE_MODE = 2'b00;
 defparam spx9_inst_18.BIT_WIDTH = 9;
 defparam spx9_inst_18.BLK_SEL = 3'b010;
 defparam spx9_inst_18.RESET_MODE = "SYNC";
@@ -595,7 +597,7 @@ SPX9 spx9_inst_19 (
 );
 
 defparam spx9_inst_19.READ_MODE = 1'b0;
-defparam spx9_inst_19.WRITE_MODE = 2'b01;
+defparam spx9_inst_19.WRITE_MODE = 2'b00;
 defparam spx9_inst_19.BIT_WIDTH = 9;
 defparam spx9_inst_19.BLK_SEL = 3'b011;
 defparam spx9_inst_19.RESET_MODE = "SYNC";
@@ -613,7 +615,7 @@ SPX9 spx9_inst_20 (
 );
 
 defparam spx9_inst_20.READ_MODE = 1'b0;
-defparam spx9_inst_20.WRITE_MODE = 2'b01;
+defparam spx9_inst_20.WRITE_MODE = 2'b00;
 defparam spx9_inst_20.BIT_WIDTH = 9;
 defparam spx9_inst_20.BLK_SEL = 3'b100;
 defparam spx9_inst_20.RESET_MODE = "SYNC";
@@ -631,7 +633,7 @@ SPX9 spx9_inst_21 (
 );
 
 defparam spx9_inst_21.READ_MODE = 1'b0;
-defparam spx9_inst_21.WRITE_MODE = 2'b01;
+defparam spx9_inst_21.WRITE_MODE = 2'b00;
 defparam spx9_inst_21.BIT_WIDTH = 9;
 defparam spx9_inst_21.BLK_SEL = 3'b101;
 defparam spx9_inst_21.RESET_MODE = "SYNC";
@@ -649,7 +651,7 @@ SPX9 spx9_inst_22 (
 );
 
 defparam spx9_inst_22.READ_MODE = 1'b0;
-defparam spx9_inst_22.WRITE_MODE = 2'b01;
+defparam spx9_inst_22.WRITE_MODE = 2'b00;
 defparam spx9_inst_22.BIT_WIDTH = 9;
 defparam spx9_inst_22.BLK_SEL = 3'b110;
 defparam spx9_inst_22.RESET_MODE = "SYNC";
@@ -667,7 +669,7 @@ SPX9 spx9_inst_23 (
 );
 
 defparam spx9_inst_23.READ_MODE = 1'b0;
-defparam spx9_inst_23.WRITE_MODE = 2'b01;
+defparam spx9_inst_23.WRITE_MODE = 2'b00;
 defparam spx9_inst_23.BIT_WIDTH = 9;
 defparam spx9_inst_23.BLK_SEL = 3'b111;
 defparam spx9_inst_23.RESET_MODE = "SYNC";
@@ -685,7 +687,7 @@ SP sp_inst_24 (
 );
 
 defparam sp_inst_24.READ_MODE = 1'b0;
-defparam sp_inst_24.WRITE_MODE = 2'b01;
+defparam sp_inst_24.WRITE_MODE = 2'b00;
 defparam sp_inst_24.BIT_WIDTH = 1;
 defparam sp_inst_24.BLK_SEL = 3'b000;
 defparam sp_inst_24.RESET_MODE = "SYNC";
@@ -703,7 +705,7 @@ SP sp_inst_25 (
 );
 
 defparam sp_inst_25.READ_MODE = 1'b0;
-defparam sp_inst_25.WRITE_MODE = 2'b01;
+defparam sp_inst_25.WRITE_MODE = 2'b00;
 defparam sp_inst_25.BIT_WIDTH = 1;
 defparam sp_inst_25.BLK_SEL = 3'b000;
 defparam sp_inst_25.RESET_MODE = "SYNC";
@@ -721,7 +723,7 @@ SP sp_inst_26 (
 );
 
 defparam sp_inst_26.READ_MODE = 1'b0;
-defparam sp_inst_26.WRITE_MODE = 2'b01;
+defparam sp_inst_26.WRITE_MODE = 2'b00;
 defparam sp_inst_26.BIT_WIDTH = 1;
 defparam sp_inst_26.BLK_SEL = 3'b000;
 defparam sp_inst_26.RESET_MODE = "SYNC";
@@ -739,7 +741,7 @@ SP sp_inst_27 (
 );
 
 defparam sp_inst_27.READ_MODE = 1'b0;
-defparam sp_inst_27.WRITE_MODE = 2'b01;
+defparam sp_inst_27.WRITE_MODE = 2'b00;
 defparam sp_inst_27.BIT_WIDTH = 1;
 defparam sp_inst_27.BLK_SEL = 3'b000;
 defparam sp_inst_27.RESET_MODE = "SYNC";
@@ -757,7 +759,7 @@ SP sp_inst_28 (
 );
 
 defparam sp_inst_28.READ_MODE = 1'b0;
-defparam sp_inst_28.WRITE_MODE = 2'b01;
+defparam sp_inst_28.WRITE_MODE = 2'b00;
 defparam sp_inst_28.BIT_WIDTH = 1;
 defparam sp_inst_28.BLK_SEL = 3'b000;
 defparam sp_inst_28.RESET_MODE = "SYNC";
@@ -766,21 +768,21 @@ DFFRE dff_inst_0 (
   .Q(dff_q_0),
   .D(ad[13]),
   .CLK(clk),
-  .CE(ce),
+  .CE(ce_w),
   .RESET(gw_gnd)
 );
 DFFRE dff_inst_1 (
   .Q(dff_q_1),
   .D(ad[12]),
   .CLK(clk),
-  .CE(ce),
+  .CE(ce_w),
   .RESET(gw_gnd)
 );
 DFFRE dff_inst_2 (
   .Q(dff_q_2),
   .D(ad[11]),
   .CLK(clk),
-  .CE(ce),
+  .CE(ce_w),
   .RESET(gw_gnd)
 );
 MUX2 mux_inst_0 (

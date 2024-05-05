@@ -66,6 +66,8 @@ cpu_init_start:
     ##set VSEG4(0x80000000~0x9fffffff) to PSEG0(0x00000000~0x1fffffff), other VSEG unchanged
         li.w      t0, ADDR_MAP
         csrwr     t0, CSR_SEGPA
+       	SET_MPU(0,0x44000000,0,1,1,0xfffff000);
+
     ##set DA=0(change DA-mode to AD-mode)
         li.w      t0, 0x8
         csrxchg   zero, t0, CSR_CRMD

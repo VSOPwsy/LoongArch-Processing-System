@@ -1,8 +1,8 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Post-PnR Simulation Model file
-//Tool Version: V1.9.9.01 (64-bit)
-//Created Time: Tue Apr 16 13:46:21 2024
+//Tool Version: V1.9.9 (64-bit)
+//Created Time: Sun May  5 15:06:01 2024
 
 `timescale 100 ps/100 ps
 module ddr_data_fifo(

@@ -2,7 +2,7 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>beta</Version>
-    <Device id="GW5AT-138B" package="PBGA484A" speed="2" partNumber="GW5AT-LV138PG484AC2/I1"/>
+    <Device id="GW5AT-138B" package="PBGA484A" speed="1" partNumber="GW5AT-LV138PG484AC1/I0"/>
     <FileList>
         <File path="C:/Gowin/Gowin_V1.9.9_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/ddr3_1_4code_hs.v" type="verilog"/>
         <File path="C:/Gowin/Gowin_V1.9.9_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/DDR3_TOP.v" type="verilog"/>
@@ -10,7 +10,7 @@
     <OptionList>
         <Option type="disable_insert_pad" value="1"/>
         <Option type="include_path" value="C:/Gowin/Gowin_V1.9.9_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs"/>
-        <Option type="include_path" value="E:/Gowin/1C102/src/hw/ip_repo/ddr3_memory_interface/temp/DDR3"/>
+        <Option type="include_path" value="D:/Users/wangs/Documents/Code/LoongArch-Processing-System-OK/1C102/src/hw/ip_repo/ddr3_memory_interface/temp/DDR3"/>
         <Option type="output_file" value="ddr3_memory_interface.vg"/>
         <Option type="output_template" value="ddr3_memory_interface_tmp.v"/>
         <Option type="ram_balance" value="1"/>

@@ -1,11 +1,11 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.9.01 (64-bit)
-//Part Number: GW5AT-LV138PG484AC2/I1
+//Tool Version: V1.9.9 (64-bit)
+//Part Number: GW5AT-LV138PG484AC1/I0
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Tue Apr  9 23:19:57 2024
+//Created Time: Sun May  5 15:17:37 2024
 
 module Gowin_SP_Data (dout, clk, oce, ce, reset, wre, ad, din);
 

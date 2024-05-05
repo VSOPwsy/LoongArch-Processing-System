@@ -1,8 +1,8 @@
 #ifndef _LS1X_STRING_H_
 #define _LS1X_STRING_H_
 #include "test.h"
-int atoi(char *s);
-void itoa(char chWord[], int Num);
+// int atoi(char *s);
+// void itoa(char chWord[], int Num);
 int memcmp(const void *cs, const void *ct, int count);
 void *memcpy(void *s1, const void *s2, int n);
 void *memset(void *s, int c, int count);

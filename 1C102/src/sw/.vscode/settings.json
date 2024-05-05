@@ -19,7 +19,12 @@
 		"config.h": "c",
 		"calin8m.h": "c",
 		"ls1x.h": "c",
-		"math.h": "c"
+		"math.h": "c",
+		"stdlib.h": "c",
+		"string.h": "c",
+		"array": "c",
+		"string": "c",
+		"string_view": "c"
 	},
 	"debugger-for-loongarch.variableUseNaturalFormat": false
 }

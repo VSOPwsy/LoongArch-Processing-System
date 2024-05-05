@@ -2,7 +2,7 @@
 ipc_version=4
 file=ddr_rd_cmd_fifo
 module=ddr_rd_cmd_fifo
-target_device=gw5at138b-011
+target_device=gw5at138b-012
 type=fifo_sc
 version=3.0
 

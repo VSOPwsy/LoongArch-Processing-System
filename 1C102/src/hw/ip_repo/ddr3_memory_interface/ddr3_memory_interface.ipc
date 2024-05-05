@@ -1,8 +1,8 @@
 [General]
 ipc_version=4
 file=ddr3_memory_interface
-module=DDR3_Memory_Interface_Top
-target_device=gw5at138b-011
+module=ddr3_memory_interface
+target_device=gw5at138b-012
 type=ddr3
 version=3.0
 
@@ -17,6 +17,7 @@ COL_ADDR=1
 CW_LATENCY=0
 DEBUG_PARAMETER_ENABLE=false
 DEBUG_PORT_ENABLE=false
+DIMM_TYPE=0
 DQ_WIDTH=3
 DRAM_WIDTH=2
 ECC=false
@@ -47,4 +48,3 @@ tRP=20000
 tRRD=20000
 tRTP=20000
 tWTR=20000
-DIMM_TYPE=0

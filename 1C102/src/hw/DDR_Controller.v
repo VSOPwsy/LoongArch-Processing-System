@@ -327,7 +327,7 @@ module DDR_Controller #
             ddr_cmd_en = axi_aresetn & ddr_cmd_ready & ddr_wr_data_ready & ~cmd_fifo_empty;
     end
 
-    DDR3_Memory_Interface_Top DDR3_Memory_Interface (
+    ddr3_memory_interface DDR3_Memory_Interface (
         .clk             (ctr_clk),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),

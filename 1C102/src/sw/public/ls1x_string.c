@@ -162,33 +162,33 @@ char *strchr(const char *s, char c)
 			0	转换失败
 			1	成功
 ***********************************************************************/
-int atoi(char *pstr)
-{
-    int Ret_Integer = 0;
-    int Integer_sign = 1;
-    if(pstr == NULL)
-    {
-        return 0;
-    }
+// int atoi(char *pstr)
+// {
+//     int Ret_Integer = 0;
+//     int Integer_sign = 1;
+//     if(pstr == NULL)
+//     {
+//         return 0;
+//     }
 
-    if(*pstr == '-')
-    {
-        Integer_sign = -1;
-    }
-    if(*pstr == '-' || *pstr == '+')
-    {
-        pstr++;
-    }
+//     if(*pstr == '-')
+//     {
+//         Integer_sign = -1;
+//     }
+//     if(*pstr == '-' || *pstr == '+')
+//     {
+//         pstr++;
+//     }
 
-    while(*pstr >= '0' && *pstr <= '9')
-    {
-        Ret_Integer = Ret_Integer * 10 + *pstr - '0';
-        pstr++;
-    }
-    Ret_Integer = Integer_sign * Ret_Integer;
+//     while(*pstr >= '0' && *pstr <= '9')
+//     {
+//         Ret_Integer = Ret_Integer * 10 + *pstr - '0';
+//         pstr++;
+//     }
+//     Ret_Integer = Integer_sign * Ret_Integer;
 
-    return Ret_Integer;
-}
+//     return Ret_Integer;
+// }
 
 /***********************************************************************
 函数功能:		将整形转换为字符串
@@ -198,31 +198,31 @@ int atoi(char *pstr)
 @other:     无
 @return:	无
 ***********************************************************************/
-void itoa( char chWord[], int Num)
-{
-    int i = 0, j;
-    char chTemp;
-    if(Num == 0)
-    {
-        chWord[i] = '0' + Num % 10;
-        i++;
-    }
-    while(Num != 0)
-    {
-        chWord[i] = '0' + Num % 10;
-        i++;
-        Num = Num / 10;
+// void itoa( char chWord[], int Num)
+// {
+//     int i = 0, j;
+//     char chTemp;
+//     if(Num == 0)
+//     {
+//         chWord[i] = '0' + Num % 10;
+//         i++;
+//     }
+//     while(Num != 0)
+//     {
+//         chWord[i] = '0' + Num % 10;
+//         i++;
+//         Num = Num / 10;
 
-    }
-    chWord[i] = '\0';
-    for(j = 0; j < i / 2; j++)
-    {
-        chTemp = chWord[j];
-        chWord[j] = chWord[i - 1 - j];
-        chWord[i - 1 - j] = chTemp;
-    }
-    return ;
-}
+//     }
+//     chWord[i] = '\0';
+//     for(j = 0; j < i / 2; j++)
+//     {
+//         chTemp = chWord[j];
+//         chWord[j] = chWord[i - 1 - j];
+//         chWord[i - 1 - j] = chTemp;
+//     }
+//     return ;
+// }
 
 /***********************************************************************
 函数功能:		将两个字符串连接

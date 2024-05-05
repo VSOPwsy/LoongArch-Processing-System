@@ -2,12 +2,12 @@
 -device GW5AT-138
 -device_version B
 -package PBGA484A
--part_number GW5AT-LV138PG484AC2/I1
+-part_number GW5AT-LV138PG484AC1/I0
 
 
 -mod_name Gowin_PLL_ext
 -file_name gowin_pll_ext
--path E:/Gowin/1C102/src/hw/ip_repo/gowin_pll_ext/
+-path D:/Users/wangs/Documents/Code/LoongArch-Processing-System-OK/1C102/src/hw/ip_repo/gowin_pll_ext/
 -type PLL_ADV
 -file_type vlg
 -ssc false
