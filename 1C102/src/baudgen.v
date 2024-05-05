@@ -7,6 +7,7 @@ module BAUDGEN # (
 
 	input [1:0] baudtick_ctrl// ================================================================
 );
+	localparam BAUD_2400   = $floor(CLK_FREQ/(4*  2400)) - 1;
 	localparam BAUD_9600   = $floor(CLK_FREQ/(4*  9600)) - 1;
 	localparam BAUD_19200  = $floor(CLK_FREQ/(4* 19200)) - 1;
 	localparam BAUD_38400  = $floor(CLK_FREQ/(4* 38400)) - 1;
@@ -31,7 +32,7 @@ module BAUDGEN # (
 		case(baudtick_ctrl)
 			2'b00:
 			begin
-				counting_targets = BAUD_9600;
+				counting_targets = BAUD_2400;
 			end
 			2'b01:
 			begin

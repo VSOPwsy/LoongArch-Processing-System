@@ -100,8 +100,7 @@ module UART_RX (
 						end
 						else
 						begin
-							if((data_reg[8] ^ data_reg[7] ^ data_reg[6] ^ data_reg[5] ^ data_reg[4] ^ data_reg[3] ^
-								data_reg[2] ^ data_reg[1] ^ data_reg[0]) == 0)
+							if((^data_reg[7:0]) == 0)
 							begin
 								rx_done = 1'b1;
 							end

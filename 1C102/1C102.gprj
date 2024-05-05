@@ -3,8 +3,9 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device name="GW2A-18C" pn="GW2A-LV18PG256C8/I7">gw2a18c-011</Device>
+    <Device name="GW5AT-138B" pn="GW5AT-LV138PG484AC2/I1">gw5at138b-011</Device>
     <FileList>
+        <File path="src/baudgen.v" type="file.verilog" enable="1"/>
         <File path="src/hw/DDR_Controller.v" type="file.verilog" enable="1"/>
         <File path="src/hw/LED_driver.v" type="file.verilog" enable="1"/>
         <File path="src/hw/TOP.v" type="file.verilog" enable="1"/>
@@ -66,14 +67,14 @@
         <File path="src/hw/model_loader/sd_read_model.v" type="file.verilog" enable="1"/>
         <File path="src/hw/model_loader/sd_read_para_top.v" type="file.verilog" enable="1"/>
         <File path="src/hw/sync_fifo/sync_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/baudgen.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_rfifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_rx.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_tfifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_top.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_rfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_tfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_top.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.sdc" type="file.sdc" enable="1"/>
-        <File path="src/1C102.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_bluetooth.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>

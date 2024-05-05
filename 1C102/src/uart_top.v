@@ -15,7 +15,9 @@ module UART_TOP #(
 	output wire        RsTx, //uart 发送
 
 	output wire 	   uart_irq, //触发接受中断
-	output wire        uart_ready
+	output wire        uart_ready,
+
+	output wire [7:0] rx_data 
 );
 	//UART 地址  0xbfe88000	
 	//UART 相关寄存器 8004
@@ -31,7 +33,7 @@ module UART_TOP #(
 	
 	// wires between FIFO and TX/RX
 	wire [7:0] tx_data;
-	wire [7:0] rx_data;
+	//wire [7:0] rx_data;
 	wire [7:0] status;
 	
 	// FIFO Status
@@ -109,7 +111,7 @@ module UART_TOP #(
 		.clk(apb_pclk),
 		.rstn(apb_prstn),
 		.baudtick(b_tick),
-		.baudtick_ctrl(uart_ctrl_reg[1:0])// ================================================================
+		.baudtick_ctrl(2'b00)// ================================================================
 	);
 	
 	// Transmitter FIFO
@@ -159,8 +161,8 @@ module UART_TOP #(
 		.b_tick(b_tick),
 		.d_in(tx_data[7:0]),
 		.tx_done(tx_done),
-		.tx(RsTx),
+		// .tx(RsTx),
 		.parity_check(uart_ctrl_reg[2])// ================================================================
 	);
-	
+	assign RsTx = 1;
 endmodule

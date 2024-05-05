@@ -11,29 +11,27 @@ module TOP # (
 	output	[3:0]	led,
 
 	input 			RsRx,
-	output 			RsTx,
+	output 			RsTx
+	// inout	[15:0]	ddr_dq,
+	// inout	[1:0]	ddr_dqs,
+	// inout	[1:0]	ddr_dqs_n,
+	// output	[13:0]	ddr_addr,
+	// output	[2:0]	ddr_bank,
+	// output			ddr_cs,
+	// output			ddr_ras,
+	// output			ddr_cas,
+	// output			ddr_we,
+	// output			ddr_ck,
+	// output			ddr_ck_n,
+	// output			ddr_cke,
+	// output			ddr_odt,
+	// output			ddr_reset_n,
+	// output	[1:0]	ddr_dm,
 
-
-	inout	[15:0]	ddr_dq,
-	inout	[1:0]	ddr_dqs,
-	inout	[1:0]	ddr_dqs_n,
-	output	[13:0]	ddr_addr,
-	output	[2:0]	ddr_bank,
-	output			ddr_cs,
-	output			ddr_ras,
-	output			ddr_cas,
-	output			ddr_we,
-	output			ddr_ck,
-	output			ddr_ck_n,
-	output			ddr_cke,
-	output			ddr_odt,
-	output			ddr_reset_n,
-	output	[1:0]	ddr_dm,
-
-	input			sd_miso,
-	output			sd_clk,
-	output			sd_cs,
-	output			sd_mosi
+	// input			sd_miso,
+	// output			sd_clk,
+	// output			sd_cs,
+	// output			sd_mosi
 );
 
     wire locked0, locked1, locked2;
@@ -60,28 +58,28 @@ module TOP # (
     /*
      * For GW2A
      */
-    Gowin_rPLL PLL (
-        .clkout	(clk_8M), //output clkout
-        .lock	(locked0), //output lock
-        .reset	(~sys_resetn), //input reset
-        .clkin	(clk_osc) //input clkin
-    );
+//    Gowin_rPLL PLL (
+//        .clkout	(clk_8M), //output clkout
+//        .lock	(locked0), //output lock
+//        .reset	(~sys_resetn), //input reset
+//        .clkin	(clk_osc) //input clkin
+//    );
 
-    
-    Gowin_rPLL_100M PLL_100M(
-        .clkout	(clk_100M), //output clkout
-        .lock	(locked1), //output lock
-        .reset	(~sys_resetn), //input reset
-        .clkin	(clk_osc) //input clkin
-    );
+//    
+//    Gowin_rPLL_100M PLL_100M(
+//        .clkout	(clk_100M), //output clkout
+//        .lock	(locked1), //output lock
+//        .reset	(~sys_resetn), //input reset
+//        .clkin	(clk_osc) //input clkin
+//    );
 
 
-    Gowin_rPLL_400M PLL_400M(
-        .clkout	(clk_400M), //output clkout
-        .lock	(locked2), //output lock
-        .reset	(~sys_resetn), //input reset
-        .clkin	(clk_osc) //input clkin
-    );
+//    Gowin_rPLL_400M PLL_400M(
+//        .clkout	(clk_400M), //output clkout
+//        .lock	(locked2), //output lock
+//        .reset	(~sys_resetn), //input reset
+//        .clkin	(clk_osc) //input clkin
+//    );
 
 
     wire [31:0]               	fetch_pc;
@@ -396,6 +394,8 @@ module TOP # (
 	wire						ml_app_wdf_wren;
 
 	wire						init_model_complete;
+
+	wire [7:0] rx_data;
 
     // la132_top CPU (
 	// 	.boot_pc			(32'h1c000000			),
@@ -1015,225 +1015,251 @@ module TOP # (
     // 	.m_axi_rready		(cpu_arb_128_rready		)
 	// );
 
-	 ddr_ctr_rd_test test(
-		.clk				(clk_100M				),
-		.rstn				(locked&sys_resetn		),
-		.araddr				(cpu_arb_128_araddr		),
-		.arvalid			(cpu_arb_128_arvalid	),
-		.arlen				(cpu_arb_128_arlen		),
-		.arsize				(cpu_arb_128_arsize		),
-		.arburst  			(cpu_arb_128_arburst	),
-		.arready			(cpu_arb_128_arready	),
-		.rready				(cpu_arb_128_rready		),
-		.ddr_ready			(init_model_complete	)
-	);
+	//  ddr_ctr_rd_test test(
+	// 	.clk				(clk_100M				),
+	// 	.rstn				(locked&sys_resetn		),
+	// 	.araddr				(cpu_arb_128_araddr		),
+	// 	.arvalid			(cpu_arb_128_arvalid	),
+	// 	.arlen				(cpu_arb_128_arlen		),
+	// 	.arsize				(cpu_arb_128_arsize		),
+	// 	.arburst  			(cpu_arb_128_arburst	),
+	// 	.arready			(cpu_arb_128_arready	),
+	// 	.rready				(cpu_arb_128_rready		),
+	// 	.ddr_ready			(init_model_complete	)
+	// );
 
 
-	axicb_crossbar_top # (
-		.AXI_ADDR_W			(`ADDR_WIDTH			),
-		.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
-		.AXI_DATA_W			(`DDR_DATA_WIDTH		),
+	// axicb_crossbar_top # (
+	// 	.AXI_ADDR_W			(`ADDR_WIDTH			),
+	// 	.AXI_ID_W			(`DDR_ARB_ID_WIDTH		),
+	// 	.AXI_DATA_W			(`DDR_DATA_WIDTH		),
 
-		.AXI_SIGNALING		(1						),
+	// 	.AXI_SIGNALING		(1						),
 
-		.MST0_CDC			(0						),
-		.MST0_ID_MASK		('h100					),
-		.MST0_OSTDREQ_NUM	(0						),
-		.MST0_PRIORITY		(0						),
+	// 	.MST0_CDC			(0						),
+	// 	.MST0_ID_MASK		('h100					),
+	// 	.MST0_OSTDREQ_NUM	(0						),
+	// 	.MST0_PRIORITY		(0						),
 
-		.MST1_CDC			(0						),
-		.MST1_ID_MASK		('h200					),
-		.MST1_OSTDREQ_NUM	(0						),
-		.MST1_PRIORITY		(0						),
+	// 	.MST1_CDC			(0						),
+	// 	.MST1_ID_MASK		('h200					),
+	// 	.MST1_OSTDREQ_NUM	(0						),
+	// 	.MST1_PRIORITY		(0						),
 		
-		.MST2_CDC			(0						),
-		.MST2_ID_MASK		('h300					),
-		.MST2_OSTDREQ_NUM	(0						),
-		.MST2_PRIORITY		(0						),
+	// 	.MST2_CDC			(0						),
+	// 	.MST2_ID_MASK		('h300					),
+	// 	.MST2_OSTDREQ_NUM	(0						),
+	// 	.MST2_PRIORITY		(0						),
 
-		.SLV0_CDC			(0						),
-		.SLV0_START_ADDR	(`DDR_ADDR_BASE			),
-		.SLV0_END_ADDR		(`DDR_ADDR_END			),
-		.SLV0_OSTDREQ_NUM	(0						),
-		.SLV0_KEEP_BASE_ADDR(0						)
-	) AXI_Arbiter (
-		.aclk				(clk_100M				),
-		.aresetn			(locked&sys_resetn		),
-		.srst				(~(locked&sys_resetn)	),
-		.slv0_aclk			(clk_100M				),
-		.slv0_aresetn		(locked&sys_resetn		),
-		.slv0_srst			(~(locked&sys_resetn)	),
-		.slv0_awvalid		(cpu_arb_128_awvalid	),
-		.slv0_awready		(cpu_arb_128_awready	),
-		.slv0_awaddr		(cpu_arb_128_awaddr		),
-		.slv0_awlen			(cpu_arb_128_awlen		),
-		.slv0_awsize		(cpu_arb_128_awsize		),
-		.slv0_awburst		(cpu_arb_128_awburst	),
-		.slv0_awlock		(cpu_arb_128_awlock		),
-		.slv0_awcache		(cpu_arb_128_awcache	),
-		.slv0_awprot		(cpu_arb_128_awprot		),
-		.slv0_awid			({4'd1,cpu_arb_128_awid}),
-		.slv0_wvalid		(cpu_arb_128_wvalid		),
-		.slv0_wready		(cpu_arb_128_wready		),
-		.slv0_wlast			(cpu_arb_128_wlast		),
-		.slv0_wdata			(cpu_arb_128_wdata		),
-		.slv0_wstrb			(cpu_arb_128_wstrb		),
-		.slv0_bvalid		(cpu_arb_128_bvalid		),
-		.slv0_bready		(cpu_arb_128_bready		),
-		.slv0_bid			(cpu_arb_128_bid		),
-		.slv0_bresp			(cpu_arb_128_bresp		),
-		.slv0_arvalid		(cpu_arb_128_arvalid	),
-		.slv0_arready		(cpu_arb_128_arready	),
-		.slv0_araddr		(cpu_arb_128_araddr		),
-		.slv0_arlen			(cpu_arb_128_arlen		),
-		.slv0_arsize		(cpu_arb_128_arsize		),
-		.slv0_arburst		(cpu_arb_128_arburst	),
-		.slv0_arlock		(cpu_arb_128_arlock		),
-		.slv0_arcache		(cpu_arb_128_arcache	),
-		.slv0_arprot		(cpu_arb_128_arprot		),
-		.slv0_arid			({4'd1,8'h10			}),//cpu_arb_128_arid
-		.slv0_rvalid		(cpu_arb_128_rvalid		),
-		.slv0_rready		(cpu_arb_128_rready		),
-		.slv0_rid			(cpu_arb_128_rid		),
-		.slv0_rresp			(cpu_arb_128_rresp		),
-		.slv0_rdata			(cpu_arb_128_rdata		),
-		.slv0_rlast			(cpu_arb_128_rlast		),
+	// 	.SLV0_CDC			(0						),
+	// 	.SLV0_START_ADDR	(`DDR_ADDR_BASE			),
+	// 	.SLV0_END_ADDR		(`DDR_ADDR_END			),
+	// 	.SLV0_OSTDREQ_NUM	(0						),
+	// 	.SLV0_KEEP_BASE_ADDR(0						)
+	// ) AXI_Arbiter (
+	// 	.aclk				(clk_100M				),
+	// 	.aresetn			(locked&sys_resetn		),
+	// 	.srst				(~(locked&sys_resetn)	),
+	// 	.slv0_aclk			(clk_100M				),
+	// 	.slv0_aresetn		(locked&sys_resetn		),
+	// 	.slv0_srst			(~(locked&sys_resetn)	),
+	// 	.slv0_awvalid		(cpu_arb_128_awvalid	),
+	// 	.slv0_awready		(cpu_arb_128_awready	),
+	// 	.slv0_awaddr		(cpu_arb_128_awaddr		),
+	// 	.slv0_awlen			(cpu_arb_128_awlen		),
+	// 	.slv0_awsize		(cpu_arb_128_awsize		),
+	// 	.slv0_awburst		(cpu_arb_128_awburst	),
+	// 	.slv0_awlock		(cpu_arb_128_awlock		),
+	// 	.slv0_awcache		(cpu_arb_128_awcache	),
+	// 	.slv0_awprot		(cpu_arb_128_awprot		),
+	// 	.slv0_awid			({4'd1,cpu_arb_128_awid}),
+	// 	.slv0_wvalid		(cpu_arb_128_wvalid		),
+	// 	.slv0_wready		(cpu_arb_128_wready		),
+	// 	.slv0_wlast			(cpu_arb_128_wlast		),
+	// 	.slv0_wdata			(cpu_arb_128_wdata		),
+	// 	.slv0_wstrb			(cpu_arb_128_wstrb		),
+	// 	.slv0_bvalid		(cpu_arb_128_bvalid		),
+	// 	.slv0_bready		(cpu_arb_128_bready		),
+	// 	.slv0_bid			(cpu_arb_128_bid		),
+	// 	.slv0_bresp			(cpu_arb_128_bresp		),
+	// 	.slv0_arvalid		(cpu_arb_128_arvalid	),
+	// 	.slv0_arready		(cpu_arb_128_arready	),
+	// 	.slv0_araddr		(cpu_arb_128_araddr		),
+	// 	.slv0_arlen			(cpu_arb_128_arlen		),
+	// 	.slv0_arsize		(cpu_arb_128_arsize		),
+	// 	.slv0_arburst		(cpu_arb_128_arburst	),
+	// 	.slv0_arlock		(cpu_arb_128_arlock		),
+	// 	.slv0_arcache		(cpu_arb_128_arcache	),
+	// 	.slv0_arprot		(cpu_arb_128_arprot		),
+	// 	.slv0_arid			({4'd1,8'h10			}),//cpu_arb_128_arid
+	// 	.slv0_rvalid		(cpu_arb_128_rvalid		),
+	// 	.slv0_rready		(cpu_arb_128_rready		),
+	// 	.slv0_rid			(cpu_arb_128_rid		),
+	// 	.slv0_rresp			(cpu_arb_128_rresp		),
+	// 	.slv0_rdata			(cpu_arb_128_rdata		),
+	// 	.slv0_rlast			(cpu_arb_128_rlast		),
 
 		
-		.mst0_aclk			(clk_100M				),
-		.mst0_aresetn		(locked&sys_resetn		),
-		.mst0_srst			(~(locked&sys_resetn)	),
-		.mst0_awvalid		(arb_ctr_awvalid		),
-		.mst0_awready		(arb_ctr_awready		),
-		.mst0_awaddr		(arb_ctr_awaddr			),
-		.mst0_awlen			(arb_ctr_awlen			),
-		.mst0_awsize		(arb_ctr_awsize			),
-		.mst0_awburst		(arb_ctr_awburst		),
-		.mst0_awlock		(arb_ctr_awlock			),
-		.mst0_awcache		(arb_ctr_awcache		),
-		.mst0_awprot		(arb_ctr_awprot			),
-		.mst0_awid			(arb_ctr_awid			),
-		.mst0_wvalid		(arb_ctr_wvalid			),
-		.mst0_wready		(arb_ctr_wready			),
-		.mst0_wlast			(arb_ctr_wlast			),
-		.mst0_wdata			(arb_ctr_wdata			),
-		.mst0_wstrb			(arb_ctr_wstrb			),
-		.mst0_bvalid		(arb_ctr_bvalid			),
-		.mst0_bready		(arb_ctr_bready			),
-		.mst0_bid			(arb_ctr_bid			),
-		.mst0_bresp			(arb_ctr_bresp			),
-		.mst0_arvalid		(arb_ctr_arvalid		),
-		.mst0_arready		(arb_ctr_arready		),
-		.mst0_araddr		(arb_ctr_araddr			),
-		.mst0_arlen			(arb_ctr_arlen			),
-		.mst0_arsize		(arb_ctr_arsize			),
-		.mst0_arburst		(arb_ctr_arburst		),
-		.mst0_arlock		(arb_ctr_arlock			),
-		.mst0_arcache		(arb_ctr_arcache		),
-		.mst0_arprot		(arb_ctr_arprot			),
-		.mst0_arid			(arb_ctr_arid			),
-		.mst0_rvalid		(arb_ctr_rvalid			),
-		.mst0_rready		(arb_ctr_rready			),
-		.mst0_rid			(arb_ctr_rid			),
-		.mst0_rresp			(arb_ctr_rresp			),
-		.mst0_rdata			(arb_ctr_rdata			),
-		.mst0_rlast			(arb_ctr_rlast			)
-	);
+	// 	.mst0_aclk			(clk_100M				),
+	// 	.mst0_aresetn		(locked&sys_resetn		),
+	// 	.mst0_srst			(~(locked&sys_resetn)	),
+	// 	.mst0_awvalid		(arb_ctr_awvalid		),
+	// 	.mst0_awready		(arb_ctr_awready		),
+	// 	.mst0_awaddr		(arb_ctr_awaddr			),
+	// 	.mst0_awlen			(arb_ctr_awlen			),
+	// 	.mst0_awsize		(arb_ctr_awsize			),
+	// 	.mst0_awburst		(arb_ctr_awburst		),
+	// 	.mst0_awlock		(arb_ctr_awlock			),
+	// 	.mst0_awcache		(arb_ctr_awcache		),
+	// 	.mst0_awprot		(arb_ctr_awprot			),
+	// 	.mst0_awid			(arb_ctr_awid			),
+	// 	.mst0_wvalid		(arb_ctr_wvalid			),
+	// 	.mst0_wready		(arb_ctr_wready			),
+	// 	.mst0_wlast			(arb_ctr_wlast			),
+	// 	.mst0_wdata			(arb_ctr_wdata			),
+	// 	.mst0_wstrb			(arb_ctr_wstrb			),
+	// 	.mst0_bvalid		(arb_ctr_bvalid			),
+	// 	.mst0_bready		(arb_ctr_bready			),
+	// 	.mst0_bid			(arb_ctr_bid			),
+	// 	.mst0_bresp			(arb_ctr_bresp			),
+	// 	.mst0_arvalid		(arb_ctr_arvalid		),
+	// 	.mst0_arready		(arb_ctr_arready		),
+	// 	.mst0_araddr		(arb_ctr_araddr			),
+	// 	.mst0_arlen			(arb_ctr_arlen			),
+	// 	.mst0_arsize		(arb_ctr_arsize			),
+	// 	.mst0_arburst		(arb_ctr_arburst		),
+	// 	.mst0_arlock		(arb_ctr_arlock			),
+	// 	.mst0_arcache		(arb_ctr_arcache		),
+	// 	.mst0_arprot		(arb_ctr_arprot			),
+	// 	.mst0_arid			(arb_ctr_arid			),
+	// 	.mst0_rvalid		(arb_ctr_rvalid			),
+	// 	.mst0_rready		(arb_ctr_rready			),
+	// 	.mst0_rid			(arb_ctr_rid			),
+	// 	.mst0_rresp			(arb_ctr_rresp			),
+	// 	.mst0_rdata			(arb_ctr_rdata			),
+	// 	.mst0_rlast			(arb_ctr_rlast			)
+	// );
 
-	DDR_Controller # (
-		.DATA_WIDTH			(`DDR_DATA_WIDTH		),
-		.ADDR_WIDTH			(`ADDR_WIDTH			),
-		.ID_WIDTH			(`DDR_ARB_ID_WIDTH		)
-	) ddr_ctr (
-		.clk				(clk_100M				),
-		.memory_clk			(clk_400M				),
-		.pll_lock			(locked2				),
-		.resetn				(locked&sys_resetn		),
-		.ui_clk				(ddr_ui_clk				),
-		.s_axi_awid			(arb_ctr_awid			),
-		.s_axi_awaddr		(arb_ctr_awaddr			),
-		.s_axi_awlen		(arb_ctr_awlen			),
-		.s_axi_awsize		(arb_ctr_awsize			),
-		.s_axi_awburst		(arb_ctr_awburst		),
-		.s_axi_awlock		(arb_ctr_awlock			),
-		.s_axi_awcache		(arb_ctr_awcache		),
-		.s_axi_awprot		(arb_ctr_awprot			),
-		.s_axi_awvalid		(arb_ctr_awvalid		),
-		.s_axi_awready		(arb_ctr_awready		),
-		.s_axi_wdata		(arb_ctr_wdata			),
-		.s_axi_wstrb		(arb_ctr_wstrb			),
-		.s_axi_wlast		(arb_ctr_wlast			),
-		.s_axi_wvalid		(arb_ctr_wvalid			),
-		.s_axi_wready		(arb_ctr_wready			),
-		.s_axi_bid			(arb_ctr_bid			),
-		.s_axi_bresp		(arb_ctr_bresp			),
-		.s_axi_bvalid		(arb_ctr_bvalid			),
-		.s_axi_bready		(arb_ctr_bready			),
-		.s_axi_arid			(arb_ctr_arid			),
-		.s_axi_araddr		(arb_ctr_araddr			),
-		.s_axi_arlen		(arb_ctr_arlen			),
-		.s_axi_arsize		(arb_ctr_arsize			),
-		.s_axi_arburst		(arb_ctr_arburst		),
-		.s_axi_arlock		(arb_ctr_arlock			),
-		.s_axi_arcache		(arb_ctr_arcache		),
-		.s_axi_arprot		(arb_ctr_arprot			),
-		.s_axi_arvalid		(arb_ctr_arvalid		),
-		.s_axi_arready		(arb_ctr_arready		),
-		.s_axi_rid			(arb_ctr_rid			),
-		.s_axi_rdata		(arb_ctr_rdata			),
-		.s_axi_rresp		(arb_ctr_rresp			),
-		.s_axi_rlast		(arb_ctr_rlast			),
-		.s_axi_ruser		(arb_ctr_ruser			),
-		.s_axi_rvalid		(arb_ctr_rvalid			),
-		.s_axi_rready		(arb_ctr_rready			),
+	// DDR_Controller # (
+	// 	.DATA_WIDTH			(`DDR_DATA_WIDTH		),
+	// 	.ADDR_WIDTH			(`ADDR_WIDTH			),
+	// 	.ID_WIDTH			(`DDR_ARB_ID_WIDTH		)
+	// ) ddr_ctr (
+	// 	.clk				(clk_100M				),
+	// 	.memory_clk			(clk_400M				),
+	// 	.pll_lock			(locked2				),
+	// 	.resetn				(locked&sys_resetn		),
+	// 	.ui_clk				(ddr_ui_clk				),
+	// 	.s_axi_awid			(arb_ctr_awid			),
+	// 	.s_axi_awaddr		(arb_ctr_awaddr			),
+	// 	.s_axi_awlen		(arb_ctr_awlen			),
+	// 	.s_axi_awsize		(arb_ctr_awsize			),
+	// 	.s_axi_awburst		(arb_ctr_awburst		),
+	// 	.s_axi_awlock		(arb_ctr_awlock			),
+	// 	.s_axi_awcache		(arb_ctr_awcache		),
+	// 	.s_axi_awprot		(arb_ctr_awprot			),
+	// 	.s_axi_awvalid		(arb_ctr_awvalid		),
+	// 	.s_axi_awready		(arb_ctr_awready		),
+	// 	.s_axi_wdata		(arb_ctr_wdata			),
+	// 	.s_axi_wstrb		(arb_ctr_wstrb			),
+	// 	.s_axi_wlast		(arb_ctr_wlast			),
+	// 	.s_axi_wvalid		(arb_ctr_wvalid			),
+	// 	.s_axi_wready		(arb_ctr_wready			),
+	// 	.s_axi_bid			(arb_ctr_bid			),
+	// 	.s_axi_bresp		(arb_ctr_bresp			),
+	// 	.s_axi_bvalid		(arb_ctr_bvalid			),
+	// 	.s_axi_bready		(arb_ctr_bready			),
+	// 	.s_axi_arid			(arb_ctr_arid			),
+	// 	.s_axi_araddr		(arb_ctr_araddr			),
+	// 	.s_axi_arlen		(arb_ctr_arlen			),
+	// 	.s_axi_arsize		(arb_ctr_arsize			),
+	// 	.s_axi_arburst		(arb_ctr_arburst		),
+	// 	.s_axi_arlock		(arb_ctr_arlock			),
+	// 	.s_axi_arcache		(arb_ctr_arcache		),
+	// 	.s_axi_arprot		(arb_ctr_arprot			),
+	// 	.s_axi_arvalid		(arb_ctr_arvalid		),
+	// 	.s_axi_arready		(arb_ctr_arready		),
+	// 	.s_axi_rid			(arb_ctr_rid			),
+	// 	.s_axi_rdata		(arb_ctr_rdata			),
+	// 	.s_axi_rresp		(arb_ctr_rresp			),
+	// 	.s_axi_rlast		(arb_ctr_rlast			),
+	// 	.s_axi_ruser		(arb_ctr_ruser			),
+	// 	.s_axi_rvalid		(arb_ctr_rvalid			),
+	// 	.s_axi_rready		(arb_ctr_rready			),
 
-		.ml_app_rdy			(ml_app_rdy				),
-		.ml_app_cmd_en		(ml_app_cmd_en			),
-		.ml_app_addr		(ml_app_addr			),
-		.ml_app_wdf_rdy		(ml_app_wdf_rdy			),
-		.ml_app_wdf_data	(ml_app_wdf_data		),
-		.ml_app_wdf_mask	(ml_app_wdf_mask		),
-		.ml_app_wdf_wren	(ml_app_wdf_wren		),
-		.init_model_complete(init_model_complete	),
+	// 	.ml_app_rdy			(ml_app_rdy				),
+	// 	.ml_app_cmd_en		(ml_app_cmd_en			),
+	// 	.ml_app_addr		(ml_app_addr			),
+	// 	.ml_app_wdf_rdy		(ml_app_wdf_rdy			),
+	// 	.ml_app_wdf_data	(ml_app_wdf_data		),
+	// 	.ml_app_wdf_mask	(ml_app_wdf_mask		),
+	// 	.ml_app_wdf_wren	(ml_app_wdf_wren		),
+	// 	.init_model_complete(init_model_complete	),
 
-		.init_calib_complete(init_calib_complete	),
-		.ddr_dq				(ddr_dq					),
-		.ddr_dqs			(ddr_dqs				),
-		.ddr_dqs_n			(ddr_dqs_n				),
-		.ddr_addr			(ddr_addr				),
-		.ddr_bank			(ddr_bank				),
-		.ddr_cs				(ddr_cs					),
-		.ddr_ras			(ddr_ras				),
-		.ddr_cas			(ddr_cas				),
-		.ddr_we				(ddr_we					),
-		.ddr_ck				(ddr_ck					),
-		.ddr_ck_n			(ddr_ck_n				),
-		.ddr_cke			(ddr_cke				),
-		.ddr_odt			(ddr_odt				),
-		.ddr_reset_n		(ddr_reset_n			),
-		.ddr_dm				(ddr_dm					)
-	);
+	// 	.init_calib_complete(init_calib_complete	),
+	// 	.ddr_dq				(ddr_dq					),
+	// 	.ddr_dqs			(ddr_dqs				),
+	// 	.ddr_dqs_n			(ddr_dqs_n				),
+	// 	.ddr_addr			(ddr_addr				),
+	// 	.ddr_bank			(ddr_bank				),
+	// 	.ddr_cs				(ddr_cs					),
+	// 	.ddr_ras			(ddr_ras				),
+	// 	.ddr_cas			(ddr_cas				),
+	// 	.ddr_we				(ddr_we					),
+	// 	.ddr_ck				(ddr_ck					),
+	// 	.ddr_ck_n			(ddr_ck_n				),
+	// 	.ddr_cke			(ddr_cke				),
+	// 	.ddr_odt			(ddr_odt				),
+	// 	.ddr_reset_n		(ddr_reset_n			),
+	// 	.ddr_dm				(ddr_dm					)
+	// );
 	// assign led[2:0] = 0;
-	assign led[3] = init_model_complete;
+	// assign led[3] = init_model_complete;
 
-	//assign init_model_complete = 1'b1;
-	sd_read_para_top ModelLoader (    
-		.sys_clk			(clk_osc				),
-		.sys_rst_n			(locked&sys_resetn		),
-		.sd_miso			(sd_miso				),
-		.sd_clk				(sd_clk					),
-		.sd_cs				(sd_cs					),
-		.sd_mosi			(sd_mosi				),
-		.ui_clk				(ddr_ui_clk				),
-		.init_calib_complete(init_calib_complete	),
-		.app_rdy			(ml_app_rdy				),
-		.app_cmd_en			(ml_app_cmd_en			),
-		.app_addr			(ml_app_addr			),
-		.app_wdf_rdy		(ml_app_wdf_rdy			),
-		.app_wdf_data		(ml_app_wdf_data		),
-		.app_wdf_mask		(ml_app_wdf_mask		),
-		.app_wdf_wren		(ml_app_wdf_wren		),
-		.init_model_complete(init_model_complete	)
-	);
+	// //assign init_model_complete = 1'b1;
+	// sd_read_para_top ModelLoader (    
+	// 	.sys_clk			(clk_osc				),
+	// 	.sys_rst_n			(locked&sys_resetn		),
+	// 	.sd_miso			(sd_miso				),
+	// 	.sd_clk				(sd_clk					),
+	// 	.sd_cs				(sd_cs					),
+	// 	.sd_mosi			(sd_mosi				),
+	// 	.ui_clk				(ddr_ui_clk				),
+	// 	.init_calib_complete(init_calib_complete	),
+	// 	.app_rdy			(ml_app_rdy				),
+	// 	.app_cmd_en			(ml_app_cmd_en			),
+	// 	.app_addr			(ml_app_addr			),
+	// 	.app_wdf_rdy		(ml_app_wdf_rdy			),
+	// 	.app_wdf_data		(ml_app_wdf_data		),
+	// 	.app_wdf_mask		(ml_app_wdf_mask		),
+	// 	.app_wdf_wren		(ml_app_wdf_wren		),
+	// 	.init_model_complete(init_model_complete	)
+	// );
+
+     UART_TOP # (
+        .CLK_FREQ           (50_000_000             )
+    ) UART1 (
+        .apb_pclk           (clk_osc                ),
+        .apb_prstn          (sys_resetn            ),
+
+        .apb_psel           (apb4_psel              ),
+        .apb_pwrite         (apb4_rw                ),
+        .apb_paddr          (apb4_addr              ),
+        .apb_penable        (apb4_enab              ),
+        .apb_pwdata         (apb4_datai             ),
+        .apb_prdata         (apb4_datao             ),
+        .uart_ready         (apb4_ack               ),
+
+        .RsRx               (RsRx                   ),
+        .RsTx               (RsTx                   ),
+        .uart_irq           (uart0_int              ),
+
+		.rx_data			(rx_data)
+    );
+    
+    assign led[0] = (rx_data == 8'h12);
+    assign led[1] = 1'b0;
+    assign led[2] = 1'b0;
+    assign led[3] = 1'b0;
 
 endmodule
