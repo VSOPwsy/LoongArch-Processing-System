@@ -5,6 +5,7 @@ module DDR_Controller #
     parameter STRB_WIDTH = (DATA_WIDTH/8),
     parameter ID_WIDTH = 8,
 
+    parameter DDR_ADDR_WIDTH = 30,
     parameter DQ_WIDTH = (DATA_WIDTH/8),
 
     parameter AWUSER_ENABLE = 0,
@@ -27,11 +28,11 @@ module DDR_Controller #
     input  wire                     ctr_clk,
     input  wire                     memory_clk,
     input  wire                     pll_lock,
+    output  wire                    pll_stop,
     input  wire                     sys_resetn,
     input  wire                     axi_aresetn,
 
     output wire                     ui_clk,
-    output reg                      ui_sync_resetn,
     output wire                     init_calib_complete,
 
     /*
@@ -256,6 +257,11 @@ module DDR_Controller #
     wire                        rd_fifo_empty;
     wire                        rd_fifo_full;
 
+    reg                         cmd_fifo_empty_delay = 1;
+    reg                         cmd_fifo_full_delay = 0;
+    reg                         rd_fifo_empty_delay = 1;
+    reg                         rd_fifo_full_delay = 0;
+
     wire                        ddr_cmd_ready;
     wire                        ddr_wr_data_ready;
 
@@ -303,7 +309,7 @@ module DDR_Controller #
 		.Reset(~axi_aresetn), //input Reset
 		.Q({ram_rd_resp_last,ram_rd_resp_id}), //output [7:0] Q
 		.Empty(rd_cmd_fifo_empty), //output Empty
-		.Full(rd_cmd_fifo_full) ///////////////////////// Unused
+		.Full(rd_cmd_fifo_full) //output Full
 	);
 
     ddr_data_fifo ddr_rd_data_fifo(
@@ -314,33 +320,24 @@ module DDR_Controller #
 		.Reset(~axi_aresetn), //input Reset
 		.Q(ram_rd_resp_data), //output [255:0] Q
 		.Empty(rd_fifo_empty), //output Empty
-		.Full(rd_fifo_full) ///////////////////////// Unused
+		.Full(rd_fifo_full) //output Full
 	);
 
-    localparam DDR_CMD_IDLE = 0;
-    localparam DDR_CMD_PENDING = 1;
     always @(*) begin
-        if(~axi_aresetn)begin
-            ddr_cmd_en = 0;
-        end
-        else begin
-            ddr_cmd_en = 0;
-            if(ddr_cmd_ready & ddr_wr_data_ready & ~cmd_fifo_empty & ~rd_fifo_full)begin
-                ddr_cmd_en = 1;
-            end
-        end
+            ddr_cmd_en = axi_aresetn & ddr_cmd_ready & ddr_wr_data_ready & ~cmd_fifo_empty;
     end
 
     DDR3_Memory_Interface_Top DDR3_Memory_Interface (
         .clk             (ctr_clk),
         .memory_clk      (memory_clk),
         .pll_lock        (pll_lock),
+        .pll_stop        (pll_stop),
         .rst_n           (sys_resetn),
         .init_calib_complete(init_calib_complete),
         .clk_out         (ui_clk),
         .ddr_rst         (ddr_rst),
 
-        .addr            ({ddr_cmd_addr[$clog2(DATA_WIDTH/8) +: ADDR_WIDTH-$clog2(DATA_WIDTH/8)], {($clog2(DATA_WIDTH/8)){1'b0}}}),
+        .addr            ({{(ADDR_WIDTH - DDR_ADDR_WIDTH){1'b0}},ddr_cmd_addr[DDR_ADDR_WIDTH-1 : $clog2(DATA_WIDTH/8)], {($clog2(DATA_WIDTH/8)-$clog2(DQ_WIDTH/8)){1'b0}}}),
         .cmd             ({2'b0, ddr_cmd}),
         .cmd_en          (ddr_cmd_en),
         .cmd_ready       (ddr_cmd_ready),
@@ -352,7 +349,7 @@ module DDR_Controller #
         .wr_data_end     (1'b1),
         .wr_data_mask    (~ddr_wr_strb),
         .wr_data_rdy     (ddr_wr_data_ready),
-        .wr_data_en      (ddr_cmd_en),
+        .wr_data_en      (ddr_cmd_en & ~ddr_cmd),
         .sr_req          (1'b0),
         .sr_ack          (sr_ack),
         .ref_req         (1'b0),
@@ -377,14 +374,19 @@ module DDR_Controller #
         .IO_ddr_dqs_n    (ddr_dqs_n)
     );
 
-    reg [31:0] ui_sync_resetn_int = 32'b0;
     always @(posedge ui_clk) begin
-        if(~pll_lock) begin
-            ui_sync_resetn_int[31:0] <= 32'b0;
-        end else begin
-            ui_sync_resetn_int <= {ui_sync_resetn_int[30:0],sys_resetn};
+        if(~axi_aresetn) begin
+            cmd_fifo_empty_delay <= 1;
+            cmd_fifo_full_delay <= 0;
+            rd_fifo_empty_delay <= 1;
+            rd_fifo_full_delay <= 0;
         end
-        ui_sync_resetn <= ui_sync_resetn_int == 32'hFFFFFFFF;
+        else begin
+            cmd_fifo_empty_delay <= cmd_fifo_empty;
+            cmd_fifo_full_delay <= cmd_fifo_full;
+            rd_fifo_empty_delay <= rd_fifo_empty;
+            rd_fifo_full_delay <= rd_fifo_full;
+        end
     end
 
 endmodule

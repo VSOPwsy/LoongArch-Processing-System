@@ -7,11 +7,11 @@
 
 -mod_name Gowin_PLL_ext
 -file_name gowin_pll_ext
--path D:/Users/wangs/Documents/Code/LoongArch_Processing_System/1C102/src/hw/ip_repo/gowin_pll_ext/
+-path E:/Gowin/1C102/src/hw/ip_repo/gowin_pll_ext/
 -type PLL_ADV
 -file_type vlg
 -ssc false
--clock_en false
+-clock_en true
 -rst false
 -rst_pwd false
 -rst_i false

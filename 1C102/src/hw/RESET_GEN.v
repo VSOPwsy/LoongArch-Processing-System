@@ -13,7 +13,7 @@ module RESET_GEN #(
     localparam CPU_RESETN_DELAY = LATENCY * 3;
 
     reg [COUNTER_WIDTH-1:0] cnt = 0;
-    always @(posedge clk or negedge sys_resetn) begin
+    always @(posedge clk) begin
         if (~sys_resetn) begin
             cnt <= 0;
             bus_resetn <= 0;

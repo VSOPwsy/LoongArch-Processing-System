@@ -5,7 +5,7 @@
 //Part Number: GW5AT-LV138PG484AC2/I1
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Mon Apr 29 01:05:46 2024
+//Created Time: Thu May  2 20:58:51 2024
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
@@ -16,7 +16,11 @@
         .clkout1(clkout1_o), //output clkout1
         .clkout2(clkout2_o), //output clkout2
         .clkout3(clkout3_o), //output clkout3
-        .clkin(clkin_i) //input clkin
+        .clkin(clkin_i), //input clkin
+        .enclk0(enclk0_i), //input enclk0
+        .enclk1(enclk1_i), //input enclk1
+        .enclk2(enclk2_i), //input enclk2
+        .enclk3(enclk3_i) //input enclk3
     );
 
 //--------Copy end-------------------

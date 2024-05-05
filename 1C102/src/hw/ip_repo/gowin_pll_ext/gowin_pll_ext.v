@@ -5,9 +5,9 @@
 //Part Number: GW5AT-LV138PG484AC2/I1
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Mon Apr 29 01:05:46 2024
+//Created Time: Thu May  2 20:58:51 2024
 
-module Gowin_PLL_ext (lock, clkout0, clkout1, clkout2, clkout3, clkin);
+module Gowin_PLL_ext (lock, clkout0, clkout1, clkout2, clkout3, clkin, enclk0, enclk1, enclk2, enclk3);
 
 output lock;
 output clkout0;
@@ -15,6 +15,10 @@ output clkout1;
 output clkout2;
 output clkout3;
 input clkin;
+input enclk0;
+input enclk1;
+input enclk2;
+input enclk3;
 
 wire clkout4;
 wire clkout5;
@@ -64,10 +68,10 @@ PLL PLL_inst (
     .PSSEL({gw_gnd,gw_gnd,gw_gnd}),
     .PSDIR(gw_gnd),
     .PSPULSE(gw_gnd),
-    .ENCLK0(gw_vcc),
-    .ENCLK1(gw_vcc),
-    .ENCLK2(gw_vcc),
-    .ENCLK3(gw_vcc),
+    .ENCLK0(enclk0),
+    .ENCLK1(enclk1),
+    .ENCLK2(enclk2),
+    .ENCLK3(enclk3),
     .ENCLK4(gw_vcc),
     .ENCLK5(gw_vcc),
     .ENCLK6(gw_vcc),
