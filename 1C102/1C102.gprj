@@ -49,6 +49,7 @@
         <File path="src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/ip_repo/gowin_data_ram/gowin_data_ram.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_osc/gowin_osc.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll_20M/gowin_pll_20M.v" type="file.verilog" enable="1"/>
@@ -73,15 +74,18 @@
         <File path="src/1C102-2.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="0"/>
         <File path="src/1C102_ext_osc.sdc" type="file.sdc" enable="1"/>
+        <File path="src/1C102_ext_osc_ddr_test.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102_int_osc.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102_int_osc_CPU_ONLY.sdc" type="file.sdc" enable="0"/>
         <File path="src/1c102_ext_osc_no_rao.sdc" type="file.sdc" enable="0"/>
         <File path="src/1C102.rao" type="file.gao" enable="0"/>
-        <File path="src/1C102_CPU.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_CPU.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102_CPU_SRAM.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_SD.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_SD_read.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_UART.rao" type="file.gao" enable="0"/>
-        <File path="src/1C102_axi_adapter_32_256.rao" type="file.gao" enable="1"/>
+        <File path="src/1C102_axi_adapter_32_256.rao" type="file.gao" enable="0"/>
+        <File path="src/1C102_axi_adapter_32_356_wr.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_crossbar.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_crossbar256int.rao" type="file.gao" enable="0"/>
         <File path="src/1C102_crossbar256mst.rao" type="file.gao" enable="0"/>

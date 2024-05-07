@@ -2,32 +2,32 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/div_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="4" module_name="TOP" force_trigger_by_falling_edge="false">
         <SignalList>
-            <Bus capture_enable="true" name="sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[2:0]">
-                <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[2]</Signal>
-                <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[1]</Signal>
-                <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">sd_mosi</Signal>
-            <Signal capture_enable="true">sd_miso</Signal>
-            <Signal capture_enable="true">sd_cs</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/apb_reg_wen</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/start</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/done</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/ddr_wr_done</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/current_state.ADDR</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/current_state.DATA</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/current_state.DONE</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/current_state.RESP</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/next_state.ADDR</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/next_state.DATA</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/next_state.DONE</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/next_state.RESP</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/fifo_rd_last</Signal>
+            <Signal capture_enable="true">sd_read_para_top_inst/sd_axi_top_inst/wrlast</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Bus restorename="sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[2:0]">
-                        <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[2]</Signal>
-                        <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[1]</Signal>
-                        <Signal>sd_read_para_top_inst/u_sd_ctrl_top/u_sd_init/cur_state[0]</Signal>
-                    </Bus>
-                </SignalList>
-            </Trigger>
-            <Trigger index="1">
-                <SignalList>
+                    <Signal>sd_read_para_top_inst/apb_reg_wen</Signal>
+                    <Signal>sd_read_para_top_inst/done</Signal>
                     <Signal>sd_read_para_top_inst/start</Signal>
                 </SignalList>
             </Trigger>
+            <Trigger index="1"/>
             <Trigger index="2"/>
             <Trigger index="3"/>
             <Trigger index="4"/>
@@ -44,7 +44,7 @@
             <Trigger index="15"/>
         </Triggers>
         <MatchUnits>
-            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R00" value1="000" trigger="0"/>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="XXX" value1="000" trigger="0"/>
             <MatchUnit index="1" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
             <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -61,9 +61,9 @@
             <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
         </MatchUnits>
-        <Expressions type="Static">
+        <Expressions type="Dynamic" ex_implementation="0">
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0001000001100100</GAO_ID>
+    <GAO_ID>0000100110000010</GAO_ID>
 </GAO_CONFIG>

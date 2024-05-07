@@ -355,6 +355,7 @@
                 <Signal>ddr_ctr/ddr_cmd_id[1]</Signal>
                 <Signal>ddr_ctr/ddr_cmd_id[0]</Signal>
             </Bus>
+            <Signal capture_enable="true">ddr_ctr/ddr_cmd</Signal>
             <Bus capture_enable="true" name="ddr_ctr/ddr_cmd_addr[31:0]">
                 <Signal>ddr_ctr/ddr_cmd_addr[31]</Signal>
                 <Signal>ddr_ctr/ddr_cmd_addr[30]</Signal>
@@ -683,6 +684,7 @@
             </Bus>
             <Signal capture_enable="true">ddr_ctr/cmd_fifo_empty</Signal>
             <Signal capture_enable="true">ddr_ctr/wr_data_fifo_empty</Signal>
+            <Signal capture_enable="true">ddr_ctr/axi_aresetn</Signal>
         </SignalList>
         <Triggers>
             <Trigger index="0">
@@ -732,5 +734,5 @@
             <Expression>M0|M1</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>1010010101100110</GAO_ID>
+    <GAO_ID>1100011010011010</GAO_ID>
 </GAO_CONFIG>

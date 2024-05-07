@@ -57,16 +57,22 @@ always @(posedge clk) begin
                 end
             end
             1'd1:begin
-                if(rd_sec_complete) begin                          
-                    rd_sec_cnt <= rd_sec_cnt + 1'b1;
-                    rd_sec_addr <= rd_sec_addr + 32'd1;
-                    rd_sec_start <= (rd_sec_cnt != sd_sec_num - 1'b1);
-                    if(rd_sec_cnt == sd_sec_num - 1'b1) begin
-                        sd_rd_last <= 1'b1;
+                if (start) begin
+                    if(rd_sec_complete) begin                          
+                        rd_sec_cnt <= rd_sec_cnt + 1'b1;
+                        rd_sec_addr <= rd_sec_addr + 32'd1;
+                        rd_sec_start <= (rd_sec_cnt != sd_sec_num - 1'b1);
+                        if(rd_sec_cnt == sd_sec_num - 1'b1) begin
+                            sd_rd_last <= 1'b1;
+                        end
+                    end
+                    else begin
+                        rd_sec_start <= 1'b0;
                     end
                 end
                 else begin
-                    rd_sec_start <= 1'b0;
+                    rd_flow_state <= 1'd0;
+                    sd_rd_last <= 1'b0;
                 end
             end
         endcase

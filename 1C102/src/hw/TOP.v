@@ -102,7 +102,7 @@ module TOP # (
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // debounce
-    localparam SYS_RESETN_HIGH_COUNT_MIN = 32'd49999999;
+    localparam SYS_RESETN_HIGH_COUNT_MIN = 32'd4999999;
     reg [31:0] sys_resetn_counter = 0;
     reg sys_resetn_debounced;/* synthesis syn_keep=1 */
 `ifdef USE_EXTERNAL_SYS_RESETN
@@ -147,7 +147,7 @@ module TOP # (
     //reset sequence for ddr_ui_clk domain
     wire ddr_ui_resetn;     /* synthesis syn_keep=1 */
     RESET_GEN #(
-        .LATENCY(49999),
+        .LATENCY(4999),
         .COUNTER_WIDTH(16)
     )
     ddr_ui_rst_gen (
@@ -160,7 +160,7 @@ module TOP # (
     //reset sequence for core_clk domain, triggered by sys_resetn
     wire core_resetn; /* synthesis syn_keep=1 */
     RESET_GEN #(
-        .LATENCY(4999999),
+        .LATENCY(499999),
         .COUNTER_WIDTH(32)
     )
     core_rst_gen (
@@ -175,7 +175,7 @@ module TOP # (
     wire cpu_peri_resetn;/* synthesis syn_keep=1 */
     wire cpu_cpu_resetn; /* synthesis syn_keep=1 */
     RESET_GEN #(
-        .LATENCY(49999999),
+        .LATENCY(4999999),
         .COUNTER_WIDTH(32)
     )
     cpu_rst_gen (
@@ -233,6 +233,8 @@ module TOP # (
     wire                        cpu_rlast;
     wire                        cpu_rvalid;
     wire                        cpu_rready;
+
+    reg  [`ADDR_WIDTH    -1 :0] cpu_araddr_delay;
 
     wire                        inst_sram_en;
     wire [ 3:0]                 inst_sram_strb;
@@ -577,6 +579,19 @@ module TOP # (
 
 `ifdef USE_CPU_SYSTEM
 
+//    reg data_sram_en_d0;
+//    reg data_sram_wr_d0;
+//    always @(posedge cpu_clk) begin
+        //cpu_araddr_delay <= cpu_araddr;
+        //data_sram_ack <= data_sram_en & data_sram_wr;
+        //data_sram_rrdy <= data_sram_en & ~data_sram_wr;
+//        data_sram_en_d0 <= data_sram_en;
+//        data_sram_wr_d0 <= data_sram_wr;
+//        if(data_sram_wr_d0 & ~data_sram_wr)
+//            data_sram_rrdy <= 0;
+//        else
+//            data_sram_rrdy <= ~data_sram_wr_d0;
+//    end
     la132_top CPU (
         .boot_pc            (32'h1c000000           ),
         .clk                (cpu_clk                ),
@@ -706,8 +721,8 @@ module TOP # (
         .ad                 (inst_sram_addr[31:2]   ), //input [11:0] ad
         .din                (inst_sram_wdata        ) //input [31:0] din
     );
-
-
+`define USE_DRAM_BSRAM
+`ifdef USE_DRAM_BSRAM
     Gowin_SP_Data DRAM (
         .dout               (data_sram_rdata        ), //output [31:0] dout
         .clk                (cpu_clk                ), //input clk
@@ -718,6 +733,16 @@ module TOP # (
         .ad                 (data_sram_addr[31:2]   ), //input [11:0] ad
         .din                (data_sram_wdata        ) //input [31:0] din
     );
+`else
+    gowin_data_ram DRAM (
+        .dout               (data_sram_rdata        ), //output [31:0] dout
+        .clk                (cpu_clk                ), //input clk
+        .wre                (data_sram_wr           ), //input wre
+        .wad                (data_sram_addr[31:2]   ), //input [11:0] ad
+        .rad                (data_sram_addr[31:2]   ), //input [11:0] ad
+        .di                 (data_sram_wdata        ) //input [31:0] din
+    );
+`endif
 `ifndef CPU_ONLY
     axicb_crossbar_top # (
         .AXI_ADDR_W         (`ADDR_WIDTH            ),
@@ -1325,7 +1350,7 @@ module TOP # (
         .SLV0_START_ADDR    (`DDR_ADDR_BASE         ),
         .SLV0_END_ADDR      (`DDR_ADDR_END          ),
         .SLV0_OSTDREQ_NUM   (0                      ),
-        .SLV0_KEEP_BASE_ADDR(1                      )
+        .SLV0_KEEP_BASE_ADDR(0                      )
     ) AXI_crossbar_256 (
         .aclk               (core_clk               ),
         .aresetn            (1'b1                   ),

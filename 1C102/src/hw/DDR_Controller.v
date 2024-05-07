@@ -337,7 +337,8 @@ module DDR_Controller #
         .clk_out         (ui_clk),
         .ddr_rst         (ddr_rst),
 
-        .addr            ({{(ADDR_WIDTH - DDR_ADDR_WIDTH){1'b0}},ddr_cmd_addr[DDR_ADDR_WIDTH-1 : $clog2(DATA_WIDTH/8)], {($clog2(DATA_WIDTH/8)-$clog2(DQ_WIDTH/8)){1'b0}}}),
+        // .addr            ({{(ADDR_WIDTH - DDR_ADDR_WIDTH){1'b0}},ddr_cmd_addr[DDR_ADDR_WIDTH-1 : $clog2(DATA_WIDTH/8)], {($clog2(DATA_WIDTH/8)-$clog2(DQ_WIDTH/8)){1'b0}}}),
+        .addr            ({ddr_cmd_addr[31:5],3'b0}),
         .cmd             ({2'b0, ddr_cmd}),
         .cmd_en          (ddr_cmd_en),
         .cmd_ready       (ddr_cmd_ready),

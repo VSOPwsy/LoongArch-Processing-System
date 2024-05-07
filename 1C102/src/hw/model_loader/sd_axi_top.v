@@ -50,7 +50,7 @@ module sd_axi_top#(
     localparam DONE = 4'b1000;
 
 	ml_wrfifo ml_wrfifo_inst(
-		.Data(wrdata), //input [15:0] Data
+		.Data({wrdata[7:0], wrdata[15:8]}), //input [15:0] Data
 		.Clk(clk), //input Clk
 		.WrEn(wr_en), //input WrEn
 		.RdEn(model_wready & model_wvalid), //input RdEn

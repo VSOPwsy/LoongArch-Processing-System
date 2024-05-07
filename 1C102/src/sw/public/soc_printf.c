@@ -29,6 +29,7 @@ int soc_puts(char *s) {
 	return 0;
 }
 
+char hextable[16]="0123456789ABCDEF";
 int soc_printbase(long v,int w,int base,int sign)
 {
     int i,j;
@@ -42,6 +43,11 @@ int soc_printbase(long v,int w,int base,int sign)
 		value=v;
 	}
 
+if(base==16){
+	for(i=w-1;i>=0;i--){
+        soc_myputchar(hextable[(v>>(i*4))&0xF]);
+	}
+}else{
     for(i=0;value;i++) {
 		buf[i]=value%base;
 		value=value/base;
@@ -51,6 +57,7 @@ int soc_printbase(long v,int w,int base,int sign)
         c=j>i?0:buf[j-1];
         soc_myputchar((c<=9)?c+'0':c-0xa+'a');
     }
+}
     return 0;
 }
 
@@ -143,6 +150,7 @@ again:
 		// ================================================================
 
 	}// for(i=0;fmt[i];i++)
+	my_delay_ms(25);
     return 0;
 }
 

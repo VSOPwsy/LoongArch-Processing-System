@@ -38,16 +38,16 @@ module ddr_ctr_wr_rd_test #(
     input ddr_ready
 );
 
-assign awaddr = 32'h40000000;
+assign awaddr = 32'h443a2cbc;
 assign awid = 8'h10;
-assign wdata = 256'h1234567887654321_9876543223456789_1234567887654321_9876543223456789;
-assign wstrb = 32'hFFFFFFFF;
+assign wdata = 256'h87654321_60000000_50000000_40000000_30000000_20000000_10000000_00000000;
+assign wstrb = 32'hF0000000;
 assign wlast = 1'b1;
 assign awburst = 2'b01;
 assign awsize = 3'd5;
 assign awlen = 0;
 
-assign araddr = 32'h40000000;
+assign araddr = 32'h443a2cbc;
 assign arid = 8'h10;
 assign arlen = 0;
 assign arburst = 2'b01;

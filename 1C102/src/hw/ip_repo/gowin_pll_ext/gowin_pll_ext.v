@@ -5,7 +5,7 @@
 //Part Number: GW5AT-LV138PG484AC1/I0
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Sun May  5 15:14:57 2024
+//Created Time: Mon May  6 02:36:20 2024
 
 module Gowin_PLL_ext (lock, clkout0, clkout1, clkout2, clkout3, clkin, enclk0, enclk1, enclk2, enclk3);
 
@@ -85,9 +85,9 @@ defparam PLL_inst.FCLKIN = "50";
 defparam PLL_inst.IDIV_SEL = 1;
 defparam PLL_inst.FBDIV_SEL = 1;
 defparam PLL_inst.ODIV0_SEL = 100;
-defparam PLL_inst.ODIV1_SEL = 16;
+defparam PLL_inst.ODIV1_SEL = 32;
 defparam PLL_inst.ODIV2_SEL = 4;
-defparam PLL_inst.ODIV3_SEL = 16;
+defparam PLL_inst.ODIV3_SEL = 32;
 defparam PLL_inst.ODIV4_SEL = 8;
 defparam PLL_inst.ODIV5_SEL = 8;
 defparam PLL_inst.ODIV6_SEL = 8;
@@ -131,7 +131,7 @@ defparam PLL_inst.CLKOUT1_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT1_PE_FINE = 0;
 defparam PLL_inst.CLKOUT2_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT2_PE_FINE = 0;
-defparam PLL_inst.CLKOUT3_PE_COARSE = 8;
+defparam PLL_inst.CLKOUT3_PE_COARSE = 16;
 defparam PLL_inst.CLKOUT3_PE_FINE = 0;
 defparam PLL_inst.CLKOUT4_PE_COARSE = 0;
 defparam PLL_inst.CLKOUT4_PE_FINE = 0;

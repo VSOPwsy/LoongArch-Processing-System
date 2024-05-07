@@ -1,0 +1,503 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="core_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" implementation="0" trigger_pos="0" module_name="TOP" force_trigger_by_falling_edge="false">
+        <SignalList>
+            <Bus capture_enable="true" name="cpu_ddr_32_awaddr[31:0]">
+                <Signal>cpu_ddr_32_awaddr[31]</Signal>
+                <Signal>cpu_ddr_32_awaddr[30]</Signal>
+                <Signal>cpu_ddr_32_awaddr[29]</Signal>
+                <Signal>cpu_ddr_32_awaddr[28]</Signal>
+                <Signal>cpu_ddr_32_awaddr[27]</Signal>
+                <Signal>cpu_ddr_32_awaddr[26]</Signal>
+                <Signal>cpu_ddr_32_awaddr[25]</Signal>
+                <Signal>cpu_ddr_32_awaddr[24]</Signal>
+                <Signal>cpu_ddr_32_awaddr[23]</Signal>
+                <Signal>cpu_ddr_32_awaddr[22]</Signal>
+                <Signal>cpu_ddr_32_awaddr[21]</Signal>
+                <Signal>cpu_ddr_32_awaddr[20]</Signal>
+                <Signal>cpu_ddr_32_awaddr[19]</Signal>
+                <Signal>cpu_ddr_32_awaddr[18]</Signal>
+                <Signal>cpu_ddr_32_awaddr[17]</Signal>
+                <Signal>cpu_ddr_32_awaddr[16]</Signal>
+                <Signal>cpu_ddr_32_awaddr[15]</Signal>
+                <Signal>cpu_ddr_32_awaddr[14]</Signal>
+                <Signal>cpu_ddr_32_awaddr[13]</Signal>
+                <Signal>cpu_ddr_32_awaddr[12]</Signal>
+                <Signal>cpu_ddr_32_awaddr[11]</Signal>
+                <Signal>cpu_ddr_32_awaddr[10]</Signal>
+                <Signal>cpu_ddr_32_awaddr[9]</Signal>
+                <Signal>cpu_ddr_32_awaddr[8]</Signal>
+                <Signal>cpu_ddr_32_awaddr[7]</Signal>
+                <Signal>cpu_ddr_32_awaddr[6]</Signal>
+                <Signal>cpu_ddr_32_awaddr[5]</Signal>
+                <Signal>cpu_ddr_32_awaddr[4]</Signal>
+                <Signal>cpu_ddr_32_awaddr[3]</Signal>
+                <Signal>cpu_ddr_32_awaddr[2]</Signal>
+                <Signal>cpu_ddr_32_awaddr[1]</Signal>
+                <Signal>cpu_ddr_32_awaddr[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cpu_ddr_32_awvalid</Signal>
+            <Signal capture_enable="true">cpu_ddr_32_awready</Signal>
+            <Bus capture_enable="true" name="cpu_ddr_32_wdata[31:0]">
+                <Signal>cpu_ddr_32_wdata[31]</Signal>
+                <Signal>cpu_ddr_32_wdata[30]</Signal>
+                <Signal>cpu_ddr_32_wdata[29]</Signal>
+                <Signal>cpu_ddr_32_wdata[28]</Signal>
+                <Signal>cpu_ddr_32_wdata[27]</Signal>
+                <Signal>cpu_ddr_32_wdata[26]</Signal>
+                <Signal>cpu_ddr_32_wdata[25]</Signal>
+                <Signal>cpu_ddr_32_wdata[24]</Signal>
+                <Signal>cpu_ddr_32_wdata[23]</Signal>
+                <Signal>cpu_ddr_32_wdata[22]</Signal>
+                <Signal>cpu_ddr_32_wdata[21]</Signal>
+                <Signal>cpu_ddr_32_wdata[20]</Signal>
+                <Signal>cpu_ddr_32_wdata[19]</Signal>
+                <Signal>cpu_ddr_32_wdata[18]</Signal>
+                <Signal>cpu_ddr_32_wdata[17]</Signal>
+                <Signal>cpu_ddr_32_wdata[16]</Signal>
+                <Signal>cpu_ddr_32_wdata[15]</Signal>
+                <Signal>cpu_ddr_32_wdata[14]</Signal>
+                <Signal>cpu_ddr_32_wdata[13]</Signal>
+                <Signal>cpu_ddr_32_wdata[12]</Signal>
+                <Signal>cpu_ddr_32_wdata[11]</Signal>
+                <Signal>cpu_ddr_32_wdata[10]</Signal>
+                <Signal>cpu_ddr_32_wdata[9]</Signal>
+                <Signal>cpu_ddr_32_wdata[8]</Signal>
+                <Signal>cpu_ddr_32_wdata[7]</Signal>
+                <Signal>cpu_ddr_32_wdata[6]</Signal>
+                <Signal>cpu_ddr_32_wdata[5]</Signal>
+                <Signal>cpu_ddr_32_wdata[4]</Signal>
+                <Signal>cpu_ddr_32_wdata[3]</Signal>
+                <Signal>cpu_ddr_32_wdata[2]</Signal>
+                <Signal>cpu_ddr_32_wdata[1]</Signal>
+                <Signal>cpu_ddr_32_wdata[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="cpu_ddr_32_wstrb[3:0]">
+                <Signal>cpu_ddr_32_wstrb[3]</Signal>
+                <Signal>cpu_ddr_32_wstrb[2]</Signal>
+                <Signal>cpu_ddr_32_wstrb[1]</Signal>
+                <Signal>cpu_ddr_32_wstrb[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cpu_ddr_32_wlast</Signal>
+            <Signal capture_enable="true">cpu_ddr_32_wvalid</Signal>
+            <Signal capture_enable="true">cpu_ddr_32_wready</Signal>
+            <Bus capture_enable="true" name="cpu_ddr_256_awaddr[31:0]">
+                <Signal>cpu_ddr_256_awaddr[31]</Signal>
+                <Signal>cpu_ddr_256_awaddr[30]</Signal>
+                <Signal>cpu_ddr_256_awaddr[29]</Signal>
+                <Signal>cpu_ddr_256_awaddr[28]</Signal>
+                <Signal>cpu_ddr_256_awaddr[27]</Signal>
+                <Signal>cpu_ddr_256_awaddr[26]</Signal>
+                <Signal>cpu_ddr_256_awaddr[25]</Signal>
+                <Signal>cpu_ddr_256_awaddr[24]</Signal>
+                <Signal>cpu_ddr_256_awaddr[23]</Signal>
+                <Signal>cpu_ddr_256_awaddr[22]</Signal>
+                <Signal>cpu_ddr_256_awaddr[21]</Signal>
+                <Signal>cpu_ddr_256_awaddr[20]</Signal>
+                <Signal>cpu_ddr_256_awaddr[19]</Signal>
+                <Signal>cpu_ddr_256_awaddr[18]</Signal>
+                <Signal>cpu_ddr_256_awaddr[17]</Signal>
+                <Signal>cpu_ddr_256_awaddr[16]</Signal>
+                <Signal>cpu_ddr_256_awaddr[15]</Signal>
+                <Signal>cpu_ddr_256_awaddr[14]</Signal>
+                <Signal>cpu_ddr_256_awaddr[13]</Signal>
+                <Signal>cpu_ddr_256_awaddr[12]</Signal>
+                <Signal>cpu_ddr_256_awaddr[11]</Signal>
+                <Signal>cpu_ddr_256_awaddr[10]</Signal>
+                <Signal>cpu_ddr_256_awaddr[9]</Signal>
+                <Signal>cpu_ddr_256_awaddr[8]</Signal>
+                <Signal>cpu_ddr_256_awaddr[7]</Signal>
+                <Signal>cpu_ddr_256_awaddr[6]</Signal>
+                <Signal>cpu_ddr_256_awaddr[5]</Signal>
+                <Signal>cpu_ddr_256_awaddr[4]</Signal>
+                <Signal>cpu_ddr_256_awaddr[3]</Signal>
+                <Signal>cpu_ddr_256_awaddr[2]</Signal>
+                <Signal>cpu_ddr_256_awaddr[1]</Signal>
+                <Signal>cpu_ddr_256_awaddr[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cpu_ddr_256_awvalid</Signal>
+            <Signal capture_enable="true">cpu_ddr_256_awready</Signal>
+            <Bus capture_enable="true" name="cpu_ddr_256_wdata[255:0]">
+                <Signal>cpu_ddr_256_wdata[255]</Signal>
+                <Signal>cpu_ddr_256_wdata[254]</Signal>
+                <Signal>cpu_ddr_256_wdata[253]</Signal>
+                <Signal>cpu_ddr_256_wdata[252]</Signal>
+                <Signal>cpu_ddr_256_wdata[251]</Signal>
+                <Signal>cpu_ddr_256_wdata[250]</Signal>
+                <Signal>cpu_ddr_256_wdata[249]</Signal>
+                <Signal>cpu_ddr_256_wdata[248]</Signal>
+                <Signal>cpu_ddr_256_wdata[247]</Signal>
+                <Signal>cpu_ddr_256_wdata[246]</Signal>
+                <Signal>cpu_ddr_256_wdata[245]</Signal>
+                <Signal>cpu_ddr_256_wdata[244]</Signal>
+                <Signal>cpu_ddr_256_wdata[243]</Signal>
+                <Signal>cpu_ddr_256_wdata[242]</Signal>
+                <Signal>cpu_ddr_256_wdata[241]</Signal>
+                <Signal>cpu_ddr_256_wdata[240]</Signal>
+                <Signal>cpu_ddr_256_wdata[239]</Signal>
+                <Signal>cpu_ddr_256_wdata[238]</Signal>
+                <Signal>cpu_ddr_256_wdata[237]</Signal>
+                <Signal>cpu_ddr_256_wdata[236]</Signal>
+                <Signal>cpu_ddr_256_wdata[235]</Signal>
+                <Signal>cpu_ddr_256_wdata[234]</Signal>
+                <Signal>cpu_ddr_256_wdata[233]</Signal>
+                <Signal>cpu_ddr_256_wdata[232]</Signal>
+                <Signal>cpu_ddr_256_wdata[231]</Signal>
+                <Signal>cpu_ddr_256_wdata[230]</Signal>
+                <Signal>cpu_ddr_256_wdata[229]</Signal>
+                <Signal>cpu_ddr_256_wdata[228]</Signal>
+                <Signal>cpu_ddr_256_wdata[227]</Signal>
+                <Signal>cpu_ddr_256_wdata[226]</Signal>
+                <Signal>cpu_ddr_256_wdata[225]</Signal>
+                <Signal>cpu_ddr_256_wdata[224]</Signal>
+                <Signal>cpu_ddr_256_wdata[223]</Signal>
+                <Signal>cpu_ddr_256_wdata[222]</Signal>
+                <Signal>cpu_ddr_256_wdata[221]</Signal>
+                <Signal>cpu_ddr_256_wdata[220]</Signal>
+                <Signal>cpu_ddr_256_wdata[219]</Signal>
+                <Signal>cpu_ddr_256_wdata[218]</Signal>
+                <Signal>cpu_ddr_256_wdata[217]</Signal>
+                <Signal>cpu_ddr_256_wdata[216]</Signal>
+                <Signal>cpu_ddr_256_wdata[215]</Signal>
+                <Signal>cpu_ddr_256_wdata[214]</Signal>
+                <Signal>cpu_ddr_256_wdata[213]</Signal>
+                <Signal>cpu_ddr_256_wdata[212]</Signal>
+                <Signal>cpu_ddr_256_wdata[211]</Signal>
+                <Signal>cpu_ddr_256_wdata[210]</Signal>
+                <Signal>cpu_ddr_256_wdata[209]</Signal>
+                <Signal>cpu_ddr_256_wdata[208]</Signal>
+                <Signal>cpu_ddr_256_wdata[207]</Signal>
+                <Signal>cpu_ddr_256_wdata[206]</Signal>
+                <Signal>cpu_ddr_256_wdata[205]</Signal>
+                <Signal>cpu_ddr_256_wdata[204]</Signal>
+                <Signal>cpu_ddr_256_wdata[203]</Signal>
+                <Signal>cpu_ddr_256_wdata[202]</Signal>
+                <Signal>cpu_ddr_256_wdata[201]</Signal>
+                <Signal>cpu_ddr_256_wdata[200]</Signal>
+                <Signal>cpu_ddr_256_wdata[199]</Signal>
+                <Signal>cpu_ddr_256_wdata[198]</Signal>
+                <Signal>cpu_ddr_256_wdata[197]</Signal>
+                <Signal>cpu_ddr_256_wdata[196]</Signal>
+                <Signal>cpu_ddr_256_wdata[195]</Signal>
+                <Signal>cpu_ddr_256_wdata[194]</Signal>
+                <Signal>cpu_ddr_256_wdata[193]</Signal>
+                <Signal>cpu_ddr_256_wdata[192]</Signal>
+                <Signal>cpu_ddr_256_wdata[191]</Signal>
+                <Signal>cpu_ddr_256_wdata[190]</Signal>
+                <Signal>cpu_ddr_256_wdata[189]</Signal>
+                <Signal>cpu_ddr_256_wdata[188]</Signal>
+                <Signal>cpu_ddr_256_wdata[187]</Signal>
+                <Signal>cpu_ddr_256_wdata[186]</Signal>
+                <Signal>cpu_ddr_256_wdata[185]</Signal>
+                <Signal>cpu_ddr_256_wdata[184]</Signal>
+                <Signal>cpu_ddr_256_wdata[183]</Signal>
+                <Signal>cpu_ddr_256_wdata[182]</Signal>
+                <Signal>cpu_ddr_256_wdata[181]</Signal>
+                <Signal>cpu_ddr_256_wdata[180]</Signal>
+                <Signal>cpu_ddr_256_wdata[179]</Signal>
+                <Signal>cpu_ddr_256_wdata[178]</Signal>
+                <Signal>cpu_ddr_256_wdata[177]</Signal>
+                <Signal>cpu_ddr_256_wdata[176]</Signal>
+                <Signal>cpu_ddr_256_wdata[175]</Signal>
+                <Signal>cpu_ddr_256_wdata[174]</Signal>
+                <Signal>cpu_ddr_256_wdata[173]</Signal>
+                <Signal>cpu_ddr_256_wdata[172]</Signal>
+                <Signal>cpu_ddr_256_wdata[171]</Signal>
+                <Signal>cpu_ddr_256_wdata[170]</Signal>
+                <Signal>cpu_ddr_256_wdata[169]</Signal>
+                <Signal>cpu_ddr_256_wdata[168]</Signal>
+                <Signal>cpu_ddr_256_wdata[167]</Signal>
+                <Signal>cpu_ddr_256_wdata[166]</Signal>
+                <Signal>cpu_ddr_256_wdata[165]</Signal>
+                <Signal>cpu_ddr_256_wdata[164]</Signal>
+                <Signal>cpu_ddr_256_wdata[163]</Signal>
+                <Signal>cpu_ddr_256_wdata[162]</Signal>
+                <Signal>cpu_ddr_256_wdata[161]</Signal>
+                <Signal>cpu_ddr_256_wdata[160]</Signal>
+                <Signal>cpu_ddr_256_wdata[159]</Signal>
+                <Signal>cpu_ddr_256_wdata[158]</Signal>
+                <Signal>cpu_ddr_256_wdata[157]</Signal>
+                <Signal>cpu_ddr_256_wdata[156]</Signal>
+                <Signal>cpu_ddr_256_wdata[155]</Signal>
+                <Signal>cpu_ddr_256_wdata[154]</Signal>
+                <Signal>cpu_ddr_256_wdata[153]</Signal>
+                <Signal>cpu_ddr_256_wdata[152]</Signal>
+                <Signal>cpu_ddr_256_wdata[151]</Signal>
+                <Signal>cpu_ddr_256_wdata[150]</Signal>
+                <Signal>cpu_ddr_256_wdata[149]</Signal>
+                <Signal>cpu_ddr_256_wdata[148]</Signal>
+                <Signal>cpu_ddr_256_wdata[147]</Signal>
+                <Signal>cpu_ddr_256_wdata[146]</Signal>
+                <Signal>cpu_ddr_256_wdata[145]</Signal>
+                <Signal>cpu_ddr_256_wdata[144]</Signal>
+                <Signal>cpu_ddr_256_wdata[143]</Signal>
+                <Signal>cpu_ddr_256_wdata[142]</Signal>
+                <Signal>cpu_ddr_256_wdata[141]</Signal>
+                <Signal>cpu_ddr_256_wdata[140]</Signal>
+                <Signal>cpu_ddr_256_wdata[139]</Signal>
+                <Signal>cpu_ddr_256_wdata[138]</Signal>
+                <Signal>cpu_ddr_256_wdata[137]</Signal>
+                <Signal>cpu_ddr_256_wdata[136]</Signal>
+                <Signal>cpu_ddr_256_wdata[135]</Signal>
+                <Signal>cpu_ddr_256_wdata[134]</Signal>
+                <Signal>cpu_ddr_256_wdata[133]</Signal>
+                <Signal>cpu_ddr_256_wdata[132]</Signal>
+                <Signal>cpu_ddr_256_wdata[131]</Signal>
+                <Signal>cpu_ddr_256_wdata[130]</Signal>
+                <Signal>cpu_ddr_256_wdata[129]</Signal>
+                <Signal>cpu_ddr_256_wdata[128]</Signal>
+                <Signal>cpu_ddr_256_wdata[127]</Signal>
+                <Signal>cpu_ddr_256_wdata[126]</Signal>
+                <Signal>cpu_ddr_256_wdata[125]</Signal>
+                <Signal>cpu_ddr_256_wdata[124]</Signal>
+                <Signal>cpu_ddr_256_wdata[123]</Signal>
+                <Signal>cpu_ddr_256_wdata[122]</Signal>
+                <Signal>cpu_ddr_256_wdata[121]</Signal>
+                <Signal>cpu_ddr_256_wdata[120]</Signal>
+                <Signal>cpu_ddr_256_wdata[119]</Signal>
+                <Signal>cpu_ddr_256_wdata[118]</Signal>
+                <Signal>cpu_ddr_256_wdata[117]</Signal>
+                <Signal>cpu_ddr_256_wdata[116]</Signal>
+                <Signal>cpu_ddr_256_wdata[115]</Signal>
+                <Signal>cpu_ddr_256_wdata[114]</Signal>
+                <Signal>cpu_ddr_256_wdata[113]</Signal>
+                <Signal>cpu_ddr_256_wdata[112]</Signal>
+                <Signal>cpu_ddr_256_wdata[111]</Signal>
+                <Signal>cpu_ddr_256_wdata[110]</Signal>
+                <Signal>cpu_ddr_256_wdata[109]</Signal>
+                <Signal>cpu_ddr_256_wdata[108]</Signal>
+                <Signal>cpu_ddr_256_wdata[107]</Signal>
+                <Signal>cpu_ddr_256_wdata[106]</Signal>
+                <Signal>cpu_ddr_256_wdata[105]</Signal>
+                <Signal>cpu_ddr_256_wdata[104]</Signal>
+                <Signal>cpu_ddr_256_wdata[103]</Signal>
+                <Signal>cpu_ddr_256_wdata[102]</Signal>
+                <Signal>cpu_ddr_256_wdata[101]</Signal>
+                <Signal>cpu_ddr_256_wdata[100]</Signal>
+                <Signal>cpu_ddr_256_wdata[99]</Signal>
+                <Signal>cpu_ddr_256_wdata[98]</Signal>
+                <Signal>cpu_ddr_256_wdata[97]</Signal>
+                <Signal>cpu_ddr_256_wdata[96]</Signal>
+                <Signal>cpu_ddr_256_wdata[95]</Signal>
+                <Signal>cpu_ddr_256_wdata[94]</Signal>
+                <Signal>cpu_ddr_256_wdata[93]</Signal>
+                <Signal>cpu_ddr_256_wdata[92]</Signal>
+                <Signal>cpu_ddr_256_wdata[91]</Signal>
+                <Signal>cpu_ddr_256_wdata[90]</Signal>
+                <Signal>cpu_ddr_256_wdata[89]</Signal>
+                <Signal>cpu_ddr_256_wdata[88]</Signal>
+                <Signal>cpu_ddr_256_wdata[87]</Signal>
+                <Signal>cpu_ddr_256_wdata[86]</Signal>
+                <Signal>cpu_ddr_256_wdata[85]</Signal>
+                <Signal>cpu_ddr_256_wdata[84]</Signal>
+                <Signal>cpu_ddr_256_wdata[83]</Signal>
+                <Signal>cpu_ddr_256_wdata[82]</Signal>
+                <Signal>cpu_ddr_256_wdata[81]</Signal>
+                <Signal>cpu_ddr_256_wdata[80]</Signal>
+                <Signal>cpu_ddr_256_wdata[79]</Signal>
+                <Signal>cpu_ddr_256_wdata[78]</Signal>
+                <Signal>cpu_ddr_256_wdata[77]</Signal>
+                <Signal>cpu_ddr_256_wdata[76]</Signal>
+                <Signal>cpu_ddr_256_wdata[75]</Signal>
+                <Signal>cpu_ddr_256_wdata[74]</Signal>
+                <Signal>cpu_ddr_256_wdata[73]</Signal>
+                <Signal>cpu_ddr_256_wdata[72]</Signal>
+                <Signal>cpu_ddr_256_wdata[71]</Signal>
+                <Signal>cpu_ddr_256_wdata[70]</Signal>
+                <Signal>cpu_ddr_256_wdata[69]</Signal>
+                <Signal>cpu_ddr_256_wdata[68]</Signal>
+                <Signal>cpu_ddr_256_wdata[67]</Signal>
+                <Signal>cpu_ddr_256_wdata[66]</Signal>
+                <Signal>cpu_ddr_256_wdata[65]</Signal>
+                <Signal>cpu_ddr_256_wdata[64]</Signal>
+                <Signal>cpu_ddr_256_wdata[63]</Signal>
+                <Signal>cpu_ddr_256_wdata[62]</Signal>
+                <Signal>cpu_ddr_256_wdata[61]</Signal>
+                <Signal>cpu_ddr_256_wdata[60]</Signal>
+                <Signal>cpu_ddr_256_wdata[59]</Signal>
+                <Signal>cpu_ddr_256_wdata[58]</Signal>
+                <Signal>cpu_ddr_256_wdata[57]</Signal>
+                <Signal>cpu_ddr_256_wdata[56]</Signal>
+                <Signal>cpu_ddr_256_wdata[55]</Signal>
+                <Signal>cpu_ddr_256_wdata[54]</Signal>
+                <Signal>cpu_ddr_256_wdata[53]</Signal>
+                <Signal>cpu_ddr_256_wdata[52]</Signal>
+                <Signal>cpu_ddr_256_wdata[51]</Signal>
+                <Signal>cpu_ddr_256_wdata[50]</Signal>
+                <Signal>cpu_ddr_256_wdata[49]</Signal>
+                <Signal>cpu_ddr_256_wdata[48]</Signal>
+                <Signal>cpu_ddr_256_wdata[47]</Signal>
+                <Signal>cpu_ddr_256_wdata[46]</Signal>
+                <Signal>cpu_ddr_256_wdata[45]</Signal>
+                <Signal>cpu_ddr_256_wdata[44]</Signal>
+                <Signal>cpu_ddr_256_wdata[43]</Signal>
+                <Signal>cpu_ddr_256_wdata[42]</Signal>
+                <Signal>cpu_ddr_256_wdata[41]</Signal>
+                <Signal>cpu_ddr_256_wdata[40]</Signal>
+                <Signal>cpu_ddr_256_wdata[39]</Signal>
+                <Signal>cpu_ddr_256_wdata[38]</Signal>
+                <Signal>cpu_ddr_256_wdata[37]</Signal>
+                <Signal>cpu_ddr_256_wdata[36]</Signal>
+                <Signal>cpu_ddr_256_wdata[35]</Signal>
+                <Signal>cpu_ddr_256_wdata[34]</Signal>
+                <Signal>cpu_ddr_256_wdata[33]</Signal>
+                <Signal>cpu_ddr_256_wdata[32]</Signal>
+                <Signal>cpu_ddr_256_wdata[31]</Signal>
+                <Signal>cpu_ddr_256_wdata[30]</Signal>
+                <Signal>cpu_ddr_256_wdata[29]</Signal>
+                <Signal>cpu_ddr_256_wdata[28]</Signal>
+                <Signal>cpu_ddr_256_wdata[27]</Signal>
+                <Signal>cpu_ddr_256_wdata[26]</Signal>
+                <Signal>cpu_ddr_256_wdata[25]</Signal>
+                <Signal>cpu_ddr_256_wdata[24]</Signal>
+                <Signal>cpu_ddr_256_wdata[23]</Signal>
+                <Signal>cpu_ddr_256_wdata[22]</Signal>
+                <Signal>cpu_ddr_256_wdata[21]</Signal>
+                <Signal>cpu_ddr_256_wdata[20]</Signal>
+                <Signal>cpu_ddr_256_wdata[19]</Signal>
+                <Signal>cpu_ddr_256_wdata[18]</Signal>
+                <Signal>cpu_ddr_256_wdata[17]</Signal>
+                <Signal>cpu_ddr_256_wdata[16]</Signal>
+                <Signal>cpu_ddr_256_wdata[15]</Signal>
+                <Signal>cpu_ddr_256_wdata[14]</Signal>
+                <Signal>cpu_ddr_256_wdata[13]</Signal>
+                <Signal>cpu_ddr_256_wdata[12]</Signal>
+                <Signal>cpu_ddr_256_wdata[11]</Signal>
+                <Signal>cpu_ddr_256_wdata[10]</Signal>
+                <Signal>cpu_ddr_256_wdata[9]</Signal>
+                <Signal>cpu_ddr_256_wdata[8]</Signal>
+                <Signal>cpu_ddr_256_wdata[7]</Signal>
+                <Signal>cpu_ddr_256_wdata[6]</Signal>
+                <Signal>cpu_ddr_256_wdata[5]</Signal>
+                <Signal>cpu_ddr_256_wdata[4]</Signal>
+                <Signal>cpu_ddr_256_wdata[3]</Signal>
+                <Signal>cpu_ddr_256_wdata[2]</Signal>
+                <Signal>cpu_ddr_256_wdata[1]</Signal>
+                <Signal>cpu_ddr_256_wdata[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="cpu_ddr_256_wstrb[31:0]">
+                <Signal>cpu_ddr_256_wstrb[31]</Signal>
+                <Signal>cpu_ddr_256_wstrb[30]</Signal>
+                <Signal>cpu_ddr_256_wstrb[29]</Signal>
+                <Signal>cpu_ddr_256_wstrb[28]</Signal>
+                <Signal>cpu_ddr_256_wstrb[27]</Signal>
+                <Signal>cpu_ddr_256_wstrb[26]</Signal>
+                <Signal>cpu_ddr_256_wstrb[25]</Signal>
+                <Signal>cpu_ddr_256_wstrb[24]</Signal>
+                <Signal>cpu_ddr_256_wstrb[23]</Signal>
+                <Signal>cpu_ddr_256_wstrb[22]</Signal>
+                <Signal>cpu_ddr_256_wstrb[21]</Signal>
+                <Signal>cpu_ddr_256_wstrb[20]</Signal>
+                <Signal>cpu_ddr_256_wstrb[19]</Signal>
+                <Signal>cpu_ddr_256_wstrb[18]</Signal>
+                <Signal>cpu_ddr_256_wstrb[17]</Signal>
+                <Signal>cpu_ddr_256_wstrb[16]</Signal>
+                <Signal>cpu_ddr_256_wstrb[15]</Signal>
+                <Signal>cpu_ddr_256_wstrb[14]</Signal>
+                <Signal>cpu_ddr_256_wstrb[13]</Signal>
+                <Signal>cpu_ddr_256_wstrb[12]</Signal>
+                <Signal>cpu_ddr_256_wstrb[11]</Signal>
+                <Signal>cpu_ddr_256_wstrb[10]</Signal>
+                <Signal>cpu_ddr_256_wstrb[9]</Signal>
+                <Signal>cpu_ddr_256_wstrb[8]</Signal>
+                <Signal>cpu_ddr_256_wstrb[7]</Signal>
+                <Signal>cpu_ddr_256_wstrb[6]</Signal>
+                <Signal>cpu_ddr_256_wstrb[5]</Signal>
+                <Signal>cpu_ddr_256_wstrb[4]</Signal>
+                <Signal>cpu_ddr_256_wstrb[3]</Signal>
+                <Signal>cpu_ddr_256_wstrb[2]</Signal>
+                <Signal>cpu_ddr_256_wstrb[1]</Signal>
+                <Signal>cpu_ddr_256_wstrb[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cpu_ddr_256_wlast</Signal>
+            <Signal capture_enable="true">cpu_ddr_256_wvalid</Signal>
+            <Signal capture_enable="true">cpu_ddr_256_wready</Signal>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Bus restorename="cpu_ddr_32_awaddr[31:0]">
+                        <Signal>cpu_ddr_32_awaddr[31]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[30]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[29]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[28]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[27]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[26]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[25]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[24]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[23]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[22]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[21]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[20]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[19]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[18]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[17]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[16]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[15]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[14]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[13]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[12]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[11]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[10]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[9]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[8]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[7]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[6]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[5]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[4]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[3]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[2]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[1]</Signal>
+                        <Signal>cpu_ddr_32_awaddr[0]</Signal>
+                    </Bus>
+                    <Signal>cpu_ddr_32_awvalid</Signal>
+                    <Signal>cpu_ddr_32_wvalid</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1">
+                <SignalList>
+                    <Signal>cpu_ddr_32_arvalid</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="XXXXXXXXXXXXXXXXXXXXXXXXXXXX0000XX" value1="0000000000000000000000000000000000" trigger="0"/>
+            <MatchUnit index="1" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="1"/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Dynamic" ex_implementation="0">
+            <Expression>M0</Expression>
+            <Expression>M1</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>1110111011100011</GAO_ID>
+</GAO_CONFIG>

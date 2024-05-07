@@ -33,6 +33,7 @@
 #include "ddr.h"
 #include "sd.h"
 #include "math.h"
+#include "memory.h"
 // ================================================================
 
 extern void wakeup_reset(void);
@@ -511,23 +512,18 @@ int System_Init(void)
 	return 1;
 }
 
-void SD_load(uint32_t start_sec, uint32_t size, uint32_t ddr_addr_base)
+void SD_load(uint32_t start_sec, uint32_t size, void* ddr_addr_base)
 {
 	SD_DMA_SD_START_SEC = start_sec;
-	SD_DMA_SD_SEC_NUM = ceil(size / 512);
-	SD_DMA_DDR_BASE = ddr_addr_base;
+	SD_DMA_SD_SEC_NUM = ceil(size / 512.0);
+	SD_DMA_DDR_BASE = (uint32_t)ddr_addr_base;
 
 	SD_DMA_START = (uint32_t)0x00000001;
 	while (!SD_DMA_DONE);
-
-	my_delay_ms(10);
 }
 
-unsigned int address;
-unsigned int tokenizer_address;
-// unsigned int alloc_address;
-// volatile unsigned char * alloc_address = (unsigned char *)0x44000000;
-volatile uint32_t alloc_address = 0x44000000;
+void *model_address;
+void *tokenizer_address;
 
 
 typedef struct {
@@ -591,26 +587,16 @@ typedef struct {
 void malloc_run_state(RunState* s, Config* p) {
     // we calloc instead of malloc to keep valgrind happy
     int kv_dim = (p->dim * p->n_kv_heads) / p->n_heads;
-    s->x = (float *) alloc_address;
-    alloc_address += 4 * p->dim;
-    s->xb = (float *) alloc_address;
-    alloc_address += 4 * p->dim;
-    s->xb2 = (float *) alloc_address;
-    alloc_address += 4 * p->dim;
-    s->hb = (float *) alloc_address;
-    alloc_address += 4 * p->hidden_dim;
-    s->hb2 = (float *) alloc_address;
-    alloc_address += 4 * p->hidden_dim;
-    s->q = (float *) alloc_address;
-    alloc_address += 4 * p->dim;
-    s->key_cache = (float *) alloc_address;
-    alloc_address += 4 * p->n_layers * p->seq_len * kv_dim;
-    s->value_cache = (float *) alloc_address;
-    alloc_address += 4 * p->n_layers * p->seq_len * kv_dim;
-    s->att = (float *) alloc_address;
-    alloc_address += 4 * p->n_heads * p->seq_len;
-    s->logits = (float *) alloc_address;
-    alloc_address += 4 * p->vocab_size;
+    s->x = soc_calloc(p->dim, sizeof(float));
+    s->xb = soc_calloc(p->dim, sizeof(float));
+    s->xb2 = soc_calloc(p->dim, sizeof(float));
+    s->hb = soc_calloc(p->hidden_dim, sizeof(float));
+    s->hb2 = soc_calloc(p->hidden_dim, sizeof(float));
+    s->q = soc_calloc(p->dim, sizeof(float));
+    s->key_cache = soc_calloc(p->n_layers * p->seq_len * kv_dim, sizeof(float));
+    s->value_cache = soc_calloc(p->n_layers * p->seq_len * kv_dim, sizeof(float));
+    s->att = soc_calloc(p->n_heads * p->seq_len, sizeof(float));
+    s->logits = soc_calloc(p->vocab_size, sizeof(float));
 }
 
 
@@ -646,36 +632,28 @@ void memory_map_weights(TransformerWeights *w, Config* p, float* ptr, int shared
     w->wcls = shared_weights ? w->token_embedding_table : ptr;
 }
 
-void read_checkpoint(Config* config, TransformerWeights* weights,
+void read_checkpoint(void* checkpoint, Config* config, TransformerWeights* weights,
                      int* fd, float** data, ssize_t* file_size) {
-    config->dim = *(unsigned int *) address;
-    address += 4;
-    config->hidden_dim = *(unsigned int *) address;
-    address += 4;
-    config->n_layers = *(unsigned int *) address;
-    address += 4;
-    config->n_heads = *(unsigned int *) address;
-    address += 4;
-    config->n_kv_heads = *(unsigned int *) address;
-    address += 4;
-    config->vocab_size = *(unsigned int *) address;
-    address += 4;
-    config->seq_len = *(unsigned int *) address;
-    address += 4;
+    SOC_FILE *file = soc_fopen(checkpoint);
+    // soc_printf("ptr: %8x\n", file->_ptr);
+    // soc_printf("cnt: %8x\n", file->_cnt);
+    soc_fread(config, sizeof(Config), 1, file);
+    // soc_printf("ptr: %8x\n", file->_ptr);
+    // soc_printf("cnt: %8x\n", file->_cnt);
     // negative vocab size is hacky way of signaling unshared weights. bit yikes.
     int shared_weights = config->vocab_size > 0 ? 1 : 0;
     config->vocab_size = abs(config->vocab_size);
     // figure out the file size
     *file_size = 60816028;
     // memory map the Transformer weights into the data pointer
-    *data = (float *)(0x40000000);
+    *data = (float *)checkpoint;
     float* weights_ptr = *data + sizeof(Config)/sizeof(float);
     memory_map_weights(weights, config, weights_ptr, shared_weights);
 }
 
-void build_transformer(Transformer *t) {
+void build_transformer(Transformer *t, void* checkpoint) {
     // read in the Config and the Weights from the checkpoint
-    read_checkpoint(&t->config, &t->weights, &t->fd, &t->data, &t->file_size);
+    read_checkpoint(checkpoint, &t->config, &t->weights, &t->fd, &t->data, &t->file_size);
     // allocate the RunState buffers
     malloc_run_state(&t->state, &t->config);
 }
@@ -887,33 +865,34 @@ int compare_tokens(const void *a, const void *b) {
     return strcmp(((TokenIndex*)a)->str, ((TokenIndex*)b)->str);
 }
 
-void build_tokenizer(Tokenizer* t, int vocab_size) {
+void build_tokenizer(Tokenizer* t, void* tokenizer_base, int vocab_size) {
     // i should have written the vocab_size into the tokenizer file... sigh
     t->vocab_size = vocab_size;
     // malloc space to hold the scores and the strings
-    t->vocab = (char**) alloc_address;
-    alloc_address += vocab_size * sizeof(char*);
-    t->vocab_scores = (float*) alloc_address;
-    alloc_address += vocab_size * sizeof(float);
+    t->vocab = (char**)soc_malloc(vocab_size * sizeof(char*));
+    t->vocab_scores = (float*)soc_malloc(vocab_size * sizeof(float));
     t->sorted_vocab = NULL; // initialized lazily
     for (int i = 0; i < 256; i++) {
         t->byte_pieces[i * 2] = (unsigned char)i;
         t->byte_pieces[i * 2 + 1] = '\0';
     }
     // read in the file
-    t->max_token_length = (unsigned int) tokenizer_address;
-    tokenizer_address += 4;
-    int len;
-    for (int i = 0; i < vocab_size; i++) {
-        *(t->vocab_scores + i) = (float) tokenizer_address;
-        tokenizer_address += 4;
-        len = (int) tokenizer_address;
-        tokenizer_address += 4;
-        t->vocab[i] = (char *) alloc_address;
-        alloc_address += len + 1;
-        *t->vocab[i] = (char) tokenizer_address;
-        tokenizer_address += len;
-        t->vocab[i][len] = '\0'; // add the string terminating token
+    soc_printf("base:%8x", tokenizer_base);
+    SOC_FILE *file = soc_fopen(tokenizer_base);
+    // soc_printf("ptr: %8x\n", file->_ptr);
+    // soc_printf("cnt: %8x\n", file->_cnt);
+    soc_fread(&t->max_token_length, sizeof(int), 1, file);
+    // soc_printf("toklen:%4x\n", t->max_token_length);
+    int *len = soc_malloc(sizeof(int));
+    for (short i = 0; i < vocab_size; i++) {
+        soc_fread(t->vocab_scores + i, sizeof(float), 1, file);
+        soc_printf("score:%8x\n", i, ((uint32_t*)t->vocab_scores)[i]);
+        soc_fread(len, sizeof(int), 1, file);
+        soc_printf("len: %8x\n", *len);
+        t->vocab[i] = (char *)soc_malloc(*len + 1);
+        soc_fread(t->vocab[i], *len, 1, file);
+        t->vocab[i][*len] = '\0'; // add the string terminating token
+        soc_printf("vocab: %s\n", t->vocab[i]);
     }
 }
 
@@ -958,8 +937,7 @@ void encode(Tokenizer* t, char *text, int8_t bos, int8_t eos, int *tokens, int *
 
     if (t->sorted_vocab == NULL) {
         // lazily malloc and sort the vocabulary
-        t->sorted_vocab = (TokenIndex *) alloc_address;
-        alloc_address += t->vocab_size * sizeof(TokenIndex);
+        t->sorted_vocab =  (TokenIndex *)soc_malloc(t->vocab_size * sizeof(TokenIndex));
         for (int i = 0; i < t->vocab_size; i++) {
             t->sorted_vocab[i].str = t->vocab[i];
             t->sorted_vocab[i].id = i;
@@ -969,8 +947,7 @@ void encode(Tokenizer* t, char *text, int8_t bos, int8_t eos, int *tokens, int *
 
     // create a temporary buffer that will store merge candidates of always two consecutive tokens
     // *2 for concat, +1 for null terminator +2 for UTF8 (in case max_token_length is 1)
-    char* str_buffer = (char *) alloc_address;
-    alloc_address += sizeof(char) * (t->max_token_length * 2 + 1 + 2);
+    char* str_buffer = (char *)soc_malloc(sizeof(char) * (t->max_token_length * 2 + 1 + 2));
     
     size_t str_len = 0;
 
@@ -1173,8 +1150,7 @@ void build_sampler(Sampler* sampler, int vocab_size, float temperature, float to
     sampler->topp = topp;
     sampler->rng_state = rng_seed;
     // buffer only used with nucleus sampling; may not need but it's ~small
-    sampler->probindex = (ProbIndex *) alloc_address;
-    alloc_address += sampler->vocab_size * sizeof(ProbIndex);
+    sampler->probindex = (ProbIndex *)soc_malloc(sampler->vocab_size * sizeof(ProbIndex));
 }
 
 
@@ -1225,8 +1201,7 @@ void generate(Transformer *transformer, Tokenizer *tokenizer, Sampler *sampler, 
 
     // encode the (string) prompt into tokens sequence
     int num_prompt_tokens = 0;
-    int* prompt_tokens = (int*) alloc_address;
-    alloc_address += (strlen(prompt) + 3) * sizeof(int);
+    int* prompt_tokens = (int*)soc_malloc((strlen(prompt) + 3) * sizeof(int));
     encode(tokenizer, prompt, 1, 0, prompt_tokens, &num_prompt_tokens);
     if (num_prompt_tokens < 1) {
         soc_printf("something is wrong, expected at least 1 prompt token\n");
@@ -1266,24 +1241,25 @@ void generate(Transformer *transformer, Tokenizer *tokenizer, Sampler *sampler, 
 
 
 }
-
+int a;
 int main(void)
 {
 	System_Init();
 	LED = (uint32_t)0x00000001;
 
-	// SD_load(34848, 60816028, 0x40000000);
-	// SD_load(153632, 433869, 0x43a00000);
+    alloc_init(DDR_BASE, 0x0C000000);
+    model_address = soc_malloc(60816028);
+    tokenizer_address = soc_malloc(433869);
+
+	SD_load(2048, 1024, model_address);
+	// SD_load(2048, 60816028, DDR_BASE);
+	SD_load(200000, 433869, tokenizer_address);
 	LED = (uint32_t)0x00000003;
 
-    address = 0x40000000;
-    tokenizer_address = 0x43A00000;
-	alloc_address = 0x44000000;
     float temperature = 1.0f;   // 0.0 = greedy deterministic. 1.0 = original. don't set higher
     float topp = 0.9f;          // top-p in nucleus sampling. 1.0 = off. 0.9 works well, but slower
     int steps = 256;            // number of steps to run for
-    char *prompt = (char *) alloc_address;   
-    alloc_address+=4;     // prompt string
+    char *prompt = "Hello world!";
     unsigned long long rng_seed = 0; // seed rng with time by default
 
     // parameter validation/overrides
@@ -1292,23 +1268,36 @@ int main(void)
     if (topp < 0.0 || 1.0 < topp) topp = 0.9;
     if (steps < 0) steps = 0;
 
-    // build the Transformer via the model .bin file
-    Transformer *transformer = (Transformer *)alloc_address;
-	alloc_address += sizeof(Transformer);
-    read_checkpoint(&transformer->config, &transformer->weights, &transformer->fd, &transformer->data, &transformer->file_size);
-    malloc_run_state(&transformer->state, &transformer->config);
-    // build_transformer(transformer);
+    // // build the Transformer via the model .bin file
+    // Transformer transformer;
+    // build_transformer(&transformer, (void*)model_address);
+    // if (steps == 0 || steps > transformer.config.seq_len) steps = transformer.config.seq_len; // override to ~max length
+
+    // // build the Tokenizer via the tokenizer .bin file
+    // Tokenizer tokenizer;
+    // build_tokenizer(&tokenizer, tokenizer_address, transformer.config.vocab_size);
+
+    // // build the Sampler
+    // Sampler sampler;
+    // build_sampler(&sampler, transformer.config.vocab_size, temperature, topp, rng_seed);
+
+    // generate(&transformer, &tokenizer, &sampler, prompt, steps);
+
+    // return 0;
+
+
+    
+    Transformer *transformer = soc_malloc(sizeof(Transformer));
+    build_transformer(transformer, (void*)model_address);
     if (steps == 0 || steps > transformer->config.seq_len) steps = transformer->config.seq_len; // override to ~max length
 
-    // build the Tokenizer via the tokenizer .bin file
-    Tokenizer tokenizer;
-    build_tokenizer(&tokenizer, transformer->config.vocab_size);
+    Tokenizer *tokenizer = soc_malloc(sizeof(Tokenizer));
+    build_tokenizer(tokenizer, tokenizer_address, transformer->config.vocab_size);
 
-    // build the Sampler
     Sampler sampler;
     build_sampler(&sampler, transformer->config.vocab_size, temperature, topp, rng_seed);
 
-    generate(&transformer, &tokenizer, &sampler, prompt, steps);
+    generate(transformer, tokenizer, &sampler, prompt, steps);
 
     return 0;
 

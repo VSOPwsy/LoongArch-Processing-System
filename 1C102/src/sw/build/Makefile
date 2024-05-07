@@ -86,9 +86,9 @@ $(IMAGE_BIN):$(LS1C1X_OBJ)
 	$(OBJDUMP) -alD $(IMAGE_ELF) > $(IMAGENAME).s
 
 $(OBJ_C) : %.o : %.c 
-	$(CC) $(CC_COPTS) -g -Og -c -o $@ $^
+	$(CC) $(CC_COPTS) -g -O1 -c -o $@ $^
 $(OBJ_S) : %.o : %.S
-	$(CC) $(CC_OPTS) -g -Og -c -o $@ $^
+	$(CC) $(CC_OPTS) -g -O1 -c -o $@ $^
 
 
 .PHONY : clean 
