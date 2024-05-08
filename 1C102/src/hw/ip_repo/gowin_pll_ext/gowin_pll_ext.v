@@ -5,7 +5,7 @@
 //Part Number: GW5AT-LV138PG484AC1/I0
 //Device: GW5AT-138
 //Device Version: B
-//Created Time: Mon May  6 02:36:20 2024
+//Created Time: Wed May  8 10:55:28 2024
 
 module Gowin_PLL_ext (lock, clkout0, clkout1, clkout2, clkout3, clkin, enclk0, enclk1, enclk2, enclk3);
 
@@ -84,7 +84,7 @@ PLL PLL_inst (
 defparam PLL_inst.FCLKIN = "50";
 defparam PLL_inst.IDIV_SEL = 1;
 defparam PLL_inst.FBDIV_SEL = 1;
-defparam PLL_inst.ODIV0_SEL = 100;
+defparam PLL_inst.ODIV0_SEL = 50;
 defparam PLL_inst.ODIV1_SEL = 32;
 defparam PLL_inst.ODIV2_SEL = 4;
 defparam PLL_inst.ODIV3_SEL = 32;

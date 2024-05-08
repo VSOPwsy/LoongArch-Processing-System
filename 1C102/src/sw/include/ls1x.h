@@ -43,7 +43,7 @@ in the default header file 'stdint.h'. therefore, the duplicated parts in 'test.
 
 
 
-#define DDR_BASE                0x40000000
+#define DDR_BASE                0x40002000
 #define DDR_CTR_BASE            0xbfff1000
 #define DDR_INIT                (*(volatile uint32_t*)(DDR_CTR_BASE))
 

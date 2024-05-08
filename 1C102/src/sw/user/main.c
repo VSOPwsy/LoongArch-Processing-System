@@ -473,13 +473,14 @@ START:
 }
 
 
+extern MEM_SPACE mem_space;
 #define LED *(volatile uint32_t*)0xbff00000
 #define SYSTEM_INIT_TIMEOUT (uint32_t)50000
 uint32_t sys_init_cnt = 0;
 int System_Init(void)
 {
 	EnableInt();
-	UART_FIFO_CTRL = 0x05;
+	UART_FIFO_CTRL = 0x07;  // Baud rate 115200
 	my_delay_ms(500);
 
 	while (!DDR_Init())
@@ -488,7 +489,6 @@ int System_Init(void)
 		if (sys_init_cnt == SYSTEM_INIT_TIMEOUT)
 		{
 			soc_printf("DDR failed to initialize\r\n");
-			my_delay_ms(25);
 			return 0;
 		}
 	}
@@ -500,12 +500,10 @@ int System_Init(void)
 		if (sys_init_cnt == SYSTEM_INIT_TIMEOUT)
 		{
 			soc_printf("SD failed to initialize\r\n");
-			my_delay_ms(25);
 		}
 	}
 
 	soc_printf("System Initialized Successfully\r\n");
-	my_delay_ms(25);
 
 	uart1_interrupt();
 
@@ -877,22 +875,15 @@ void build_tokenizer(Tokenizer* t, void* tokenizer_base, int vocab_size) {
         t->byte_pieces[i * 2 + 1] = '\0';
     }
     // read in the file
-    soc_printf("base:%8x", tokenizer_base);
     SOC_FILE *file = soc_fopen(tokenizer_base);
-    // soc_printf("ptr: %8x\n", file->_ptr);
-    // soc_printf("cnt: %8x\n", file->_cnt);
     soc_fread(&t->max_token_length, sizeof(int), 1, file);
-    // soc_printf("toklen:%4x\n", t->max_token_length);
-    int *len = soc_malloc(sizeof(int));
+    int len;
     for (short i = 0; i < vocab_size; i++) {
         soc_fread(t->vocab_scores + i, sizeof(float), 1, file);
-        soc_printf("score:%8x\n", i, ((uint32_t*)t->vocab_scores)[i]);
-        soc_fread(len, sizeof(int), 1, file);
-        soc_printf("len: %8x\n", *len);
-        t->vocab[i] = (char *)soc_malloc(*len + 1);
-        soc_fread(t->vocab[i], *len, 1, file);
-        t->vocab[i][*len] = '\0'; // add the string terminating token
-        soc_printf("vocab: %s\n", t->vocab[i]);
+        soc_fread(&len, sizeof(int), 1, file);
+        t->vocab[i] = (char *)soc_malloc(len + 1);
+        soc_fread(t->vocab[i], len, 1, file);
+        t->vocab[i][len] = '\0'; // add the string terminating token
     }
 }
 
@@ -1251,15 +1242,17 @@ int main(void)
     model_address = soc_malloc(60816028);
     tokenizer_address = soc_malloc(433869);
 
-	SD_load(2048, 1024, model_address);
-	// SD_load(2048, 60816028, DDR_BASE);
+	// SD_load(2048, 1024, model_address);
+    soc_printf("loading model...\n");
+	SD_load(2048, 60816028, DDR_BASE);
+    soc_printf("loading tokenizer...\n");
 	SD_load(200000, 433869, tokenizer_address);
 	LED = (uint32_t)0x00000003;
 
     float temperature = 1.0f;   // 0.0 = greedy deterministic. 1.0 = original. don't set higher
     float topp = 0.9f;          // top-p in nucleus sampling. 1.0 = off. 0.9 works well, but slower
     int steps = 256;            // number of steps to run for
-    char *prompt = "Hello world!";
+    char *prompt = "WSY loves YJQ";
     unsigned long long rng_seed = 0; // seed rng with time by default
 
     // parameter validation/overrides
@@ -1268,39 +1261,28 @@ int main(void)
     if (topp < 0.0 || 1.0 < topp) topp = 0.9;
     if (steps < 0) steps = 0;
 
-    // // build the Transformer via the model .bin file
-    // Transformer transformer;
-    // build_transformer(&transformer, (void*)model_address);
-    // if (steps == 0 || steps > transformer.config.seq_len) steps = transformer.config.seq_len; // override to ~max length
+    // build the Transformer via the model .bin file
+    Transformer transformer;
+    soc_printf("building transformer...\n");
+    build_transformer(&transformer, (void*)model_address);
+    if (steps == 0 || steps > transformer.config.seq_len) steps = transformer.config.seq_len; // override to ~max length
 
-    // // build the Tokenizer via the tokenizer .bin file
-    // Tokenizer tokenizer;
-    // build_tokenizer(&tokenizer, tokenizer_address, transformer.config.vocab_size);
+    // build the Tokenizer via the tokenizer .bin file
+    Tokenizer tokenizer;
+    soc_printf("building tokenizer...\n");
+    build_tokenizer(&tokenizer, tokenizer_address, transformer.config.vocab_size);
 
-    // // build the Sampler
-    // Sampler sampler;
-    // build_sampler(&sampler, transformer.config.vocab_size, temperature, topp, rng_seed);
-
-    // generate(&transformer, &tokenizer, &sampler, prompt, steps);
-
-    // return 0;
-
-
-    
-    Transformer *transformer = soc_malloc(sizeof(Transformer));
-    build_transformer(transformer, (void*)model_address);
-    if (steps == 0 || steps > transformer->config.seq_len) steps = transformer->config.seq_len; // override to ~max length
-
-    Tokenizer *tokenizer = soc_malloc(sizeof(Tokenizer));
-    build_tokenizer(tokenizer, tokenizer_address, transformer->config.vocab_size);
-
+    // build the Sampler
     Sampler sampler;
-    build_sampler(&sampler, transformer->config.vocab_size, temperature, topp, rng_seed);
+    soc_printf("building sampler...\n");
+    build_sampler(&sampler, transformer.config.vocab_size, temperature, topp, rng_seed);
 
-    generate(transformer, tokenizer, &sampler, prompt, steps);
+    soc_printf("generate:\n");
+    generate(&transformer, &tokenizer, &sampler, prompt, steps);
+
+    soc_printf("\nend\n");
 
     return 0;
-
 }
 
 void UART1_HANDLER(void)

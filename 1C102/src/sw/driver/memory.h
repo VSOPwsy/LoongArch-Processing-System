@@ -6,6 +6,7 @@ typedef struct {
     char *_base;
     char *_len;
 } MEM_SPACE;
+MEM_SPACE mem_space;
 
 typedef struct {
     char *_ptr;

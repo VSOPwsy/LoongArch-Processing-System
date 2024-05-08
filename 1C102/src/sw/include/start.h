@@ -2,9 +2,9 @@
 #define _START_H_
 
 /******************  CLK CONFIG  ******************/
-#define BSS_BASE            (0x80000000)
-#define DATA_BASE           (0x80001000)
-#define SP_BASE             (0x80002000-132)
+#define BSS_BASE            (0x40000000)
+#define DATA_BASE           (0x40001000)
+#define SP_BASE             (0x40002000-132)
 #define REGS_MEM          (0x80002000) //first use in REGS_MEM-4
 
 

@@ -5,7 +5,7 @@ void *_start_addr = 0;
 void *_end_addr = 0;
 void *_alloc_ptr;
 
-MEM_SPACE mem_space;
+extern MEM_SPACE mem_space;
 void alloc_init(int base, int len)
 {
     mem_space._base = (char *)base;
