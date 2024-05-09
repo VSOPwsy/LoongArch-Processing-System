@@ -102,7 +102,11 @@ module TOP # (
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // debounce
+`ifndef SIMULATION
     localparam SYS_RESETN_HIGH_COUNT_MIN = 32'd4999999;
+`else
+    localparam SYS_RESETN_HIGH_COUNT_MIN = 32'd4;
+`endif
     reg [31:0] sys_resetn_counter = 0;
     reg sys_resetn_debounced;/* synthesis syn_keep=1 */
 `ifdef USE_EXTERNAL_SYS_RESETN
@@ -147,7 +151,11 @@ module TOP # (
     //reset sequence for ddr_ui_clk domain
     wire ddr_ui_resetn;     /* synthesis syn_keep=1 */
     RESET_GEN #(
+`ifndef SIMULATION
         .LATENCY(4999),
+`else
+        .LATENCY(4),
+`endif
         .COUNTER_WIDTH(16)
     )
     ddr_ui_rst_gen (
@@ -160,7 +168,11 @@ module TOP # (
     //reset sequence for core_clk domain, triggered by sys_resetn
     wire core_resetn; /* synthesis syn_keep=1 */
     RESET_GEN #(
+`ifndef SIMULATION
         .LATENCY(499999),
+`else
+        .LATENCY(499),
+`endif
         .COUNTER_WIDTH(32)
     )
     core_rst_gen (
@@ -175,7 +187,11 @@ module TOP # (
     wire cpu_peri_resetn;/* synthesis syn_keep=1 */
     wire cpu_cpu_resetn; /* synthesis syn_keep=1 */
     RESET_GEN #(
+`ifndef SIMULATION
         .LATENCY(4999999),
+`else
+        .LATENCY(4999),
+`endif
         .COUNTER_WIDTH(32)
     )
     cpu_rst_gen (

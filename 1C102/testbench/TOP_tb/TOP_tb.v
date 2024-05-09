@@ -78,7 +78,11 @@ module TOP_tb;
 always #5  sys_clk = ! sys_clk ;
 
 initial begin
-  #100000;
+  sys_clk = 1;
+  #0 sys_resetn = 0;
+  #10;
+  sys_resetn = 1;
+  #10000000;
   $finish;
 end
 

@@ -1,7 +1,8 @@
-// timescale
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
 `define FPGA
+
+`define SIMULATION
 
 /*****************
 *   AXI interface
