@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-`include"config.v"
+`include"Config.vh"
 `define USE_EXTERNAL_SYS_RESETN
 //choose one of USE_CPU_SYSTEM and TEST_DDR
 `define USE_CPU_SYSTEM
@@ -1033,7 +1033,28 @@ module TOP # (
     );
 
 
-    apb_mux9 apb_mux (
+    apb_mux9 # (
+        .ADDR_WIDTH         (`ADDR_WIDTH            ),
+        .APB_DATA_WIDTH     (`APB_DATA_WIDTH        ),
+        .APB_SLV0_ADDR_BASE (`APB_SLV0_ADDR_BASE    ),
+        .APB_SLV0_ADDR_LEN  (`APB_SLV0_ADDR_LEN     ),
+        .APB_SLV1_ADDR_BASE (`APB_SLV1_ADDR_BASE    ),
+        .APB_SLV1_ADDR_LEN  (`APB_SLV1_ADDR_LEN     ),
+        .APB_SLV2_ADDR_BASE (`APB_SLV2_ADDR_BASE    ),
+        .APB_SLV2_ADDR_LEN  (`APB_SLV2_ADDR_LEN     ),
+        .APB_SLV3_ADDR_BASE (`APB_SLV3_ADDR_BASE    ),
+        .APB_SLV3_ADDR_LEN  (`APB_SLV3_ADDR_LEN     ),
+        .APB_SLV4_ADDR_BASE (`APB_SLV4_ADDR_BASE    ),
+        .APB_SLV4_ADDR_LEN  (`APB_SLV4_ADDR_LEN     ),
+        .APB_SLV5_ADDR_BASE (`APB_SLV5_ADDR_BASE    ),
+        .APB_SLV5_ADDR_LEN  (`APB_SLV5_ADDR_LEN     ),
+        .APB_SLV6_ADDR_BASE (`APB_SLV6_ADDR_BASE    ),
+        .APB_SLV6_ADDR_LEN  (`APB_SLV6_ADDR_LEN     ),
+        .APB_SLV7_ADDR_BASE (`APB_SLV7_ADDR_BASE    ),
+        .APB_SLV7_ADDR_LEN  (`APB_SLV7_ADDR_LEN     ),
+        .APB_SLV8_ADDR_BASE (`APB_SLV8_ADDR_BASE    ),
+        .APB_SLV8_ADDR_LEN  (`APB_SLV8_ADDR_LEN     )
+      ) apb_mux (
         .apb_psel_cpu       (apb_psel               ),
         .apb_rw_cpu         (apb_rw                 ),
         .apb_addr_cpu       (apb_addr               ),

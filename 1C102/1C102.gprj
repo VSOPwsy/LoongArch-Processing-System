@@ -5,51 +5,46 @@
     <Version>5</Version>
     <Device name="GW5AT-138B" pn="GW5AT-LV138PG484AC1/I0">gw5at138b-012</Device>
     <FileList>
+        <File path="src/hw/Bus/APB/apb_register.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/APB/apb_register_if.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/APB/apb_mux9.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi2apb.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_adapter.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_axil_adapter.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_checker.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_lite_top.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_top.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_mst_if.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_mst_switch.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_pipeline.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_round_robin.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_round_robin_core.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_scfifo.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_scfifo_ram.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_slv_if.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_slv_switch.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_crossbar/axicb_switch_top.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/Bus/AXI/axi_ram_if.v" type="file.verilog" enable="1"/>
         <File path="src/hw/CLOCK_GEN.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/DDR_Controller.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/LED_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/Config.vh" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/async_bidir_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/async_bidir_ramif_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/async_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/fifomem.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/fifomem_dp.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/rptr_empty.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/sync_ptr.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/sync_r2w.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/sync_w2r.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/async_fifo/wptr_full.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/FIFO/sync_fifo/sync_fifo.sv" type="file.verilog" enable="1"/>
+        <File path="src/hw/LA132/la132_top_gowin.vp" type="file.verilog" enable="1"/>
         <File path="src/hw/RESET_GEN.v" type="file.verilog" enable="1"/>
         <File path="src/hw/TOP.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/apb_mux9.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi2apb.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_adapter.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_axil_adapter.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_checker.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_crossbar_lite_top.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_crossbar_top.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_mst_if.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_mst_switch.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_pipeline.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_round_robin.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_round_robin_core.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_scfifo.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_scfifo_ram.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_slv_if.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_slv_switch.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_crossbar/axicb_switch_top.sv" type="file.verilog" enable="1"/>
-        <File path="src/hw/amba/axi_ram_if.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/apb_register.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/apb_register_if.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/async_bidir_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/async_bidir_ramif_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/async_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/fifomem.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/fifomem_dp.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/rptr_empty.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/sync_ptr.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/sync_r2w.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/sync_w2r.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/async_fifo/wptr_full.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/config.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/confreg/confreg.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/ip_repo/gowin_data_ram/gowin_data_ram.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_osc/gowin_osc.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_pll_20M/gowin_pll_20M.v" type="file.verilog" enable="1"/>
@@ -57,20 +52,24 @@
         <File path="src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v" type="file.verilog" enable="1"/>
         <File path="src/hw/ip_repo/ml_wrfifo/ml_wrfifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/la132_top_pack/la132_top_gowin.vp" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_axi_top.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_ctrl_top.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_init.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_read.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_read_model.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/model_loader/sd_read_para_top.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/sync_fifo/sync_fifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/baudgen.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_rfifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_rx.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_tfifo.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_top.v" type="file.verilog" enable="1"/>
-        <File path="src/hw/uart/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/Confreg/confreg.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/DDR_Controller/DDR_Controller.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/DDR_Controller/ddr_ctr_rd_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/DDR_Controller/ddr_ctr_wr_rd_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/DDR_Controller/ddr_ctr_wr_test.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/GPIO/LED_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_axi_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_ctrl_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_init.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_read.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_read_model.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/SD_DMA/sd_read_para_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/baudgen.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/uart_rfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/uart_tfifo.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/uart_top.v" type="file.verilog" enable="1"/>
+        <File path="src/hw/periph/UART/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/1C102-2.cst" type="file.cst" enable="1"/>
         <File path="src/1C102.cst" type="file.cst" enable="0"/>
         <File path="src/1C102_ext_osc.sdc" type="file.sdc" enable="1"/>

@@ -1,0 +1,4461 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/modeltech64_2020.4/examples
+T_opt
+!s110 1715247125
+VTbJbJR9=cYPRAIH;G1mLi0
+04 6 4 work TOP_tb fast 0
+=1-749779e363ff-663c9813-9-455dc
+o-quiet -auto_acc_if_foreign -work work +acc
+Z0 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
+vADC
+Z1 !s110 1715247109
+!i10b 1
+!s100 <;<lh4acQDYO9WLQ:o3nW3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I^2S5P_7iS:Y0fk;ol3N3<0
+Z3 dD:/Users/wangs/Documents/Code/LoongArch-Processing-System
+Z4 w1701220260
+Z5 8C:/Gowin/Gowin_V1.9.9_x64/IDE/simlib/gw5a/prim_sim.v
+Z6 FC:/Gowin/Gowin_V1.9.9_x64/IDE/simlib/gw5a/prim_sim.v
+!i122 648
+L0 17022 45
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2020.4;71
+r1
+!s85 0
+31
+Z9 !s108 1715247109.000000
+Z10 !s107 C:/Gowin/Gowin_V1.9.9_x64/IDE/simlib/gw5a/prim_sim.v|
+Z11 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Gowin/Gowin_V1.9.9_x64/IDE/simlib/gw5a/prim_sim.v|
+!i113 0
+Z12 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
+n@a@d@c
+vADCLRC
+R1
+!i10b 1
+!s100 dC:@;=YPdZP7?933Ui<WI0
+R2
+IE0Q`;FLPMfO_d4WheL4771
+R3
+R4
+R5
+R6
+!i122 648
+L0 16920 52
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@a@d@c@l@r@c
+vADCULC
+R1
+!i10b 1
+!s100 E1oij9hdKG?a:g@4PRLYa0
+R2
+IaCWU1M_f;IkGz]]LR7V7Q0
+R3
+R4
+R5
+R6
+!i122 648
+L0 16974 45
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@a@d@c@u@l@c
+vAE350_RAM
+R1
+!i10b 1
+!s100 `>@ER;`jIP3eOjlGI7:WR1
+R2
+IPMOoYDfD`D7adSQP2bjF@3
+R3
+R4
+R5
+R6
+!i122 648
+L0 16773 68
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@a@e350_@r@a@m
+vAE350_SOC
+R1
+!i10b 1
+!s100 ggVDki>e4_8OORLKkZZ;f3
+R2
+IPB]z]a<=3PW;]EkCG;@^D1
+R3
+R4
+R5
+R6
+!i122 648
+L0 16419 352
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@a@e350_@s@o@c
+vALU
+R1
+!i10b 1
+!s100 cdHFhcMngoa3^Iic>gUO82
+R2
+IX@YTFXMcbn;Dm2dg7=51T2
+R3
+R4
+R5
+R6
+!i122 648
+L0 306 72
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@a@l@u
+vapb_mux9
+Z13 !s110 1715247113
+!i10b 1
+!s100 IgjUWPU>H<J=DI5D9hg;W1
+R2
+I``RC>LO@IhF65HFkSCZ@j3
+R3
+w1715245019
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_mux9.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_mux9.v
+!i122 702
+L0 1 227
+R7
+R8
+r1
+!s85 0
+31
+Z14 !s108 1715247113.000000
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_mux9.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_mux9.v|
+!i113 0
+R12
+R0
+vapb_register
+R1
+!i10b 1
+!s100 7^TGfbT3Q41=1YSEaM0j^0
+R2
+I4KhXP=39LWbNBcz6Im8JB2
+R3
+w1715243010
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register.v
+!i122 649
+L0 1 83
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register.v|
+!i113 0
+R12
+R0
+vapb_register_if
+R1
+!i10b 1
+!s100 CS?6AWCf5Y5Q[KgO4?eP:3
+R2
+Ie16ckSikO53e;:9JT?abY0
+R3
+w1715243060
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register_if.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register_if.v
+!i122 650
+L0 1 109
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register_if.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/APB/apb_register_if.v|
+!i113 0
+R12
+R0
+vasync_bidir_fifo
+Z15 !s110 1715247110
+!i10b 1
+!s100 WK^02JPT]1nfo62EF2RNN1
+R2
+IZO`DiHFR[lK3X0zJb^EYU2
+R3
+Z16 w1714889729
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_fifo.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_fifo.v
+!i122 667
+L0 20 172
+R7
+R8
+r1
+!s85 0
+31
+Z17 !s108 1715247110.000000
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_fifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_fifo.v|
+!i113 0
+R12
+R0
+vasync_bidir_ramif_fifo
+R15
+!i10b 1
+!s100 ]CGCSJ`_?>OGo4;^cA`hX0
+R2
+I@9SbPU[hN7^A:RfYCCZdz3
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_ramif_fifo.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_ramif_fifo.v
+!i122 668
+L0 20 179
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_ramif_fifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_bidir_ramif_fifo.v|
+!i113 0
+R12
+R0
+vasync_fifo
+R15
+!i10b 1
+!s100 ><Jn28g71JJb]E;>JR?dl0
+R2
+I52hTKzU[dSnPY@MF5z;dX3
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_fifo.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_fifo.v
+!i122 669
+L0 75 89
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_fifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/async_fifo.v|
+!i113 0
+R12
+R0
+vaxi2apb_bridge
+R1
+!i10b 1
+!s100 M48>i<JiXhXnMFKbOjTUm0
+R2
+IL1E^501NQ_XUoaiZTNIVV3
+R3
+Z18 w1715196321
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi2apb.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi2apb.v
+!i122 654
+L0 10 177
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi2apb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi2apb.v|
+!i113 0
+R12
+R0
+vaxi_adapter
+R1
+!i10b 1
+!s100 45IRoUGdCWYaF;RUhETbP2
+R2
+IkYI]R3i?gC>cU2Q]nm=hH2
+R3
+R18
+Z19 8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_adapter.v
+Z20 FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_adapter.v
+!i122 651
+L0 33 289
+R7
+R8
+r1
+!s85 0
+31
+R9
+Z21 !s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_adapter.v|
+Z22 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_adapter.v|
+!i113 0
+R12
+R0
+vaxi_adapter_rd
+R1
+!i10b 1
+!s100 _K30o5I7l_KNNhS^PCUTI0
+R2
+II<9<iVRhjST]HUknY`Yo:0
+R3
+R18
+R19
+R20
+!i122 651
+L0 327 651
+R7
+R8
+r1
+!s85 0
+31
+R9
+R21
+R22
+!i113 0
+R12
+R0
+vaxi_adapter_wr
+R1
+!i10b 1
+!s100 CR6c]:HLFBL8F8@BCDRSM3
+R2
+IEm]__VY8@<M9O@Q9^:l5m1
+R3
+R18
+R19
+R20
+!i122 651
+L0 983 744
+R7
+R8
+r1
+!s85 0
+31
+R9
+R21
+R22
+!i113 0
+R12
+R0
+vaxi_axil_adapter
+R1
+!i10b 1
+!s100 YaDbVZ8G_]24XLVz`ze271
+R2
+IlhkJA9ak]z3Pk;;`9e0mn3
+R3
+R18
+Z23 8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_axil_adapter.v
+Z24 FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_axil_adapter.v
+!i122 652
+L0 33 188
+R7
+R8
+r1
+!s85 0
+31
+R9
+Z25 !s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_axil_adapter.v|
+Z26 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_axil_adapter.v|
+!i113 0
+R12
+R0
+vaxi_axil_adapter_rd
+R1
+!i10b 1
+!s100 jTaLR^`hbCo4VBeX;_3LC3
+R2
+IVP:3RfNSRjVd`O^<kF7i12
+R3
+R18
+R23
+R24
+!i122 652
+L0 227 466
+R7
+R8
+r1
+!s85 0
+31
+R9
+R25
+R26
+!i113 0
+R12
+R0
+vaxi_axil_adapter_wr
+R1
+!i10b 1
+!s100 @L7`BNcXQ^0IeOnSUg>o[3
+R2
+II8GBlF9]a4oISj=;``]gR2
+R3
+R18
+R23
+R24
+!i122 652
+L0 698 529
+R7
+R8
+r1
+!s85 0
+31
+R9
+R25
+R26
+!i113 0
+R12
+R0
+vaxi_ram_rd_if
+R1
+!i10b 1
+!s100 Idm9mn=Q5:6@jAU_SkUIY2
+R2
+IZ[gMa`>KS0eK1UBj;0WNo2
+R3
+R18
+Z27 8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_ram_if.v
+Z28 FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_ram_if.v
+!i122 653
+L0 581 239
+R7
+R8
+r1
+!s85 0
+31
+R9
+Z29 !s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_ram_if.v|
+Z30 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_ram_if.v|
+!i113 0
+R12
+R0
+vaxi_ram_wr_if
+R1
+!i10b 1
+!s100 9z9IXbfi4j3i5M@[WD@CZ2
+R2
+IAGDIM8Ez1goY8k4AWa;;Y0
+R3
+R18
+R27
+R28
+!i122 653
+L0 319 257
+R7
+R8
+r1
+!s85 0
+31
+R9
+R29
+R30
+!i113 0
+R12
+R0
+vaxi_ram_wr_rd_if
+R1
+!i10b 1
+!s100 5Yh6?TKP53QeFIVgL0Aj[2
+R2
+IiXb<AZ_3l2?n=>FBJ`KgV3
+R3
+R18
+R27
+R28
+!i122 653
+L0 6 308
+R7
+R8
+r1
+!s85 0
+31
+R9
+R29
+R30
+!i113 0
+R12
+R0
+vaxicb_crossbar_lite_top
+Z31 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R1
+!i10b 1
+!s100 ;gLPWcLT@PK]<9m7NHE3N2
+R2
+IkI9dYU<M_^AdlJE30MXWJ0
+S1
+R3
+Z32 w1714889728
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_lite_top.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_lite_top.sv
+!i122 655
+L0 17 937
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:\Users\wangs\Documents\Code\LoongArch-Processing-System\1C102\src\hw\Bus\AXI\axi_crossbar\axicb_checker.sv|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_lite_top.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_lite_top.sv|
+!i113 0
+Z33 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R0
+vaxicb_crossbar_top
+R31
+R1
+!i10b 1
+!s100 OPc]b6n_Jh:3SP69;1JS43
+R2
+I]m9V0j:Ez92@Hn`EP8_mo0
+S1
+R3
+R32
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_top.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_top.sv
+!i122 656
+L0 17 1596
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:\Users\wangs\Documents\Code\LoongArch-Processing-System\1C102\src\hw\Bus\AXI\axi_crossbar\axicb_checker.sv|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_top.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_crossbar_top.sv|
+!i113 0
+R33
+R0
+vaxicb_mst_if
+R31
+R1
+!i10b 1
+!s100 AnNT=6QCl:538ZMOTn]^81
+R2
+I19[@VoPK^7SfTbGhHlT6h2
+S1
+R3
+R32
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_if.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_if.sv
+!i122 657
+L0 7 679
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_if.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_if.sv|
+!i113 0
+R33
+R0
+vaxicb_mst_switch
+R31
+R15
+!i10b 1
+!s100 lzCT@BR4Y`EDDa?nUgoEH2
+R2
+IHP_X9=bc00X[e]SiX1oLM1
+S1
+R3
+Z34 w1714889774
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_switch.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_switch.sv
+!i122 658
+L0 7 286
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_switch.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_mst_switch.sv|
+!i113 0
+R33
+R0
+vaxicb_pipeline
+R31
+R15
+!i10b 1
+!s100 Ibz1YKINS5Roz@obie[D^3
+R2
+I2<lcB>ieZ:ACB[G^W7__V3
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_pipeline.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_pipeline.sv
+!i122 659
+L0 7 95
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_pipeline.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_pipeline.sv|
+!i113 0
+R33
+R0
+vaxicb_round_robin
+R31
+R15
+!i10b 1
+!s100 mMlY9k=Kg<Q7n_AFQWj5G1
+R2
+IG<bWYJ5X7AA?L^DCRb<1L1
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin.sv
+!i122 660
+L0 13 160
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin.sv|
+!i113 0
+R33
+R0
+vaxicb_round_robin_core
+R31
+R15
+!i10b 1
+!s100 0GQYXTYN?IcQobX^PcXf[1
+R2
+ImleSWGKV8jI[5;A:3PgUk3
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin_core.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin_core.sv
+!i122 661
+L0 64 139
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin_core.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_round_robin_core.sv|
+!i113 0
+R33
+R0
+vaxicb_scfifo
+R31
+R15
+!i10b 1
+!s100 @h9GGfTR<:VOZOEODbUa71
+R2
+I]ML`hJ?jc4HX^^E_;YTP@0
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo.sv
+!i122 662
+L0 25 126
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo.sv|
+!i113 0
+R33
+R0
+vaxicb_scfifo_ram
+R31
+R15
+!i10b 1
+!s100 HV5z6BAX:`70`Sf3aIzk30
+R2
+IU4@iV[S>XbNZ_UEZ0onPT0
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo_ram.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo_ram.sv
+!i122 663
+L0 7 33
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo_ram.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_scfifo_ram.sv|
+!i113 0
+R33
+R0
+vaxicb_slv_if
+R31
+R15
+!i10b 1
+!s100 EKdcJYz6UNiaEHl?GHT5^2
+R2
+I_Kz4Oo]3VIHAYZ@3I6PZV0
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_if.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_if.sv
+!i122 664
+L0 7 672
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_if.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_if.sv|
+!i113 0
+R33
+R0
+vaxicb_slv_switch
+R31
+R15
+!i10b 1
+!s100 7G>RT:N@:DXzIJA0U1BZz1
+R2
+I:hHXY`fG1[i890akR43>Q1
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_switch.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_switch.sv
+!i122 665
+L0 7 498
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_switch.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_slv_switch.sv|
+!i113 0
+R33
+R0
+vaxicb_switch_top
+R31
+R15
+!i10b 1
+!s100 KSf=1WUQli2i5Go^7YX7h2
+R2
+IzMEKNQH7L]Qn:7gzjKHCz2
+S1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_switch_top.sv
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_switch_top.sv
+!i122 666
+L0 7 547
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_switch_top.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/Bus/AXI/axi_crossbar/axicb_switch_top.sv|
+!i113 0
+R33
+R0
+vBAUDGEN
+Z35 !s110 1715247112
+!i10b 1
+!s100 Hc66<Ug9HB5_;9G7fi;og3
+R2
+I7E_OAE8BcijnNO3j2BE`X2
+R3
+Z36 w1714889730
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/baudgen.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/baudgen.v
+!i122 695
+L0 1 52
+R7
+R8
+r1
+!s85 0
+31
+Z37 !s108 1715247112.000000
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/baudgen.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/baudgen.v|
+!i113 0
+R12
+R0
+n@b@a@u@d@g@e@n
+vCLKDIV
+R1
+!i10b 1
+!s100 66`RX<FP565Rf4khjHFRk2
+R2
+IfF<:54:4lRn<Agm7IhlUJ2
+R3
+R4
+R5
+R6
+!i122 648
+L0 12448 176
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@c@l@k@d@i@v
+vCLKDIV2
+R1
+!i10b 1
+!s100 8]a<iYWin=bSNg^en`IzV0
+R2
+IeN^diiT;mBKX8RShGa0<M2
+R3
+R4
+R5
+R6
+!i122 648
+L0 12627 39
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@c@l@k@d@i@v2
+vCLOCK_GEN
+R1
+!i10b 1
+!s100 aVgEYPB]671dVD:c^=Jj52
+R2
+Il2C[ceZNjljAo?U7^94jZ0
+R3
+R32
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/CLOCK_GEN.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/CLOCK_GEN.v
+!i122 645
+L0 1 29
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/CLOCK_GEN.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/CLOCK_GEN.v|
+!i113 0
+R12
+R0
+n@c@l@o@c@k_@g@e@n
+vCMSER
+R1
+!i10b 1
+!s100 CAHE4CNTJjTcG8S?P2=eX3
+R2
+IXYMLk_G?6U@6Ma]FZ^T;<1
+R3
+R4
+R5
+R6
+!i122 648
+L0 16863 28
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@c@m@s@e@r
+vCMSERA
+R1
+!i10b 1
+!s100 oJlnL<9PkhB=B>FaHhFc22
+R2
+IgG43]J5J>4RXii`naP9bU2
+R3
+R4
+R5
+R6
+!i122 648
+L0 16894 22
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@c@m@s@e@r@a
+vCONFREG
+R35
+!i10b 1
+!s100 YPMZIYA@6SalYD3h>=;DN3
+R2
+IKHLNb:9k`NKR>n87XjIRQ0
+R3
+Z38 w1715244540
+Z39 8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/Confreg/confreg.v
+Z40 FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/Confreg/confreg.v
+!i122 686
+L0 9 93
+R7
+R8
+r1
+!s85 0
+31
+R37
+Z41 !s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/Confreg/confreg.v|
+Z42 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/Confreg/confreg.v|
+!i113 0
+R12
+R0
+n@c@o@n@f@r@e@g
+vDCE
+R1
+!i10b 1
+!s100 gmRDg]XMA3FW7f;c=g4O]2
+R2
+I2XcWaE6n;^=odY7[V_84V1
+R3
+R4
+R5
+R6
+!i122 648
+L0 11837 16
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@c@e
+vDCS
+R1
+!i10b 1
+!s100 ^UBTAb6HWP>JSEmEkdfn61
+R2
+IGbOFMFRY7zTk[[ZdOb:o03
+R3
+R4
+R5
+R6
+!i122 648
+L0 11855 270
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@c@s
+vddr3_memory_interface
+Z43 !s110 1715247111
+!i10b 1
+!s100 z4PmII[6LGcOh9>VkN?F<1
+R2
+IUZRQ^R3`[0V:lR1h8UOom0
+R3
+w1714893060
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.vo
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.vo
+!i122 680
+L0 8 80157
+R7
+R8
+r1
+!s85 0
+31
+Z44 !s108 1715247111.000000
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.vo|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr3_memory_interface/ddr3_memory_interface.vo|
+!i113 0
+R12
+R0
+vddr_cmd_fifo
+R43
+!i10b 1
+!s100 Lz693C]OV29WE`HD;EmhL2
+R2
+I7_9G]XNhkd]CME>U:2fe:2
+R3
+Z45 w1715066298
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.vo
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.vo
+!i122 677
+L0 8 524
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.vo|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_cmd_fifo/ddr_cmd_fifo.vo|
+!i113 0
+R12
+R0
+vDDR_Controller
+R35
+!i10b 1
+!s100 6fLGZP9KPcJca@C=CSkO]2
+R2
+IjhL4>eEoLa68cNb>X=[:i1
+R3
+w1715246867
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/DDR_Controller/DDR_Controller.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/DDR_Controller/DDR_Controller.v
+!i122 687
+L0 1 392
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/DDR_Controller/DDR_Controller.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/DDR_Controller/DDR_Controller.v|
+!i113 0
+R12
+R0
+n@d@d@r_@controller
+vddr_data_fifo
+R43
+!i10b 1
+!s100 ;4fg7>2LnHXINGnna?:MP0
+R2
+Iibl;CZcbg?h=D9S6b?Rz^3
+R3
+R45
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.vo
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.vo
+!i122 678
+L0 8 623
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.vo|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_data_fifo/ddr_data_fifo.vo|
+!i113 0
+R12
+R0
+vddr_rd_cmd_fifo
+R43
+!i10b 1
+!s100 5<A:QF=CA85fUQ2nIC];e2
+R2
+IE9T27`MLkg7D@1lL5lFI11
+R3
+R45
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.vo
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.vo
+!i122 679
+L0 8 484
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.vo|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ddr_rd_cmd_fifo/ddr_rd_cmd_fifo.vo|
+!i113 0
+R12
+R0
+vDDRDLL
+R1
+!i10b 1
+!s100 d=l^<6nI@9Q?IR7<Bm8ZM1
+R2
+IbbWihhLFP>d]Tfn8B`RB82
+R3
+R4
+R5
+R6
+!i122 648
+L0 12128 128
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@d@r@d@l@l
+vDFFCE
+R1
+!i10b 1
+!s100 GQWHAm5;LA2Ze7U2>EKB[2
+R2
+ITYRS:P4;g]SSG>IfHfCn50
+R3
+R4
+R5
+R6
+!i122 648
+L0 471 28
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@f@f@c@e
+vDFFPE
+R1
+!i10b 1
+!s100 TK>z;<G8YQZS0JIZCPAH?1
+R2
+IX8fU3:=d?TM9]B^Ddj:VE2
+R3
+R4
+R5
+R6
+!i122 648
+L0 441 28
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@f@f@p@e
+vDFFRE
+R1
+!i10b 1
+!s100 :iY7;1Ve?f4@RhfA]6V^X3
+R2
+IL=:EaGd=WHn:J3cDezDR=0
+R3
+R4
+R5
+R6
+!i122 648
+L0 411 28
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@f@f@r@e
+vDFFSE
+R1
+!i10b 1
+!s100 ]3BU<AThKCHVMhl[ZYgNF2
+R2
+I5Jc1E3EZ:Lj<7jT49;Ygb1
+R3
+R4
+R5
+R6
+!i122 648
+L0 381 28
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@f@f@s@e
+vDHCE
+R1
+!i10b 1
+!s100 kB6>V@aJ9bZoQHZDlH^Pi3
+R2
+IDo@O<M1bHb11>DHkl5fi=3
+R3
+R4
+R5
+R6
+!i122 648
+L0 12668 26
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@h@c@e
+vDLCE
+R1
+!i10b 1
+!s100 `aDB3aZ;og]PlnnMR;OH91
+R2
+IFf<AN`>XXJNLb<0KF>?Z42
+R3
+R4
+R5
+R6
+!i122 648
+L0 502 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@l@c@e
+vDLLDLY
+R1
+!i10b 1
+!s100 G2;mG]mSSlI]UhU;2PUj>2
+R2
+In58KPPAD3m`gYh6fhGSPO2
+R3
+R4
+R5
+R6
+!i122 648
+L0 12258 187
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@l@l@d@l@y
+vDLPE
+R1
+!i10b 1
+!s100 _P>ENBeghI5lao4PN`1F[0
+R2
+I;Dm;ZWl>Mz5ZH8@ll<8jN0
+R3
+R4
+R5
+R6
+!i122 648
+L0 527 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@l@p@e
+vDPB
+R1
+!i10b 1
+!s100 z6nF<Y`1MW8c6F8d3bc:f0
+R2
+I6K66MKmV>9SCO4@0l<<`33
+R3
+R4
+R5
+R6
+!i122 648
+L0 2201 410
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@p@b
+vDPX9B
+R1
+!i10b 1
+!s100 >4^395zT4e?0n1Gb][Z8n2
+R2
+IAh[;zKEz>5hB:n8R6LM<S3
+R3
+R4
+R5
+R6
+!i122 648
+L0 2613 366
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@p@x9@b
+vDQS
+R1
+!i10b 1
+!s100 7_NnKP`ATeSzJA<]7Al6@0
+R2
+IGgQ?FXaBGCR<>kE]XcQ4T1
+R3
+R4
+R5
+R6
+!i122 648
+L0 18133 16
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@d@q@s
+vELVDS_IOBUF
+R1
+!i10b 1
+!s100 @VS^VJak4_?BnG7PMOd=h0
+R2
+IeOiZn^=V2fmji7eO8Bn@;2
+R3
+R4
+R5
+R6
+!i122 648
+L0 927 16
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@e@l@v@d@s_@i@o@b@u@f
+vELVDS_IOBUF_R
+R1
+!i10b 1
+!s100 D:<9XCFO52dBdQoa6zW:n2
+R2
+IBBde8?I]DOIgd1G@gT7]33
+R3
+R4
+R5
+R6
+!i122 648
+L0 1022 17
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@e@l@v@d@s_@i@o@b@u@f_@r
+vELVDS_OBUF
+R1
+!i10b 1
+!s100 m>EAd?oM]@E=c;3@TglAK2
+R2
+ImCfZb<h1>VSnnoP[DRgI<0
+R3
+R4
+R5
+R6
+!i122 648
+L0 911 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@e@l@v@d@s_@o@b@u@f
+vELVDS_TBUF
+R1
+!i10b 1
+!s100 [@>4OC1F9Qe?Mg`YXLaFd1
+R2
+IEZYXEoFSEm9DM>]dO[eZ31
+R3
+R4
+R5
+R6
+!i122 648
+L0 920 6
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@e@l@v@d@s_@t@b@u@f
+vfifomem
+R15
+!i10b 1
+!s100 U63mU8OiXm0Ih[@UVQZKG1
+R2
+I5z@SD7`[D3L5dMOYfkUPN1
+R3
+R34
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem.v
+!i122 670
+L0 6 43
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem.v|
+!i113 0
+R12
+R0
+vfifomem_dp
+R15
+!i10b 1
+!s100 YLe^G=?zeCk0Z9hfUP4Ki2
+R2
+IKFc]UHMZDHg<WTnVOVQ4X1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem_dp.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem_dp.v
+!i122 671
+L0 20 73
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem_dp.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/fifomem_dp.v|
+!i113 0
+R12
+R0
+vGND
+R1
+!i10b 1
+!s100 @ejcS6ZoGTgooNQ:IB_AY3
+R2
+IbmG2DHjhG1APUATPB;O<D3
+R3
+R4
+R5
+R6
+!i122 648
+L0 785 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@g@n@d
+vGowin_PLL_ext
+R43
+!i10b 1
+!s100 ZZP?5i=AP]OlMDVKL6L5k2
+R2
+I6JC2=?QkIe:k;jiHQDm>F3
+R3
+Z46 w1715151600
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_pll_ext/gowin_pll_ext.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_pll_ext/gowin_pll_ext.v
+!i122 681
+L0 10 170
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_pll_ext/gowin_pll_ext.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_pll_ext/gowin_pll_ext.v|
+!i113 0
+R12
+R0
+n@gowin_@p@l@l_ext
+vGowin_SP_Data
+R43
+!i10b 1
+!s100 Sc=2GR=47B`8[g8C80]f=0
+R2
+I=QM]=IB<ek;`;MLDf1Og<0
+R3
+w1714893457
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v
+!i122 682
+L0 10 168
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_data/gowin_sp_data.v|
+!i113 0
+R12
+R0
+n@gowin_@s@p_@data
+vGowin_SP_Instr
+R43
+!i10b 1
+!s100 RnIBik8QR]n[3Z1;@aVF11
+R2
+IoO]I3;L013NT3KZVAb5731
+R3
+w1714893498
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v
+!i122 683
+L0 10 1913
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/gowin_sp_instr/gowin_sp_instr.v|
+!i113 0
+R12
+R0
+n@gowin_@s@p_@instr
+vGSR
+R1
+!i10b 1
+!s100 E8Na7fV4jmEM2>kfVYN>H2
+R2
+IcREWWL5RXb;N`BaLP>1LB0
+R3
+R4
+R5
+R6
+!i122 648
+L0 807 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@g@s@r
+vGTR12_PMAC
+R1
+!i10b 1
+!s100 iQC0HTVLXgK6P>SZ?^?5B2
+R2
+I0M<EO8?E=;IaJg_PHLb`<3
+R3
+R4
+R5
+R6
+!i122 648
+L0 17901 229
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@g@t@r12_@p@m@a@c
+vGTR12_QUAD
+R1
+!i10b 1
+!s100 6ce3XL>nRK<V]AnYDZS<d1
+R2
+IUm7@[KnLjWWA1:7Z=MSRS1
+R3
+R4
+R5
+R6
+!i122 648
+L0 17573 267
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@g@t@r12_@q@u@a@d
+vGTR12_UPAR
+R1
+!i10b 1
+!s100 md2T1Vgo>RjCcj^kKMX`M3
+R2
+I>nGThFeTRB7:JFUR2bc050
+R3
+R4
+R5
+R6
+!i122 648
+L0 17842 56
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@g@t@r12_@u@p@a@r
+vI3C_IOBUF
+R1
+!i10b 1
+!s100 fOi0XTbGWb3fYG^3_o]H[2
+R2
+IE:^?33kIX0R<>Y=LKb8=L3
+R3
+R4
+R5
+R6
+!i122 648
+L0 1042 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i3@c_@i@o@b@u@f
+vIBUF
+R1
+!i10b 1
+!s100 [GGbKC;ig<NcSdQjCJ0O]2
+R2
+II0F=?JmhlT=nI?^aPf4l>1
+R3
+R4
+R5
+R6
+!i122 648
+L0 819 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@b@u@f
+vIBUF_R
+R1
+!i10b 1
+!s100 _;gLY_R3YmSC;?GWiFkRP3
+R2
+IRmC4Ed^j]TgO8S2fSGnna2
+R3
+R4
+R5
+R6
+!i122 648
+L0 997 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@b@u@f_@r
+vIDDR
+R1
+!i10b 1
+!s100 F5a:ofb8F?HG1m<oP_>eQ3
+R2
+Igf86NEm]_<WjohooBj>A11
+R3
+R4
+R5
+R6
+!i122 648
+L0 7569 59
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@d@r
+vIDDR_MEM
+R1
+!i10b 1
+!s100 O[RCL[e3==WGGX?NediXJ0
+R2
+I;F4;?SKOR=ChQli1e]PDI2
+R3
+R4
+R5
+R6
+!i122 648
+L0 7701 60
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@d@r_@m@e@m
+vIDDRC
+R1
+!i10b 1
+!s100 lJ0e=GVVl][z]Joe^KHoI2
+R2
+I70[^g3Q]Ehm@PMCeE`TIY3
+R3
+R4
+R5
+R6
+!i122 648
+L0 7630 68
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@d@r@c
+vIDES10
+R1
+!i10b 1
+!s100 Z3Ceh``KHHR=jh=?h]Nj_1
+R2
+INS=ig:RE`YDmazk0M83XS1
+R3
+R4
+R5
+R6
+!i122 648
+L0 8451 229
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s10
+vIDES14
+R1
+!i10b 1
+!s100 OP5?DGRo:LjH5V3TM@iQK1
+R2
+IZkRiWd@zF6ci_DVeLz3li2
+R3
+R4
+R5
+R6
+!i122 648
+L0 9516 246
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s14
+vIDES16
+R1
+!i10b 1
+!s100 ^Z2@hn=kSbJG:;8MYzI251
+R2
+IDINDja;TblagSLEbWnmA62
+R3
+R4
+R5
+R6
+!i122 648
+L0 8682 257
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s16
+vIDES32
+R1
+!i10b 1
+!s100 Bec7eI;^SGm=Bo:K^]VAL2
+R2
+IGEKGFBW<AlFjI_4a8W:hN0
+R3
+R4
+R5
+R6
+!i122 648
+L0 9765 336
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s32
+vIDES4
+R1
+!i10b 1
+!s100 4C0Sb1SLodiOhzO<:YeOf2
+R2
+Ic8_6:?_l5fNgI8@4486lY1
+R3
+R4
+R5
+R6
+!i122 648
+L0 8034 200
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s4
+vIDES4_MEM
+R1
+!i10b 1
+!s100 J`QC0k`UQAMThXYH698MM0
+R2
+I6OL;AKFEV5`a0L?k4n6L[0
+R3
+R4
+R5
+R6
+!i122 648
+L0 8941 181
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s4_@m@e@m
+vIDES8
+R1
+!i10b 1
+!s100 6`c[F53ML>SAk@c@c6_SU0
+R2
+IC]jfkWJ]3a`emoUaM1]7a1
+R3
+R4
+R5
+R6
+!i122 648
+L0 8237 212
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s8
+vIDES8_MEM
+R1
+!i10b 1
+!s100 _c;Snj[2TVfljSYM^d]]a2
+R2
+I7;f<oeoR6;01beU=VDUVj1
+R3
+R4
+R5
+R6
+!i122 648
+L0 9318 196
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@d@e@s8_@m@e@m
+vINV
+R1
+!i10b 1
+!s100 [Jlojm>5kS>7LjOS1?S8<3
+R2
+IAR63i:l``kkmPn;59=4^R3
+R3
+R4
+R5
+R6
+!i122 648
+L0 774 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@n@v
+vIOBUF
+R1
+!i10b 1
+!s100 ;B?@E6CORbUBA=WO<Rn8?2
+R2
+II]CE^_ZnRaaXHkT>lBN;<0
+R3
+R4
+R5
+R6
+!i122 648
+L0 849 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@o@b@u@f
+vIOBUF_R
+R1
+!i10b 1
+!s100 Vo4XRLc4>OLAcn]YNR6V63
+R2
+ITT[IB^:1HDGQ24S;_Y9BZ1
+R3
+R4
+R5
+R6
+!i122 648
+L0 1008 11
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@o@b@u@f_@r
+vIODELAY
+R1
+!i10b 1
+!s100 QBkRYL]4PAHT3AjZoLQA;3
+R2
+IV1;@SfWZ7je@Oga_A7^@M0
+R3
+R4
+R5
+R6
+!i122 648
+L0 11358 119
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@o@d@e@l@a@y
+vIVIDEO
+R1
+!i10b 1
+!s100 OfbDTd@;^Yi4WLPN?lBfd0
+R2
+ILLM^eo2lR7W<DOz]K42Oi0
+R3
+R4
+R5
+R6
+!i122 648
+L0 9123 193
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@i@v@i@d@e@o
+vla132_top
+R35
+!i10b 1
+!s100 NGjnAfCGnX^BBo[8[RG;j3
+R2
+ImPdKeZEUcnVWF6>_j;D2z0
+R3
+w1709174102
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/LA132/la132_top_sim.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/LA132/la132_top_sim.v
+!i122 685
+L0 8 140319
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/LA132/la132_top_sim.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/LA132/la132_top_sim.v|
+!i113 0
+R12
+R0
+vLED_driver
+R35
+!i10b 1
+!s100 LUc@SiFTLBKZS[ShBGa9V0
+R2
+IhaVMbIaF2;7<THTL`UIOO3
+R3
+w1715243152
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/GPIO/LED_driver.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/GPIO/LED_driver.v
+!i122 688
+L0 1 66
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/GPIO/LED_driver.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/GPIO/LED_driver.v|
+!i113 0
+R12
+R0
+n@l@e@d_driver
+vLUT1
+R1
+!i10b 1
+!s100 Wc[Eh3W87oPHg:oMH5@V71
+R2
+IB3D[olnl]bdO4][iJllXh3
+R3
+R4
+R5
+R6
+!i122 648
+L0 185 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t1
+vLUT2
+R1
+!i10b 1
+!s100 j3_LZn62gEKA6]CoZa39J0
+R2
+II>el_ZIWc0SCVHmz[H>cN1
+R3
+R4
+R5
+R6
+!i122 648
+L0 197 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t2
+vLUT3
+R1
+!i10b 1
+!s100 04MDd6KR[`^mmJJf>6_gP0
+R2
+Ia`mhRQUS8c;F8LWfU^Wka3
+R3
+R4
+R5
+R6
+!i122 648
+L0 209 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t3
+vLUT4
+R1
+!i10b 1
+!s100 f]KUlYJ0OO>lOanGofU^Z3
+R2
+IAeo5O9cVQ0ZAmZ:PV43zB0
+R3
+R4
+R5
+R6
+!i122 648
+L0 221 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t4
+vLUT5
+R1
+!i10b 1
+!s100 PomBdY2F;`Z]=L2CZ=V9Y1
+R2
+IVm0oGkZh3DnV6L9:_O^0L1
+R3
+R4
+R5
+R6
+!i122 648
+L0 233 10
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t5
+vLUT6
+R1
+!i10b 1
+!s100 U=^TcYIgKKJZjU]TZ>KcY1
+R2
+I=6JMc07lYMO`T][751C5?3
+R3
+R4
+R5
+R6
+!i122 648
+L0 245 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t6
+vLUT7
+R1
+!i10b 1
+!s100 FofHRNeCQZh;zFN09g?Jk0
+R2
+IJN6GZWmSMbK:5ZDQ[=NDI0
+R3
+R4
+R5
+R6
+!i122 648
+L0 265 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t7
+vLUT8
+R1
+!i10b 1
+!s100 @<89c<KFa4bi5UZF?Cz4[2
+R2
+IUU<6FVGmF9]Xka^M7jaSa3
+R3
+R4
+R5
+R6
+!i122 648
+L0 285 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@l@u@t8
+vMIPI_DPHY
+R1
+!i10b 1
+!s100 mc`ZF1^NG?d7:JloFz@K93
+R2
+IOO;;<D6HVfGnYRk[R>@gD3
+R3
+R4
+R5
+R6
+!i122 648
+L0 17259 309
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@i@p@i_@d@p@h@y
+vMIPI_DPHY_RX
+R1
+!i10b 1
+!s100 4ohZYN2Z>z4ehXSMIBI2R1
+R2
+I;c^4Iz5fb8n`JP@BRX9Q43
+R3
+R4
+R5
+R6
+!i122 648
+L0 17070 186
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@i@p@i_@d@p@h@y_@r@x
+vMIPI_IBUF
+R1
+!i10b 1
+!s100 hD;I>P<oUDBW`aZzF3LJD1
+R2
+IgJ6T_LoB6<iV8okWjeHgR3
+R3
+R4
+R5
+R6
+!i122 648
+L0 947 34
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@i@p@i_@i@b@u@f
+vMIPI_OBUF_A
+R1
+!i10b 1
+!s100 K@QoBZ;e<CIKEih_?n0m01
+R2
+I5TTKI6F8QKaIZ^UUi;Sh53
+R3
+R4
+R5
+R6
+!i122 648
+L0 983 11
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@i@p@i_@o@b@u@f_@a
+vml_wrfifo
+R43
+!i10b 1
+!s100 F2oi3zAUGnaaKhVT_j5^E2
+R2
+I>L_7017MBa153o<<]Pk4O2
+R3
+R46
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ml_wrfifo/ml_wrfifo.vo
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ml_wrfifo/ml_wrfifo.vo
+!i122 684
+L0 8 420
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ml_wrfifo/ml_wrfifo.vo|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/ip_repo/ml_wrfifo/ml_wrfifo.vo|
+!i113 0
+R12
+R0
+vMULT12X12
+R1
+!i10b 1
+!s100 Q4mX]MA=?n1X?;4XDIff^1
+R2
+I_:_>S^LIC]Y0e5AmTZGoK3
+R3
+R4
+R5
+R6
+!i122 648
+L0 6675 321
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@l@t12@x12
+vMULT27X36
+R1
+!i10b 1
+!s100 GY>CCIUegD<NZ_WO90gYf3
+R2
+IMOIgkDP1mM:ZFi9?czL6Y3
+R3
+R4
+R5
+R6
+!i122 648
+L0 6999 565
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@l@t27@x36
+vMULTADDALU12X12
+R1
+!i10b 1
+!s100 NVCoAzWE5YBkWT?HA8^Je1
+R2
+Ij^^d3Fef@dS=ok2naMi@]3
+R3
+R4
+R5
+R6
+!i122 648
+L0 3843 1213
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@l@t@a@d@d@a@l@u12@x12
+vMULTALU27X18
+R1
+!i10b 1
+!s100 dgH<`iR1D54J3b0]^kAY53
+R2
+Io2ObCZ;gN5NIb98C?dJ1h1
+R3
+R4
+R5
+R6
+!i122 648
+L0 5060 1612
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@l@t@a@l@u27@x18
+vMUX16
+R1
+!i10b 1
+!s100 8@CLFBo0nn:VF=DOOU1gV3
+R2
+I@SLmchMBh?g6T6J`kKbJa1
+R3
+R4
+R5
+R6
+!i122 648
+L0 150 14
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x16
+vMUX2
+R1
+!i10b 1
+!s100 45k@:PJA6nm^ZC:V^Y:@00
+R2
+I<UEm]RY59i:R5>;kz8QIi1
+R3
+R4
+R5
+R6
+!i122 648
+L0 41 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2
+Umux2
+R1
+!i10b 1
+!s100 CTWcWd:cO88<1LCE:mSlm2
+R2
+IbjIzfDH<[o1RGZ9GIW>D_1
+R3
+R4
+R5
+R6
+!i122 648
+L0 20 0
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+vMUX2_LUT5
+R1
+!i10b 1
+!s100 8E9kO?Zg8NUeK=K1mCg^j1
+R2
+IEXDX0O@U9K6AbVD3ANbjD3
+R3
+R4
+R5
+R6
+!i122 648
+L0 51 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@l@u@t5
+vMUX2_LUT6
+R1
+!i10b 1
+!s100 @_6Mb7`jklf0z`^zda8;g1
+R2
+Io13@Q56e@o<WSJ<<Bh=9f2
+R3
+R4
+R5
+R6
+!i122 648
+L0 61 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@l@u@t6
+vMUX2_LUT7
+R1
+!i10b 1
+!s100 MnA^Y^c>C<:2U3R?>VEhZ2
+R2
+Izn6B8_QS?@IWcohbizC^E3
+R3
+R4
+R5
+R6
+!i122 648
+L0 71 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@l@u@t7
+vMUX2_LUT8
+R1
+!i10b 1
+!s100 [SBNMBf:FL>=kc`ocR4DI1
+R2
+IJh9a2I]iFaF4hNNob0Uh61
+R3
+R4
+R5
+R6
+!i122 648
+L0 81 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@l@u@t8
+vMUX2_MUX16
+R1
+!i10b 1
+!s100 Y<j]^i7Y>WV=cS4BUUl=G2
+R2
+I]njF:m<P5^og5[Ud9392V3
+R3
+R4
+R5
+R6
+!i122 648
+L0 101 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@m@u@x16
+vMUX2_MUX32
+R1
+!i10b 1
+!s100 kK;F:UIG]AARmo2I@THR[0
+R2
+Imioj960jOi[ZOUkcSI>?N1
+R3
+R4
+R5
+R6
+!i122 648
+L0 111 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@m@u@x32
+vMUX2_MUX8
+R1
+!i10b 1
+!s100 01ZL3boa>YK43ha=QQ:243
+R2
+Ib:M?0_:UA:A`^?1BIj=Fh0
+R3
+R4
+R5
+R6
+!i122 648
+L0 91 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x2_@m@u@x8
+vMUX32
+R1
+!i10b 1
+!s100 dG`VhOAjSZSXPL@;HR<Sm3
+R2
+IAoBEmP8l89QO5`2O9hnDN3
+R3
+R4
+R5
+R6
+!i122 648
+L0 166 16
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x32
+vMUX4
+R1
+!i10b 1
+!s100 9iRn<B8?V1XVC>nUAdZjF3
+R2
+IU;dN=NK_GPM@I[1[G1HKM3
+R3
+R4
+R5
+R6
+!i122 648
+L0 121 13
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x4
+vMUX8
+R1
+!i10b 1
+!s100 @Im?0?:z]R4T8[VZNDl<23
+R2
+IX4bD]^`]oR_RheZL<ZS7X1
+R3
+R4
+R5
+R6
+!i122 648
+L0 135 13
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@m@u@x8
+vOBUF
+R1
+!i10b 1
+!s100 ?6_`5_V7aI^l_Lbj=c6_b3
+R2
+Ih<Xie1fk2`TT08>8R1jlV0
+R3
+R4
+R5
+R6
+!i122 648
+L0 829 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@b@u@f
+vODDR
+R1
+!i10b 1
+!s100 FU_>j4B@Z<0`:[Pga@:z[2
+R2
+I;CE6^QC`^zZ8;cXiJ:H7;2
+R3
+R4
+R5
+R6
+!i122 648
+L0 7764 80
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@d@d@r
+vODDR_MEM
+R1
+!i10b 1
+!s100 fD45IgG2aaI;JIOBXMbXX0
+R2
+IOho9aC;38UX=W7Rb4k=[f0
+R3
+R4
+R5
+R6
+!i122 648
+L0 7937 95
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@d@d@r_@m@e@m
+vODDRC
+R1
+!i10b 1
+!s100 G7zIX8jbO@:K23cLNB9T33
+R2
+IM[ZJbdB6;G<[0[Xl=NmH;1
+R3
+R4
+R5
+R6
+!i122 648
+L0 7846 89
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@d@d@r@c
+vone_int_gen
+R35
+!i10b 1
+!s100 9o`[aamd`DA:28JPPSz>g0
+R2
+I<Dd>YG8lJUU]`>9OMK@UM0
+R3
+R38
+R39
+R40
+!i122 686
+L0 105 35
+R7
+R8
+r1
+!s85 0
+31
+R37
+R41
+R42
+!i113 0
+R12
+R0
+vOSC
+R1
+!i10b 1
+!s100 IdC;3LnJD]H9]1V8dVF:_1
+R2
+IAXH10zJ@AFl4BQ[18NZAb2
+R3
+R4
+R5
+R6
+!i122 648
+L0 12697 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@c
+vOSCA
+R1
+!i10b 1
+!s100 FQ=65^b[D`>;<VNQ2lKEN2
+R2
+Ioh7IlzAd2QS;InX18SXSQ1
+R3
+R4
+R5
+R6
+!i122 648
+L0 12724 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@c@a
+vOSER10
+R1
+!i10b 1
+!s100 5eOk;0<[U_<I_17]STHGi1
+R2
+I_o7V5X>o;ia_lkD:7W@n51
+R3
+R4
+R5
+R6
+!i122 648
+L0 11065 143
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r10
+vOSER16
+R1
+!i10b 1
+!s100 62c^E1aZP7KNk?2Loo8gz1
+R2
+IeIc76R4GcIeT49BR<0cIT3
+R3
+R4
+R5
+R6
+!i122 648
+L0 11210 146
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r16
+vOSER4
+R1
+!i10b 1
+!s100 ?`3PLmK<RDfOidjfF^Pm=2
+R2
+I@8k]L5AC=FIOUdiCSG@CQ2
+R3
+R4
+R5
+R6
+!i122 648
+L0 10104 169
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r4
+vOSER4_MEM
+R1
+!i10b 1
+!s100 Y>`<GoKaHS_96:e9d6>OW1
+R2
+I2f[YYT5>=FZPF65eKUFQZ3
+R3
+R4
+R5
+R6
+!i122 648
+L0 10275 203
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r4_@m@e@m
+vOSER8
+R1
+!i10b 1
+!s100 LS8:b<?kAbV<R8iZGUanP0
+R2
+IDnPK6YZ@mKmoiGAka7f:`2
+R3
+R4
+R5
+R6
+!i122 648
+L0 10674 178
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r8
+vOSER8_MEM
+R1
+!i10b 1
+!s100 UZz3f]^a=13S<`f2@62V;3
+R2
+I>ZJSD87Qg6R0JXG?[W<^O1
+R3
+R4
+R5
+R6
+!i122 648
+L0 10854 209
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@e@r8_@m@e@m
+vOSIDES32
+R1
+!i10b 1
+!s100 _9_JHDzZNlkH]nUX]8J^`0
+R2
+I3;Ij6Clco3dPe8Dm:Mo;U2
+R3
+R4
+R5
+R6
+!i122 648
+L0 11479 356
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@s@i@d@e@s32
+vOTP
+R1
+!i10b 1
+!s100 SNXE5=z>_BBQJ7gg<@@k52
+R2
+ID]dY`S@G:5b=>>kf0_N;@3
+R3
+R4
+R5
+R6
+!i122 648
+L0 16854 7
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@t@p
+vOVIDEO
+R1
+!i10b 1
+!s100 hi9ale_ge7=IVfaazO7=92
+R2
+IceGEV;SKXBCG>;UJDC3nW2
+R3
+R4
+R5
+R6
+!i122 648
+L0 10480 192
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@o@v@i@d@e@o
+vPLL
+R1
+!i10b 1
+!s100 S]@:nbFZ4QE_QK1_o=aRK1
+R2
+IDdgZA8XP>0WA7S[EINPa[2
+R3
+R4
+R5
+R6
+!i122 648
+L0 12750 1866
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@p@l@l
+vPLLA
+R1
+!i10b 1
+!s100 H;nB`8G:@PNY^kh0m]bL80
+R2
+ILK`8WC_c6EKSi7T?5d3o81
+R3
+R4
+R5
+R6
+!i122 648
+L0 14619 1797
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@p@l@l@a
+vpROM
+R1
+!i10b 1
+!s100 ;QK?dIO0@VM4cnL8Fafkz1
+R2
+I83CK@`LXT^4K:SI:Pm=B12
+R3
+R4
+R5
+R6
+!i122 648
+L0 2981 195
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+np@r@o@m
+vpROMX9
+R1
+!i10b 1
+!s100 T4l[]7_`<M_G5S]<YS@5M1
+R2
+IL54;Y63[FY^UMSRCCzQMW0
+R3
+R4
+R5
+R6
+!i122 648
+L0 3178 173
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+np@r@o@m@x9
+vRAM16S1
+R1
+!i10b 1
+!s100 ZI4Ic17@nJOW0iNRjmJ:23
+R2
+I8US33aFA^F=QO6mFNI7H^1
+R3
+R4
+R5
+R6
+!i122 648
+L0 553 22
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s1
+vRAM16S2
+R1
+!i10b 1
+!s100 KQf<?kcACj2k4aJz0JYcQ2
+R2
+I7z`P9FQifRD9_^0@@cLlb0
+R3
+R4
+R5
+R6
+!i122 648
+L0 577 31
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s2
+vRAM16S4
+R1
+!i10b 1
+!s100 8?R[PV81aXSHzj?OK>BG93
+R2
+IO2kBjAfD_D?ncY>>GLDP=1
+R3
+R4
+R5
+R6
+!i122 648
+L0 610 41
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s4
+vRAM16SDP1
+R1
+!i10b 1
+!s100 jhcL2m6;8>]179KHE9ESC1
+R2
+Ii3IZMMQQJ^ie61VIWzEfD3
+R3
+R4
+R5
+R6
+!i122 648
+L0 653 23
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s@d@p1
+vRAM16SDP2
+R1
+!i10b 1
+!s100 A>2PMFJRa^=l65kg[zkIP3
+R2
+I?TJbjaWW[eI7aLX5fmbzS0
+R3
+R4
+R5
+R6
+!i122 648
+L0 678 31
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s@d@p2
+vRAM16SDP4
+R1
+!i10b 1
+!s100 XE]I0IAOD2jNkC3YATYV43
+R2
+IZ7O1<bQWRS13zc7S77^n<0
+R3
+R4
+R5
+R6
+!i122 648
+L0 711 42
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@a@m16@s@d@p4
+vRESET_GEN
+R1
+!i10b 1
+!s100 Q8;d1iPZ_ao:mQc08C4X[1
+R2
+IY2dFLNz>@b4Fn]cY3lKGe0
+R3
+w1714891094
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/RESET_GEN.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/RESET_GEN.v
+!i122 646
+L0 1 34
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/RESET_GEN.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/RESET_GEN.v|
+!i113 0
+R12
+R0
+n@r@e@s@e@t_@g@e@n
+vROM16
+R1
+!i10b 1
+!s100 GE@9aiaFGGUoI[H8O=n_h0
+R2
+InJFHO02AahdN^]hPGoMWi3
+R3
+R4
+R5
+R6
+!i122 648
+L0 755 17
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@r@o@m16
+vrptr_empty
+R15
+!i10b 1
+!s100 O6:eR:UEmiU:L5_J>>cAH1
+R2
+IO<HJXFahLY?FF0[;>BA0>1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/rptr_empty.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/rptr_empty.v
+!i122 672
+Z47 L0 6 57
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/rptr_empty.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/rptr_empty.v|
+!i113 0
+R12
+R0
+vSAMB
+R1
+!i10b 1
+!s100 3Kh1VW9_T9JIg]`MQZWDe1
+R2
+IMAUSk=P2=1@:jmXIa^KIL3
+R3
+R4
+R5
+R6
+!i122 648
+L0 16844 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@a@m@b
+vsd_axi_top
+R35
+!i10b 1
+!s100 KFZkA<;0fi`j@DjTAA_P51
+R2
+IMCYm_Z[S^ARk8N3mRh8:k1
+R3
+R46
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_axi_top.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_axi_top.v
+!i122 689
+L0 1 136
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_axi_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_axi_top.v|
+!i113 0
+R12
+R0
+vsd_ctrl_top
+R35
+!i10b 1
+!s100 XP5]o1mbzaIe>DSc@N6gU0
+R2
+Ik`gcd_3]fk3^fB_YCVGjT0
+R3
+R46
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_ctrl_top.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_ctrl_top.v
+!i122 690
+L0 1 82
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_ctrl_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_ctrl_top.v|
+!i113 0
+R12
+R0
+vsd_init
+R35
+!i10b 1
+!s100 =E2@Y<JXIZ^FZ;X0V>VPD0
+R2
+I^>>0`Z[^QIfai6T77>Sdo0
+R3
+w1714371874
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_init.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_init.v
+!i122 691
+L0 1 290
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_init.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_init.v|
+!i113 0
+R12
+R0
+vsd_read
+R35
+!i10b 1
+!s100 cSmP0<P5H=In^2C1;6n]g1
+R2
+IZ0Z_zcWJVMTo<6MZC6:380
+R3
+R46
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read.v
+!i122 692
+L0 1 188
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read.v|
+!i113 0
+R12
+R0
+vsd_read_model
+R35
+!i10b 1
+!s100 maFEO:TnJ1;B7_b4`O<Kh3
+R2
+IjS^9GXPT_6ST8[_f0Io]S1
+R3
+R46
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_model.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_model.v
+!i122 693
+L0 1 97
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_model.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_model.v|
+!i113 0
+R12
+R0
+vsd_read_para_top
+R35
+!i10b 1
+!s100 M`h_AjQ@hD4S@JMI6He672
+R2
+IJL`L2IY3g1^@_Ce0SQ1Qa3
+R3
+w1715246524
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_para_top.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_para_top.v
+!i122 694
+L0 1 243
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_para_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/SD_DMA/sd_read_para_top.v|
+!i113 0
+R12
+R0
+vSDP36KE
+R1
+!i10b 1
+!s100 LUK@NdI^_mXm9EWGBAl1l2
+R2
+Iig@5KimkRg65igHI=IUcO2
+R3
+R4
+R5
+R6
+!i122 648
+L0 3354 485
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@d@p36@k@e
+vSDPB
+R1
+!i10b 1
+!s100 n4eE_A`ZN^z5X[H^85Xn[1
+R2
+IddUCah02IflnU=4d7;ToW1
+R3
+R4
+R5
+R6
+!i122 648
+L0 1674 282
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@d@p@b
+vSDPX9B
+R1
+!i10b 1
+!s100 iZDz6<Bb1REGC30mB?6ET0
+R2
+I2c40>KJdh=i`aFD=AK4E42
+R3
+R4
+R5
+R6
+!i122 648
+L0 1958 242
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@d@p@x9@b
+vSP
+R1
+!i10b 1
+!s100 J@ijTjX9UEW5Rnj`GP3U40
+R2
+IYO@@07QC;`oUo6T]`Nm^i3
+R3
+R4
+R5
+R6
+!i122 648
+L0 1076 306
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@p
+vSPX9
+R1
+!i10b 1
+!s100 4RHmDzlHIzL[<_Q=nhWD=0
+R2
+II>C_=h0;^_4j^L_4Y1jPC0
+R3
+R4
+R5
+R6
+!i122 648
+L0 1384 287
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@s@p@x9
+vsync_fifo
+R31
+R13
+!i10b 1
+!s100 8L2e5JdJ1AFOU8<]QSz[;1
+R2
+I78iP?GId2KUjzHQA6;0=b1
+S1
+R3
+R36
+Z48 8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/sync_fifo/sync_fifo.sv
+Z49 FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/sync_fifo/sync_fifo.sv
+!i122 701
+L0 25 118
+R7
+R8
+r1
+!s85 0
+31
+R14
+Z50 !s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/sync_fifo/sync_fifo.sv|
+Z51 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/sync_fifo/sync_fifo.sv|
+!i113 0
+R33
+R0
+vsync_fifo_ram
+R31
+R13
+!i10b 1
+!s100 `PN@bdgEcS8H4G^7?fZZB0
+R2
+I3k8Q9ZD5;b`Z5>TWICm<J3
+S1
+R3
+R36
+R48
+R49
+!i122 701
+L0 145 33
+R7
+R8
+r1
+!s85 0
+31
+R14
+R50
+R51
+!i113 0
+R33
+R0
+vsync_ptr
+R15
+!i10b 1
+!s100 a9_BI0nolhej]dAiVhB@=2
+R2
+IAY^??<E5jS5Q3Q=VhQEAR1
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_ptr.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_ptr.v
+!i122 673
+L0 6 22
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_ptr.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_ptr.v|
+!i113 0
+R12
+R0
+vsync_r2w
+R15
+!i10b 1
+!s100 @O33JOXOlG<g^b6zldj4=1
+R2
+I8^J6^DAD7>?`>0Lkl8@h71
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_r2w.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_r2w.v
+!i122 674
+Z52 L0 6 23
+R7
+R8
+r1
+!s85 0
+31
+R17
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_r2w.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_r2w.v|
+!i113 0
+R12
+R0
+vsync_w2r
+R43
+!i10b 1
+!s100 SGbNR:>a9fV>?ckMBLcEf3
+R2
+IVAYCb2dhJDSY9VXKYCU9_2
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_w2r.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_w2r.v
+!i122 675
+R52
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_w2r.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/sync_w2r.v|
+!i113 0
+R12
+R0
+vTBUF
+R1
+!i10b 1
+!s100 jhXbF?3Z]zN85VNi4fLCo0
+R2
+I4NRJJz?VMLj7GZ9O<k[@40
+R3
+R4
+R5
+R6
+!i122 648
+L0 839 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@b@u@f
+vTLVDS_IBUF
+R1
+!i10b 1
+!s100 2ER53>O1l[6CEoee63Zce3
+R2
+IH4Tj4JoX8>VFVG`5=V^oh2
+R3
+R4
+R5
+R6
+!i122 648
+L0 861 14
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@l@v@d@s_@i@b@u@f
+vTLVDS_IBUF_ADC
+R1
+!i10b 1
+!s100 @]mGD315?n67YUCeQn3SZ0
+R2
+IS^zV=h[]FM?6@GQ:QR_e^1
+R3
+R4
+R5
+R6
+!i122 648
+L0 1068 5
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@l@v@d@s_@i@b@u@f_@a@d@c
+vTLVDS_IOBUF
+R1
+!i10b 1
+!s100 :[CLlNdbLCb@5HO@m6T4n1
+R2
+IJSD9o[IO6@PdQaJH4PjC=3
+R3
+R4
+R5
+R6
+!i122 648
+L0 892 16
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@l@v@d@s_@i@o@b@u@f
+vTLVDS_OBUF
+R1
+!i10b 1
+!s100 a9lRQhz]=Y1X]o8f3?dQ=2
+R2
+IS5ZAPVQJVXH:<XU<dRf`B1
+R3
+R4
+R5
+R6
+!i122 648
+L0 876 8
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@l@v@d@s_@o@b@u@f
+vTLVDS_TBUF
+R1
+!i10b 1
+!s100 GfHoB5f22Jlgi6o6ef7:n0
+R2
+IW`HcCPi>lK6ZSI7cY:DBQ1
+R3
+R4
+R5
+R6
+!i122 648
+L0 885 6
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@t@l@v@d@s_@t@b@u@f
+vTOP
+R1
+!i10b 1
+!s100 zChjN>iFf<=:;f6HKMY`10
+R2
+IUG?d@9?Q9W[SmJ55an@fF0
+R3
+w1715245240
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/TOP.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/TOP.v
+!i122 647
+L0 11 1611
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:\Users\wangs\Documents\Code\LoongArch-Processing-System\1C102\src\hw\Config.vh|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/TOP.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/TOP.v|
+!i113 0
+R12
+R0
+n@t@o@p
+vTOP_tb
+R13
+!i10b 1
+!s100 :CA=E4fBEJ`RI<gD_z]c:0
+R2
+IJ?l_AK`a9F3`3J<nfb=IM3
+R3
+w1715246670
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/testbench/TOP_tb/TOP_tb.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/testbench/TOP_tb/TOP_tb.v
+!i122 703
+L0 3 83
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/testbench/TOP_tb/TOP_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/testbench/TOP_tb/TOP_tb.v|
+!i113 0
+R12
+R0
+n@t@o@p_tb
+vUART_RFIFO
+R35
+!i10b 1
+!s100 9AmlYSH1OQ8jkMV30zSY[2
+R2
+I7iRL5D^z0>hm6=L[7R=aG3
+R3
+R36
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rfifo.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rfifo.v
+!i122 696
+L0 1 102
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rfifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rfifo.v|
+!i113 0
+R12
+R0
+n@u@a@r@t_@r@f@i@f@o
+vUART_RX
+R35
+!i10b 1
+!s100 9lhi2Agc?=:dc2oRCAI:J0
+R2
+IaeGedlAiN09dLVD@8CKfn0
+R3
+R36
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rx.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rx.v
+!i122 697
+L0 1 123
+R7
+R8
+r1
+!s85 0
+31
+R37
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_rx.v|
+!i113 0
+R12
+R0
+n@u@a@r@t_@r@x
+vUART_TFIFO
+R13
+!i10b 1
+!s100 MXH>gnF@EoKAVJzDR;mcI0
+R2
+ISYfDoEJTAX6gDNR:2AE=<0
+R3
+R36
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tfifo.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tfifo.v
+!i122 698
+L0 1 116
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tfifo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tfifo.v|
+!i113 0
+R12
+R0
+n@u@a@r@t_@t@f@i@f@o
+vUART_TOP
+R13
+!i10b 1
+!s100 mN]V;Gl=[hI2GYki`;:A33
+R2
+I<CFU7]IBHZ:8fRzZ9MLc^0
+R3
+R18
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_top.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_top.v
+!i122 699
+L0 1 166
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_top.v|
+!i113 0
+R12
+R0
+n@u@a@r@t_@t@o@p
+vUART_TX
+R13
+!i10b 1
+!s100 2lS:^lzcM@3dI<?>USZVX0
+R2
+I3NLD]Y]EFUA9;NLIFO2m21
+R3
+R36
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tx.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tx.v
+!i122 700
+L0 1 144
+R7
+R8
+r1
+!s85 0
+31
+R14
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/periph/UART/uart_tx.v|
+!i113 0
+R12
+R0
+n@u@a@r@t_@t@x
+vVCC
+R1
+!i10b 1
+!s100 Bo>1lBEn4JjGmA:SoQDI?1
+R2
+ITJ`[Dh[6QgE^`L;X30WlY2
+R3
+R4
+R5
+R6
+!i122 648
+L0 796 9
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R0
+n@v@c@c
+vwptr_full
+R43
+!i10b 1
+!s100 gYkPPHTeecXaad306<kTS3
+R2
+IX@IAfZ7Pk;YX6BAXIAK950
+R3
+R16
+8D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/wptr_full.v
+FD:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/wptr_full.v
+!i122 676
+R47
+R7
+R8
+r1
+!s85 0
+31
+R44
+!s107 D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/wptr_full.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Users/wangs/Documents/Code/LoongArch-Processing-System/1C102/src/hw/FIFO/async_fifo/wptr_full.v|
+!i113 0
+R12
+R0
