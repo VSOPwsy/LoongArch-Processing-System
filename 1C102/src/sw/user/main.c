@@ -8,11 +8,9 @@
 #include "ls1x_string.h"
 #include "UserGpio.h"
 
-// #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <math.h>
-// #include <string.h>
 
 #include <fcntl.h>
 
@@ -522,6 +520,8 @@ void SD_load(uint32_t start_sec, uint32_t size, void* ddr_addr_base)
 
 void *model_address;
 void *tokenizer_address;
+uint32_t model_size;
+uint32_t tokenizer_size;
 
 
 typedef struct {
@@ -633,16 +633,12 @@ void memory_map_weights(TransformerWeights *w, Config* p, float* ptr, int shared
 void read_checkpoint(void* checkpoint, Config* config, TransformerWeights* weights,
                      int* fd, float** data, ssize_t* file_size) {
     SOC_FILE *file = soc_fopen(checkpoint);
-    // soc_printf("ptr: %8x\n", file->_ptr);
-    // soc_printf("cnt: %8x\n", file->_cnt);
     soc_fread(config, sizeof(Config), 1, file);
-    // soc_printf("ptr: %8x\n", file->_ptr);
-    // soc_printf("cnt: %8x\n", file->_cnt);
     // negative vocab size is hacky way of signaling unshared weights. bit yikes.
     int shared_weights = config->vocab_size > 0 ? 1 : 0;
     config->vocab_size = abs(config->vocab_size);
     // figure out the file size
-    *file_size = 60816028;
+    *file_size = model_size;
     // memory map the Transformer weights into the data pointer
     *data = (float *)checkpoint;
     float* weights_ptr = *data + sizeof(Config)/sizeof(float);
@@ -1239,12 +1235,14 @@ int main(void)
 	LED = (uint32_t)0x00000001;
 
     alloc_init(DDR_BASE, 0x0C000000);
-    model_address = soc_malloc(60816028);
-    tokenizer_address = soc_malloc(433869);
+    
+    model_size = 60816028;
+    tokenizer_size = 433869;
+    model_address = soc_malloc(model_size);
+    tokenizer_address = soc_malloc(tokenizer_size);
 
-	// SD_load(2048, 1024, model_address);
     soc_printf("loading model...\n");
-	SD_load(2048, 60816028, DDR_BASE);
+	SD_load(2048, 60816028, (void*)DDR_BASE);
     soc_printf("loading tokenizer...\n");
 	SD_load(200000, 433869, tokenizer_address);
 	LED = (uint32_t)0x00000003;
@@ -1252,7 +1250,7 @@ int main(void)
     float temperature = 1.0f;   // 0.0 = greedy deterministic. 1.0 = original. don't set higher
     float topp = 0.9f;          // top-p in nucleus sampling. 1.0 = off. 0.9 works well, but slower
     int steps = 256;            // number of steps to run for
-    char *prompt = "WSY loves YJQ";
+    char *prompt = "Jim likes playing basketball";
     unsigned long long rng_seed = 0; // seed rng with time by default
 
     // parameter validation/overrides
@@ -1264,7 +1262,7 @@ int main(void)
     // build the Transformer via the model .bin file
     Transformer transformer;
     soc_printf("building transformer...\n");
-    build_transformer(&transformer, (void*)model_address);
+    build_transformer(&transformer, model_address);
     if (steps == 0 || steps > transformer.config.seq_len) steps = transformer.config.seq_len; // override to ~max length
 
     // build the Tokenizer via the tokenizer .bin file
