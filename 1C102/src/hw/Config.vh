@@ -1,7 +1,8 @@
-// timescale
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
 `define FPGA
+
+`define SIMULATION
 
 /*****************
 *   AXI interface
@@ -175,4 +176,8 @@
 `define I2C_CMD_WRITE 4'b0100
 `define I2C_CMD_READ  4'b1000
 
+`ifdef SIMULATION
+    `define den2048Mb
+    `define x16
+`endif
 

@@ -73,7 +73,7 @@ module DDR_Controller #
     output wire [ID_WIDTH-1:0]      s_axi_bid,
     output wire [1:0]               s_axi_bresp,
     output wire [BUSER_WIDTH-1:0]   s_axi_buser,
-    output wire                      s_axi_bvalid,
+    output wire                     s_axi_bvalid,
     input  wire                     s_axi_bready,
     input  wire [ID_WIDTH-1:0]      s_axi_arid,
     input  wire [ADDR_WIDTH-1:0]    s_axi_araddr,
@@ -93,7 +93,7 @@ module DDR_Controller #
     output wire [1:0]               s_axi_rresp,
     output wire                     s_axi_rlast,
     output wire [RUSER_WIDTH-1:0]   s_axi_ruser,
-    output wire                      s_axi_rvalid,
+    output wire                     s_axi_rvalid,
     input  wire                     s_axi_rready,
 
     /*
