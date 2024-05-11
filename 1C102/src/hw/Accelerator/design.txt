@@ -1,0 +1,50 @@
+C = A(m, k) @ B(k, n)
+
+m -> s * m/s
+n -> s * n/s
+
+C(s, s) = a(s, k) @ B(k, s)
+
+Double buffer:
+    A_in_buf: two sxs array of 1x32 BRAM
+    B_in_buf: two sxs array of 1x32 BRAM
+
+Read matrix a if num of empty buf of A >= num of empty buf of B
+Read matrix b if num of empty buf of A <  num of empty buf of B
+
+burst_size = 8
+burst_length = (s / 8) * s
+
+Use s^2/8 cycles to burst read matrix a
+Use s^2/8 cycles to burst read matrix b
+
+Buffer -> Systolic Array
+
+for e in (1, k/s)
+    for i in (1, s)
+        for j in (1, s)
+                                                    control the second source
+                        be[i,j]             -------------------------------------
+                          |                 |                  |                |
+                          v                 v                  |                |
+            |---->    Multiplier    ---->   Accumulate Adder 1,j   <---->   out_buf 1,j
+            |    
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+            |    
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+            |
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+ae[,i]  ->  |
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+            |    
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+            |    
+            |---->    Multiplier    ---->   Accumulate Adder  ,j   <---->   out_buf  ,j
+            |    
+            |---->    Multiplier    ---->   Accumulate Adder s,j   <---->   out_buf s,j
+
+
+        s cycles for each i
+    s * s cycles for each e, Burst write to DDR
+k * s cycles for each slice
+
