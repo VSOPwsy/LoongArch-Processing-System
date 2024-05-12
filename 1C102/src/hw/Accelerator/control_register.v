@@ -25,6 +25,38 @@ module control_register #(
 
     reg m_cnt;
     wire m_cnt_update_now, m_cnt_is_max_now;
+
+
+    reg n_cnt;
+    wire n_cnt_update_now, n_cnt_is_max_now;
+
+
+    reg block_a_cnt;///////////////////////////
+    wire block_a_cnt_update_now, block_a_cnt_is_max_now;
+
+    
+    reg block_b_cnt;///////////////////////////
+    wire block_b_cnt_update_now, block_b_cnt_is_max_now;
+
+    reg burst_cnt;
+    wire burst_cnt_update_now, burst_cnt_is_max_now;
+
+
+    reg index_cnt;
+    wire index_cnt_update_now, index_cnt_is_max_now;
+
+
+
+    reg [1:0] buf_state;
+    localparam IDLE   = 2'b00;
+    localparam LOAD_A = 2'b01;
+    localparam LOAD_B = 2'b10;
+
+    reg addr_cnt_a;
+    reg addr_cnt_b;
+    reg dma_start_reg;
+
+    
     assign m_cnt_update_now = n_cnt_update_now & n_cnt_is_max_now;
     assign m_cnt_is_max_now = m_cnt >= m;
     always @(posedge clk) begin
@@ -38,9 +70,6 @@ module control_register #(
         end
     end
 
-
-    reg n_cnt;
-    wire n_cnt_update_now, n_cnt_is_max_now;
     assign n_cnt_update_now = block_b_cnt_update_now & block_b_cnt_is_max_now;
     assign n_cnt_is_max_now = n_cnt >= n;
     always @(posedge clk) begin
@@ -54,9 +83,6 @@ module control_register #(
         end
     end
 
-
-    reg block_a_cnt;///////////////////////////
-    wire block_a_cnt_update_now, block_a_cnt_is_max_now;
     assign block_a_cnt_update_now = read_a & dma_rlast;
     assign block_a_cnt_is_max_now = block_a_cnt_is_max_now == SIZE - 1;
     always @(posedge clk) begin
@@ -71,8 +97,6 @@ module control_register #(
     end
 
 
-    reg block_b_cnt;///////////////////////////
-    wire block_b_cnt_update_now, block_b_cnt_is_max_now;
     assign block_b_cnt_update_now = read_b & dma_rlast;
     assign block_b_cnt_is_max_now = block_b_cnt_is_max_now == SIZE - 1;
     always @(posedge clk) begin
@@ -86,9 +110,6 @@ module control_register #(
         end
     end
 
-
-    reg burst_cnt;
-    wire burst_cnt_update_now, burst_cnt_is_max_now;
     assign burst_cnt_update_now = dam_rlast;
     assign burst_cnt_is_max_now = burst_cnt == (SIZE / (256 / 32)) - 1;
     always @(posedge clk) begin
@@ -103,8 +124,6 @@ module control_register #(
     end
 
 
-    reg index_cnt;
-    wire index_cnt_update_now, index_cnt_is_max_now;
     assign index_cnt_update_now = burst_cnt_update_now & burst_cnt_is_max_now;
     assign index_cnt_is_max_now = index_cnt == (SIZE - 1);
     always @(posedge clk) begin
@@ -144,15 +163,6 @@ module control_register #(
 
 
 
-
-    reg [1:0] buf_state;
-    localparam IDLE   = 2'b00;
-    localparam LOAD_A = 2'b01;
-    localparam LOAD_B = 2'b10;
-
-    reg addr_cnt_a;
-    reg addr_cnt_b;
-    reg dma_start_reg;
     always @(posedge clk) begin
         if (start) begin
             addr_cnt_a <= addr_base_a;
