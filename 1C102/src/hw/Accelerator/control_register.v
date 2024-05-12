@@ -93,7 +93,7 @@ module control_register #(
     end
 
     assign block_a_cnt_update_now = read_a & burst_cnt_update_now & burst_cnt_is_max_now;
-    assign block_a_cnt_is_max_now = block_a_cnt_is_max_now == SIZE - 1;
+    assign block_a_cnt_is_max_now = block_a_cnt_update_now == SIZE - 1;
     always @(posedge clk) begin
         if (~rstn) begin
             block_a_cnt <= 0;
@@ -107,7 +107,7 @@ module control_register #(
 
 
     assign block_b_cnt_update_now = read_b & burst_cnt_update_now & burst_cnt_is_max_now;
-    assign block_b_cnt_is_max_now = block_b_cnt_is_max_now == SIZE - 1;
+    assign block_b_cnt_is_max_now = block_b_cnt_update_now == SIZE - 1;
     always @(posedge clk) begin
         if (~rstn) begin
             block_b_cnt <= 0;
