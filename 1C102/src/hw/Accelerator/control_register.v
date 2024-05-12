@@ -3,17 +3,17 @@ module control_register #(
 )(
     input clk,
     input rstn,
-    input addr_base_a,
-    input addr_base_b,
-    input m,
-    input k,
-    input n,
+    input [31:0] addr_base_a,
+    input [31:0] addr_base_b,
+    input [31:0] m,
+    input [31:0] k,
+    input [31:0] n,
     input start,
     output dma_start,
     input dma_done,
 
-    input dma_data,
-    output buf_data_in,
+    input [255:0] dma_data,
+    output [255:0] buf_data_in,
 
     output read_a,
     output read_b
