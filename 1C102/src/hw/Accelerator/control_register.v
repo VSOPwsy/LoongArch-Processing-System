@@ -172,6 +172,7 @@ module control_register #(
             buf_state <= IDLE;
         end
         else begin
+            buf_state <= buf_state;
             case (buf_state)
                 IDLE: begin
                     if (start) begin
