@@ -28,6 +28,8 @@ module control_register_tb;
     .m(m),
     .k(k),
     .n(n),
+    .a_in_mode(1),
+    .b_in_mode(1),
     .start(start),
     .dma_start(dma_start),
     .dma_done(dma_done),
