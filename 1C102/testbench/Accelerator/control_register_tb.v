@@ -1,6 +1,6 @@
 
 module control_register_tb;
-  localparam  SIZE = 16;
+  localparam  SIZE = 8;
   
   reg  clk;
   reg  rstn;
@@ -56,9 +56,9 @@ module control_register_tb;
       rstn = 1;
       addr_base_a = 32'h1000_0010;
       addr_base_b = 32'h2000_0100;
-      m = 32;
-      n = 32;
-      k = 32;
+      m = 16;
+      n = 16;
+      k = 16;
       #20;
       @(posedge clk);
       start = 1;
