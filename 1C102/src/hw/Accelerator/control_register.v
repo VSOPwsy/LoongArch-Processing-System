@@ -18,50 +18,7 @@ module control_register #(
     output read_a,
     output read_b
 );
-
-    reg buffer_state;   // 0: load matrix a
-                        // 1: load matrix b
-
-    always @(posedge clk) begin
-        if (~rstn) begin
-            buffer_state <= 0;
-        end
-        if (dma_done) begin
-            buffer_state <= ~buffer_state;
-        end
-    end
-
-    assign read_a = ~buffer_state;
-    assign read_b = buffer_state;
     
-    reg addr_cnt_a;
-    reg addr_cnt_b;
-    reg dma_start_reg;
-    always @(posedge clk) begin
-        if (start) begin
-            addr_cnt_a <= addr_base_a;
-            addr_cnt_b <= addr_base_b;
-        end
-        else begin
-            case (buffer_state)
-                0: begin
-                    if (dma_done) begin
-                        addr_cnt_a <= addr_cnt_a + 1;
-                    end
-                end
-
-                1: begin
-                    if (dma_done) begin
-                        addr_cnt_b <= addr_cnt_b + 1;
-                    end
-                end
-            endcase
-        end
-    end
-
-
-
-
 
 
 
@@ -183,5 +140,55 @@ module control_register #(
             buf_data_in = dma_data & ((~(256{1'b0})) >> (8 * (n_cnt + burst_cnt - n)));
         end
     end
+
+
+
+
+
+    reg [1:0] buf_state;
+    localparam IDLE   = 2'b00;
+    localparam LOAD_A = 2'b01;
+    localparam LOAD_B = 2'b10;
+
+    reg addr_cnt_a;
+    reg addr_cnt_b;
+    reg dma_start_reg;
+    always @(posedge clk) begin
+        if (start) begin
+            addr_cnt_a <= addr_base_a;
+            addr_cnt_b <= addr_base_b;
+        end
+        else begin
+            case (buf_state)
+                IDLE: begin
+                    if (start) begin
+                        addr_cnt_a <= addr_base_a;
+                        addr_cnt_b <= addr_base_b;
+                        buf_state <= LOAD_A;
+                        dma_start_reg <= 1;
+                    end
+                end
+                LOAD_A: begin
+                    dma_start_reg <= 0;
+                    if (burst_cnt_update_now & burst_cnt_is_max_now & block_a_cnt_update_now & block_a_cnt_is_max_now) begin
+                        addr_cnt_a <= addr_cnt_a + 1;
+                        buf_state <= LOAD_B;
+                    end
+                end
+
+                LOAD_B: begin
+                    dma_start_reg <= 0;
+                    if (burst_cnt_update_now & burst_cnt_is_max_now & block_b_cnt_update_now & block_b_cnt_is_max_now) begin
+                        addr_cnt_b <= addr_cnt_b + 1;
+                        buf_state <= m_cnt_is_max_now ? IDLE : LOAD_A;
+                    end
+                end
+            endcase
+        end
+    end
+
+    assign dma_start = dma_start_reg;
+    assign read_a = buf_state == LOAD_A;
+    assign read_b = buf_state == LOAD_B;
 
 endmodule
