@@ -59,6 +59,8 @@ module control_register_tb;
       m = 32;
       n = 32;
       k = 32;
+      #20;
+      @(posedge clk);
       start = 1;
       dma_data = 256'h1234_5678;
       wait(dma_start);
