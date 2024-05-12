@@ -64,8 +64,8 @@ module in_buffer #(
 
     genvar i, j;
     generate
-        wire [SIZE*SIZE*32-1:0] _buf_0_data_out;
-        wire [SIZE*SIZE*32-1:0] _buf_1_data_out;
+        reg [SIZE*SIZE*32-1:0] _buf_0_data_out;
+        reg [SIZE*SIZE*32-1:0] _buf_1_data_out;
 
         for (i = 0; i < SIZE; i = i + 1) begin: _ROW_0
             for (j = 0; j < SIZE; j = j + 1) begin: _COLUMN_0
@@ -75,20 +75,19 @@ module in_buffer #(
                 wire [255:0] data_in_0_eff;
                 wire [255:0] data_in_0;
                 assign cs_0 = in_ready & double_buffer_wr_ptr == 0 &
-                              (in_mode == 0 & index_in == j + 1) | (in_mode == 1 & index_in == i + 1);
-                assign wr_en_0 = in_valid & in_ready & double_buffer_wr_ptr == 0 & index_in != 0;
-                assign data_in_0_eff = {data_in, align_buffer} >> (offset*8);
-
-                wire [31:0] data_in_0_column = data_in_0_eff[i*32+:32];
-                wire [31:0] data_in_0_row = data_in_0_eff[j*32+:32];
+                              (in_mode == 0 & index_in == j) | (in_mode == 1 & index_in == i) |
+                              (j == SIZE - 1 & offset != 0 & in_mode == 0 & index_in == j + 1) |
+                              (i == SIZE - 1 & offset != 0 & in_mode == 1 & index_in == i + 1);
+                assign wr_en_0 = in_valid & in_ready & double_buffer_wr_ptr == 0 &index_in != 0;
+                assign data_in_0_eff = {data_in, align_buffer} << (offset*8);
 
                 buff_cell buff_cell_0 (
                     .clk(clk),
-                    .data_in(in_mode == 0 ? data_in_0_column : data_in_0_row),
+                    .data_in(data_in_0_eff[i*32+:32]),
                     .cs(cs_0),
                     .wr_en(wr_en_0),
                 
-                    .data_out(_buf_0_data_out[i*SIZE*32 + j*32 +: 32])
+                    .data_out(_buf_0_data_out)
                 );
             end
         end
@@ -113,20 +112,19 @@ module in_buffer #(
                 wire [255:0] data_in_1_eff;
                 wire [255:0] data_in_1;
                 assign cs_1 = in_ready & double_buffer_wr_ptr == 1 &
-                              (in_mode == 0 & index_in == j) | (in_mode == 1 & index_in == i);
+                              (in_mode == 0 & index_in == j) | (in_mode == 1 & index_in == i) |
+                              (j == SIZE - 1 & offset != 0 & in_mode == 0 & index_in == j + 1) |
+                              (i == SIZE - 1 & offset != 0 & in_mode == 1 & index_in == i + 1);
                 assign wr_en_1 = in_valid & in_ready & double_buffer_wr_ptr == 1 & index_in != 0;
-                assign data_in_1_eff = {data_in, align_buffer} >> (offset*8);
-
-                wire [31:0] data_in_1_column = data_in_1_eff[i*32+:32];
-                wire [31:0] data_in_1_row = data_in_1_eff[j*32+:32];
+                assign data_in_1_eff = {data_in, align_buffer} << (offset*8);
 
                 buff_cell buff_cell_1 (
                     .clk(clk),
-                    .data_in(in_mode == 0 ? data_in_1_column : data_in_1_row),
+                    .data_in(data_in_1_eff[i*32+:32]),
                     .cs(cs_1),
                     .wr_en(wr_en_1),
                 
-                    .data_out(_buf_1_data_out[i*SIZE*32 + j*32 +: 32])
+                    .data_out(_buf_1_data_out)
                 );
             end
         end
@@ -152,7 +150,7 @@ module buff_cell (
 
     output [31:0] data_out
 );
-reg [31:0] buf_cell;
+reg [31:0] buff_cell;
 always @(posedge clk) begin
     if (cs & wr_en) begin
         buf_cell <= data_in;
