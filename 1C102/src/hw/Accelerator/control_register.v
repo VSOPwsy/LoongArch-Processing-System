@@ -48,7 +48,7 @@ module control_register #(
     wire index_cnt_update_now, index_cnt_is_max_now;
 
 
-    reg [255:0] buf_data_in_a, buf_data_in_a;
+    reg [255:0] buf_data_in_a, buf_data_in_b;
 
 
     reg [1:0] buf_state;
