@@ -12,6 +12,8 @@ module control_register #(
     input b_in_mode,
     input start,
     output dma_start,
+    input dma_valid,
+    input dma_ready,
     input dma_done,
 
     input [255:0] dma_data,
@@ -114,7 +116,7 @@ module control_register #(
         end
     end
 
-    assign burst_cnt_update_now = dma_done;
+    assign burst_cnt_update_now = dma_valid & dma_ready;
     assign burst_cnt_is_max_now = burst_cnt == (SIZE / (256 / 32)) - 1;
     always @(posedge clk) begin
         if (~rstn) begin
