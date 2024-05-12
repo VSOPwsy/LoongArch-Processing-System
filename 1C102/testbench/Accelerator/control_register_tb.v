@@ -31,7 +31,7 @@ module control_register_tb;
     .m(m),
     .k(k),
     .n(n),
-    .a_in_mode(1),
+    .a_in_mode(0),
     .b_in_mode(1),
     .start(start),
     .dma_start(dma_start),
@@ -61,10 +61,10 @@ module control_register_tb;
       dma_valid = 0;
       #30;
       rstn = 1;
-      addr_base_a = 32'h1000_0010;
-      addr_base_b = 32'h2000_0100;
-      m = 16;
-      n = 16;
+      addr_base_a = 32'h0000_0000;
+      addr_base_b = 32'h0000_0000;
+      m = 32;
+      n = 32;
       k = 16;
       #20;
       @(posedge clk);
