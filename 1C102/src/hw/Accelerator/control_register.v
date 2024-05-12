@@ -48,6 +48,8 @@ module control_register #(
     wire index_cnt_update_now, index_cnt_is_max_now;
 
 
+    reg [255:0] buf_data_in_a, buf_data_in_a;
+
 
     reg [1:0] buf_state;
     localparam IDLE   = 2'b00;
@@ -139,30 +141,30 @@ module control_register #(
         end
     end
 
-
+    
 
     always @(*) begin
-        buf_data_in = dma_data;
+        buf_data_in_a = dma_data;
         if (a_in_mode == 0 & (m_cnt + block_a_cnt > m)) begin
-            buf_data_in = dma_data & ((~{256{1'b0}}) >> (8 * (m_cnt + block_a_cnt - m)));
+            buf_data_in_a = dma_data & ((~{256{1'b0}}) >> (8 * (m_cnt + block_a_cnt - m)));
         end
         if (a_in_mode == 1 & (m_cnt + burst_cnt > m)) begin
-            buf_data_in = dma_data & ((~{256{1'b0}}) >> (8 * (m_cnt + burst_cnt - m)));
+            buf_data_in_a = dma_data & ((~{256{1'b0}}) >> (8 * (m_cnt + burst_cnt - m)));
         end
     end
 
 
     always @(*) begin
-        buf_data_in = dma_data;
+        buf_data_in_b = dma_data;
         if (b_in_mode == 0 & n_cnt + block_b_cnt > n) begin
-            buf_data_in = dma_data & ((~{256{1'b0}}) >> (8 * (n_cnt + block_b_cnt - n)));
+            buf_data_in_b = dma_data & ((~{256{1'b0}}) >> (8 * (n_cnt + block_b_cnt - n)));
         end
         if (b_in_mode == 1 & n_cnt + burst_cnt > n) begin
-            buf_data_in = dma_data & ((~{256{1'b0}}) >> (8 * (n_cnt + burst_cnt - n)));
+            buf_data_in_b = dma_data & ((~{256{1'b0}}) >> (8 * (n_cnt + burst_cnt - n)));
         end
     end
 
-
+    assign buf_data_in = read_a ? buf_data_in_a : buf_data_in_b;
 
 
     always @(posedge clk) begin
