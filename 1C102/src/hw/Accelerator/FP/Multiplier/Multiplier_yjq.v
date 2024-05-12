@@ -19,7 +19,7 @@ module multiplier(
     reg       [23:0] z_m_stg1,z_m_stg2,z_m_stg3;
     reg       [9:0]  z_e_stg1,;
     reg       z_s;
-    reg       guard_stg1, round_bit_stg1, sticky_stg1,guard_stg2,round_bit_stg2,sticky_stg2;
+    reg       guard_stg1,round_bit_stg1,guard_stg2,round_bit_stg2;
     reg       [5:0] shift;
 
     //Stage_1:special case & mul
@@ -46,7 +46,6 @@ module multiplier(
             z_m <= 0;
             guard_stg1 <= 0;
             round_bit_stg1 <= 0;
-            sticky_stg1 <= 0;
         end
         else begin
             if (((input_a[30 : 23] - 127) == 128 && input_a[22 : 0] != 0) || ((input_b[30 : 23] - 127) == 128 && input_b[22 : 0] != 0)) begin  //NAN
@@ -56,7 +55,6 @@ module multiplier(
                 z_m_stg1[21:0] <= 0;
                 guard_stg1 <= 0;
                 round_bit_stg1 <= 0;
-                sticky_stg1 <= 0;
             end 
             else if ((input_a[30 : 23] - 127) == 128) begin //a +inf 
                 z_s <= input_a[31] ^ input_b[31];
@@ -64,7 +62,6 @@ module multiplier(
                 z_m_stg1[22:0] <= 0;
                 guard_stg1 <= 0;
                 round_bit_stg1 <= 0;
-                sticky_stg1 <= 0;
                 //if b is zero return NaN
                 if (($signed((input_b[30 : 23] - 127)) == -127) && (input_b[22 : 0] == 0)) begin
                     z_s <= 1;
@@ -79,7 +76,6 @@ module multiplier(
                 z_m_stg1[22:0] <= 0;
                 guard_stg1 <= 0;
                 round_bit_stg1 <= 0;
-                sticky_stg1 <= 0;
                 //if a is zero return NaN
                 if (($signed((input_a[30 : 23] - 127)) == -127) && (input_a[22 : 0] == 0)) begin
                     z_s <= 1;
@@ -94,7 +90,6 @@ module multiplier(
                 z_m_stg1[22:0] <= 0;
                 guard_stg1 <= 0;
                 round_bit_stg1 <= 0;
-                sticky_stg1 <= 0;
             end 
             else if (($signed((input_b[30 : 23] - 127)) == -127) && (input_b[22 : 0] == 0)) begin //b=0, return 0
                 z_s <= input_a[31] ^ input_b[31];
@@ -102,7 +97,6 @@ module multiplier(
                 z_m_stg1 <= 0;
                 guard_stg1 <= 0;
                 round_bit_stg1 <= 0;
-                sticky_stg1 <= 0;
             end 
             else begin //need to mul
                 if (($signed((input_a[30 : 23] - 127)) == -127) && ($signed((input_b[30 : 23] - 127)) == -127)) begin
@@ -111,7 +105,6 @@ module multiplier(
                     z_m_stg1 <= product[47:24];
                     guard_stg1 <= product[23];
                     round_bit_stg1 <= product[22];
-                    sticky_stg1 <= (product[21:0] != 0);
                 end 
                 else if ($signed((input_a[30 : 23] - 127)) == -127) begin
                     z_s <= input_a[31] ^ input_b[31];
@@ -119,7 +112,6 @@ module multiplier(
                     z_m_stg1 <= product[47:24];
                     guard_stg1 <= product[23];
                     round_bit_stg1 <= product[22];
-                    sticky_stg1 <= (product[21:0] != 0);
                 end
                 else if ($signed((input_b[30 : 23] - 127)) == -127) begin
                     z_s <= input_a[31] ^ input_b[31];
@@ -127,7 +119,6 @@ module multiplier(
                     z_m_stg1 <= product[47:24];
                     guard_stg1 <= product[23];
                     round_bit_stg1 <= product[22];
-                    sticky_stg1 <= (product[21:0] != 0);
                 end
                 else begin
                     z_s <= input_a[31] ^ input_b[31];
@@ -135,7 +126,6 @@ module multiplier(
                     z_m_stg1 <= product[47:24];
                     guard_stg1 <= product[23];
                     round_bit_stg1 <= product[22];
-                    sticky_stg1 <= (product[21:0] != 0);
                 end
             end
         end
@@ -153,12 +143,8 @@ module multiplier(
             z_e_stg2 <= z_e_stg1;
             guard_stg2 <= guard_stg1;
             round_bit_stg2 <= round_bit_stg1;
-            sticky_stg2 <= sticky_stg1;
         end
         else begin
-            if (conditions) begin
-                
-            end   
             if (shift >= 2) begin
                 z_m_stg2 <= {z_m_stg1,guard_stg1,round_bit_stg1} << shift;
             end 
@@ -169,28 +155,10 @@ module multiplier(
                 z_m_stg2 <= z_m_stg1;
             end
             z_e_stg2 <= (z_e_stg2 - shift);
-
-
-            
         end
     end
 
-    //Stage_3 Round
-    always @(posedge clk ) begin
-        if (rst) begin
-            
-        end
-        else begin
-            if (guard_stg2 && (round_bit_stg2 | sticky_stg2 | z_m_stg2[0])) begin
-                z_m_stg3 <= z_m_stg2 + 1;
-                if (z_m_stg2 == 24'hffffff) begin
-                    z_e_stg3 <=z_e_stg1 + 1;
-                end
-            end  
-        end
-    end
-
-    //Stage_4
+    //Stage_3
     always @(posedge clk ) begin
         if (rst) begin
             output_z <= 0;
