@@ -168,9 +168,8 @@ module control_register #(
 
 
     always @(posedge clk) begin
-        if (start) begin
-            addr_cnt_a <= addr_base_a;
-            addr_cnt_b <= addr_base_b;
+        if (~rstn) begin
+            buf_state <= IDLE;
         end
         else begin
             case (buf_state)
