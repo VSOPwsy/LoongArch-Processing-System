@@ -170,6 +170,7 @@ module control_register #(
     always @(posedge clk) begin
         if (~rstn) begin
             buf_state <= IDLE;
+            dma_start_reg <= 0;
         end
         else begin
             buf_state <= buf_state;
