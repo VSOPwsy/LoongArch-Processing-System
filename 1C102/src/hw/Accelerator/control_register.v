@@ -171,6 +171,8 @@ module control_register #(
         if (~rstn) begin
             buf_state <= IDLE;
             dma_start_reg <= 0;
+            addr_cnt_a <= 0;
+            addr_cnt_b <= 0;
         end
         else begin
             buf_state <= buf_state;
