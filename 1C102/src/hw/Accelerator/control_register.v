@@ -44,10 +44,10 @@ module control_register #(
     reg [31:0] block_b_cnt;///////////////////////////
     wire block_b_cnt_update_now, block_b_cnt_is_max_now;
 
-    reg k_cnt;
+    reg [31:0] k_cnt;
     wire k_cnt_update_now, k_cnt_is_max_now;
 
-    
+
     reg [31:0] burst_cnt;
     wire burst_cnt_update_now, burst_cnt_is_max_now;
 
@@ -193,24 +193,23 @@ module control_register #(
                         dma_addr_a_reg <= addr_base_a;
                         dma_addr_b_reg <= addr_base_b;
                         buf_state <= LOAD_A;
-                        dma_start_reg <= 1;
                     end
                 end
+
                 LOAD_A: begin
+                    dma_start_reg <= 1;
+                    buf_state <= DMA_A;
+                    dma_addr_a_reg <= addr_base_a + m * k_cnt + m_cnt;
+                end
+
+                DMA_A: begin
                     dma_start_reg <= 0;
                     if (burst_cnt_update_now & burst_cnt_is_max_now) begin
                         if (block_a_cnt_update_now & block_a_cnt_is_max_now) begin
                             buf_state <= LOAD_B;
-                            dma_start_reg <= 1;
-                            if (b_in_mode == 0) begin
-                                dma_addr_b_reg <= addr_base_b + k * n_cnt + m_cnt;
-                            end
-                            else begin
-                                dma_addr_b_reg <= addr_base_b + n * m_cnt + n_cnt;
-                            end
                         end
                         else begin
-                            buf_state <= LOAD_A;
+                            buf_state <= DMA_A;
                             dma_start_reg <= 1;
                             if (a_in_mode == 0) begin
                                 dma_addr_a_reg <= dma_addr_a_reg + m;
@@ -223,20 +222,19 @@ module control_register #(
                 end
 
                 LOAD_B: begin
+                    dma_start_reg <= 1;
+                    buf_state <= DMA_B;
+                    dma_addr_b_reg <= addr_base_b + n * k_cnt + n_cnt;
+                end
+
+                DMA_B: begin
                     dma_start_reg <= 0;
                     if (burst_cnt_update_now & burst_cnt_is_max_now) begin
                         if (block_b_cnt_update_now & block_b_cnt_is_max_now) begin
                             buf_state <= LOAD_A;
-                            dma_start_reg <= 1;
-                            if (a_in_mode == 0) begin
-                                dma_addr_a_reg <= addr_base_a + m * n_cnt + m_cnt;
-                            end
-                            else begin
-                                dma_addr_a_reg <= addr_base_a + n * m_cnt + n_cnt;
-                            end
                         end
                         else begin
-                            buf_state <= LOAD_B;
+                            buf_state <= DMA_B;
                             dma_start_reg <= 1;
                             if (b_in_mode == 0) begin
                                 dma_addr_b_reg <= dma_addr_b_reg + k;
@@ -254,7 +252,7 @@ module control_register #(
     assign dma_start = dma_start_reg;
     assign dma_addr_a = dma_addr_a_reg;
     assign dma_addr_b = dma_addr_b_reg;
-    assign read_a = buf_state == LOAD_A;
-    assign read_b = buf_state == LOAD_B;
+    assign read_a = buf_state == DMA_A | buf_state == LOAD_A;
+    assign read_b = buf_state == DMA_B | buf_state == LOAD_B;
 
 endmodule
