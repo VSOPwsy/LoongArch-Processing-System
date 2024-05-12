@@ -8,6 +8,8 @@ module control_register #(
     input [31:0] m,
     input [31:0] k,
     input [31:0] n,
+    input a_in_mode,
+    input b_in_mode,
     input start,
     output dma_start,
     input dma_done,
@@ -110,7 +112,7 @@ module control_register #(
         end
     end
 
-    assign burst_cnt_update_now = dam_rlast;
+    assign burst_cnt_update_now = dma_done;
     assign burst_cnt_is_max_now = burst_cnt == (SIZE / (256 / 32)) - 1;
     always @(posedge clk) begin
         if (~rstn) begin
