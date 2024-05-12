@@ -68,7 +68,7 @@ initial begin
 end
 
 in_buffer # (
-    .SIZE(BUFFER_SIZE)
+    .BUFFER_SIZE(BUFFER_SIZE)
   )
   in_buffer_inst (
     .clk(sys_clk),
