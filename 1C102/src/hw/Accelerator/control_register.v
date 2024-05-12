@@ -44,12 +44,14 @@ module control_register #(
     reg [31:0] block_b_cnt;///////////////////////////
     wire block_b_cnt_update_now, block_b_cnt_is_max_now;
 
+    reg k_cnt;
+    wire k_cnt_update_now, k_cnt_is_max_now;
+
+    
     reg [31:0] burst_cnt;
     wire burst_cnt_update_now, burst_cnt_is_max_now;
 
 
-    reg [31:0] index_cnt;
-    wire index_cnt_update_now, index_cnt_is_max_now;
 
 
     reg [255:0] buf_data_in_a, buf_data_in_b;
@@ -79,7 +81,7 @@ module control_register #(
         end
     end
 
-    assign n_cnt_update_now = block_b_cnt_update_now & block_b_cnt_is_max_now;
+    assign n_cnt_update_now = k_cnt_update_now & k_cnt_is_max_now;
     assign n_cnt_is_max_now = n_cnt >= n - SIZE;
     always @(posedge clk) begin
         if (~rstn) begin
@@ -121,8 +123,6 @@ module control_register #(
 
 
 
-    reg k_cnt;
-    wire k_cnt_update_now, k_cnt_is_max_now;
     assign k_cnt_update_now = block_b_cnt_update_now & block_b_cnt_is_max_now;
     assign k_cnt_is_max_now = k_cnt >= k - SIZE;
     always @(posedge clk) begin
@@ -151,19 +151,6 @@ module control_register #(
         end
     end
 
-
-    assign index_cnt_update_now = burst_cnt_update_now & burst_cnt_is_max_now;
-    assign index_cnt_is_max_now = index_cnt == (SIZE - 1);
-    always @(posedge clk) begin
-        if (~rstn) begin
-            index_cnt <= 0;
-        end
-        else begin
-            if (index_cnt_update_now) begin
-                index_cnt <= index_cnt_is_max_now ? 0 : index_cnt + 1;
-            end
-        end
-    end
 
     
 
