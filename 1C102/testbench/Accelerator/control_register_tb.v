@@ -57,6 +57,8 @@ module control_register_tb;
       start = 0;
       dma_data = 0;
       dma_done = 0;
+      dma_ready = 0;
+      dma_valid = 0;
       #30;
       rstn = 1;
       addr_base_a = 32'h1000_0010;
@@ -74,22 +76,24 @@ module control_register_tb;
       $finish;
   end
   
-  forever begin
-    wait(dma_start);
-    #20;
-    @(posedge clk);
-
-    for ( i = 0; i < SIZE/8 ; i = i+1) begin
+  initial begin
+    while (1) begin
+      wait(dma_start);
+      #20;
       @(posedge clk);
-      dma_ready = 1;
-      dma_valid = 1;
-      if (i == SIZE/8 - 1) begin
-        dma_done = 1;
+  
+      for ( i = 0; i < SIZE/8 ; i = i+1) begin
+        @(posedge clk);
+        dma_ready = 1;
+        dma_valid = 1;
+        if (i == SIZE/8 - 1) begin
+          dma_done = 1;
+        end
+        @(posedge clk);
+        dma_ready = 0;
+        dma_valid = 0;
+        dma_done = 0;
       end
-      @(posedge clk);
-      dma_ready = 0;
-      dma_valid = 0;
-      dma_done = 0;
     end
 
   end
