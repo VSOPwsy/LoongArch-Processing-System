@@ -8,14 +8,7 @@ module multiplier_tb_test;
   reg [31:0] input_a;
   reg [31:0] input_b;
   wire [31:0] output_z;
-
-  multiplier  multiplier_inst (
-    .clk(clk),
-    .rst(rst),
-    .input_a(input_a),
-    .input_b(input_b),
-    .output_z(output_z)
-  );
+  float_mult float_mult(clk,~rst,input_a,input_b,output_z);
 
 always #5  clk = ! clk ;
 initial begin
@@ -26,11 +19,12 @@ initial begin
     #10;
     rst = 0;
 
+    @(posedge clk);
     input_a = 32'h3F47AE14;
     input_b = 32'h3F0CCCCD;
 
     #100;
     $finish;
-end
+end 
 
 endmodule
